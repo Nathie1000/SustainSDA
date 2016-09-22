@@ -9,7 +9,7 @@
 
 // Should return percent deviation from factory trim values, +/- 14 or less deviation is a pass
 void MPU9250SelfTest(float * destination) {
-	rawData[6] = {0, 0, 0, 0, 0, 0};
+	rawData{0, 0, 0, 0, 0, 0};
 	FS = 0;
 
 	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x00); // Set gyro sample rate to 1 kHz
