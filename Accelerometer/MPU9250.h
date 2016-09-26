@@ -52,6 +52,11 @@
 #define YA_OFFSET_H      	0x7A
 #define ZA_OFFSET_H      	0x7D
 
+//Magnetometer Addresses
+#define AK8963_ST1       	0x02  // data ready status bit 0
+#define AK8963_XOUT_L   	0x03  // data
+#define AK8963_ADDRESS   	0x0C
+
 //uint8_t rawData[6];
 static uint8_t selfTest[6];
 static int16_t gAvg[3], aAvg[3], aSTAvg[3], gSTAvg[3];
@@ -62,11 +67,19 @@ static uint8_t Gscale;
 static uint8_t Ascale;
 static float aRes, gRes;
 
+uint8_t Mmode = 0x02; // 2 for 8 Hz, 6 for 100 Hz continuous magnetometer data read
+static float mRes; // scale resolutions per LSB for the sensors
+float magCalibration[3]; // Factory mag calibration and mag bias
+uint8_t rawData[6] = { 0, 0, 0, 0, 0, 0 };
+
 void getGres();
 void getAres();
 
 void MPU9250SelfTest(float * destination);
 void accelgyrocalMPU9250(float * dest1, float * dest2);
 void initMPU9250();
+void readGyroData(int16_t * destination);
+void readMagData(int16_t * destination);
+void magcalMPU9250(float * dest1, float * dest2);
 
 #endif /* MPU9250_H_ */

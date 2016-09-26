@@ -8,14 +8,12 @@ enum Mscale {
 
 float gyroBias[3] = { 0, 0, 0 }, accelBias[3] = { 0, 0, 0 }, magBias[3] = { 0,
 		0, 0 }, magScale[3] = { 0, 0, 0 }; // Bias corrections for gyro, accelerometer, mag
-float magCalibration[3] = { 0, 0, 0 }; // Factory mag calibration and mag bias
 float SelfTest[6]; // holds results of gyro and accelerometer self test
 
 // Specify sensor full scale
 
 uint8_t Mscale = MFS_16BITS; // Choose either 14-bit or 16-bit magnetometer resolution
-uint8_t Mmode = 0x02; // 2 for 8 Hz, 6 for 100 Hz continuous magnetometer data read
-float mRes; // scale resolutions per LSB for the sensors
+
 
 void I2Cscan() {
 	// scan for i2c devices
@@ -106,75 +104,6 @@ void initAK8963(float * destination) {
 	// and enable continuous mode data acquisition Mmode (bits [3:0]), 0010 for 8 Hz and 0110 for 100 Hz sample rates
 	writeByte(AK8963_ADDRESS, AK8963_CNTL, Mscale << 4 | Mmode); // Set magnetometer data resolution and sample ODR
 	delay(20);
-}
-
-void readMagData(int16_t * destination) {
-	uint8_t rawData[7]; // x/y/z gyro register data, ST2 register stored here, must read ST2 at end of data acquisition
-	if (readByte(AK8963_ADDRESS, AK8963_ST1) & 0x01) { // wait for magnetometer data ready bit to be set
-		readBytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]); // Read the six raw data and ST2 registers sequentially into data array
-		uint8_t c = rawData[6]; // End data read by reading ST2 register
-		if (!(c & 0x08)) { // Check if magnetic sensor overflow set, if not then report data
-			destination[0] = ((int16_t) rawData[1] << 8) | rawData[0]; // Turn the MSB and LSB into a signed 16-bit value
-			destination[1] = ((int16_t) rawData[3] << 8) | rawData[2]; // Data stored as little Endian
-			destination[2] = ((int16_t) rawData[5] << 8) | rawData[4];
-		}
-	}
-}
-
-void magcalMPU9250(float * dest1, float * dest2) {
-	uint16_t ii = 0, sample_count = 0;
-	int32_t mag_bias[3] = { 0, 0, 0 }, mag_scale[3] = { 0, 0, 0 };
-	int16_t mag_max[3] = { 0xFF, 0xFF, 0xFF },
-			mag_min[3] = { 0x7F, 0x7F, 0x7F }, mag_temp[3] = { 0, 0, 0 };
-
-	Serial.println(
-			"Mag Calibration: Wave device in a figure eight until done!");
-	delay(4000);
-
-	if (Mmode == 0x02)
-		sample_count = 128;
-	if (Mmode == 0x06)
-		sample_count = 1500;
-	for (ii = 0; ii < sample_count; ii++) {
-		readMagData(mag_temp);  // Read the mag data
-		for (int jj = 0; jj < 3; jj++) {
-			if (mag_temp[jj] > mag_max[jj])
-				mag_max[jj] = mag_temp[jj];
-			if (mag_temp[jj] < mag_min[jj])
-				mag_min[jj] = mag_temp[jj];
-		}
-		if (Mmode == 0x02)
-			delay(135);  // at 8 Hz ODR, new mag data is available every 125 ms
-		if (Mmode == 0x06)
-			delay(12);  // at 100 Hz ODR, new mag data is available every 10 ms
-	}
-
-//    Serial.println("mag x min/max:"); Serial.println(mag_max[0]); Serial.println(mag_min[0]);
-//    Serial.println("mag y min/max:"); Serial.println(mag_max[1]); Serial.println(mag_min[1]);
-//    Serial.println("mag z min/max:"); Serial.println(mag_max[2]); Serial.println(mag_min[2]);
-
-	// Get hard iron correction
-	mag_bias[0] = (mag_max[0] + mag_min[0]) / 2; // get average x mag bias in counts
-	mag_bias[1] = (mag_max[1] + mag_min[1]) / 2; // get average y mag bias in counts
-	mag_bias[2] = (mag_max[2] + mag_min[2]) / 2; // get average z mag bias in counts
-
-	dest1[0] = (float) mag_bias[0] * mRes * magCalibration[0]; // save mag biases in G for main program
-	dest1[1] = (float) mag_bias[1] * mRes * magCalibration[1];
-	dest1[2] = (float) mag_bias[2] * mRes * magCalibration[2];
-
-	// Get soft iron correction estimate
-	mag_scale[0] = (mag_max[0] - mag_min[0]) / 2; // get average x axis max chord length in counts
-	mag_scale[1] = (mag_max[1] - mag_min[1]) / 2; // get average y axis max chord length in counts
-	mag_scale[2] = (mag_max[2] - mag_min[2]) / 2; // get average z axis max chord length in counts
-
-	float avg_rad = mag_scale[0] + mag_scale[1] + mag_scale[2];
-	avg_rad /= 3.0;
-
-	dest2[0] = avg_rad / ((float) mag_scale[0]);
-	dest2[1] = avg_rad / ((float) mag_scale[1]);
-	dest2[2] = avg_rad / ((float) mag_scale[2]);
-
-	Serial.println("Mag Calibration done!");
 }
 
 void setup() {
@@ -640,6 +569,44 @@ float deltat = 0.0f, sum = 0.0f; // integration interval for both filter schemes
 uint32_t lastUpdate = 0, firstUpdate = 0; // used to calculate integration interval
 uint32_t Now = 0; // used to calculate integration interval
 
+float uint32_reg_to_float(uint8_t *buf) {
+	union {
+		uint32_t ui32;
+		float f;
+	} u;
+
+	u.ui32 = (((uint32_t)buf[0]) +
+			(((uint32_t)buf[1]) « 8) +
+			(((uint32_t)buf[2]) « 16) +
+			(((uint32_t)buf[3]) « 24));
+	return u.f;
+}
+
+//void float_to_bytes(float param_val, uint8_t *buf) {
+//	union {
+//		float f;
+//		uint8_t comp[sizeof(float)];
+//	} u;
+//	u.f = param_val;
+//	for (uint8_t i = 0; i < sizeof(float); i++) {
+//		buf[i] = u.comp[i];
+//	}
+//	//Convert to LITTLE ENDIAN
+//	for (uint8_t i = 0; i < sizeof(float); i++) {
+//		buf[i] = buf[(sizeof(float) - 1) - i];
+//	}
+//}
+
+void readSENtralQuatData(float * destination) {
+	uint8_t rawData[16];  // x/y/z quaternion register data stored here
+	readBytes(EM7180_ADDRESS, EM7180_QX, 16, &rawData[0]); // Read the sixteen raw data registers into data array
+	destination[0] = uint32_reg_to_float(&rawData[0]);
+	destination[1] = uint32_reg_to_float(&rawData[4]);
+	destination[2] = uint32_reg_to_float(&rawData[8]);
+	destination[3] = uint32_reg_to_float(&rawData[12]); // SENtral stores quats as qx, qy, qz, q0!
+
+}
+
 void readSENtralAccelData(int16_t * destination) {
 	uint8_t rawData[6];  // x/y/z accel register data stored here
 	readBytes(EM7180_ADDRESS, EM7180_AX, 6, &rawData[0]); // Read the six raw data registers into data array
@@ -750,9 +717,9 @@ void loop() {
 			mz = (float) magCount[2] * 0.305176;
 		}
 
-//		if (eventStatus & 0x04) { // new quaternion data available
-//			readSENtralQuatData(Quat);
-//		}
+		if (eventStatus & 0x04) { // new quaternion data available
+			readSENtralQuatData(Quat);
+		}
 
 		// get BMP280 pressure
 		if (eventStatus & 0x40) { // new baro data available

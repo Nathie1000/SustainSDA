@@ -36,12 +36,13 @@ void getGres() {
 }
 
 void readGyroData(int16_t * destination) {
-	uint8_t rawData[6];  // x/y/z gyro register data stored here
+//	uint8_t rawData[6];  // x/y/z gyro register data stored here
 	readBytes(MPU9250_ADDRESS, GYRO_XOUT_H, 6, &rawData[0]); // Read the six raw data registers sequentially into data array
 	destination[0] = ((int16_t) rawData[0] << 8) | rawData[1]; // Turn the MSB and LSB into a signed 16-bit value
 	destination[1] = ((int16_t) rawData[2] << 8) | rawData[3];
 	destination[2] = ((int16_t) rawData[4] << 8) | rawData[5];
 }
+
 void getAres() {
 	switch (Ascale) {
 	// Possible accelerometer scales (and their register bit settings) are:
@@ -64,7 +65,7 @@ void getAres() {
 
 // Should return percent deviation from factory trim values, +/- 14 or less deviation is a pass
 void MPU9250SelfTest(float * destination) {
-	uint8_t rawData[6] = { 0, 0, 0, 0, 0, 0 };
+	rawData[0, 0, 0, 0, 0, 0];
 	FS = 0;
 
 	writeByte(MPU9250_ADDRESS, SMPLRT_DIV, 0x00); // Set gyro sample rate to 1 kHz
@@ -362,4 +363,74 @@ void initMPU9250() {
 	writeByte(MPU9250_ADDRESS, INT_PIN_CFG, 0x22);
 	writeByte(MPU9250_ADDRESS, INT_ENABLE, 0x01); // Enable data ready (bit 0) interrupt
 	delay(100);
+}
+
+void readMagData(int16_t * destination) {
+	uint8_t rawData[7]; // x/y/z gyro register data, ST2 register stored here, must read ST2 at end of data acquisition
+	if (readByte(AK8963_ADDRESS, AK8963_ST1) & 0x01) { // wait for magnetometer data ready bit to be set
+		readBytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]); // Read the six raw data and ST2 registers sequentially into data array
+		uint8_t c = rawData[6]; // End data read by reading ST2 register
+		if (!(c & 0x08)) { // Check if magnetic sensor overflow set, if not then report data
+			destination[0] = ((int16_t) rawData[1] << 8) | rawData[0]; // Turn the MSB and LSB into a signed 16-bit value
+			destination[1] = ((int16_t) rawData[3] << 8) | rawData[2]; // Data stored as little Endian
+			destination[2] = ((int16_t) rawData[5] << 8) | rawData[4];
+		}
+	}
+}
+
+void magcalMPU9250(float * dest1, float * dest2) {
+	magCalibration[0, 0, 0];
+	uint16_t ii = 0, sample_count = 0;
+	int32_t mag_bias[3] = {0, 0, 0}, mag_scale[3] = {0, 0, 0};
+	int16_t mag_max[3] = {0xFF, 0xFF, 0xFF},
+			mag_min[3] = {0x7F, 0x7F, 0x7F}, mag_temp[3] = {0, 0, 0};
+
+	Serial.println(
+			"Mag Calibration: Wave device in a figure eight until done!");
+	delay(4000);
+
+	if (Mmode == 0x02)
+		sample_count = 128;
+	if (Mmode == 0x06)
+		sample_count = 1500;
+	for (ii = 0; ii < sample_count; ii++) {
+		readMagData(mag_temp);  // Read the mag data
+		for (int jj = 0; jj < 3; jj++) {
+			if (mag_temp[jj] > mag_max[jj])
+				mag_max[jj] = mag_temp[jj];
+			if (mag_temp[jj] < mag_min[jj])
+				mag_min[jj] = mag_temp[jj];
+		}
+		if (Mmode == 0x02)
+			delay(135);  // at 8 Hz ODR, new mag data is available every 125 ms
+		if (Mmode == 0x06)
+			delay(12);  // at 100 Hz ODR, new mag data is available every 10 ms
+	}
+
+//    Serial.println("mag x min/max:"); Serial.println(mag_max[0]); Serial.println(mag_min[0]);
+//    Serial.println("mag y min/max:"); Serial.println(mag_max[1]); Serial.println(mag_min[1]);
+//    Serial.println("mag z min/max:"); Serial.println(mag_max[2]); Serial.println(mag_min[2]);
+
+	// Get hard iron correction
+	mag_bias[0] = (mag_max[0] + mag_min[0]) / 2; // get average x mag bias in counts
+	mag_bias[1] = (mag_max[1] + mag_min[1]) / 2; // get average y mag bias in counts
+	mag_bias[2] = (mag_max[2] + mag_min[2]) / 2; // get average z mag bias in counts
+
+	dest1[0] = (float) mag_bias[0] * mRes * magCalibration[0]; // save mag biases in G for main program
+	dest1[1] = (float) mag_bias[1] * mRes * magCalibration[1];
+	dest1[2] = (float) mag_bias[2] * mRes * magCalibration[2];
+
+	// Get soft iron correction estimate
+	mag_scale[0] = (mag_max[0] - mag_min[0]) / 2; // get average x axis max chord length in counts
+	mag_scale[1] = (mag_max[1] - mag_min[1]) / 2; // get average y axis max chord length in counts
+	mag_scale[2] = (mag_max[2] - mag_min[2]) / 2; // get average z axis max chord length in counts
+
+	float avg_rad = mag_scale[0] + mag_scale[1] + mag_scale[2];
+	avg_rad /= 3.0;
+
+	dest2[0] = avg_rad / ((float) mag_scale[0]);
+	dest2[1] = avg_rad / ((float) mag_scale[1]);
+	dest2[2] = avg_rad / ((float) mag_scale[2]);
+
+	Serial.println("Mag Calibration done!");
 }
