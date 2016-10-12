@@ -10,76 +10,10 @@
 #include "ArrayList.h"
 #include "Debug.h"
 
-//#define portMPU_REGION_READ_WRITE				( 0x03UL << 24UL )
-
-// The LED is attached to pin 13 on Arduino.
-const uint8_t LED_PIN = 13;
-
-static void foo(void *arg){
-	while(true){
-		Serial3.println("FOO");
-		vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
-	}
-}
-// Declare a semaphore handle.
-//SemaphoreHandle_t sem;
-//------------------------------------------------------------------------------
-/*
- * Thread 1, turn the LED off when signalled by thread 2.
- */
-// Declare the thread function for thread 1.
-static void Thread1(void* arg) {
-  while (1) {
-     //Serial3.println("T1");
-    // Wait for signal from thread 2.
-    //xSemaphoreTake(sem, portMAX_DELAY);
-    vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
-
-    // Turn LED off.
-    //digitalWrite(LED_PIN, LOW);
-  }
-}
-//------------------------------------------------------------------------------
-/*
- * Thread 2, turn the LED on and signal thread 1 to turn the LED off.
- */
-// Declare the thread function for thread 2.
-static void Thread2(void* arg) {
-
-  pinMode(LED_PIN, OUTPUT);
-  while (1) {
-    Serial3.println("T2");
-    int start = millis();
-    vTaskDelay((2000L * configTICK_RATE_HZ) / 1000L);
-    int end = millis();
-    Serial3.println(String("Time") + (end - start));
-
-    // Turn LED on.
-    //digitalWrite(LED_PIN, HIGH);
-
-    // Sleep for 200 milliseconds.
-   // vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
-
-    // Signal thread 1 to turn LED off.
-   // xSemaphoreGive(sem);
-
-    // Sleep for 200 milliseconds.
-    //vTaskDelay((200L * configTICK_RATE_HZ) / 1000L);
-  }
-}
-
-
-
-
-
-
 void setup(){
 	Serial.begin(9600);
 	Serial1.begin(9600);
 	Serial3.begin(9600);
-
-	//portNUM_CONFIGURABLE_REGIONS;
-	//MemoryRegion_t
 
 	delay(100);
 	Serial3.println("----------------------------");
@@ -215,9 +149,7 @@ void setup(){
 	}
 }
 
-//------------------------------------------------------------------------------
-// WARNING idle loop has a very small stack (configMINIMAL_STACK_SIZE)
-// loop must never block
+
 void loop() {
   // Not used.
 }
