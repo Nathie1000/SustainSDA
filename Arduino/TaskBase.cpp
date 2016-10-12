@@ -1,0 +1,58 @@
+/*
+ * TaskBase.cpp
+ *
+ *  Created on: 10 okt. 2016
+ *      Author: Nathan
+ */
+#include "TaskBase.h"
+#include <Arduino.h>
+#include <FreeRTOS_ARM.h>
+#include "Debug.h"
+
+void TaskBase::runHelper(void *arg){
+	TaskBase *task = (TaskBase*)arg;
+    task->run();
+
+	PRINTLN("Warning: Task may not end! Task suspended!");
+	vTaskSuspend(task->handle);
+	taskYIELD();
+}
+
+ArrayList<TaskBase*> TaskBase::tasks(5);
+
+TaskBase::TaskBase(int priority, const String &name):
+priority(priority),
+name(name),
+handle(nullptr)
+{
+	tasks.add(this);
+}
+
+TaskBase::~TaskBase(){
+	tasks.remove(this);
+	if(handle != nullptr){
+		vTaskDelete(handle);
+	}
+}
+
+int TaskBase::getPiroirty(){
+	return priority;
+}
+
+String TaskBase::getName(){
+	return name;
+}
+
+void TaskBase::startAllTasks(){
+	for(TaskBase *task : tasks){
+		xTaskCreate(runHelper, task->getName().c_str(), configMINIMAL_STACK_SIZE, task, task->getPiroirty(), &task->handle);
+	}
+	vTaskStartScheduler();
+	PRINTLN("Task scheduling failed: Insufficient RAM");
+}
+
+void TaskBase::sleep(int time){
+	vTaskDelay((time * configTICK_RATE_HZ) / 1000L);
+}
+
+
