@@ -7,25 +7,32 @@
 				<extensions>
 					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
 					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
-					<extension id="org.eclipse.cdt.core.MakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
 				<configuration artifactName="${ProjName}" buildProperties="" description="" id="it.baeyens.arduino.core.toolChain.release.459077560" name="Release" parent="org.eclipse.cdt.build.core.emptycfg">
 					<folderInfo id="it.baeyens.arduino.core.toolChain.release.459077560.1155244011" name="/" resourcePath="">
-						<toolChain id="it.baeyens.arduino.core.toolChain.release.1053529413" name="Arduino Toolchain" superClass="it.baeyens.arduino.core.toolChain.release">
+						<toolChain id="it.baeyens.arduino.core.toolChain.release.1053529413" name="Arduino Toolchain" nonInternalBuilderId="it.baeyens.arduino.sketch.builder" superClass="it.baeyens.arduino.core.toolChain.release">
 							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="it.baeyens.arduino.targetplatform.1678344669" name="Arduino Target" osList="all" superClass="it.baeyens.arduino.targetplatform"/>
-							<builder buildPath="${workspace_loc:/Arduino}/Release" id="it.baeyens.arduino.sketch.builder.204141026" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Arduino sketch builder" superClass="it.baeyens.arduino.sketch.builder"/>
+							<builder autoBuildTarget="all" buildPath="${workspace_loc:/Arduino}/Release" cleanBuildTarget="clean" command="${JANTJE.MAKE_LOCATION}make" id="org.eclipse.cdt.build.core.internal.builder.1899873950" incrementalBuildTarget="all" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="org.eclipse.cdt.build.core.internal.builder"/>
 							<tool id="it.baeyens.arduino.tool.sketch.compiler.cpp.466073354" name="Arduino C++ Compiler" superClass="it.baeyens.arduino.tool.sketch.compiler.cpp">
 								<option id="it.baeyens.arduino.compiler.cpp.sketch.option.incpath.553511004" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.cpp.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino/core/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\org_files&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\src&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\src\utility&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.cpp.sketch.input.1805781134" name="CPP source files" superClass="it.baeyens.arduino.compiler.cpp.sketch.input"/>
 							</tool>
 							<tool id="it.baeyens.arduino.tool.compiler.c.1988370461" name="Arduino C Compiler" superClass="it.baeyens.arduino.tool.compiler.c">
 								<option id="it.baeyens.arduino.compiler.c.sketch.option.incpath.1549307327" name="Include Paths (-I)" superClass="it.baeyens.arduino.compiler.c.sketch.option.incpath" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/Arduino/core/core}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\org_files&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\src&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Nathan\Documents\Arduino\libraries\FreeRTOS_ARM\src\utility&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries&quot;"/>
 								</option>
 								<inputType id="it.baeyens.arduino.compiler.c.sketch.input.1957295719" name="C Source Files" superClass="it.baeyens.arduino.compiler.c.sketch.input"/>
 							</tool>
@@ -52,4 +59,11 @@
 		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/Arduino"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>
