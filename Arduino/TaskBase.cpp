@@ -8,6 +8,8 @@
 #include <Arduino.h>
 #include <FreeRTOS_ARM.h>
 #include "Debug.h"
+#include "Waitable.h"
+#include "CompositeWaitable.h"
 
 void TaskBase::runHelper(void *arg){
 	TaskBase *task = (TaskBase*)arg;
@@ -53,6 +55,26 @@ void TaskBase::startAllTasks(){
 
 void TaskBase::sleep(int time){
 	vTaskDelay((time * configTICK_RATE_HZ) / 1000L);
+}
+
+const Waitable* TaskBase::wait(const CompositeWaitable &compositeWaitable){
+	while(true){
+		for(const Waitable *waitable : compositeWaitable.getWaitables()){
+			if(!waitable->isWaiting()){
+				return waitable;
+			}
+		}
+		TaskBase::sleep(10);
+	}
+}
+
+const Waitable* TaskBase::wait(const Waitable &waitable){
+	while(true){
+		if(!waitable.isWaiting()){
+			return &waitable;
+		}
+		TaskBase::sleep(10);
+	}
 }
 
 

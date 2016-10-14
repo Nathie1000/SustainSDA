@@ -11,6 +11,8 @@
 #include <Arduino.h>
 #include "ArrayList.h"
 #include <FreeRTOS_ARM.h>
+#include "Waitable.h"
+#include "CompositeWaitable.h"
 
 class TaskBase{
 private:
@@ -32,6 +34,8 @@ public:
 
 	static void startAllTasks();
 	static void sleep(int time);
+	static const Waitable* wait(const CompositeWaitable &compositeWaitable);
+	static const Waitable* wait(const Waitable &Waitable);
 };
 
 

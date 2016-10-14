@@ -17,17 +17,13 @@ void setup(){
 
 	delay(100);
 	Serial3.println("----------------------------");
-	PRINTLN("HAllo world from debug");
-	PRINTLN(String("HAllo world from debug"));
-	PRINTLN(999);
 
  	AtClient at(Serial1);
  	HttpClient http(at);
  	Aes aes("this is a pasphrase yeee");
 
-
 	// initialize semaphore
-	//sem = xSemaphoreCreateCounting(1, 0);
+ 	SemaphoreHandle_t sem = xSemaphoreCreateBinary();
 
  	TestTask *t1 = new TestTask(1);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);
@@ -66,7 +62,7 @@ void setup(){
 	//}
 	// start scheduler
 
-    //TaskBase::startAllTasks();
+    TaskBase::startAllTasks();
 
 
 	while(1);

@@ -9,8 +9,16 @@
 #define TESTTASK_H_
 
 #include "TaskBase.h"
+#include "Mutex.h"
+#include "Flag.h"
 
 class TestTask : public TaskBase {
+private:
+	static Mutex mutex;
+	static Mutex mutex2;
+	static Flag flag;
+	static Flag flag2;
+
 public:
 
 	TestTask(int priority);
