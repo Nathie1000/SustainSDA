@@ -64,7 +64,7 @@ const Waitable* TaskBase::wait(const CompositeWaitable &compositeWaitable){
 				return waitable;
 			}
 		}
-		TaskBase::sleep(10);
+		TaskBase::sleep(1);
 	}
 }
 
@@ -73,8 +73,11 @@ const Waitable* TaskBase::wait(const Waitable &waitable){
 		if(!waitable.isWaiting()){
 			return &waitable;
 		}
-		TaskBase::sleep(10);
+		TaskBase::sleep(1);
 	}
 }
 
+void TaskBase::yield(){
+	taskYIELD();
+}
 

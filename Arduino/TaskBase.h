@@ -36,6 +36,7 @@ public:
 	static void sleep(int time);
 	static const Waitable* wait(const CompositeWaitable &compositeWaitable);
 	static const Waitable* wait(const Waitable &Waitable);
+	static void yield();
 };
 
 
