@@ -11,13 +11,14 @@
 #include "Waitable.h"
 #include "CompositeWaitable.h"
 
+
 void TaskBase::runHelper(void *arg){
 	TaskBase *task = (TaskBase*)arg;
     task->run();
 
 	PRINTLN("Warning: Task may not end! Task suspended!");
 	vTaskSuspend(task->handle);
-	taskYIELD();
+	//taskYIELD();
 }
 
 ArrayList<TaskBase*> TaskBase::tasks(5);
@@ -37,7 +38,7 @@ TaskBase::~TaskBase(){
 	}
 }
 
-int TaskBase::getPiroirty(){
+int TaskBase::getPriority(){
 	return priority;
 }
 
@@ -47,7 +48,7 @@ String TaskBase::getName(){
 
 void TaskBase::startAllTasks(){
 	for(TaskBase *task : tasks){
-		xTaskCreate(runHelper, task->getName().c_str(), configMINIMAL_STACK_SIZE, task, task->getPiroirty(), &task->handle);
+		xTaskCreate(runHelper, task->getName().c_str(), taskSize, task, task->getPriority(), &task->handle);
 	}
 	vTaskStartScheduler();
 	PRINTLN("Task scheduling failed: Insufficient RAM");
@@ -77,7 +78,7 @@ const Waitable* TaskBase::wait(const Waitable &waitable){
 	}
 }
 
-void TaskBase::yield(){
-	taskYIELD();
-}
+//void TaskBase::yield(){
+//	taskYIELD();
+//}
 

@@ -17,6 +17,7 @@
 //Do not edit below here!
 #ifdef DEBUG
 #define PRINTLN(X) DEBUG.println(X); DEBUG.flush();
+//#define PRINTLN(X) DEBUG.println(X);
 #define PRINT(X) DEBUG.print(X); DEBUG.flush();
 #else
 #define PRINTLN(X)

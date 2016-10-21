@@ -16,4 +16,7 @@ void CompositeWaitable::addWaitable(const Waitable &waitable){
 	waitables.add(&waitable);
 }
 
-
+CompositeWaitable& CompositeWaitable::operator|(const Waitable &other){
+	addWaitable(other);
+	return *this;
+}

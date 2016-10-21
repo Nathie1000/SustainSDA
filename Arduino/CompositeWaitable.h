@@ -17,6 +17,7 @@ private:
 public:
 	const ArrayList<const Waitable *> getWaitables() const;
 	void addWaitable(const Waitable &waitable);
+	CompositeWaitable& operator|(const Waitable &other);
 
 };
 

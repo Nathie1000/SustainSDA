@@ -11,6 +11,7 @@
 #include "TaskBase.h"
 #include "Mutex.h"
 #include "Flag.h"
+#include "Queue.h"
 
 class TestTask : public TaskBase {
 private:
@@ -18,6 +19,13 @@ private:
 	static Mutex mutex2;
 	static Flag flag;
 	static Flag flag2;
+	static Queue<int> queue;
+	static Queue<double> queue2;
+
+
+	Mutex mutex3;
+	Flag flag3;
+	Queue<float> queue3;
 
 public:
 

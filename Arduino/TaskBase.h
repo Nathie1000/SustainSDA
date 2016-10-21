@@ -15,6 +15,9 @@
 #include "CompositeWaitable.h"
 
 class TaskBase{
+public:
+	static const unsigned short taskSize = 1024;
+
 private:
 	static void runHelper(void *arg);
 	static ArrayList<TaskBase*> tasks;
@@ -29,14 +32,14 @@ public:
 
 	virtual void run() = 0;
 
-	int getPiroirty();
+	int getPriority();
 	String getName();
 
 	static void startAllTasks();
 	static void sleep(int time);
 	static const Waitable* wait(const CompositeWaitable &compositeWaitable);
 	static const Waitable* wait(const Waitable &Waitable);
-	static void yield();
+	//static void yield();
 };
 
 
