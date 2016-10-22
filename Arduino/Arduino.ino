@@ -1,14 +1,31 @@
-#include <FreeRTOS_ARM.h>
-#include <basic_io_arm.h>
-#include "Aes.h"
-#include "AtClient.h"
-#include "HttpClient.h"
-#include "DiagnosticsTool.h"
-#include "Base64.h"
-#include "TaskBase.h"
+
+//#include "Aes.h"
+//#include "AtClient.h"
+//#include "HttpClient.h"
+//#include "Base64.h"
+
 #include "TestTask.h"
-#include "ArrayList.h"
 #include "Debug.h"
+
+#include <math.h>
+
+
+uint32_t FreeRam(){ // for Teensy 3.0
+    uint32_t stackTop;
+    uint32_t heapTop;
+
+    // current position of the stack.
+    stackTop = (uint32_t) &stackTop;
+
+    // current position of heap.
+    void* hTop = malloc(1);
+    heapTop = (uint32_t) hTop;
+    free(hTop);
+
+    // The difference is the free, available ram.
+    return stackTop - heapTop;
+}
+
 
 //Rules:
 //Do not flush on setup.
@@ -17,19 +34,17 @@ void setup(){
 	Serial.begin(9600);
 	Serial1.begin(9600);
 	Serial3.begin(9600);
+	pinMode(13, OUTPUT);
 
 	delay(100);
 	Serial3.println("----------------------------");
 
- 	AtClient at(Serial1);
- 	HttpClient http(at);
- 	Aes aes("this is a pasphrase yeee");
+ 	//AtClient at(Serial1);
+ 	//HttpClient http(at);
+ 	//Aes aes("this is a pasphrase yeee");
 
-
- 	Serial3.println(sizeof(String));
+ 	//Serial3.println(sizeof(String));
  	//Serial3.flush();
-
-
  	//char str[] = "Hallo world??";
 
  	TestTask *t1 = new TestTask(1);
