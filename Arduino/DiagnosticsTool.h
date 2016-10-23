@@ -3,8 +3,9 @@
  *
  *  Created on: 21 sep. 2016
  *      Author: Nathan
+ *
  */
-
+////\cond
 #ifndef DIAGNOSTICSTOOL_H_
 #define DIAGNOSTICSTOOL_H_
 
@@ -25,4 +26,5 @@ public:
 
 
 
-#endif /* DIAGNOSTICSTOOL_H_ */
+#endif /* DIAGNOSTICSTOOL_H_  */
+//// \endcond

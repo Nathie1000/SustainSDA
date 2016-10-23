@@ -1,8 +1,8 @@
-/*
- * Timer.cpp
+/**
+ * @file Timer.cpp
  *
- *  Created on: 22 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 22 okt. 2016
  */
 #include "Timer.h"
 #include <FreeRTOS_ARM.h>

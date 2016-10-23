@@ -4,7 +4,7 @@
  *  Created on: 21 sep. 2016
  *      Author: Nathan
  */
-
+//// \cond
 #include "DiagnosticsTool.h"
 #include "AtClient.h"
 #include "HttpClient.h"
@@ -42,5 +42,5 @@ void DiagnosticsTool::runDiagnostic(HardwareSerial &serial){
 //	serial.println("Ip: " + response);
 //	if(response.equals(AtClient::AT_ERROR) || response.equals(AtClient::AT_TIMEOUT))return;
 }
-
+//// \endcond
 

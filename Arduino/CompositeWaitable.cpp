@@ -1,8 +1,8 @@
-/*
- * Composite.cpp
+/**
+ * @file CompositeWaitable.cpp
  *
- *  Created on: 14 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 14 okt. 2016
  */
 #include "CompositeWaitable.h"
 #include "Waitable.h"

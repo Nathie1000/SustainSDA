@@ -1,8 +1,8 @@
-/*
- * Flag.cpp
+/**
+ * @file Flag.cpp
  *
- *  Created on: 14 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 14 okt. 2016
  */
 #include "Flag.h"
 #include <FreeRTOS_ARM.h>

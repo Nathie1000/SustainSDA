@@ -1,9 +1,10 @@
-/*
- * TaskBase.cpp
+/**
+ * @file TaskBase.cpp
  *
- *  Created on: 10 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 10 okt. 2016
  */
+
 #include "TaskBase.h"
 #include <Arduino.h>
 #include <FreeRTOS_ARM.h>

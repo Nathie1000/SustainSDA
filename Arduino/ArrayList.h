@@ -11,6 +11,7 @@
 #include "List.h"
 
 /**
+ * @class ArrayList
  * Utility class for dynamic array. This size of the array is dynamically grown and shrunk
  * as elements are added and removed. The elements are guaranteed to stay consecutive in memory.
  * Elements are stored by copy.
@@ -162,7 +163,7 @@ public:
 	 * Retrieve a element from the list.
 	 * The index must exit else the behavior of this function is undefined.
 	 * @param index the index to retrieve from.
-	 * @return the element.
+	 * @return The element.
 	 */
 	T get(int index) const override{
 		return array[index];
@@ -174,7 +175,7 @@ public:
 	 * The list does not track any changes made to this array.
 	 * USE AT YOUR OWN PERIL.
 	 *
-	 * @return pointer to inner array of list.
+	 * @return Pointer to inner array of list.
 	 */
 	T* toArray() override{
 		return array;
@@ -183,7 +184,7 @@ public:
 	/**
 	 * Left hand operator to access elements in list.
 	 * @param index the index of element to retrieve.
-	 * @return a reference to object in list.
+	 * @return A reference to object in list.
 	 */
 	T& operator[](int index) override{
 		return array[index];
@@ -192,7 +193,7 @@ public:
 	/**
 	 * Constant left hand operator to access elements in list.
 	 * @param index the index of element to retrieve.
-	 * @return a reference to object in list.
+	 * @return A reference to object in list.
 	 */
 	const T& operator[](int index) const override{
 		return array[index];
@@ -201,7 +202,7 @@ public:
 	/**
 	 * Member function to start the for each loop.
 	 * Do not call.
-	 * @return pointer to first element in list.
+	 * @return Pointer to first element in list.
 	 */
 	T* begin() override{
 		return array;
@@ -210,7 +211,7 @@ public:
 	/**
 	 * Member function to start the constant for each loop.
 	 * Do not call.
-	 * @return pointer to first element in list.
+	 * @return Pointer to first element in list.
 	 */
 	const T* begin() const override{
 		return array;
@@ -219,7 +220,7 @@ public:
 	/**
 	 * Member function to end the for each loop.
 	 * Do not call.
-	 * @return pointer to an address one passed the last element in list.
+	 * @return Pointer to an address one passed the last element in list.
 	 */
 	T* end() override{
 		return &array[index];
@@ -228,7 +229,7 @@ public:
 	/**
 	 * Member function to end the constant for each loop.
 	 * Do not call.
-	 * @return pointer to an address one passed the last element in list.
+	 * @return Pointer to an address one passed the last element in list.
 	 */
 	const T* end() const override{
 		return &array[index];

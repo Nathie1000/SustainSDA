@@ -1,9 +1,4 @@
-/*
- * TestTask.cpp
- *
- *  Created on: 10 okt. 2016
- *      Author: Nathan
- */
+//// \cond
 #include "TestTask.h"
 #include <Arduino.h>
 #include <stdlib.h>
@@ -154,3 +149,5 @@ void TestTask::onTimeout(Timer &timer){
 	//flag.set();
 	//RINTLN("FLAG set from Timer.")
 }
+
+//// \endcond

@@ -1,9 +1,4 @@
-/*
- * TestTask.h
- *
- *  Created on: 10 okt. 2016
- *      Author: Nathan
- */
+//// \cond
 
 #ifndef TESTTASK_H_
 #define TESTTASK_H_
@@ -41,3 +36,5 @@ public:
 
 
 #endif /* TESTTASK_H_ */
+
+//// \endcond
