@@ -21,15 +21,14 @@
 #define BMP280_PRESS_MSB  0xF7
 
 //EEPROM
-#define EM7180_ADDRESS 0x28 // Address of the EM7180 SENtral sensor hub
 #define EM7180_SentralStatus 0x37
 #define EM7180_ResetRequest 0x9B
 
-#define MPU9250_ADDRESS          0x68   // Device address of MPU9250 when ADO = 0
+#define MPU9250_ADDR          0x68   // Device address of MPU9250 when ADO = 0
 #define ACCEL_XOUT_H     0x3B
 #define GYRO_XOUT_H      0x43
 
-#define SMPLRT_DIV       0x19
+#define SMPLRT_DIV      0x19
 #define CONFIG           0x1A
 #define GYRO_CONFIG      0x1B
 #define ACCEL_CONFIG     0x1C
@@ -69,6 +68,7 @@
 
 
 //EM7180
+#define MPU9250_ADDRESS 0x68 // Device address of MPU9250 when ADO = 0
 #define EM7180_ADDRESS 0x28 // Address of the EM7180 SENtral sensor hub
 #define EM7180_FeatureFlags       0x39
 
