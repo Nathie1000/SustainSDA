@@ -1,13 +1,14 @@
 
 //#include "Aes.h"
-//#include "AtClient.h"
-//#include "HttpClient.h"
+#include "AtClient.h"
+#include "HttpClient.h"
 //#include "Base64.h"
 
 #include "TestTask.h"
 #include "Debug.h"
 
 #include <math.h>
+#include "CommunicationControler.h"
 
 
 uint32_t FreeRam(){ // for Teensy 3.0
@@ -32,7 +33,7 @@ uint32_t FreeRam(){ // for Teensy 3.0
 //Tasks may not be allocated on stack.
 void setup(){
 	Serial.begin(9600);
-	Serial1.begin(9600);
+	//Serial1.begin(9600);
 	Serial3.begin(9600);
 	pinMode(13, OUTPUT);
 
@@ -43,21 +44,17 @@ void setup(){
  	//HttpClient http(at);
  	//Aes aes("this is a pasphrase yeee");
 
- 	//Serial3.println(sizeof(String));
- 	//Serial3.flush();
- 	//char str[] = "Hallo world??";
+	CommunicationControler *comTask = new CommunicationControler(4);
 
- 	TestTask *t1 = new TestTask(1);
+ 	TestTask *t1 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);
 
- 	TestTask *t2 = new TestTask(2);
+ 	TestTask *t2 = new TestTask(2, *comTask);
  	//Serial3.println(String("ADDR T2 = ") + (int)t2);
 
- 	TestTask *t3 = new TestTask(3);
+ 	TestTask *t3 = new TestTask(3, *comTask);
 
- 	TestTask *t4 = new TestTask(4);
-	//Serial3.println(t2.getName());
- 	//Serial3.flush();
+
 
 
 

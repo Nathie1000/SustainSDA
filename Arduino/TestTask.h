@@ -3,6 +3,7 @@
 #ifndef TESTTASK_H_
 #define TESTTASK_H_
 
+#include "CommunicationControler.h"
 #include "TaskBase.h"
 #include "Mutex.h"
 #include "Flag.h"
@@ -10,7 +11,7 @@
 #include "Timer.h"
 
 
-class TestTask : public TaskBase, public TimerListener {
+class TestTask : public TaskBase, public TimerListener, public CommunicationListener {
 private:
 	static Mutex mutex;
 	static Mutex mutex2;
@@ -25,12 +26,15 @@ private:
 	Flag flag3;
 	Queue<float> queue3;
 
+	CommunicationControler &comTask;
+
 public:
 
-	TestTask(int priority);
+	TestTask(int priority, CommunicationControler& comTAsk);
 	void run() override;
 
 	void onTimeout(Timer &timer) override;
+	void onMessageReceived(const String& msg) override;
 };
 
 

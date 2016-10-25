@@ -11,7 +11,7 @@
 #include <Arduino.h>
 
 String base64_encode(unsigned char const* , unsigned int len);
-String base64_decode(String const &s);
+String base64_decode(const String  &s);
 
 
 #endif /* BASE64_H_ */

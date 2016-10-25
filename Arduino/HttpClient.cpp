@@ -8,6 +8,9 @@
 #include "HttpClient.h"
 #include "AtClient.h"
 #include "WProgram.h"
+#include "TaskBase.h"
+
+#include "Debug.h"
 
 const String HttpClient::CONTENT_TYPE_POST = "application/x-www-form-urlencoded";
 const String HttpClient::CONTENT_TYPE_PLAIN_TEXT = "text/plain";
@@ -15,7 +18,8 @@ const String HttpClient::CONTENT_TYPE_JSON = "application/json";
 const String HttpClient::CONTENT_TYPE_JAVASCRIPT = "application/javascript";
 
 HttpClient::HttpClient(AtClient &at):
-at(at)
+at(at),
+lastResponseStatus(0)
 {
 }
 
@@ -45,26 +49,29 @@ bool HttpClient::closeBearer(){
 
 bool HttpClient::httpAction(bool method, int &status, int &length){
 	String rsp;
-	bool rtn = false;
+	lastResponseStatus = 0;
 
-	int originalTimeout = at.getTimeout();
 	//Getting a response from a remote server might take a while.
-	at.setTimeout(3000);
-	if(at.execute("AT+HTTPACTION="+ String(method ? "0" : "1"), rsp)){
-		rsp = rsp.replace("+HTTPACTION: ", "");
-		//Parse response status.
-		status = rsp.substring(rsp.indexOf(',')+1, rsp.lastIndexOf(',')).toInt();
-		//Parse response length.
-		length = rsp.substring(rsp.lastIndexOf(',')+1).toInt();
-		rtn = true;
+	if(at.execute("AT+HTTPACTION="+ String(method ? "0" : "1"))){
+		rsp = at.scan(120000);
+		if(rsp.length() > 0){
+			rsp = rsp.replace("+HTTPACTION: ", "");
+			//Parse response status.
+			status = rsp.substring(rsp.indexOf(',')+1, rsp.lastIndexOf(',')).toInt();
+			//Parse response length.
+			length = rsp.substring(rsp.lastIndexOf(',')+1).toInt();
+			return true;
+		}
 	}
-	at.setTimeout(originalTimeout);
-	return rtn;
+	return false;
 }
 
 String HttpClient::send(const String &url, const String &body, bool method, const String &contentType){
+	//Terminate HTTP serves if it was still on.
+	//This action may fail if service was already terminated.
+	at.execute("AT+HTTPTERM");
 	//Start HTTP serves.
-	if(!at.execute("AT+HTTPINIT")) return "";
+	if(!at.execute("AT+HTTPINIT")){ PRINTLN("Failed to initialize HTTP service.") return "";}
 	//Select a bearer. We always use 1.
 	if(!at.execute("AT+HTTPPARA=\"CID\",1")) return "";
 	//Set the URL.
@@ -84,17 +91,18 @@ String HttpClient::send(const String &url, const String &body, bool method, cons
 			if(at.execute("AT+HTTPDATA=" + String(body.length()) + ",120000", rtn, "\r\nDOWNLOAD\r\n")){
 				//Write body.
 				at.execute(body, nullptr, 0);
-				//We do not read response so we need to a little.
-				delay(100);
+				//We do not read the response so we need to a little waiting.
+				TaskBase::sleep(100);
 			}
 		}
 	}
 
-	int status;
+	int status = -1;
 	int length;
 	String response;
 	//Execute the HTTP action.
 	if(httpAction(method, status, length)){
+		lastResponseStatus = status;
 		if(at.execute("AT+HTTPREAD", response)){
 			//Remove the head from the response.
 			response = response.replace("+HTTPREAD: ", "");
@@ -104,7 +112,7 @@ String HttpClient::send(const String &url, const String &body, bool method, cons
 	}
 
 	//Kill HTTP service to save battery.
-	if(!at.execute("AT+HTTPTERM")) return "";
+	if(!at.execute("AT+HTTPTERM")) {PRINTLN("Failed to terminate HTTP service."); return "";}
 	return response;
 }
 
@@ -163,3 +171,6 @@ String HttpClient::getIp(){
 	return ip;
 }
 
+int HttpClient::getStatus(){
+	return lastResponseStatus;
+}

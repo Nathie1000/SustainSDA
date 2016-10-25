@@ -29,7 +29,6 @@ private:
 	void rijndaelEncrypt(const unsigned long *rk, int nrounds, const unsigned char plaintext[16], unsigned char ciphertext[16]);
 	void rijndaelDecrypt(const unsigned long *rk, int nrounds, const unsigned char ciphertext[16], unsigned char plaintext[16]);
 
-
 public:
 	static const unsigned int KEY_BITS_128;
 	static const unsigned int KEY_BITS_192;

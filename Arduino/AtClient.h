@@ -9,18 +9,21 @@
 #define ATCLIENT_H_
 
 #include <HardwareSerial.h>
+#include "Mutex.h"
+
 /**
  * @class AtClient
  * This class lets you communicate with an AT device over a serial port.
- * The serial port is not configured and the life cycle is not managed by this class and needs to be initialized
- * before assigning it.
+ * The serial life cycle is managed by this class and should not be used by any other instances.
  */
 class AtClient{
 	static String voidBuffer;
+	static const int bufferSize = 4096;
 
 private:
 	HardwareSerial &serial;
 	int timeout;
+	Mutex mutex;
 
 public:
 	/** Command returned valid. **/
@@ -31,11 +34,17 @@ public:
 public:
 	/**
 	 * Create a new object.
-	 * The serial port configuration will not be edited.
-	 * @param serial the serial port used for communication with the AT device.
+	 * The serial port will be initilezed with the given baud rate and should not be used form now on.
+	 * @param serial an un-initilezed serial port used for communication with the AT device.
 	 * @param timeout the default timeout for AT commands.
 	 */
-	AtClient(HardwareSerial &serial, int timeout = 500);
+	AtClient(HardwareSerial &serial, int baudrate, int timeout = 500);
+
+	/**
+	 * Destroy the object.
+	 * The serial port is closed and can be used from now on.
+	 */
+	~AtClient();
 
 	/**
 	 * Connect the AtClient to the AT device.
@@ -99,6 +108,8 @@ public:
 	 * not have been executed correctly.
 	 */
 	bool execute(const String &atCommand, String &data = voidBuffer, const String &expect = AtClient::AT_OK);
+
+	String scan(int timeout);
 
 };
 

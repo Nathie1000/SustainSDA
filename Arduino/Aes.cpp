@@ -1242,14 +1242,12 @@ Aes::~Aes(){
 }
 
 void Aes::encrypt(unsigned char *plaintext, unsigned char *ciphertext, int size){
-
 	int rounds = size / 16;
 	for(int i=0; i<rounds; i++){
 		rijndaelEncrypt(encryptRk, encryptRounds, plaintext, ciphertext);
 		plaintext += 16;
 		ciphertext += 16;
 	}
-
 }
 
 void Aes::decrypt(unsigned char *ciphertext, unsigned char *plaintext, int size){
@@ -1260,5 +1258,3 @@ void Aes::decrypt(unsigned char *ciphertext, unsigned char *plaintext, int size)
 		ciphertext += 16;
 	}
 }
-
-

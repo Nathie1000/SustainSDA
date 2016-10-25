@@ -13,6 +13,7 @@
 class HttpClient{
 private:
 	AtClient &at;
+	int lastResponseStatus;
 
 	enum BearesStatus{
 		CONNECTING,
@@ -93,6 +94,8 @@ public:
 	 * @return the response parsed as a String.
 	 */
 	String get(const String &url);
+
+	int getStatus();
 };
 
 

@@ -7,15 +7,23 @@
 
 #include "AtClient.h"
 #include "WProgram.h"
+#include "TaskBase.h"
+#include "math.h"
+#include "Debug.h"
 
 String AtClient::voidBuffer = "";
 const String AtClient::AT_OK = "\r\nOK\r\n";
 const String AtClient::AT_ERROR = "\r\nERROR\r\n";
 
-AtClient::AtClient(HardwareSerial &serial, int timeout):
+AtClient::AtClient(HardwareSerial &serial, int baudrate, int timeout):
 serial(serial),
 timeout(timeout)
 {
+	serial.begin(baudrate);
+}
+
+AtClient::~AtClient(){
+	serial.end();
 }
 
 bool AtClient::connect(){
@@ -35,18 +43,33 @@ int AtClient::getTimeout(){
 }
 
 int AtClient::execute(const String& atCommand, char *buffer, int length){
+	//Lock the serial resource.
+	mutex.lock();
 	//Clear Rx buffer to remove left overs from previous serial use.
 	serial.clear();
-	serial.println(atCommand);
+	if(atCommand.length() > 0){
+		serial.println(atCommand);
+	}
 	//Wait for the serial buffer to be emptied so we know the command has been send.
 	serial.flush();
 
-	serial.setTimeout(timeout);
+	const int sleepInterval = 10;
+	//Calculate the amount of tries before timeout.
+	//We try a minimum of 1 time.
+	int tries = timeout / sleepInterval + 1;
+
+	//Wait with a fixed interval for the first byte to become available.
+	for(int i=0; i<tries && serial.available() == 0; i++){
+		TaskBase::sleep(sleepInterval);
+	}
+	serial.setTimeout(sleepInterval);
+	//Read the buffer.
 	int read = serial.readBytes(buffer, length);
 
+	//Unlock the serial resource.
+	mutex.unlock();
 	return read;
 }
-
 
 bool AtClient::execute(const String &atCommand, String &data, const String &expect){
 	//Test if command begins with AT. This is a requirement for the AT protocol.
@@ -58,9 +81,10 @@ bool AtClient::execute(const String &atCommand, String &data, const String &expe
 		return false;
 	}
 
-	char buffer[4096];
+	//We need to put large buffers on the heap. RTOS stack is limited.
+	char *buffer = new char[bufferSize];
 	//Read data, but keep the last byte free to add a null terminator character.
-	int read = execute(atCommand, buffer, sizeof(buffer) - 1);
+	int read = execute(atCommand, buffer, bufferSize - 1);
 	//Read data is not null terminated so we do it ourself.
 	buffer[read] = '\0';
 
@@ -72,6 +96,8 @@ bool AtClient::execute(const String &atCommand, String &data, const String &expe
 
 	//Parse buffer to string and remove control characters.
 	String s(buffer);
+	delete[] buffer;
+
 	//Test if the response contains the expected value.
 	if(s.indexOf(expect) != -1){
 		//Remove the expected value from response. We know it's there so we don't need to see it anymore.
@@ -89,4 +115,21 @@ bool AtClient::execute(const String &atCommand, String &data, const String &expe
 	}
 
 	return false;
+}
+
+String AtClient::scan(int timeout){
+	char *buffer = new char[bufferSize];
+	//Save original timeout.
+	int oldTimeout = getTimeout();
+	setTimeout(timeout);
+	//Read with new timeout.
+	int read = execute(String(),buffer, bufferSize - 1);
+	//Restore old timeout.
+	setTimeout(oldTimeout);
+	//Add a null terminator, this is need to convert to a String.
+	buffer[read] = '\0';
+	String s(buffer);
+	delete[] buffer;
+
+	return s;
 }
