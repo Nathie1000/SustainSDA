@@ -9,6 +9,7 @@
 
 #include <math.h>
 #include "CommunicationControler.h"
+#include "TaskBase.h"
 
 
 uint32_t FreeRam(){ // for Teensy 3.0
@@ -28,21 +29,16 @@ uint32_t FreeRam(){ // for Teensy 3.0
 }
 
 
+
 //Rules:
 //Do not flush on setup.
 //Tasks may not be allocated on stack.
 void setup(){
-	Serial.begin(9600);
-	//Serial1.begin(9600);
-	Serial3.begin(9600);
-	pinMode(13, OUTPUT);
+	DEBUG_BEGIN(9600);
 
-	delay(100);
-	Serial3.println("----------------------------");
 
- 	//AtClient at(Serial1);
- 	//HttpClient http(at);
- 	//Aes aes("this is a pasphrase yeee");
+
+	DEBUG.println("----------------------------");
 
 	CommunicationControler *comTask = new CommunicationControler(4);
 

@@ -5,7 +5,6 @@
  * @date 14 okt. 2016
  */
 
-
 #ifndef FLAG_H_
 #define FLAG_H_
 

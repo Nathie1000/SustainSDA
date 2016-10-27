@@ -8,23 +8,11 @@
 #ifndef HTTPCLIENT_H_
 #define HTTPCLIENT_H_
 
-#include "AtClient.h"
+#include "Bearer.h"
 
-class HttpClient{
+class HttpClient : public Bearer{
 private:
-	AtClient &at;
 	int lastResponseStatus;
-
-	enum BearesStatus{
-		CONNECTING,
-		CONNECTED,
-		CLOSING,
-		CLOSED
-	};
-
-	bool querryBearer(int &status, String &ip);
-	bool openBearer();
-	bool closeBearer();
 
 	bool httpAction(bool method, int &status, int &length);
 	String send(const String &url, const String &body, bool method, const String &contentType);
@@ -44,35 +32,8 @@ public:
 	 * Create a new object.
 	 * @param at the {@link AtClient} need for communication.
 	 */
-	HttpClient(AtClient &at);
+	explicit HttpClient(AtClient &at);
 
-	/**
-	 * Connect with the Internet.
-	 * The method can be called again if a previous connection is lost.
-	 * If a connection already exits this method will do nothing.
-	 * @return True if the connection succeeded, false if it didn't
-	 */
-	bool connect();
-
-	/**
-	 * Check if a connection to the Internet exits.
-	 * @return True if connected, false if not.
-	 */
-	bool isConnected();
-
-	/**
-	 * Close the connection.
-	 * The connection can be reopened with the connect() method.
-	 * @return True if the connection successfully closed, false if not.
-	 */
-	bool close();
-
-	/**
-	 * Get local IP-address.
-	 * This method only works if successfully connected.
-	 * @return The IP-address as a String.
-	 */
-	String getIp();
 
 	/**
 	 * Do a HTTP POST action.

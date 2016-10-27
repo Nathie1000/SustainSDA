@@ -25,32 +25,46 @@ CommunicationControler::CommunicationControler(int priority):
 TaskBase(priority, "CommunicationTask"),
 at(Serial1, 9600),
 http(at),
-sendQueue(100),
-aes(KEY)
+sendQueue(10),
+aes(KEY),
+gsm(at)
 {
-
+	pinMode(2, OUTPUT);
+	digitalWrite(2, LOW);
 }
 
 void CommunicationControler::run(){
+	sleep(1000);
+	PRINTLN("-----------------Communication Task Start-----------");
 	if(at.connect()){
 		String rdy;
-		Serial3.println(String(at.execute("AT", rdy)) + " | " + rdy);
-		Serial3.println(String(at.execute("AT+CPIN?", rdy)) + " | " + rdy);
-		Serial3.println(String(at.execute("AT+CSQ", rdy)) + " | " + rdy);
-		Serial3.println(String(at.execute("AT+CREG?", rdy)) + " | " + rdy);
-		Serial3.println(String(at.execute("AT+CGREG?", rdy)) + " | " + rdy);
+		PRINTLN(String(at.execute("AT", rdy)) + " | " + rdy);
+
+		PRINTLN(String("PIN: ") + gsm.getPinState());
+		PRINTLN(String("Signal Quality: ") + gsm.getSignalQuality());
+
+		float lon, lat;
+		String date, time;
+		if(gsm.getLocationAndTime(lat, lon, date, time)){
+			PRINT(String("Lon: ") + String(lon, 6));
+			PRINT(String("Lat: ") + String(lat,6));;
+			PRINTLN(String("Date: ") + date);
+			PRINTLN(String("Time: ") + time);
+		}
 
 		for(int i=0; i<5 && !http.connect(); i++){
 			sleep(1000);
 		}
 		if(http.isConnected()){
-			Serial3.println(String("IP: ") + http.getIp());
+			PRINTLN(String("IP: ") + http.getIp());
 		}
+
+		PRINTLN("Done");
 		//Serial3.println("HTML:\r" + http.post("http://sustain.net23.net/echo.php?test=9", "test2=5", HttpClient::CONTENT_TYPE_POST));
 
 	}
 	else{
-		Serial3.println("AT failed");
+		PRINTLN("AT failed");
 	}
 
 	while(true){

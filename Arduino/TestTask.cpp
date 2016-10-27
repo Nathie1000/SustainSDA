@@ -3,9 +3,9 @@
 #include <Arduino.h>
 #include <stdlib.h>
 
-#include "FreeRTOS_ARM.h"
+#include <FreeRTOS_ARM.h>
 #include "Debug.h"
-
+#include <EEPROM.h>
 
 Mutex TestTask::mutex;
 Mutex TestTask::mutex2;
@@ -29,10 +29,13 @@ comTask(comTask)
 	timer.addTimerListener(*this);
 	timer.start();
 	comTask.addCommunicationTaskListener(*this);
+
+	pinMode(13, OUTPUT);
 }
 
 void TestTask::run(){
-	Serial3.print("TASK START: ");
+	sleep(1000);
+	PRINT("TASK START: ");
 	PRINTLN(getPriority())
 	while(true){
 		if(getPriority() == 1){
@@ -46,7 +49,16 @@ void TestTask::run(){
 			static bool sendOnce = true;
 			if(sendOnce){
 				sendOnce = false;
-				comTask.send("Hallo world");
+				//unsigned char x = EEPROM.read(0);
+				//x++;
+				//EEPROM.write(0,x);
+
+				//eeprom_initialize();
+				//const unsigned long int *xp = 0x01;
+				//int x = eeprom_read_dword(xp);
+				//PRINTLN(String("EPPROM READ: ") + x);
+
+				//comTask.send("Hallo world");
 			}
 			sleep(1000);
 		}

@@ -12,14 +12,15 @@
 
 //Define the serial port used for debug printing.
 //Comment-out (or un-define) to disable debugging.
-#define DEBUG Serial3
+#define DEBUG Serial
 
 //Do not edit below here!
 #ifdef DEBUG
+#define DEBUG_BEGIN(X) DEBUG.begin(X);
 #define PRINTLN(X) DEBUG.println(X); DEBUG.flush();
-//#define PRINTLN(X) DEBUG.println(X);
 #define PRINT(X) DEBUG.print(X); DEBUG.flush();
 #else
+#define DEBUG_BEGIN(X)
 #define PRINTLN(X)
 #define PRINT(X)
 #endif

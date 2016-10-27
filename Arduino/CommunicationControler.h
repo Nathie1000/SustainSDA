@@ -14,6 +14,7 @@
 #include "Queue.h"
 #include "ArrayList.h"
 #include "Aes.h"
+#include "GsmClient.h"
 
 class CommunicationListener{
 public:
@@ -37,6 +38,7 @@ private:
 	Queue<Package> sendQueue;
 	ArrayList<CommunicationListener*> communicationTaskListeners;
 	Aes aes;
+	GsmClient gsm;
 
 public:
 
