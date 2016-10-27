@@ -153,7 +153,7 @@
 		case 0x10: Serial.println("EM7180 new accel result");
 		case 0x20: Serial.println("EM7180 new gyro result");
 		}
-		delay(200);
+		delay(100);
 	}
 
 	void EM7180::sensorState() {

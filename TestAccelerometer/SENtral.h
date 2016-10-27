@@ -21,6 +21,8 @@ public:
 	void readSENtralData(int16_t * destination, int deviceAddress);
 	void readSENtralQuatData(float * destination);
 	int16_t readSENtralData(int deviceAddress);
+  void newData(int16_t count[], int address, float &x, float &y, float &z, float factor);
+  void error();
 };
 
 #endif

@@ -11,6 +11,7 @@
 
 #include "ReadWriteByte.h"
 #include "DefineAddress.h"
+
 class EEPROM {
 public:
 	// Specify sensor full scale
@@ -33,7 +34,8 @@ public:
 	void readMagData(int16_t * destination);
 	void readData(int16_t * destination, int deviceAddress);
 	void MadgwickQuaternionUpdate(float accelX, float accelY, float accelZ, float gyroX, float gyroY, float gyroZ, float magX, float magY, float magZ, float deltat);
-	float calculateSoftwareYPR(String rotation);
+	float calculateSoftwareYPR(char rotation);
+  float calculateHardwareYPR(char rotation, float Quat[]);
 
 private:
 	uint8_t mMode = 0x02;        // 2 for 8 hz, 6 for 100 hz continuous magnetometer data read

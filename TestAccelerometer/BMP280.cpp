@@ -137,3 +137,13 @@
 		p = ((p + var1 + var2) >> 8) + (((long long)dig_p7) << 4);
 		return (uint32_t)p;
 	}
+
+ void BMP280::newData(int16_t rawPressure, float pressure, int16_t rawTemp, float temp, SENtral sentral){
+      rawPressure = sentral.readSENtralData(EM7180_Baro);
+      pressure = (float)rawPressure*0.01f + 1013.25f; // pressure in mBar
+
+      // get BMP280 temperature
+      rawTemp = sentral.readSENtralData(EM7180_Temp);
+      temp = (float)rawTemp*0.01;  // temperature in degrees C
+ }
+

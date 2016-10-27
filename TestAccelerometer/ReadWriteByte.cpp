@@ -54,40 +54,47 @@
 		}         // Put read results in the Rx buffer
 	}
 
-	void ReadWriteByte::I2Cscan() {
-		// scan for i2c devices
-		int nDevices = 0;
+	void ReadWriteByte::I2Cscan() {int nDevices = 0;
 
-		Serial.println("Scanning...");
-		for (byte address = 1; address < 127; address++) {
-			// The i2c_scanner uses the return value of
-			// the Write.endTransmisstion to see if
-			// a device did acknowledge to the address.
-			Wire.beginTransmission(address);
-			byte error = Wire.endTransmission();
+   Serial.println("Scanning...");
+    
+    for (byte address = 1; address < 127; address++) {
+      // The i2c_scanner uses the return value of
+      // the Write.endTransmisstion to see if
+      // a device did acknowledge to the address.
+      Wire.beginTransmission(address);
+      delay(1);
+      byte error = Wire.endTransmission(true);
+     
+      if (error == 0) {
+        Serial.print("I2C device found at address 0x");
+        if (address < 16) {
+          Serial.print("0");
+        }
+        Serial.print(address, HEX);
+        Serial.println("  !");
 
-			if (!error) {
-				Serial.print("I2C device found at address 0x");
-				if (address < 16) {
-					Serial.print("0");
-				}
-				Serial.print(address, HEX);
-				Serial.println("  !");
-
-				nDevices++;
-			}
-			else if (error == 4) {
-				Serial.print("Unknow error at address 0x");
-				if (address < 16) {
-					Serial.print("0");
-				}
-				Serial.println(address, HEX);
-			}
-		}
-		if (nDevices == 0) {
-			Serial.println("No I2C devices found\n");
-		}
-		else {
-			Serial.println("done\n");
-		}
+        nDevices++;
+      }
+      else if (error == 4) {
+        Serial.print("Unknow error at address 0x");
+        if (address < 16) {
+          Serial.print("0");
+        }
+        Serial.println(address, HEX);
+      }
+      else{
+        //Serial.print("Error found: ");
+        //Serial.println(error);
+        
+      }
+    }
+    if (nDevices == 0) {
+      Serial.println("No I2C devices found\n");
+    }
+    else {
+      Serial.println("done\n");
+    }
 	}
+
+

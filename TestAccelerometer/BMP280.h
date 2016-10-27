@@ -11,6 +11,7 @@
 
 #include "DefineAddress.h"
 #include "ReadWriteByte.h"
+#include "SENtral.h"
 //static of extern namespace classe
 class BMP280 {
 public:
@@ -21,6 +22,7 @@ public:
 	int32_t readBMP280Pressure();
 	int32_t BMP280_compensate_T(int32_t adc_T);
 	uint32_t BMP280_compensate_P(int32_t adc_P);
+  void newData(int16_t rawPressure, float pressure, int16_t rawTemp, float temp, SENtral sentral);
 };
 
 #endif

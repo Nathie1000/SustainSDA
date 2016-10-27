@@ -13,6 +13,7 @@
 	}
 	// Read SENtral device information
 	void SENtral::readSENtralDevices() {
+    Serial.println("ROM1!!"); Serial.println(EM7180_ROMVersion1, HEX);
 		uint16_t ROM1 = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_ROMVersion1);
 		uint16_t ROM2 = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_ROMVersion2);
 		Serial.print("EM7180 ROM Version: 0x"); Serial.print(ROM1, HEX); Serial.println(ROM2, HEX); Serial.println("Should be: 0xE609");
@@ -45,8 +46,7 @@
 		}
 	}
 
-	float SENtral::uint32_reg_to_float(uint8_t *buf)
-	{
+	float SENtral::uint32_reg_to_float(uint8_t *buf){
 		union {
 			uint32_t ui32;
 			float f;
@@ -67,8 +67,7 @@
 		destination[2] = (int16_t)(((int16_t)rawData[5] << 8) | rawData[4]);
 	}
 
-	void SENtral::readSENtralQuatData(float * destination)
-	{
+	void SENtral::readSENtralQuatData(float * destination){
 		uint8_t rawData[16];  // x/y/z quaternion register data stored here
 		ReadWriteByte::readBytes(EM7180_ADDRESS, EM7180_QX, 16, &rawData[0]);       // Read the sixteen raw data registers into data array
 		destination[0] = uint32_reg_to_float(&rawData[0]);
@@ -83,3 +82,29 @@
 		ReadWriteByte::readBytes(EM7180_ADDRESS, deviceAddress, 2, &rawData[0]);  // Read the two raw data registers sequentially into data array
 		return  (int16_t)(((int16_t)rawData[1] << 8) | rawData[0]);   // Turn the MSB and LSB into a signed 16-bit value
 	}
+
+ 
+  void SENtral::newData(int16_t count[], int address, float &x, float &y, float &z, float factor){
+      readSENtralData(count, address);
+
+      // Now we'll calculate the value into actual dps's
+      x = (float)count[0] * factor;  // get actual dps value
+      y = (float)count[1] * factor;
+      z = (float)count[2] * factor;
+  }
+
+   void SENtral::error(){
+      uint8_t errorStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_ErrorRegister);
+      if (errorStatus != 0x00) { // non-zero value indicates error, what is it?
+        Serial.print(" EM7180 sensor status = "); Serial.println(errorStatus);
+        if (errorStatus == 0x11) Serial.print("Magnetometer failure!");
+        if (errorStatus == 0x12) Serial.print("Accelerometer failure!");
+        if (errorStatus == 0x14) Serial.print("Gyro failure!");
+        if (errorStatus == 0x21) Serial.print("Magnetometer initialization failure!");
+        if (errorStatus == 0x22) Serial.print("Accelerometer initialization failure!");
+        if (errorStatus == 0x24) Serial.print("Gyro initialization failure!");
+        if (errorStatus == 0x30) Serial.print("Math error!");
+        if (errorStatus == 0x80) Serial.print("Invalid sample rate!");
+      }
+ }
+
