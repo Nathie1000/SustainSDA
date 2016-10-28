@@ -1,8 +1,8 @@
 
-//#include "Aes.h"
+
 #include "AtClient.h"
 #include "HttpClient.h"
-//#include "Base64.h"
+
 
 #include "TestTask.h"
 #include "Debug.h"
@@ -35,26 +35,23 @@ uint32_t FreeRam(){ // for Teensy 3.0
 //Tasks may not be allocated on stack.
 void setup(){
 	DEBUG_BEGIN(9600);
-
-
-
 	DEBUG.println("----------------------------");
 
-	CommunicationControler *comTask = new CommunicationControler(4);
+	CommunicationControler *comTask = new CommunicationControler(3);
 
- 	TestTask *t1 = new TestTask(1, *comTask);
+ 	//TestTask *t1 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);
 
- 	TestTask *t2 = new TestTask(2, *comTask);
+ 	TestTask *t2 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T2 = ") + (int)t2);
 
- 	TestTask *t3 = new TestTask(3, *comTask);
+ 	TestTask *t3 = new TestTask(2, *comTask);
 
 
 
 
 
-    //TODO: http://www.freertos.org/xTaskCreateRestricted.html
+
 
 	// create task at priority two
 	//s1 = xTaskCreate(runHelper, NULL, configMINIMAL_STACK_SIZE, t1, 1, NULL);
