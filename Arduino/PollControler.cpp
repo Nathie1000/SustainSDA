@@ -1,9 +1,9 @@
-/*
- * PollControler.cpp
+/**
+ * @file PollControler.cpp
  *
- *  Created on: 27 okt. 2016
- *      Author: Nathan
- */
+ * @author Nathan Schaaphuizen
+ * @date 27 okt. 2016
+*/
 #include "PollControler.h"
 #include "Sensor.h"
 #include "Timer.h"
@@ -21,18 +21,16 @@ PollControler & PollControler::getInstance(){
 }
 
 
-
 PollControler::PollControler():
-TaskBase(4, "PollTask"),
-timer(50)
+TaskBase(pollPriority, "PollTask"),
+timer(pollRate)
 {
 	timer.addTimerListener(*this);
+	timer.start();
 }
-
 
 void PollControler::run(){
 	PRINTLN("-----------------Poll Task Start-----------");
-
 	while(true){
 		flag.wait();
 		for(Sensor *sensor: sensors){
@@ -47,4 +45,8 @@ void PollControler::addSensor(Sensor &sensor){
 
 void PollControler::onTimeout(Timer &timer){
 	flag.set();
+}
+
+int PollControler::getPollRate(){
+	return pollRate;
 }

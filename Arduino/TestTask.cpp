@@ -28,7 +28,7 @@ comTask(comTask)
 {
 	timer.addTimerListener(*this);
 	timer.start();
-	comTask.addCommunicationTaskListener(*this);
+	comTask.addCommunicationListener(*this);
 
 	pinMode(13, OUTPUT);
 }

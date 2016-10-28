@@ -1,10 +1,13 @@
-/*
- * Rijndeal.cpp
+/**
+ * @file Aes.cpp
  *
- *  Created on: 28 sep. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 28 sep. 2016
  */
 
+/**
+ * Macro to define if code should be unrolled or not.
+ */
 #define FULL_UNROLL
 
 #include <Arduino.h>
@@ -14,7 +17,13 @@ const unsigned int Aes::KEY_BITS_128 = 128;
 const unsigned int Aes::KEY_BITS_192 = 192;
 const unsigned int Aes::KEY_BITS_256 = 256;
 
+/**
+ * Annoying typedef for no reason.
+ */
 typedef unsigned long u32;
+/**
+ * Annoying typedef for no reason.
+ */
 typedef unsigned char u8;
 
 static const u32 Te0[256] =
@@ -705,16 +714,18 @@ static const u32 rcon[] =
   /* for 128-bit blocks, Rijndael never uses more than 10 rcon values */
 };
 
+//// \cond
 #define GETU32(plaintext) (((u32)(plaintext)[0] << 24) ^ \
                     ((u32)(plaintext)[1] << 16) ^ \
                     ((u32)(plaintext)[2] <<  8) ^ \
                     ((u32)(plaintext)[3]))
 
+
 #define PUTU32(ciphertext, st) { (ciphertext)[0] = (u8)((st) >> 24); \
                          (ciphertext)[1] = (u8)((st) >> 16); \
                          (ciphertext)[2] = (u8)((st) >>  8); \
                          (ciphertext)[3] = (u8)(st); }
-
+//// \endcond
 /**
  * Expand the cipher key into the encryption key schedule.
  *

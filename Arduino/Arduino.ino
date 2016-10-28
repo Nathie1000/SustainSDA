@@ -11,7 +11,6 @@
 #include "CommunicationControler.h"
 #include "TaskBase.h"
 
-
 uint32_t FreeRam(){ // for Teensy 3.0
     uint32_t stackTop;
     uint32_t heapTop;
@@ -38,6 +37,7 @@ void setup(){
 	DEBUG.println("----------------------------");
 
 	CommunicationControler *comTask = new CommunicationControler(3);
+
 
  	//TestTask *t1 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);

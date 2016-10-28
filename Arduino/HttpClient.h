@@ -10,6 +10,10 @@
 
 #include "Bearer.h"
 
+/**
+ * @class HttpClient
+ * Class used to communicate using HTTP.
+ */
 class HttpClient : public Bearer{
 private:
 	int lastResponseStatus;
@@ -34,7 +38,6 @@ public:
 	 */
 	explicit HttpClient(AtClient &at);
 
-
 	/**
 	 * Do a HTTP POST action.
 	 * This method can not be used to send or receive binary data.
@@ -56,9 +59,12 @@ public:
 	 */
 	String get(const String &url);
 
+	/**
+	 * Get the HTTP status of the last POST/GET.
+	 * @return 0 if last call failed, HTTP status if call succeeded or a 600+ custom error.
+	 * See data sheet for more info.
+	 */
 	int getStatus();
 };
-
-
 
 #endif /* HTTPCLIENT_H_ */

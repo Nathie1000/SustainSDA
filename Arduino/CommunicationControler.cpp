@@ -1,8 +1,8 @@
-/*
- * CommunicationTask.cpp
+/**
+ * @file CommunicationControler.cpp
  *
- *  Created on: 24 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 24 okt. 2016
  */
 #include "CommunicationControler.h"
 #include "TaskBase.h"
@@ -131,6 +131,6 @@ void CommunicationControler::send(const String& data, int type){
 	sendQueue.push(p);
 }
 
-void CommunicationControler::addCommunicationTaskListener(CommunicationListener &communicationTaskListener){
-	communicationTaskListeners.add(&communicationTaskListener);
+void CommunicationControler::addCommunicationListener(CommunicationListener &communicationListener){
+	communicationTaskListeners.add(&communicationListener);
 }

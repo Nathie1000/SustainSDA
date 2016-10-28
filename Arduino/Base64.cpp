@@ -1,8 +1,8 @@
-/*
- * Base64.cpp
+/**
+ * @file Base64.h
  *
- *  Created on: 28 sep. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 28 sep. 2016
  */
 
 #include "Base64.h"

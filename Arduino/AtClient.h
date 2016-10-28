@@ -17,10 +17,10 @@
  * The serial life cycle is managed by this class and should not be used by any other instances.
  */
 class AtClient{
+private:
 	static String voidBuffer;
 	static const int bufferSize = 4096;
 
-private:
 	HardwareSerial &serial;
 	int timeout;
 	Mutex mutex;
@@ -31,11 +31,11 @@ public:
 	/** Command returned with an error. **/
 	static const String AT_ERROR;
 
-public:
 	/**
 	 * Create a new object.
-	 * The serial port will be initilezed with the given baud rate and should not be used form now on.
-	 * @param serial an un-initilezed serial port used for communication with the AT device.
+	 * The serial port will be initialized with the given baud rate and should not be used form now on.
+	 * @param serial an un-initialized serial port used for communication with the AT device.
+	 * @param baudrate the baud rate used to initialize the serial port.
 	 * @param timeout the default timeout for AT commands.
 	 */
 	AtClient(HardwareSerial &serial, int baudrate, int timeout = 500);
@@ -109,6 +109,12 @@ public:
 	 */
 	bool execute(const String &atCommand, String &data = voidBuffer, const String &expect = AtClient::AT_OK);
 
+	/**
+	 * Scan the bus for any response from the device.
+	 * This function will block until any data if found or the timeout is reached.
+	 * @param timeout the amount of time in ms to wait.
+	 * @return the response parsed as a String.
+	 */
 	String scan(int timeout);
 
 };

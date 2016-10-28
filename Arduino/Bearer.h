@@ -32,6 +32,9 @@ private:
 	bool closeBearer();
 
 protected:
+	/**
+	 * AtClient that can be used by inherited classes.
+	 */
 	AtClient at;
 
 public:

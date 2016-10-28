@@ -1,8 +1,8 @@
-/*
- * CommunicationTask.h
+/**
+ * @file CommunicationControler.h
  *
- *  Created on: 24 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 24 okt. 2016
  */
 
 #ifndef COMMUNICATIONCONTROLER_H_
@@ -16,12 +16,28 @@
 #include "Aes.h"
 #include "GsmClient.h"
 
+/**
+ * @interface CommunicationListener
+ * Interface class to receive to incoming messages from remote server.
+ */
 class CommunicationListener{
 public:
+	/**
+	 * Virtual deconstructor required by compiler, does nothing.
+	 */
 	virtual ~CommunicationListener(){}
+
+	/**
+	 * Prototype function triggered when a message is received from server.
+	 * @param msg the message.
+	 */
 	virtual void onMessageReceived(const String &msg) = 0;
 };
 
+/**
+ * @class CommunicationControler
+ * Task that handles all communication with remote server.
+ */
 class CommunicationControler : public TaskBase{
 private:
 	static const String URL;
@@ -41,11 +57,30 @@ private:
 	GsmClient gsm;
 
 public:
-
+	/**
+	 * Create new object.
+	 * @param priority the priority of the task.
+	 */
 	CommunicationControler(int priority);
+
+	/**
+	 * Implementation of the BaseTask interface.
+	 */
 	void run() override;
+
+	/**
+	 * Send data to server. This function adds the data to a inner Queue and blocks if this Queue is full.
+	 * When the data will be actually send is up to the scheduler.
+	 * @param data the data to be send. This may not exceed 128 bytes.
+	 * @param type the type of data. Currently not uses. Default = 0.
+	 */
 	void send(const String& data, int type = 0);
-	void addCommunicationTaskListener(CommunicationListener &communicationTaskListener);
+
+	/**
+	 * Add a CommunicationListener.
+	 * @param communicationListener the CommunicationListener to be added.
+	 */
+	void addCommunicationListener(CommunicationListener &communicationListener);
 };
 
 
