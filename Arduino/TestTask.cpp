@@ -46,7 +46,9 @@ void TestTask::run(){
 		}
 
 		else if(getPriority() == 2){
+			//PRINTLN("SPAM")
 			static bool sendOnce = true;
+
 			if(sendOnce){
 				sendOnce = false;
 				//unsigned char x = EEPROM.read(0);
@@ -61,10 +63,6 @@ void TestTask::run(){
 				//comTask.send("Hallo world");
 			}
 			sleep(1000);
-		}
-
-		else if(getPriority() == 3){
-			sleep(10);
 		}
 	}
 }
