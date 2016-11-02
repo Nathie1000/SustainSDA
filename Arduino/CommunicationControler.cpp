@@ -34,7 +34,6 @@ gsm(at)
 }
 
 void CommunicationControler::run(){
-	sleep(3000);
 	PRINTLN("-----------------Communication Task Start-----------");
 	if(at.connect()){
 		String rdy;

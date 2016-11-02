@@ -61,7 +61,7 @@ public:
 	 * Create new object.
 	 * @param priority the priority of the task.
 	 */
-	CommunicationControler(int priority);
+	explicit CommunicationControler(int priority);
 
 	/**
 	 * Implementation of the BaseTask interface.

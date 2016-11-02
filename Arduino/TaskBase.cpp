@@ -14,6 +14,9 @@
 
 
 void TaskBase::runHelper(void *arg){
+#ifdef DEBUG
+	sleep(1000);
+#endif
 	TaskBase *task = (TaskBase*)arg;
     task->run();
 

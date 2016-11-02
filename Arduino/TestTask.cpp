@@ -34,7 +34,6 @@ comTask(comTask)
 }
 
 void TestTask::run(){
-	sleep(1000);
 	PRINT("TASK START: ");
 	PRINTLN(getPriority())
 	while(true){

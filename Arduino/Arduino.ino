@@ -5,31 +5,9 @@
 #include "TestTask.h"
 #include "Debug.h"
 
-#include <math.h>
 #include "CommunicationControler.h"
-#include "TaskBase.h"
-
+#include "LocationController.h"
 #include "WatchDog.h"
-
-uint32_t FreeRam(){ // for Teensy 3.0
-    uint32_t stackTop;
-    uint32_t heapTop;
-
-    // current position of the stack.
-    stackTop = (uint32_t) &stackTop;
-
-    // current position of heap.
-    void* hTop = malloc(1);
-    heapTop = (uint32_t) hTop;
-    free(hTop);
-
-    // The difference is the free, available ram.
-    return stackTop - heapTop;
-}
-
-#define CPU_RESTART_ADDR (uint32_t *)0xE000ED0C
-#define CPU_RESTART_VAL 0x5FA0004
-#define CPU_RESTART (*CPU_RESTART_ADDR = CPU_RESTART_VAL);
 
 
 //Rules:
@@ -37,15 +15,12 @@ uint32_t FreeRam(){ // for Teensy 3.0
 //Tasks may not be allocated on stack.
 void setup(){
 	DEBUG_BEGIN(9600);
-	PRINTLN("----------------------------");
-
-	delay(3000);
-
-	//timer.begin(exit, 6000000);
-	//timer.priority(11);
 
 	WatchDog *watchdog = new WatchDog(6000);
-	CommunicationControler *comTask = new CommunicationControler(3);
+	CommunicationControler *comTask = new CommunicationControler(2);
+	LocationController *locTask = new LocationController(3);
+
+
  	//TestTask *t1 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);
 
