@@ -27,7 +27,7 @@ public:
 
 	/**
 	 * Create new object.
-	 * @param size the initial size of the list. Must be > 0.
+	 * @param size the initial memory allocated for the list. Must be > 0.
 	 */
 	ArrayList(int size = 10) :
 		index(0),
