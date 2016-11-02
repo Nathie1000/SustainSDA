@@ -182,6 +182,18 @@ public:
 	}
 
 	/**
+	 * Convert the list to a constant C-type array. The array has the same length as the list.
+	 * The array is a direct pointer to the inner array of the list and can be used for quick access.
+	 * The list does not track any changes made to this array.
+	 * USE AT YOUR OWN PERIL.
+	 *
+	 * @return Constant pointer to inner array of list.
+	 */
+	const T* toArray() const override{
+		return array;
+	}
+
+	/**
 	 * Left hand operator to access elements in list.
 	 * @param index the index of element to retrieve.
 	 * @return A reference to object in list.

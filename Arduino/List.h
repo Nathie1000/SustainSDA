@@ -71,6 +71,12 @@ public:
 	virtual T* toArray() = 0;
 
 	/**
+	 * Prototype function to convert the list to a constant C-type array.
+	 * @return a constant C-type array made from the list.
+	 */
+	virtual const T* toArray() const = 0;
+
+	/**
 	 * Prototype operator to get an item from index.
 	 * @param index the index to retrieve from.
 	 * @return the item retrieved.
