@@ -62,7 +62,6 @@ void EEPROM::initEEPROM() {
 	}
 
 	if (!(ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_SentralStatus) & 0x04))  Serial.println("eeprom upload successful!");
-	delay(1000); // give some time to read the screen
 }
 
 void EEPROM::initMPU9250()
@@ -121,7 +120,6 @@ void EEPROM::initMPU9250()
 												  // can join the i2c bus and all can be controlled by the arduino as master
 	ReadWriteByte::writeByte(MPU9250_ADDRESS, INT_PIN_CFG, 0x22);
 	ReadWriteByte::writeByte(MPU9250_ADDRESS, INT_ENABLE, 0x01);  // enable data ready (bit 0) interrupt
-	delay(100);
 }
 
 void EEPROM::initAK8963(float * destination)
@@ -142,7 +140,6 @@ void EEPROM::initAK8963(float * destination)
 	// set mscale bit 4 to 1 (0) to enable 16 (14) bit resolution in cntl register,
 	// and enable continuous mode data acquisition mmode (bits [3:0]), 0010 for 8 hz and 0110 for 100 hz sample rates
 	ReadWriteByte::writeByte(AK8963_ADDRESS, AK8963_CNTL, mScale << 4 | mMode); // set magnetometer data resolution and sample odr
-	delay(20);
 }
 
 // function which accumulates gyro and accelerometer data after device initialization. it calculates the average

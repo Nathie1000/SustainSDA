@@ -37,7 +37,7 @@
 #define AK8963_XOUT_H  0x04
 #define AK8963_YOUT_L  0x05
 #define AK8963_YOUT_H  0x06
-#define AK8963_ZOUT_L  0x07
+//#define AK8963_ZOUT_L  0x07
 #define AK8963_ZOUT_H  0x08
 #define AK8963_ST2       0x09  // Data overflow bit 3 and data read error status bit 2
 #define AK8963_CNTL      0x0A  // Power down (0000), single-measurement (0001), self-test (1000) and Fuse ROM (1111) modes on bits 3:0
@@ -78,6 +78,7 @@
 #define GYRO_CONFIG      0x1B
 #define ACCEL_CONFIG     0x1C
 #define ACCEL_CONFIG2    0x1D
+#define MPU9250_DLPF_CFG_MASK           0x07
 #define LP_ACCEL_ODR     0x1E   
 #define WOM_THR          0x1F   
 
@@ -248,6 +249,7 @@
 #define EM7180_ADDRESS           0x28   // Address of the EM7180 SENtral sensor hub
 #define M24512DFM_DATA_ADDRESS   0x50   // Address of the 500 page M24512DRC EEPROM data buffer, 1024 bits (128 8-bit bytes) per page
 #define M24512DFM_IDPAGE_ADDRESS 0x58   // Address of the single M24512DRC lockable EEPROM ID page
+#define MPU9250_DEFAULT_ADDRESS  0xD1
 #define MPU9250_ADDRESS          0x68   // Device address of MPU9250 when ADO = 0
 #define AK8963_ADDRESS           0x0C   // Address of magnetometer
 #define BMP280_ADDRESS 0x76 // Address of BMP280 altimeter when ADO = 0

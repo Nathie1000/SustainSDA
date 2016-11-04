@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries;C:\Users\Bianca\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\util;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\utils;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy/../tools/arm/bin/..\arm-none-eabi\include;C:\Users\Bianca\Documents\Arduino\SustainSDA\TestAccelerometer;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\4uifmuis.v4d\Micro Platforms\default\debuggers\VM_DBG;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries;C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\4uifmuis.v4d\Micro Platforms\default\debuggers;C:\Users\Bianca\Documents\Arduino\libraries;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries;C:\Users\Bianca\Documents\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\util;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\utils;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy/../tools/arm/bin/..\arm-none-eabi\include;C:\Users\Bianca\Documents\Arduino\SustainSDA\TestAccelerometer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\Bianca\Documents\Arduino\SustainSDA\TestAccelerometer\__vm\.TestAccelerometer.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__HARDWARE_MK20dx256__;__HARDWARE_MK20DX256__;_VMDEBUG=1;__MK20DX256__;TEENSYDUINO=130;ARDUINO=10609;F_CPU=96000000;USB_SERIAL;LAYOUT_US_ENGLISH;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -79,6 +79,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Algorithm.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="BMP280.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -91,6 +97,10 @@
     <ClInclude Include="EM7180.h">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClInclude Include="Header.h" />
+    <ClInclude Include="List.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="ReadWriteByte.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -100,6 +110,7 @@
     <ClInclude Include="__vm\.TestAccelerometer.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="BMP280.cpp" />
     <ClCompile Include="EEPROM.cpp" />
     <ClCompile Include="EM7180.cpp" />
@@ -112,4 +123,9 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties arduino.upload.port="COM3" />
+    </VisualStudio>
+  </ProjectExtensions>
 </Project>

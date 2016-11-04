@@ -13,7 +13,6 @@
 	}
 	// Read SENtral device information
 	void SENtral::readSENtralDevices() {
-    Serial.println("ROM1!!"); Serial.println(EM7180_ROMVersion1, HEX);
 		uint16_t ROM1 = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_ROMVersion1);
 		uint16_t ROM2 = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_ROMVersion2);
 		Serial.print("EM7180 ROM Version: 0x"); Serial.print(ROM1, HEX); Serial.println(ROM2, HEX); Serial.println("Should be: 0xE609");
@@ -83,7 +82,7 @@
 		return  (int16_t)(((int16_t)rawData[1] << 8) | rawData[0]);   // Turn the MSB and LSB into a signed 16-bit value
 	}
 
- 
+
   void SENtral::newData(int16_t count[], int address, float &x, float &y, float &z, float factor){
       readSENtralData(count, address);
 

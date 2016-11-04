@@ -21,8 +21,6 @@
 		if (featureflag & 0x08)  Serial.println("A custom sensor is installed");
 		if (featureflag & 0x10)  Serial.println("A second custom sensor is installed");
 		if (featureflag & 0x20)  Serial.println("A third custom sensor is installed");
-
-		delay(1000); // give some time to read the screen
 	}
 
 	void EM7180::EM7180InitState() {
@@ -31,6 +29,9 @@
 		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_PassThruControl, 0x00); // make sure pass through mode is off
 		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_HostControl, 0x01); // Force initialize
 		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_HostControl, 0x00); // set SENtral in initialized state to configure registers
+		
+		setupSensors();
+		configureOM();
 	}
 
 	void EM7180::setupSensors() {
@@ -54,7 +55,6 @@
 		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_EnableEvents, 0x07);
 		// Enable EM7180 run mode
 		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_HostControl, 0x01); // set SENtral in normal run mode
-		delay(100);
 
 	}
 
@@ -72,11 +72,8 @@
 		param[1] = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_SavedParamByte1);
 		param[2] = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_SavedParamByte2);
 		param[3] = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_SavedParamByte3);
-		//test
-		EM7180FS = ((int16_t)(param[paramIndex] << 8) | param[(paramIndex - 1)]);
-		Serial.println(EM7180FS);
-		delay(100);
-		//
+		
+		EM7180FS = ((int16_t)(param[paramIndex] << 8) | param[(paramIndex - 1)]);	
 	}
 
 	void EM7180::EM7180SetModuleAccFS(uint16_t moduleFS, uint16_t accelerometerFS, int adress) {
@@ -128,8 +125,13 @@
 	}
 
 	void EM7180::EM7180Status() {
+		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_ParamRequest, 0x00); //End parameter transfer
+		ReadWriteByte::writeByte(EM7180_ADDRESS, EM7180_AlgorithmControl, 0x00); // re-enable algorithm
+
 		uint8_t runStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_RunStatus);
-		if (runStatus & 0x01) Serial.println("EM7180 run status = normal mode");
+		if (runStatus & 0x01) { 
+			Serial.println("EM7180 run status = normal mode"); 
+		}
 
 		uint8_t algorithmStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_AlgorithmStatus);
 		switch (algorithmStatus) {
@@ -137,8 +139,8 @@
 		case 0x02: Serial.println("EM7180 algorithm slow");
 		case 0x04: Serial.println("EM7180 in stillness mode");
 		case 0x08: Serial.println("EM7180 mag calibration completed");
-		case 0x10: Serial.println("EM7180 magnetic anomaly detected");
-		case 0x20: Serial.println("EM7180 unreliable sensor data");
+		//case 0x10: Serial.println("EM7180 magnetic anomaly detected");
+		//case 0x20: Serial.println("EM7180 unreliable sensor data");
 		}
 
 		uint8_t passThruStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_PassThruStatus);
@@ -153,7 +155,6 @@
 		case 0x10: Serial.println("EM7180 new accel result");
 		case 0x20: Serial.println("EM7180 new gyro result");
 		}
-		delay(100);
 	}
 
 	void EM7180::sensorState() {
@@ -168,3 +169,22 @@
 		case 0x20: Serial.print("Gyro ID not recognized!");
 		}
 	}
+
+	////change sample rate
+	////| ACCELEROMETER | GYROSCOPE
+	////	* DLPF_CFG | Bandwidth | Delay | Bandwidth | Delay | Sample Rate
+	////	* -------- - +---------- - +-------- + ---------- - +-------- + ------------ -
+	////	*0 | 260Hz | 0ms | 256Hz | 0.98ms | 8kHz
+	////	* 1 | 184Hz | 2.0ms | 188Hz | 1.9ms | 1kHz
+	////	* 2 | 94Hz | 3.0ms | 98Hz | 2.8ms | 1kHz
+	////	* 3 | 44Hz | 4.9ms | 42Hz | 4.8ms | 1kHz
+	////	* 4 | 21Hz | 8.5ms | 20Hz | 8.3ms | 1kHz
+	////	* 5 | 10Hz | 13.8ms | 10Hz | 13.4ms | 1kHz
+	////	* 6 | 5Hz | 19.0ms | 5Hz | 18.6ms | 1kHz
+	////	* 7 | --Reserved-- | --Reserved-- | Reserved
+	//bool EM7180::setDLPFMode(const uint8_t mode) {
+	//	if (mode > 7) {
+	//		return 0;
+	//	}
+	//	return ReadWriteByte::writeMaskedRegister(CONFIG, MPU9250_DEFAULT_ADDRESS, MPU9250_DLPF_CFG_MASK, mode); //MPU9250_CONFIG, MPU9250_CFG_DLPF_CFG_BIT, MPU9250_CFG_DLPF_CFG_LENGTH, mode);
+	//}

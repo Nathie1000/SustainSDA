@@ -25,6 +25,7 @@ public:
 	void EM7180SetIntInParam(uint8_t param, uint32_t paramValue);
 	void EM7180Status();
 	void sensorState();
+	//bool setDLPFMode(const uint8_t mode);
 };
 #endif
 

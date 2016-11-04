@@ -41,4 +41,5 @@ C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\BMP28
  C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ReadWriteByte.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3/i2c_t3.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/DMAChannel.h
+ C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/DMAChannel.h \
+ C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\SENtral.h
