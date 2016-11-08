@@ -16,9 +16,9 @@
 void setup(){
 	DEBUG_BEGIN(9600);
 
-	WatchDog *watchdog = new WatchDog(6000);
-	CommunicationControler *comTask = new CommunicationControler(2);
-	LocationController *locTask = new LocationController(3);
+	WatchDog *watchdog = new WatchDog(6000); //Priority 4
+	CommunicationControler *comTask = new CommunicationControler(2); //Priority 2
+	LocationController *locTask = new LocationController(3); //Priority 3
 
 
  	//TestTask *t1 = new TestTask(1, *comTask);
@@ -29,26 +29,6 @@ void setup(){
 
  	TestTask *t3 = new TestTask(2, *comTask);
 
-	// create task at priority two
-	//s1 = xTaskCreate(runHelper, NULL, configMINIMAL_STACK_SIZE, t1, 1, NULL);
-
-	// create task at priority one
-	//s2 = xTaskCreate(runHelper, NULL, configMINIMAL_STACK_SIZE, t2, 2, NULL);
-
-	//portBASE_TYPE s3 = xTaskCreate(foo, NULL, configMINIMAL_STACK_SIZE, NULL, 0, NULL);
-
-
-	//Serial3.println(t1.getName() + " " + t1.getPiroirty());
-	//Serial3.flush();
-
-    //s1 = xTaskCreateRestricted( &xTaskDefinition, NULL );
-
-	// check for creation errors
-	//if (s1 != pdPASS || s2 != pdPASS ) {
-	//	Serial3.println(F("Creation problem"));
-	//	while(1);
-	//}
-	// start scheduler
 
     TaskBase::startAllTasks();
 
