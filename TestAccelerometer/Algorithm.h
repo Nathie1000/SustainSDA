@@ -15,7 +15,7 @@ public:
 		uint16_t position;
 		int16_t peak;
 
-		bool operator== (const Peak& other) { return position == other.position && peak == other.peak; };
+		bool operator==(const Peak& other) { return position == other.position && peak == other.peak; };
 	};
 
 	static float magnitudeVector(float x, float y, float z);
@@ -27,7 +27,7 @@ public:
 	static float mean(const float data[], int sliceCount);
 	static float mean(const ArrayList<float> data, int sliceCount);
 
-	static ArrayList<Peak> peakDetection(const ArrayList<float> &data);
+	static void peakDetection(const ArrayList<float> &data, ArrayList<Algorithm::Peak> &peaks, int peakThreshold, int lowThreshold);
 };
 
 #endif

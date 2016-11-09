@@ -75,6 +75,8 @@ void setup() {
 
 	em7180.EM7180Status();
 	em7180.sensorState();
+
+	Serial.println("GO!!!!");
 }
 
 
@@ -90,7 +92,7 @@ void loop() {
 	ArrayList<float> inputArray;
 	ArrayList<float> outputArray;
 
-	for (int i = 0; i < 200; i++) {
+	for (int i = 0; i < 5; i++) {
 
 		int16_t rawPressure = 0, rawTemperature = 0;   // pressure, temperature raw count output
 		float pressure = 0.0f;
@@ -157,43 +159,52 @@ void loop() {
 		inputArray.add(Algorithm::magnitudeVector(ax[i], ay[i], az[i]));
 		delay(50);
 	}
+//Idee van wilbert, werkte niet.
+//	int mean = Algorithm::mean(inputArray, inputArray.getSize());
+//	Serial.print(mean);
+//	Serial.print('\t');
+//	if(mean > 1050){
+//		Serial.println(1);
+//	}
+//	else{
+//		Serial.println(0);
+//	}
 
-	Algorithm::movingAverage(inputArray, outputArray, 5);
-	ArrayList<Algorithm::Peak> peak = Algorithm::peakDetection(outputArray);
+//Orgineel iedee, hebben peak detection beetje aangepsast.
+	//Algorithm::movingAverage(inputArray, outputArray, 5);
+	//ArrayList<Algorithm::Peak> peaks;
+	//Algorithm::peakDetection(outputArray, peaks, 1050, 950);
 
-	for (int i = 0; i < outputArray.getSize(); i++) {
-		if (printOnce == 1) {
-			Serial.println("aX \t aY \t aZ \t gX \t gY \t gZ \t mA accel \t peak pos \t peak");
-			printOnce++;
-		}
-		Serial.print(ax[i]);
-		Serial.print("\t");
-		Serial.print(ay[i]);
-		Serial.print("\t");
-		Serial.print(az[i]);
-		Serial.print("\t");
-		Serial.print(gx[i], 2);
-		Serial.print("\t");
-		Serial.print(gy[i], 2);
-		Serial.print("\t");
-		Serial.print(gz[i], 2);
-		Serial.print("\t");
-		Serial.print(outputArray[i]);
-		Serial.print("\t");
-		Serial.print(peak[i].position);
-		Serial.print("\t");
-		Serial.print(peak[i].peak);
-		Serial.print("\n");
-	}
-
-	for (int j = 1; j < peak.getSize() - 1; j++) {
-		if (peak[j].peak == 1) {
-			count++;
-			j += 5;
-		}
+//	Serial.println("---------???------------------");
+//	for (int i = 0; i < outputArray.getSize(); i++) {
+//		Serial.println(outputArray[i]);
+//
+//	}
+//		if (printOnce == 1) {
+//			Serial.println("aX \t aY \t aZ \t gX \t gY \t gZ \t mA accel \t peak pos \t peak");
+//			printOnce++;
+//		}
+//		Serial.print(ax[i]);
+//		Serial.print("\t");
+//		Serial.print(ay[i]);
+//		Serial.print("\t");
+//		Serial.print(az[i]);
+//		Serial.print("\t");
+//		Serial.print(gx[i], 2);
+//		Serial.print("\t");
+//		Serial.print(gy[i], 2);
+//		Serial.print("\t");
+//		Serial.print(gz[i], 2);
+//		Serial.print("\t");
+//		Serial.print(outputArray[i]);
+//		Serial.print("\t");
+//		Serial.print(peaks[i].position);
+//		Serial.print("\t");
+//		Serial.print(peaks[i].peak);
+//		Serial.print("\n");
+//	}
 
 
-	}
-	while (true);
+	//while (true);
 	//Serial.println((int)count);
 }

@@ -104,19 +104,15 @@ float Algorithm::mean(const ArrayList<float> data, int sliceCount) {
 //	Serial.println("einde data!!!");
 //}
 
-ArrayList<Algorithm::Peak> Algorithm::peakDetection(const ArrayList<float> &data) {
-	int threshold = 1050, thresholdDal = 950;
-	ArrayList<Peak> peaks;
-
-
+void Algorithm::peakDetection(const ArrayList<float> &data, ArrayList<Algorithm::Peak> &peaks, int peakThreshold, int lowThreshold) {
 	for (int i = 1; i < data.getSize() - 1; i++) {
-		if (data[i - 1] <= data[i] && data[i + 1] <= data[i] && data[i] > threshold) {
+		if (data[i - 1] <= data[i] && data[i + 1] <= data[i] && data[i] > peakThreshold) {
 			Peak p;
 			p.position = i;
 			p.peak = 1;
 			peaks.add(p);
 		}
-		else if (data[i - 1] >= data[i] && data[i + 1] >= data[i] && data[i] < thresholdDal) {
+		else if (data[i - 1] >= data[i] && data[i + 1] >= data[i] && data[i] < lowThreshold) {
 			Peak p;
 			p.position = i;
 			p.peak = -1;
@@ -129,6 +125,35 @@ ArrayList<Algorithm::Peak> Algorithm::peakDetection(const ArrayList<float> &data
 			peaks.add(p);
 		}
 	}
-	return peaks;
-}
 
+	for(int i = 0; i < peaks.getSize(); i++) {
+		Serial.println(peaks[i].peak);
+	}
+
+	//Fuse nearby peaks together.
+	for(int i = 0; i < peaks.getSize(); i++) {
+		if(peaks[i].peak == 1){
+			int highestPeak = data[peaks[i].position];
+			float higestPeakPosition = peaks[i].position;
+			//Look 5 peaks into the future.
+			for(int j = 0; j <5; j++){
+				if(peaks[i+j].peak == 1){
+					peaks[i+j].peak = 0;
+					if(data[peaks[i+j].position] > highestPeak){
+						highestPeak = data[peaks[i+j].position];
+						higestPeakPosition = i + j;
+					}
+				}
+			}
+			//Amount of steps in the future - 1, cuz the loop does +1 on its own.
+			i += 4;
+			peaks[higestPeakPosition].peak = 1;
+		}
+	}
+	Serial.println("-------------------------------------------");
+
+	for(int i = 0; i < peaks.getSize(); i++) {
+			Serial.println(peaks[i].peak);
+		}
+
+}
