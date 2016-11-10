@@ -12,7 +12,6 @@
 #include "Waitable.h"
 #include "CompositeWaitable.h"
 
-
 void TaskBase::runHelper(void *arg){
 #ifdef DEBUG
 	sleep(1000);
@@ -22,7 +21,6 @@ void TaskBase::runHelper(void *arg){
 
 	PRINTLN("Warning: Task may not end! Task suspended!");
 	vTaskSuspend(task->handle);
-	//taskYIELD();
 }
 
 ArrayList<TaskBase*> TaskBase::tasks(5);
@@ -48,6 +46,10 @@ int TaskBase::getPriority(){
 
 String TaskBase::getName(){
 	return name;
+}
+
+void TaskBase::suspend(){
+	vTaskSuspend(handle);
 }
 
 void TaskBase::startAllTasks(){
@@ -81,8 +83,3 @@ const Waitable* TaskBase::wait(const Waitable &waitable){
 		TaskBase::sleep(1);
 	}
 }
-
-//void TaskBase::yield(){
-//	taskYIELD();
-//}
-

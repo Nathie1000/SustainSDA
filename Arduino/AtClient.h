@@ -56,6 +56,8 @@ public:
 	 */
 	bool connect();
 
+	bool isConnected();
+
 	/**
 	 * Reset the AT device to the default user profile. Useful if you fack up.
 	 * It is recommended to call connected() again after using this method.

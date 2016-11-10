@@ -13,123 +13,201 @@
 #include "Aes.h"
 #include "Base64.h"
 #include <math.h>
-
 #include "Debug.h"
 
-const String CommunicationControler::URL = "http://sustain.net23.net/echo.php";
-//const String CommunicationControler::URL = "http://doestnotexits.net/echo2.php";
-//const String CommunicationControler::URL = "http://sustain.net23.net/echo2.php";
-const String CommunicationControler::KEY = "password";
+CommunicationControler* CommunicationControler::instance = nullptr;
+long long CommunicationControler::globalMessageCounter = 0;
 
-CommunicationControler::CommunicationControler(int priority):
-TaskBase(priority, "CommunicationTask"),
+CommunicationControler& CommunicationControler::getInstance(){
+	if(instance == nullptr){
+		instance = new CommunicationControler();
+	}
+	return *instance;
+}
+
+CommunicationControler::CommunicationControler():
+TaskBase(2, "CommunicationTask"),
 at(Serial1, 9600),
 http(at),
-sendQueue(10),
-aes(KEY),
-gsm(at)
+sendQueue(20),
+smsQueue(10),
+aes(nullptr),
+gsm(at),
+ip("0.0.0.0"),
+ready(false)
 {
 	pinMode(2, OUTPUT);
 	digitalWrite(2, LOW);
 }
 
-void CommunicationControler::run(){
-	PRINTLN("-----------------Communication Task Start-----------");
-	if(at.connect()){
-		String rdy;
-		PRINTLN(String(at.execute("AT", rdy)) + " | " + rdy);
 
-		PRINTLN(String("PIN: ") + gsm.getPinState());
-		PRINTLN(String("Signal Quality: ") + gsm.getSignalQuality());
+void CommunicationControler::encrypt(String &message){
+	//Add space padding to make the string length a multiple of 16.
+	//This is required for AES.
+	while(message.length() % 16 != 0){
+		message += " ";
+	}
+	//Encrypt using AES.
+	unsigned char *buffer = new unsigned char[message.length()];
+	aes->encrypt((unsigned char*)message.c_str(), buffer, message.length());
+	//Encode using Base64.
+	message = base64_encode(buffer, message.length());
+	delete buffer;
+}
 
-		float lon, lat;
-		String date, time;
-		if(gsm.getLocationAndTime(lat, lon, date, time)){
-			PRINT(String("Lon: ") + String(lon, 6));
-			PRINT(String("Lat: ") + String(lat,6));;
-			PRINTLN(String("Date: ") + date);
-			PRINTLN(String("Time: ") + time);
+void CommunicationControler::decrypt(String &message){
+	//Decode using Base64
+	String ciphertext = base64_decode(message);
+	//Decrypt using AES.
+	unsigned char *decryptBuffer = new unsigned char[ciphertext.length() + 1];
+	aes->decrypt((unsigned char*)ciphertext.c_str(), decryptBuffer, ciphertext.length());
+	decryptBuffer[ciphertext.length()] = '\0';
+	String plainResponse((const char*)decryptBuffer);
+	delete decryptBuffer;
+	message = plainResponse.trim();
+}
+
+void CommunicationControler::sendSms(){
+	SmsPackage p = smsQueue.pop();
+	String number = *p.number;
+	delete p.number;
+	String text = *p.text;
+	delete p.text;
+	if(at.isConnected()){
+		if(!gsm.sendSms(number, text)){
+			PRINTLN("Error Sensing SMS.");
 		}
-
-		for(int i=0; i<5 && !http.connect(); i++){
-			sleep(1000);
-		}
-		if(http.isConnected()){
-			PRINTLN(String("IP: ") + http.getIp());
-		}
-
-		PRINTLN("Done");
-		//Serial3.println("HTML:\r" + http.post("http://sustain.net23.net/echo.php?test=9", "test2=5", HttpClient::CONTENT_TYPE_POST));
-
 	}
 	else{
-		PRINTLN("AT failed");
+		PRINTLN("Error AT device not connected.");
 	}
+}
 
-	while(true){
-		Package p = sendQueue.pop();
-
-		if(at.connect()){
-			if(!http.isConnected()){
-				for(int i=0; i<3 && !http.connect(); i++){
-					sleep(3000);
-				}
+void CommunicationControler::sendInternet(){
+	Package p = sendQueue.pop();
+	String message = *p.message;
+	delete p.message;
+	String url = *p.url;
+	delete p.url;
+	if(at.isConnected()){
+		if(!http.isConnected()){
+			for(int i=0; i<3 && !http.connect(); i++){
+				sleep(3000);
 			}
+		}
 
-			if(http.isConnected()){
-				String plainText(p.data);
-				//Add space padding to make the string length a multiple of 16.
-				//This is required for AES.
-				while(plainText.length() % 16 != 0){
-					plainText += " ";
-				}
-				unsigned char buffer[plainText.length()];
-				aes.encrypt((unsigned char*)plainText.c_str(), buffer, plainText.length());
-				String base64Ciphertext = base64_encode(buffer, plainText.length());
-
-				//Post data.
-				String rsp = http.post(URL, p.data /* base64Ciphertext  */);
-				int status = http.getStatus();
-
-				if(status != 200){
-					PRINTLN(String("External server error: ") + status);
-				}
-				else if(rsp.length() > 0){
-					String ciphertext = base64_decode(rsp);
-					unsigned char decryptBuffer[ciphertext.length() + 1];
-					aes.decrypt((unsigned char*)ciphertext.c_str(), decryptBuffer, ciphertext.length());
-					decryptBuffer[ciphertext.length()] = '\0';
-					String plainResponse((const char*)decryptBuffer);
-					plainResponse = plainResponse.trim();
-
-					for(CommunicationListener *com : communicationTaskListeners){
-						com->onMessageReceived(rsp /* plainResponse */);
-					}
-				}
+		if(http.isConnected()){
+			//Encrypt if necessary.
+			if(aes != nullptr){
+				encrypt(message);
+			}
+			//Post or get data.
+			String rsp;
+			if(p.post){
+				rsp = http.post(url, message, HttpClient::CONTENT_TYPE_PLAIN_TEXT);
 			}
 			else{
-				PRINTLN("Error no Internet connection.")
+				rsp = http.get(url);
+			}
+			int status = http.getStatus();
+
+			//Decrypt if necessary.
+			if(aes != nullptr && rsp.length() > 0){
+				decrypt(rsp);
+			}
+
+			if(p.callbackObj != nullptr){
+				p.callbackObj->onMessageReceived(p.messageId, status, rsp);
 			}
 		}
 		else{
-			PRINTLN("Error AT not connected.");
+			PRINTLN("Error no Internet connection.")
+		}
+	}
+	else{
+		PRINTLN("Error AT device not connected.");
+	}
+}
+
+void CommunicationControler::run(){
+	PRINTLN("-----------------Communication Task Start-----------");
+	if(at.connect()){
+		//Set the pin code if needed.
+		if(gsm.getPinState() == GsmClient::SIM_PIN){
+			PRINTLN("PIN required, setting pin code '0000'.")
+			if(!gsm.setPinCode("0000")){
+				PRINTLN("Failed to set PIN.");
+			}
+		}
+		//Try to connect to Internet a few times.
+		for(int i=0; i<5 && !http.connect(); i++){
+			sleep(1000);
+		}
+		//Get the IP address.
+		if(http.isConnected()){
+			ip = http.getIp();
+		}
+		ready = true;
+	}
+	else{
+		PRINTLN("No AT device found, Communication Task suspend.");
+		suspend();
+	}
+
+	while(true){
+		const Waitable *w = wait(smsQueue | sendQueue);
+		if(w == &smsQueue){
+			sendSms();
+		}
+		else{
+			sendInternet();
 		}
 	}
 }
 
-void CommunicationControler::send(const String& data, int type){
-	Package p;
-	p.type = type;
-	p.size = min(data.length(), 128U);
-	p.data[p.size] = '\0';
-
-	for(int i=0; i<p.size ; i++){
-		p.data[i] = data[i];
+void CommunicationControler::enableEncryption(const String& key){
+	if(aes != nullptr){
+		delete aes;
 	}
-
-	sendQueue.push(p);
+	aes = new Aes(key);
 }
 
-void CommunicationControler::addCommunicationListener(CommunicationListener &communicationListener){
-	communicationTaskListeners.add(&communicationListener);
+void CommunicationControler:: disableEncryption(){
+	delete aes;
+}
+
+long long CommunicationControler::sendPostRequest(const String &url, const String& data, CommunicationListener *callback){
+	Package p;
+	p.callbackObj = callback;
+	p.message = new String(data);
+	p.url = new String(url);
+	p.messageId = globalMessageCounter++;
+	p.post = true;
+	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
+	if(ready)sendQueue.push(p);
+	return p.messageId;
+}
+
+long long CommunicationControler::sendGetRequest(const String &url, CommunicationListener *callback){
+	Package p;
+	p.callbackObj = callback;
+	p.message = new String();
+	p.url = new String(url);
+	p.messageId = globalMessageCounter++;
+	p.post = false;
+	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
+	if(ready)sendQueue.push(p);
+	return p.messageId;
+}
+
+void CommunicationControler::sendSms(const String &number, const String &text){
+	SmsPackage p;
+	p.number = new String(number);
+	p.text = new String(text);
+	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
+	smsQueue.push(p);
+}
+
+String CommunicationControler::getIpAddress(){
+	return ip;
 }

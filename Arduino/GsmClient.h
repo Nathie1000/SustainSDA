@@ -56,7 +56,7 @@ public:
 
 	/**
 	 * Get the location and time from the GSM network.
-	 * The timezone is GTM by default and is 2 hours behind Dutch time.
+	 * The timezone is GTM by default and does not account for DLS.
 	 * The latitude and longitude have a accuracy fault of += 100 meter.
 	 * @param latitude the latitude.
 	 * @param longitude the longitude.
@@ -66,8 +66,8 @@ public:
 	 */
 	bool getLocationAndTime(float &latitude, float &longitude, String &date, String &time);
 
+	bool sendSms(const String &number, const String text);
+
 };
-
-
 
 #endif /* GSMCLIENT_H_ */

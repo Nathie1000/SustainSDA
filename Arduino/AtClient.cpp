@@ -30,6 +30,10 @@ bool AtClient::connect(){
 	return (execute("AT") ||  execute("AT") || execute("AT")) && execute("ATE0");
 }
 
+bool AtClient::isConnected(){
+	return execute("AT");
+}
+
 bool AtClient::reset(){
 	return (execute("ATZ"));
 }
@@ -88,15 +92,15 @@ bool AtClient::execute(const String &atCommand, String &data, const String &expe
 	//Read data is not null terminated so we do it ourself.
 	buffer[read] = '\0';
 
+	//Parse buffer to string and remove control characters.
+	String s(buffer);
+	delete[] buffer;
+
 	//Nothing read is nothing gained, so either the command timed out or pin in not connected.
 	//Either way assume an error.
 	if(read == 0){
 		return false;
 	}
-
-	//Parse buffer to string and remove control characters.
-	String s(buffer);
-	delete[] buffer;
 
 	//Test if the response contains the expected value.
 	if(s.indexOf(expect) != -1){
@@ -114,6 +118,7 @@ bool AtClient::execute(const String &atCommand, String &data, const String &expe
 		return true;
 	}
 
+	//Response did not contain the expected string.
 	return false;
 }
 

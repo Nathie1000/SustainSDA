@@ -31,7 +31,7 @@ public:
 	 * Prototype function triggered when a message is received from server.
 	 * @param msg the message.
 	 */
-	virtual void onMessageReceived(const String &msg) = 0;
+	virtual void onMessageReceived(long long messageId, int responseStatus, const String &response) = 0;
 };
 
 /**
@@ -40,50 +40,57 @@ public:
  */
 class CommunicationControler : public TaskBase{
 private:
-	static const String URL;
-	static const String KEY;
+	static CommunicationControler* instance;
+	static long long globalMessageCounter;
 
 	struct Package{
-		char type;
-		int size;
-		char data[128 + 1];
+		bool post;
+		long long messageId;
+		CommunicationListener* callbackObj;
+		String* message; 	//Don't forget to delete after reading from package!
+		String* url; 		//Don't forget to delete after reading form package!
+	};
+
+	struct SmsPackage{
+		String *number;  //Don't forget to delete after reading from package!
+		String *text;	 //Don't forget to delete after reading from package!
 	};
 
 	AtClient at;
 	HttpClient http;
 	Queue<Package> sendQueue;
-	ArrayList<CommunicationListener*> communicationTaskListeners;
-	Aes aes;
+	Queue<SmsPackage> smsQueue;
+
+	Aes *aes;
 	GsmClient gsm;
+	String ip;
+	bool ready;
+
+	CommunicationControler();
+	void encrypt(String &message);
+	void decrypt(String &message);
+
+	void sendSms();
+    void sendInternet();
 
 public:
-	/**
-	 * Create new object.
-	 * @param priority the priority of the task.
-	 */
-	explicit CommunicationControler(int priority);
+	static CommunicationControler& getInstance();
 
 	/**
 	 * Implementation of the BaseTask interface.
 	 */
 	void run() override;
 
-	/**
-	 * Send data to server. This function adds the data to a inner Queue and blocks if this Queue is full.
-	 * When the data will be actually send is up to the scheduler.
-	 * @param data the data to be send. This may not exceed 128 bytes.
-	 * @param type the type of data. Currently not uses. Default = 0.
-	 */
-	void send(const String& data, int type = 0);
+	void enableEncryption(const String& key);
+	void disableEncryption();
 
-	/**
-	 * Add a CommunicationListener.
-	 * @param communicationListener the CommunicationListener to be added.
-	 */
-	void addCommunicationListener(CommunicationListener &communicationListener);
+	long long sendPostRequest(const String &url, const String& data, CommunicationListener *callback = nullptr);
+	long long sendGetRequest(const String &url, CommunicationListener *callback = nullptr);
+
+	void sendSms(const String &number, const String &text);
+	String getIpAddress();
+	bool isReady();
+
 };
-
-
-
 
 #endif /* COMMUNICATIONCONTROLER_H_ */

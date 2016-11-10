@@ -7,6 +7,8 @@
 #include "Debug.h"
 #include <EEPROM.h>
 
+#include "ArrayList.h"
+
 Mutex TestTask::mutex;
 Mutex TestTask::mutex2;
 Flag TestTask::flag;
@@ -17,10 +19,12 @@ Queue<double> TestTask::queue2(5);
 
 //Timer TestTask::timer(1000);
 
+ArrayList<String> ar;
+
 int tel = 0;
 double teld = 0.0;
 
-TestTask::TestTask(int priority, CommunicationControler &comTask):
+TestTask::TestTask(int priority):
 TaskBase(priority, "TestTask"),
 queue3(5),
 timer(1000),
@@ -28,9 +32,14 @@ comTask(comTask)
 {
 	timer.addTimerListener(*this);
 	timer.start();
-	comTask.addCommunicationListener(*this);
 
 	pinMode(13, OUTPUT);
+
+	ar.add("Hallo world");
+	ar.add("");
+	ar.add("12345");
+
+
 }
 
 void TestTask::run(){
@@ -45,21 +54,14 @@ void TestTask::run(){
 		}
 
 		else if(getPriority() == 2){
-			//PRINTLN("SPAM")
 			static bool sendOnce = true;
-
 			if(sendOnce){
 				sendOnce = false;
-				//unsigned char x = EEPROM.read(0);
-				//x++;
-				//EEPROM.write(0,x);
+				PRINTLN(ar.getSize());
+				for(String &s : ar){
+					PRINTLN(s);
+				}
 
-				//eeprom_initialize();
-				//const unsigned long int *xp = 0x01;
-				//int x = eeprom_read_dword(xp);
-				//PRINTLN(String("EPPROM READ: ") + x);
-
-				//comTask.send("Hallo world");
 			}
 			sleep(1000);
 		}
@@ -71,8 +73,5 @@ void TestTask::onTimeout(Timer &timer){
 	//RINTLN("FLAG set from Timer.")
 }
 
-void TestTask::onMessageReceived(const String& msg){
-	PRINTLN("MESSAGE: " + msg);
-}
 
 //// \endcond

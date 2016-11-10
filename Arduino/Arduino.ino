@@ -9,6 +9,21 @@
 #include "LocationController.h"
 #include "WatchDog.h"
 
+#include "ArrayList.h"
+
+class ComTest : public CommunicationListener{
+public:
+	ComTest(){
+		CommunicationControler::getInstance().sendPostRequest("http://google.nl", "hallo wrold", this);
+		//CommunicationControler::getInstance().get("http://google.nl", this);
+		CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
+	}
+
+	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
+		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + "message: " + response);
+	}
+};
+
 
 //Rules:
 //Do not flush on setup.
@@ -16,18 +31,20 @@
 void setup(){
 	DEBUG_BEGIN(9600);
 
+	ComTest t;
+
 	WatchDog *watchdog = new WatchDog(6000); //Priority 4
-	CommunicationControler *comTask = new CommunicationControler(2); //Priority 2
+	//CommunicationControler *comTask = new CommunicationControler(2); //Priority 2
 	LocationController *locTask = new LocationController(3); //Priority 3
 
 
  	//TestTask *t1 = new TestTask(1, *comTask);
  	//Serial3.println(String("ADDR T1 = ") + (int)t1);
 
- 	TestTask *t2 = new TestTask(1, *comTask);
+ 	TestTask *t2 = new TestTask(1);
  	//Serial3.println(String("ADDR T2 = ") + (int)t2);
 
- 	TestTask *t3 = new TestTask(2, *comTask);
+ 	TestTask *t3 = new TestTask(2);
 
 
     TaskBase::startAllTasks();

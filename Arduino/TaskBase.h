@@ -69,6 +69,12 @@ public:
 	String getName();
 
 	/**
+	 * Suspend the Task.
+	 * Suspended Tasks will not no receive any CPU time;
+	 */
+	void suspend();
+
+	/**
 	 * Create all tasks an start the scheduler.
 	 * This scheduler has control from this point on.
 	 * This function only returns if the scheduler failed to start.
@@ -101,10 +107,6 @@ public:
 	 * @return A pointer to the Waitable.
 	 */
 	static const Waitable* wait(const Waitable &Waitable);
-
-
-	//static void yield();
 };
-
 
 #endif /* TASKBASE_H_ */

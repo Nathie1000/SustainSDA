@@ -11,7 +11,7 @@
 #include "Timer.h"
 
 
-class TestTask : public TaskBase, public TimerListener, public CommunicationListener {
+class TestTask : public TaskBase, public TimerListener{
 private:
 	static Mutex mutex;
 	static Mutex mutex2;
@@ -30,11 +30,10 @@ private:
 
 public:
 
-	TestTask(int priority, CommunicationControler& comTAsk);
+	TestTask(int priority);
 	void run() override;
 
 	void onTimeout(Timer &timer) override;
-	void onMessageReceived(const String& msg) override;
 };
 
 

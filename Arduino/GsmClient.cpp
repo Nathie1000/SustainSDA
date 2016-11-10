@@ -89,3 +89,7 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 	at.setTimeout(oldTimeout);
 	return rtn;
 }
+
+bool GsmClient::sendSms(const String &number, const String text){
+	return at.execute("AT+CMGF=1") && at.execute("AT+CMGS="+number+"\r\n"+text+"\032");
+}
