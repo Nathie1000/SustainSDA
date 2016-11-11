@@ -14,11 +14,12 @@
 #include "Base64.h"
 #include <math.h>
 #include "Debug.h"
+#include "SustainWork.h"
 
 CommunicationControler* CommunicationControler::instance = nullptr;
 long long CommunicationControler::globalMessageCounter = 0;
 
-CommunicationControler& CommunicationControler::getInstance(){
+CommunicationControler & CommunicationControler::getInstance(){
 	if(instance == nullptr){
 		instance = new CommunicationControler();
 	}
@@ -27,12 +28,11 @@ CommunicationControler& CommunicationControler::getInstance(){
 
 CommunicationControler::CommunicationControler():
 TaskBase(2, "CommunicationTask"),
-at(Serial1, 9600),
-http(at),
+http(AtClient::getInstance()),
+gsm(GsmClient::getInstance()),
 sendQueue(20),
 smsQueue(10),
 aes(nullptr),
-gsm(at),
 ip("0.0.0.0"),
 ready(false)
 {
@@ -73,7 +73,7 @@ void CommunicationControler::sendSms(){
 	delete p.number;
 	String text = *p.text;
 	delete p.text;
-	if(at.isConnected()){
+	if(gsm.isDeviceOpen()){
 		if(!gsm.sendSms(number, text)){
 			PRINTLN("Error Sensing SMS.");
 		}
@@ -89,7 +89,7 @@ void CommunicationControler::sendInternet(){
 	delete p.message;
 	String url = *p.url;
 	delete p.url;
-	if(at.isConnected()){
+	if(http.isDeviceOpen()){
 		if(!http.isConnected()){
 			for(int i=0; i<3 && !http.connect(); i++){
 				sleep(3000);
@@ -131,7 +131,7 @@ void CommunicationControler::sendInternet(){
 
 void CommunicationControler::run(){
 	PRINTLN("-----------------Communication Task Start-----------");
-	if(at.connect()){
+	if(http.openDevice()){
 		//Set the pin code if needed.
 		if(gsm.getPinState() == GsmClient::SIM_PIN){
 			PRINTLN("PIN required, setting pin code '0000'.")
@@ -153,6 +153,8 @@ void CommunicationControler::run(){
 		PRINTLN("No AT device found, Communication Task suspend.");
 		suspend();
 	}
+
+	PRINTLN("IS this working????");
 
 	while(true){
 		const Waitable *w = wait(smsQueue | sendQueue);

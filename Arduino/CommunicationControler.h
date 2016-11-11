@@ -56,25 +56,26 @@ private:
 		String *text;	 //Don't forget to delete after reading from package!
 	};
 
-	AtClient at;
 	HttpClient http;
+	GsmClient &gsm;
+
 	Queue<Package> sendQueue;
 	Queue<SmsPackage> smsQueue;
 
 	Aes *aes;
-	GsmClient gsm;
 	String ip;
 	bool ready;
 
-	CommunicationControler();
 	void encrypt(String &message);
 	void decrypt(String &message);
 
 	void sendSms();
     void sendInternet();
 
+    CommunicationControler();
+
 public:
-	static CommunicationControler& getInstance();
+    static CommunicationControler & getInstance();
 
 	/**
 	 * Implementation of the BaseTask interface.

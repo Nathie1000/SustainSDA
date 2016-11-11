@@ -39,6 +39,14 @@ at(at)
 
 }
 
+bool Bearer::openDevice(){
+	return at.connect();
+}
+
+bool Bearer::isDeviceOpen(){
+	return at.isConnected();
+}
+
 int Bearer::getBearerId(){
 	return bearer;
 }

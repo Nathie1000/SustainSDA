@@ -12,13 +12,17 @@
 
 class PmtkClient {
 private:
+	static PmtkClient *instance;
 	HardwareSerial &serial;
 
 	String getChecksum(const String &s);
 	int timeout;
 
+	PmtkClient(HardwareSerial &serial, int baudrate, int timeout = 500);
+
 public:
-	PmtkClient(HardwareSerial &serial, int timeout = 500);
+	static PmtkClient & getInstance();
+
 	~PmtkClient();
 
 	void setTimeout(int timeout);

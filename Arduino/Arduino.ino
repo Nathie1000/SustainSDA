@@ -10,20 +10,28 @@
 #include "WatchDog.h"
 
 #include "ArrayList.h"
+#include "SustainWork.h"
 
-class ComTest : public CommunicationListener{
+class ComTest : public CommunicationListener, public LocationListener{
 public:
 	ComTest(){
 		CommunicationControler::getInstance().sendPostRequest("http://google.nl", "hallo wrold", this);
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
+
+		LocationController::getInstance().addLocationListener(*this);
+
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
 		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + "message: " + response);
 	}
-};
 
+	void onLocationFound(float latitude, float longitude) override{
+		PRINTLN(String("Location: ") + latitude + ", " + longitude);
+	}
+
+};
 
 //Rules:
 //Do not flush on setup.
@@ -33,9 +41,12 @@ void setup(){
 
 	ComTest t;
 
-	WatchDog *watchdog = new WatchDog(6000); //Priority 4
-	//CommunicationControler *comTask = new CommunicationControler(2); //Priority 2
-	LocationController *locTask = new LocationController(3); //Priority 3
+	WatchDog::getInstance().start(6000);
+
+	//WatchDog *watchdog = new WatchDog(6000); //Priority 4
+
+	//CommunicationControler *comTask = new CommunicationControler(); //Priority 2
+	//LocationController *locTask = new LocationController(); //Priority 3
 
 
  	//TestTask *t1 = new TestTask(1, *comTask);

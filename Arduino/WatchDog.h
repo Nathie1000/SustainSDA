@@ -24,17 +24,21 @@
  */
 class WatchDog : public TaskBase{
 private:
+	static WatchDog* instance;
 	static void restart();
 	static IntervalTimer timer;
 
 	int timeout;
-
-public:
 	/**
 	 * Create a new object.
 	 * @param timeout the global system timeout in ms.
 	 */
-	WatchDog(int timeout);
+	WatchDog();
+
+public:
+	static WatchDog & getInstance();
+
+	void start(int timeout);
 
 	/**
 	 * Implementation of the TaskBase interface.

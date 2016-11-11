@@ -22,7 +22,7 @@ isLocked(false)
 
 Mutex::~Mutex(){
 	if(sem != NULL){
-		vSemaphoreDelete(sem);
+		//vSemaphoreDelete(sem);
 	}
 }
 

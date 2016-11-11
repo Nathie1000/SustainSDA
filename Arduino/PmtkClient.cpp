@@ -8,12 +8,22 @@
 #include "PmtkClient.h"
 #include "Debug.h"
 #include "TaskBase.h"
+#include <Arduino.h>
 
-PmtkClient::PmtkClient(HardwareSerial &serial, int timeout):
+PmtkClient *PmtkClient::instance = nullptr;
+
+PmtkClient & PmtkClient::getInstance(){
+	if(instance == nullptr){
+		instance = new PmtkClient(Serial3, 9600);
+	}
+	return *instance;
+}
+
+PmtkClient::PmtkClient(HardwareSerial &serial, int baudrate, int timeout):
 serial(serial),
 timeout(timeout)
 {
-	serial.begin(9600);
+	serial.begin(baudrate);
 }
 
 PmtkClient::~PmtkClient(){
@@ -65,7 +75,7 @@ bool PmtkClient::execute(const String &cmd){
 
 String PmtkClient::getChecksum(const String &s){
 	int sum = s[0];
-	for(int i=1; i<s.length(); i++){
+	for(unsigned int i=1; i<s.length(); i++){
 		sum ^= s[i];
 	}
 	return String(sum, HEX);

@@ -11,9 +11,17 @@
 #include "math.h"
 #include "Debug.h"
 
+AtClient *AtClient::instance = nullptr;
 String AtClient::voidBuffer = "";
 const String AtClient::AT_OK = "\r\nOK\r\n";
 const String AtClient::AT_ERROR = "\r\nERROR\r\n";
+
+AtClient & AtClient::getInstance(){
+	if(instance == nullptr){
+		instance = new AtClient(Serial1, 9600);
+	}
+	return *instance;
+}
 
 AtClient::AtClient(HardwareSerial &serial, int baudrate, int timeout):
 serial(serial),

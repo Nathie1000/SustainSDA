@@ -7,6 +7,7 @@
 #include "WatchDog.h"
 #include "Debug.h"
 
+WatchDog* WatchDog::instance = nullptr;
 IntervalTimer WatchDog::timer;
 
 #define CPU_RESTART_ADDR (uint32_t *)0xE000ED0C
@@ -20,21 +21,35 @@ void WatchDog::restart(){
 	CPU_RESTART;
 }
 
-WatchDog::WatchDog(int timeout):
+WatchDog & WatchDog::getInstance(){
+	if(instance == nullptr){
+		instance = new WatchDog();
+	}
+	return *instance;
+}
+
+WatchDog::WatchDog():
 TaskBase(4, "WatchDogTask"),
-timeout(timeout)
+timeout(-1)
 {
-	timer.begin(restart, timeout*1000);
 }
 
 void WatchDog::run(){
 	PRINTLN("-----------------WatchDog Task Start-----------");
-	timer.end();
 	while(true){
-		timer.begin(restart,  timeout*1000);
-		//We sleep 90% of the waited time.
-		int sleepTime = (int)(timeout * 0.90f);
-		sleep(sleepTime);
-		timer.end();
+		if(timeout > 0){
+			timer.begin(restart,  timeout*1000);
+			//We sleep 90% of the waited time.
+			int sleepTime = (int)(timeout * 0.90f);
+			sleep(sleepTime);
+			timer.end();
+		}
+		else{
+			sleep(1000);
+		}
 	}
+}
+
+void WatchDog::start(int timeout){
+	this->timeout = timeout;
 }

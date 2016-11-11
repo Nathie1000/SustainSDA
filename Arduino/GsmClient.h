@@ -15,8 +15,17 @@
  * Class used for GSM communication.
  */
 class GsmClient : public Bearer{
+private:
+	static GsmClient * instance;
+	/**
+	 * Create a new object.
+	 * @param at the AtClient used for communication.
+	 */
+	explicit GsmClient(AtClient &at);
 
 public:
+	static GsmClient & getInstance();
+
 	/**
 	 * States the PIN can be in.
 	 */
@@ -28,12 +37,6 @@ public:
 		PH_SIM_PIN,//!< PH_SIM_PIN
 		PH_SIM_PUK,//!< PH_SIM_PUK
 	};
-
-	/**
-	 * Create a new object.
-	 * @param at the AtClient used for communication.
-	 */
-	explicit GsmClient(AtClient &at);
 
 	/**
 	 * Set pin code.

@@ -9,6 +9,16 @@
 #include "Bearer.h"
 #include "Debug.h"
 #include "TaskBase.h"
+#include "AtClient.h"
+
+GsmClient *GsmClient::instance = nullptr;
+
+GsmClient & GsmClient::getInstance(){
+	if(instance == nullptr){
+		instance = new GsmClient(AtClient::getInstance());
+	}
+	return *instance;
+}
 
 GsmClient::GsmClient(AtClient &at):
 Bearer(at,2,"CMNET","GPRS")

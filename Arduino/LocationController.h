@@ -8,16 +8,50 @@
 #ifndef LOCATIONCONTROLLER_H_
 #define LOCATIONCONTROLLER_H_
 
+#include <Arduino.h>
 #include "TaskBase.h"
 #include "PmtkClient.h"
+#include "ArrayList.h"
+#include "GsmClient.h"
+#include "Timer.h"
+#include "Flag.h"
 
-class LocationController : public TaskBase{
+class LocationListener{
+public:
+	virtual ~LocationListener(){};
+	virtual void onLocationFound(float latitude, float longitude) = 0;
+};
+
+class LocationController : public TaskBase, public TimerListener{
 private:
-	PmtkClient pmtk;
+	static LocationController * instance;
+	enum State{
+		USE_NONE,
+		USE_GPRS,
+		USE_GPS,
+	};
+
+	PmtkClient &pmtk;
+	GsmClient &gsm;
+	ArrayList<LocationListener*> locationListeners;
+	State state;
+	Timer gpsPollTimer;
+	Flag locationFlag;
+	float latitude;
+	float longitude;
+
+	LocationController();
 
 public:
-	explicit LocationController(int priority);
+	static LocationController & getInstance();
+
 	void run() override;
+	void onTimeout(Timer &timer) override;
+
+	float getLatitude();
+	float getLongitude();
+
+	void addLocationListener(LocationListener &locationListener);
 
 };
 

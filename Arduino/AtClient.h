@@ -17,19 +17,15 @@
  * The serial life cycle is managed by this class and should not be used by any other instances.
  */
 class AtClient{
+
 private:
+	static AtClient *instance;
 	static String voidBuffer;
-	static const int bufferSize = 4096;
+	static const int bufferSize = 1024;
 
 	HardwareSerial &serial;
 	int timeout;
 	Mutex mutex;
-
-public:
-	/** Command returned valid. **/
-	static const String AT_OK;
-	/** Command returned with an error. **/
-	static const String AT_ERROR;
 
 	/**
 	 * Create a new object.
@@ -39,6 +35,14 @@ public:
 	 * @param timeout the default timeout for AT commands.
 	 */
 	AtClient(HardwareSerial &serial, int baudrate, int timeout = 500);
+
+public:
+	static AtClient & getInstance();
+
+	/** Command returned valid. **/
+	static const String AT_OK;
+	/** Command returned with an error. **/
+	static const String AT_ERROR;
 
 	/**
 	 * Destroy the object.

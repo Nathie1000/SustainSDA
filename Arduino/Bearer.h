@@ -45,7 +45,10 @@ public:
 	 * @param apn the access point name.
 	 * @param contype the connection type.
 	 */
-	Bearer(AtClient &at, int id, const String &apn, const String &contype );
+	Bearer(AtClient &at, int id, const String &apn, const String &contype);
+
+	bool openDevice();
+	bool isDeviceOpen();
 
 	/**
 	 * Get the Bearer id.
