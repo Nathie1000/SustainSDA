@@ -28,6 +28,7 @@ public:
 	static float mean(const ArrayList<float> data, int sliceCount);
 
 	static void peakDetection(const ArrayList<float> &data, ArrayList<Algorithm::Peak> &peaks, int peakThreshold, int lowThreshold);
+	static void stepDetection(ArrayList<Algorithm::Peak> &peaks, uint16_t &stepCount);
 };
 
 #endif

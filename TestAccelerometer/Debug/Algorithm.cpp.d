@@ -1,6 +1,6 @@
-C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp.o: \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
+C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp.o: \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/WProgram.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/avr/pgmspace.h \
@@ -37,5 +37,5 @@ C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algor
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/elapsedMillis.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/IntervalTimer.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ArrayList.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\List.h
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ArrayList.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\List.h

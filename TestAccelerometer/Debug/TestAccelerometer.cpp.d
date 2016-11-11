@@ -1,5 +1,5 @@
-C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TestAccelerometer.cpp.o: \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TestAccelerometer.cpp \
+C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TestAccelerometer.cpp.o: \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TestAccelerometer.cpp \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/WProgram.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/avr/pgmspace.h \
@@ -36,16 +36,16 @@ C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TestA
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/elapsedMillis.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/IntervalTimer.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ArrayList.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\List.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\BMP280.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\DefineAddress.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ReadWriteByte.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ArrayList.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\List.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\BMP280.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\DefineAddress.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ReadWriteByte.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3/i2c_t3.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/DMAChannel.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\SENtral.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EM7180.h \
- C:\Program\ Files\ (x86)\Microsoft\ Visual\ Studio\ 14.0\Common7\IDE\Extensions\4uifmuis.v4d\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\SENtral.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EM7180.h \
+ C:\Program\ Files\ (x86)\Microsoft\ Visual\ Studio\ 14.0\Common7\IDE\Extensions\vuis00i5.axt\Micro\ Platforms\default\debuggers\VM_DBG/VM_DBG.h

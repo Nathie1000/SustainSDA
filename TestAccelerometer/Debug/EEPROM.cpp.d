@@ -1,6 +1,6 @@
-C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.cpp.o: \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.cpp \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\eeprom.h \
+C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.cpp.o: \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPROM.cpp \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\eeprom.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/WProgram.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/avr/pgmspace.h \
@@ -37,8 +37,8 @@ C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\EEPRO
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/elapsedMillis.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/IntervalTimer.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ReadWriteByte.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\ReadWriteByte.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3/i2c_t3.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/DMAChannel.h \
- C:\Users\Bianca\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\DefineAddress.h
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\DefineAddress.h

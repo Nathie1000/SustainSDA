@@ -106,6 +106,7 @@ float Algorithm::mean(const ArrayList<float> data, int sliceCount) {
 
 void Algorithm::peakDetection(const ArrayList<float> &data, ArrayList<Algorithm::Peak> &peaks, int peakThreshold, int lowThreshold) {
 	for (int i = 1; i < data.getSize() - 1; i++) {
+		//detect a peak above the given threshold
 		if (data[i - 1] <= data[i] && data[i + 1] <= data[i] && data[i] > peakThreshold) {
 			Peak p;
 			p.position = i;
@@ -126,34 +127,46 @@ void Algorithm::peakDetection(const ArrayList<float> &data, ArrayList<Algorithm:
 		}
 	}
 
-	for(int i = 0; i < peaks.getSize(); i++) {
-		Serial.println(peaks[i].peak);
-	}
+	//for(int i = 0; i < peaks.getSize(); i++) {
+	//	Serial.println(peaks[i].peak);
+	//}
+	////Fuse nearby peaks together.
+	//for(int i = 0; i < peaks.getSize(); i++) {
+	//	if(peaks[i].peak == 1){
+	//		int highestPeak = data[peaks[i].position];
+	//		float higestPeakPosition = peaks[i].position;
+	//		//Look 5 peaks into the future.
+	//		for(int j = 0; j <5; j++){
+	//			if(peaks[i+j].peak == 1){
+	//				peaks[i+j].peak = 0;
+	//				if(data[peaks[i+j].position] > highestPeak){
+	//					highestPeak = data[peaks[i+j].position];
+	//					higestPeakPosition = i + j;
+	//				}
+	//			}
+	//		}
+	//		//Amount of steps in the future - 1, cuz the loop does +1 on its own.
+	//		i += 4;
+	//		peaks[higestPeakPosition].peak = 1;
+	//	}
+	//}
+	//Serial.println("-------------------------------------------");
+	//for(int i = 0; i < peaks.getSize(); i++) {
+	//		Serial.println(peaks[i].peak);
+	//	}
+}
 
-	//Fuse nearby peaks together.
-	for(int i = 0; i < peaks.getSize(); i++) {
-		if(peaks[i].peak == 1){
-			int highestPeak = data[peaks[i].position];
-			float higestPeakPosition = peaks[i].position;
-			//Look 5 peaks into the future.
-			for(int j = 0; j <5; j++){
-				if(peaks[i+j].peak == 1){
-					peaks[i+j].peak = 0;
-					if(data[peaks[i+j].position] > highestPeak){
-						highestPeak = data[peaks[i+j].position];
-						higestPeakPosition = i + j;
-					}
+//When a high peak is detected, look voor a low peak. When this occured a step is been set. 
+//continu to look voor a high peak again.
+void Algorithm::stepDetection(ArrayList<Algorithm::Peak>& peaks, uint16_t & stepCount){
+	for (int i = 0; i < peaks.getSize(); i++) {
+		if (peaks[i].peak == 1) {
+			for (i; i < peaks.getSize(); i++) {
+				if (peaks[i].peak == -1) {
+					stepCount++;
+					break;
 				}
 			}
-			//Amount of steps in the future - 1, cuz the loop does +1 on its own.
-			i += 4;
-			peaks[higestPeakPosition].peak = 1;
 		}
 	}
-	Serial.println("-------------------------------------------");
-
-	for(int i = 0; i < peaks.getSize(); i++) {
-			Serial.println(peaks[i].peak);
-		}
-
 }
