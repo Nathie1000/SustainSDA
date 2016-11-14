@@ -8,6 +8,7 @@
 #include "CommunicationControler.h"
 #include "LocationController.h"
 #include "WatchDog.h"
+#include "DateTimeControler.h"
 
 #include "ArrayList.h"
 #include "SustainWork.h"
@@ -41,6 +42,7 @@ void setup(){
 
 	ComTest t;
 
+	//DateTimeControler::getInstance();
 	WatchDog::getInstance().start(6000);
 
 	//WatchDog *watchdog = new WatchDog(6000); //Priority 4

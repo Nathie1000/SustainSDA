@@ -6,10 +6,13 @@
  */
 
 #include "GsmClient.h"
+#include <Arduino.h>
 #include "Bearer.h"
 #include "Debug.h"
 #include "TaskBase.h"
 #include "AtClient.h"
+#include "ArrayList.h"
+#include "PollControler.h"
 
 GsmClient *GsmClient::instance = nullptr;
 
@@ -21,9 +24,10 @@ GsmClient & GsmClient::getInstance(){
 }
 
 GsmClient::GsmClient(AtClient &at):
-Bearer(at,2,"CMNET","GPRS")
+Bearer(at,2,"CMNET","GPRS"),
+lastPollTime(0)
 {
-
+	PollControler::getInstance().addSensor(*this);
 }
 
 bool GsmClient::setPinCode(const String &pin){
@@ -89,7 +93,6 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 			rsp = rsp.remove(0, rsp.indexOf(',')+1);
 			//Get time
 			time = rsp;
-			//
 			rtn = true;
 		}
 	}
@@ -102,4 +105,24 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 
 bool GsmClient::sendSms(const String &number, const String text){
 	return at.execute("AT+CMGF=1") && at.execute("AT+CMGS="+number+"\r\n"+text+"\032");
+}
+
+void GsmClient::addGsmListener(GsmListener &gsmListener){
+	gsmListeners.add(&gsmListener);
+}
+
+void GsmClient::update(){
+	int nowTime = millis();
+	if(nowTime - lastPollTime >= 3000){
+		lastPollTime = nowTime;
+		if(isDeviceOpen()){
+			float latitude, longitude;
+			String date, time;
+			if(getLocationAndTime(latitude, longitude, date, time)){
+				for(GsmListener *gsmListener : gsmListeners){
+					gsmListener->onLocationAndDateTimeFound(latitude, longitude, date, time);
+				}
+			}
+		}
+	}
 }

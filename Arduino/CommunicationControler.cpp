@@ -131,7 +131,7 @@ void CommunicationControler::sendInternet(){
 
 void CommunicationControler::run(){
 	PRINTLN("-----------------Communication Task Start-----------");
-	if(http.openDevice()){
+	if(http.isDeviceOpen() || http.openDevice()){
 		//Set the pin code if needed.
 		if(gsm.getPinState() == GsmClient::SIM_PIN){
 			PRINTLN("PIN required, setting pin code '0000'.")
@@ -153,8 +153,6 @@ void CommunicationControler::run(){
 		PRINTLN("No AT device found, Communication Task suspend.");
 		suspend();
 	}
-
-	PRINTLN("IS this working????");
 
 	while(true){
 		const Waitable *w = wait(smsQueue | sendQueue);

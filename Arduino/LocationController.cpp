@@ -7,6 +7,7 @@
 
 #include "LocationController.h"
 #include <Arduino.h>
+#include <TimeLib.h>
 #include "PmtkClient.h"
 #include "TaskBase.h"
 #include "GsmClient.h"
@@ -25,12 +26,10 @@ LocationController::LocationController():
 TaskBase(3, "Location Task"),
 pmtk(PmtkClient::getInstance()),
 gsm(GsmClient::getInstance()),
-state(State::USE_NONE),
-gpsPollTimer(3000),
 latitude(0.0),
 longitude(0.0)
 {
-	gpsPollTimer.addTimerListener(*this);
+
 }
 
 void LocationController::run(){
@@ -40,47 +39,47 @@ void LocationController::run(){
 	if(false){
 		//If not open it.
 		if(false){
-			state = State::USE_GPS;
 		}
 	}
 	//The GPRS is is a lesser alternative option.
-	//Test if device is already connected.
-	else if(!gsm.isDeviceOpen()){
-		//If not open it.
-		if(gsm.openDevice()){
-			state = State::USE_GPRS;
-			gpsPollTimer.start();
-		}
+	//Test if device is already connected and try to connect if not.
+	else if(gsm.isDeviceOpen() || gsm.openDevice()){
+		gsm.addGsmListener(*this);
 	}
-
-	//See if we have a device ready to use.
-	if(state == State::USE_NONE){
-		PRINTLN("No AT or PMTK device found, task suspended.");
+	//No device found.
+	else{
+		PRINTLN("No AT or PMTK device found, Location Task suspended.");
 		suspend(); //Task will end here.
 	}
 
 	while(true){
-		locationFlag.wait();
-		if(state == State::USE_GPRS){
-			//We ignore the date and time;
-			String date, time;
-			if(gsm.getLocationAndTime(longitude, latitude, date, time)){
-				for(LocationListener *locationListener : locationListeners){
-					locationListener->onLocationFound(latitude, longitude);
-				}
-			}
-		}
-		if(state == State::USE_GPS){
-			//XXX Properly not useful.
-			for(LocationListener *locationListener : locationListeners){
-				locationListener->onLocationFound(latitude, longitude);
-			}
+		flag.wait();
+		for(LocationListener *locationListener : locationListeners){
+			locationListener->onLocationFound(latitude, longitude);
 		}
 	}
 }
 
-void LocationController::onTimeout(Timer &timer){
-	locationFlag.set();
+void LocationController::onLocationAndDateTimeFound(float latitude, float longitude, const String &date , const String &time){
+	//Parse date and time.
+	String lDate, lTime;
+	int hour = lTime.substring(0, lTime.indexOf(':')).toInt();
+	lTime.remove(0, lTime.indexOf(':'));
+	int min = lTime.substring(0, lTime.indexOf(':')).toInt();
+	lTime.remove(0, time.indexOf(':'));
+	int sec = lTime.substring(0, lTime.indexOf(':')).toInt();
+
+	int year = lDate.substring(0, lDate.indexOf('/')).toInt();
+	lDate.remove(0, lDate.indexOf('/'));
+	int month = lDate.substring(0, lDate.indexOf('/')).toInt();
+	lDate.remove(0, time.indexOf('/'));
+	int day = lDate.substring(0, lDate.indexOf('/')).toInt();
+
+	setTime(hour, min, sec, day, month, year);
+	this->latitude = latitude;
+	this->longitude = longitude;
+
+	flag.set();
 }
 
 float LocationController::getLatitude(){
@@ -91,7 +90,30 @@ float LocationController::getLongitude(){
 	return longitude;
 }
 
+int LocationController::getSeconds(){
+	return second();
+}
+
+int LocationController::getMinuts(){
+	return minute();
+}
+
+int LocationController::getHours(){
+	return hour();
+}
+
+int LocationController::getDay(){
+	return day();
+}
+
+int LocationController::getMonth(){
+	return month();
+}
+
+int LocationController::getYear(){
+	return year();
+}
+
 void LocationController::addLocationListener(LocationListener &locationListener){
 	locationListeners.add(&locationListener);
 }
-

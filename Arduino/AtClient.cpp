@@ -43,7 +43,7 @@ bool AtClient::isConnected(){
 }
 
 bool AtClient::reset(){
-	return (execute("ATZ"));
+	return execute("ATZ");
 }
 
 void AtClient::setTimeout(int timeout){
