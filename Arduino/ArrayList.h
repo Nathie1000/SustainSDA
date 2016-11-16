@@ -170,6 +170,16 @@ public:
 	}
 
 	/**
+	 * Remove all elements in list freeing all memory.
+	 */
+	void clear() override{
+		index = 0;
+		size = 1;
+		delete[] array;
+		array = new T[size];
+	}
+
+	/**
 	 * Convert the list to a C-type array. The array has the same length as the list.
 	 * The array is a direct pointer to the inner array of the list and can be used for quick access.
 	 * The list does not track any changes made to this array.

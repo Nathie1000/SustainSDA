@@ -65,6 +65,11 @@ public:
 	virtual T get(int index) const = 0;
 
 	/**
+	 * Prototype function to remove all items in list.
+	 */
+	virtual void clear();
+
+	/**
 	 * Prototype function to convert the list to a C-type array.
 	 * @return a C-type array made from the list.
 	 */
