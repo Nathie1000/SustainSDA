@@ -1,20 +1,18 @@
-#include "utility/TestTask.h"
 #include "SustainWork.h"
 
 class ComTest : public CommunicationListener, public LocationListener, public MotionListener{
 public:
 	ComTest(){
-		CommunicationControler::getInstance().sendPostRequest("http://google.nl", "hallo wrold", this);
+		CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "hallo world", this);
 		//CommunicationControler::getInstance().get("http://google.nl", this);
-		CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
+		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
 		LocationController::getInstance().addLocationListener(*this);
 		MotionControler::getInstance().addMotionListener(*this);
-
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
-		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + "message: " + response);
+		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + " message: " + response);
 	}
 
 	void onLocationFound(float latitude, float longitude) override{
@@ -24,7 +22,6 @@ public:
 	void onMotion(const MotionSensorListener::Motion &newMotion){
 		PRINTLN(String("Motion: ") +newMotion.ax + ", " +newMotion.ay + ", " + newMotion.az);
 	}
-
 };
 
 //Rules:

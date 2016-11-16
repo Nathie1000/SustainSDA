@@ -67,7 +67,7 @@ public:
 	/**
 	 * Prototype function to remove all items in list.
 	 */
-	virtual void clear();
+	virtual void clear() = 0;
 
 	/**
 	 * Prototype function to convert the list to a C-type array.
