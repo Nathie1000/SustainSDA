@@ -1,11 +1,5 @@
-#include "TestTask.h"
-#include "Debug.h"
-
-#include "CommunicationControler.h"
-#include "LocationController.h"
-#include "MotionControler.h"
-#include "WatchDog.h"
-#include "ArrayList.h"
+#include "utility/TestTask.h"
+#include "SustainWork.h"
 
 class ComTest : public CommunicationListener, public LocationListener, public MotionListener{
 public:
