@@ -47,9 +47,9 @@ void TestTask::run(){
 	PRINTLN(getPriority())
 	while(true){
 		if(getPriority() == 1){
-			digitalWrite(13, LOW);
+			//digitalWrite(13, LOW);
 			sleep(500);
-			digitalWrite(13, HIGH);
+			//digitalWrite(13, HIGH);
 			sleep(500);
 		}
 
@@ -66,6 +66,11 @@ void TestTask::run(){
 			}
 			sleep(1000);
 		}
+		else{
+			sleep(10000);
+		}
+
+
 	}
 }
 

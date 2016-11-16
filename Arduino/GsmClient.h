@@ -9,25 +9,14 @@
 #define GSMCLIENT_H_
 
 #include "Bearer.h"
-#include "ArrayList.h"
-#include "Sensor.h"
-
-class GsmListener{
-public:
-	virtual ~GsmListener(){}
-	virtual void onLocationAndDateTimeFound(float latitude, float longitude, const String &date , const String &time) = 0;
-};
-
 
 /**
  * @class GsmClient
  * Class used for GSM communication.
  */
-class GsmClient : public Bearer, public Sensor{
+class GsmClient : public Bearer{
 private:
 	static GsmClient * instance;
-	ArrayList<GsmListener*> gsmListeners;
-	int lastPollTime;
 
 	/**
 	 * Create a new object.
@@ -82,11 +71,6 @@ public:
 	bool getLocationAndTime(float &latitude, float &longitude, String &date, String &time);
 
 	bool sendSms(const String &number, const String text);
-
-	void addGsmListener(GsmListener &gsmListener);
-
-	void update() override;
-
 };
 
 #endif /* GSMCLIENT_H_ */

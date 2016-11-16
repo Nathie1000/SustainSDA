@@ -32,7 +32,7 @@ public:
 	explicit Queue(int length):
 		queue(NULL)
 	{
-		queue = xQueueCreate(length, sizeof(T) );
+		queue = xQueueCreate(length, sizeof(T));
 		if(queue == NULL){
 			PRINTLN("Error creating Queue.")
 		}
@@ -66,11 +66,12 @@ public:
 	 * @return The first time in the Queue.
 	 */
 	T pop(){
-		T* recv = (T*) new char[sizeof(T)];
-		if(xQueueReceive(queue, recv, portMAX_DELAY) != pdPASS){
+		//T* recv = (T*) new char[sizeof(T)];
+		char buffer[sizeof(T)];
+		if(xQueueReceive(queue, buffer, portMAX_DELAY) != pdPASS){
 			PRINTLN("Error reading Queue.");
 		}
-		return *recv;
+		return *reinterpret_cast<T*>((void*)buffer);
 	}
 
 	/**

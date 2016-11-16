@@ -14,6 +14,7 @@
 #include "ArrayList.h"
 #include "GsmClient.h"
 #include "Flag.h"
+#include "Timer.h"
 
 class LocationListener{
 public:
@@ -21,9 +22,14 @@ public:
 	virtual void onLocationFound(float latitude, float longitude) = 0;
 };
 
-class LocationController : public TaskBase, public GsmListener{
+class LocationController : public TaskBase, public TimerListener{
 private:
 	static LocationController * instance;
+	enum State{
+		USE_NONE,
+		USE_GPS,
+		USE_GSM
+	};
 
 	PmtkClient &pmtk;
 	GsmClient &gsm;
@@ -31,6 +37,7 @@ private:
 	Flag flag;
 	float latitude;
 	float longitude;
+	Timer timer;
 
 	LocationController();
 
@@ -38,7 +45,7 @@ public:
 	static LocationController & getInstance();
 
 	void run() override;
-	void onLocationAndDateTimeFound(float latitude, float longitude, const String &date , const String &time);
+	void onTimeout(Timer & timer) override;
 
 	float getLatitude();
 	float getLongitude();
