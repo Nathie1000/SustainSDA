@@ -75,6 +75,10 @@ private:
     CommunicationControler();
 
 public:
+    /**
+     * Get the CommunicationControler instance.
+     * @return A reference to the CommunicationControler that can be used.
+     */
     static CommunicationControler & getInstance();
 
 	/**
@@ -82,9 +86,28 @@ public:
 	 */
 	void run() override;
 
+	/**
+	 * Enable encryption. All messages already in queue will be encrypted before sending.
+	 * The plain text will first be encrypted use a 128 bit AES key. After that the binary data
+	 * will be encoded as a Base64 String and send to the server as a plain text.
+	 * The response from the server is also expected to be encrypted and encodes in the same way in the same way.
+	 * Note: encryption will only be applied to the body of the HTTP request.
+	 * @param key the encryption key.
+	 */
 	void enableEncryption(const String& key);
+
+	/**
+	 * Disable encryption. All messages already in queue will no longer be encrypted before sending.
+	 * The response from the server is also expected to have no encryption.
+	 */
 	void disableEncryption();
 
+	/**
+	 * Send a POST request to a remote server.
+	 * @param url the server URL or address. May contain parameters. Will not be encrypted.
+	 * @param data the body to send to the server. Will be encrypted if encryption is enabled.
+	 * @param callback the callback object to deliver the server response to.
+	 */
 	long long sendPostRequest(const String &url, const String& data, CommunicationListener *callback = nullptr);
 	long long sendGetRequest(const String &url, CommunicationListener *callback = nullptr);
 
