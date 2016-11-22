@@ -1,5 +1,6 @@
-C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp.o: \
- C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp \
+C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TemplateMatching.cpp.o: \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TemplateMatching.cpp \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TemplateMatching.h \
  C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/WProgram.h \

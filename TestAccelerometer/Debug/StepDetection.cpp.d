@@ -1,7 +1,11 @@
-C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp.o: \
- C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.cpp \
- C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
+C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\StepDetection.cpp.o: \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\StepDetection.cpp \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\StepDetection.h \
+ C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/SustainWork.h \
+ C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/ArrayList.h \
+ C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/List.h \
+ C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/Debug.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/WProgram.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/avr/pgmspace.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/avr/interrupt.h \
@@ -37,11 +41,6 @@ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algori
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/elapsedMillis.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/IntervalTimer.h \
- C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/SustainWork.h \
- C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/ArrayList.h \
- C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/List.h \
- C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/Debug.h \
- C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/Arduino.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/CommunicationControler.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/TaskBase.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/ArrayList.h \
@@ -82,6 +81,7 @@ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algori
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/MotionSensorClient.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/Sensor.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/BMP280.h \
+ C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/arduino.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/DefineAddress.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/ReadWriteByte.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/SENtral.h \
@@ -89,4 +89,6 @@ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algori
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3/i2c_t3.h \
  C:\Program\ Files\ (x86)\Arduino\hardware\teensy\avr\cores\teensy3/DMAChannel.h \
  C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/Eeprom.h \
- C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/WatchDog.h
+ C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork/utility/WatchDog.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\Algorithm.h \
+ C:\Users\bianc\AppData\Local\Temp\VMicroBuilds\TestAccelerometer\teensy31\TemplateMatching.h

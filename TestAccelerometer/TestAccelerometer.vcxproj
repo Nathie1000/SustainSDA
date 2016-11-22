@@ -47,7 +47,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries;C:\Users\bianc\OneDrive\Documenten\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\util;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\utils;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy/../tools/arm/bin/..\arm-none-eabi\include;C:\Users\bianc\Source\Repos\SustainSDA\TestAccelerometer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork;C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\FreeRTOS_ARM\src;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\i2c_t3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries\Time;C:\Users\bianc\OneDrive\Documenten\Arduino\libraries\SustainWork\utility;C:\Program Files (x86)\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\libraries;C:\Users\bianc\OneDrive\Documenten\Arduino\libraries;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\util;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\utils;C:\Program Files (x86)\Arduino\hardware\teensy\avr\cores\teensy3\avr;C:\Program Files (x86)\Arduino\hardware\teensy/../tools/arm/bin/..\arm-none-eabi\include;C:\Users\bianc\Source\Repos\SustainSDA\TestAccelerometer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>C:\Users\bianc\Source\Repos\SustainSDA\TestAccelerometer\__vm\.TestAccelerometer.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__HARDWARE_MK20dx256__;__HARDWARE_MK20DX256__;_VMDEBUG=1;__MK20DX256__;TEENSYDUINO=131;ARDUINO=10609;F_CPU=96000000;USB_SERIAL;LAYOUT_US_ENGLISH;__cplusplus=201103L;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -82,40 +82,14 @@
     <ClInclude Include="Algorithm.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="ArrayList.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="BMP280.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="DefineAddress.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="EEPROM.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="EM7180.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="Header.h" />
-    <ClInclude Include="List.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="ReadWriteByte.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="SENtral.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
+    <ClInclude Include="StepDetection.h" />
+    <ClInclude Include="TemplateMatching.h" />
     <ClInclude Include="__vm\.TestAccelerometer.vsarduino.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp" />
-    <ClCompile Include="BMP280.cpp" />
-    <ClCompile Include="EEPROM.cpp" />
-    <ClCompile Include="EM7180.cpp" />
-    <ClCompile Include="ReadWriteByte.cpp" />
-    <ClCompile Include="SENtral.cpp" />
+    <ClCompile Include="StepDetection.cpp" />
+    <ClCompile Include="TemplateMatching.cpp" />
   </ItemGroup>
   <PropertyGroup>
     <DebuggerFlavor>VisualMicroDebugger</DebuggerFlavor>
