@@ -7,6 +7,7 @@ class StepDetection: public MotionListener {
     ArrayList<float> inputArray;
     ArrayList<float> outputArray;
 	ArrayList<float> ax, ay, az;
+	ArrayList<float> mag;
 
     StepDetection();
     void onMotion(const MotionSensorListener::Motion &newMotion);

@@ -4,8 +4,7 @@
 void setup() {
   DEBUG_BEGIN(9600);
   new StepDetection();
-	TaskBase::startAllTasks();
-
+  TaskBase::startAllTasks();
 }
 
 void loop() {

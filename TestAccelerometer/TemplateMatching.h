@@ -4,14 +4,24 @@
 #include "Algorithm.h"
 
 class TemplateMatching {
-	static const float templateAx[];
-	static const float templateAy[];
-	static const float templateAz[];
+private:
+
+	static const float templateWalking[];
+	static const float templateFastWalking[];
+	static const float templateCvaWalking[];
+
 public:
 
-	static float match(const ArrayList<float> &in, const float compareTemplate[], int templateSize);
+	enum class Movement{
+		WALKING,
+		FAST_WALKING,
+		CVA_WAKLING
+	};
+
+
+	static float match(const ArrayList<float> &in, const float compareTemplate[], int templateSize, float maxDeviation);
 	static void scale(const ArrayList<float> &in, ArrayList<float> &out, int newSize);
-	static float matchTemplate(ArrayList<float> ax, ArrayList<float> ay, ArrayList<float> az);
+	static float matchTemplate(const ArrayList<float> vector, Movement movent);
 
 };
 #endif // _TEMPLATEMATCHING_
