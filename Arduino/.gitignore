@@ -1,2 +1,6 @@
 /html
 /Release
+/core
+.ino.cpp
+
+

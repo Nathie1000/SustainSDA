@@ -36,5 +36,20 @@
 			<type>2</type>
 			<location>C:/Program Files (x86)/Arduino/hardware/teensy/avr/cores/teensy3</location>
 		</link>
+		<link>
+			<name>libraries/FreeRTOS_ARM</name>
+			<type>2</type>
+			<location>C:/Users/Nathan/Documents/Arduino/libraries/FreeRTOS_ARM</location>
+		</link>
+		<link>
+			<name>libraries/SPI</name>
+			<type>2</type>
+			<location>C:/Program Files (x86)/Arduino/hardware/teensy/avr/libraries/SPI</location>
+		</link>
+		<link>
+			<name>libraries/i2c_t3</name>
+			<type>2</type>
+			<location>C:/Program Files (x86)/Arduino/hardware/teensy/avr/libraries/i2c_t3</location>
+		</link>
 	</linkedResources>
 </projectDescription>
