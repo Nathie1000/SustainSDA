@@ -19,6 +19,7 @@
 #include "Eeprom.h"
 #include "ReadWriteByte.h"
 
+/// \cond
 uint16_t EM7180_mag_fs, EM7180_acc_fs, EM7180_gyro_fs; // EM7180 sensor full scale ranges
 float gyroBias[3] = { 0, 0, 0 }, accelBias[3] = { 0, 0, 0 }, magBias[3] = { 0, 0, 0 }, magScale[3] = { 0, 0, 0 };  // Bias corrections for gyro, accelerometer, mag
 float accelX, accelY, accelZ, gyroX, gyroY, gyroZ, magX, magY, magZ; // variables to hold latest sensor data values
@@ -30,7 +31,7 @@ int16_t accelCount[3] = { 0, 0, 0 };  // Stores the 16-bit signed accelerometer 
 int16_t gyroCount[3] = { 0, 0, 0 };   // Stores the 16-bit signed gyro sensor output
 int16_t magCount[3] = { 0, 0, 0 };    // Stores the 16-bit signed magnetometer sensor output
 float Quat[4] = { 0, 0, 0, 0 }; // quaternion data register
-
+/// \endcond
 
 MotionSensorClient::MotionSensorClient(int groundPin, int volt3V3Pin, i2c_pins ic2Pins):
 lastPollTime(0),

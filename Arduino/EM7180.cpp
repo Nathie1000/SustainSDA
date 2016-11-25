@@ -1,19 +1,11 @@
-// 
-// 
-// 
-
+/**
+ * @file EM7180.cpp
+ *
+ */
 #include "EM7180.h"
 #include "ReadWriteByte.h"
 #include "DefineAddress.h"
 #include "Debug.h"
-
-EM7180::EM7180() {
-
-}
-
-EM7180::~EM7180() {
-
-}
 
 //Sensors that are detected by the EM7180
 void EM7180::SensorsDetected() {
@@ -133,7 +125,7 @@ void EM7180::EM7180Status() {
 
 	uint8_t runStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_RunStatus);
 	if (runStatus & 0x01) {
-		Serial.println("EM7180 run status = normal mode");
+		//PRINTLN("EM7180 run status = normal mode");
 	}
 
 	uint8_t algorithmStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_AlgorithmStatus);
@@ -147,7 +139,7 @@ void EM7180::EM7180Status() {
 	}
 
 	uint8_t passThruStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_PassThruStatus);
-	if (passThruStatus & 0x01) Serial.print(" EM7180 in passthru mode!");
+	if (passThruStatus & 0x01) PRINTLN(" EM7180 in passthru mode!");
 
 	uint8_t eventStatus = ReadWriteByte::readByte(EM7180_ADDRESS, EM7180_EventStatus);
 	switch (eventStatus) {

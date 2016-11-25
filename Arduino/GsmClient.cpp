@@ -1,8 +1,8 @@
-/*
- * GsmClient.cpp
+/**
+ * @file GsmClient.cpp
  *
- *  Created on: 26 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 26 okt. 2016
  */
 
 #include "GsmClient.h"

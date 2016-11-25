@@ -1,8 +1,8 @@
-/*
- * HttpClient.cpp
+/**
+ * @file HttpClient.cpp
  *
- *  Created on: 20 sep. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 20 sep. 2016
  */
 
 #include "HttpClient.h"

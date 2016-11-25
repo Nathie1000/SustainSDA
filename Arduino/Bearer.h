@@ -47,7 +47,18 @@ public:
 	 */
 	Bearer(AtClient &at, int id, const String &apn, const String &contype);
 
+	/**
+	 * Open connection to device. This is no a bearer connection just the communication
+	 * between microcontroller and the bearer device.
+	 * @return True if device is successfully connected, false if not.
+	 */
 	bool openDevice();
+
+	/**
+	 * Check if connection to device is still open. This is no a bearer connection just the communication
+	 * between microcontroller and the bearer device.
+	 * @return True if device is still connected, false if not.
+	 */
 	bool isDeviceOpen();
 
 	/**

@@ -36,8 +36,17 @@ private:
 	WatchDog();
 
 public:
+	/**
+	 * Get the WatchDog instance.
+	 * @return A reference to the MotionControler that can be used.
+	 */
 	static WatchDog & getInstance();
 
+	/**
+	 * Start the WatchDog with a fixed timeout.
+	 * Can be called again the cange the timeout.
+	 * @param timeout WatchDog timeout in ms. Set to 0 do disable.
+	 */
 	void start(int timeout);
 
 	/**

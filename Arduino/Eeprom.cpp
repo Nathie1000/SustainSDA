@@ -1,11 +1,12 @@
-// 
-// 
-// 
-
+/**
+ * @file Eeprom.cpp
+ *
+ */
 #include "Eeprom.h"
 #include "ReadWriteByte.h"
 #include "DefineAddress.h"
 
+/// \cond
 enum aScale {
 	afs_2g = 0,
 	afs_4g,
@@ -29,12 +30,7 @@ uint8_t gScale = gfs_250dps;
 uint8_t aScale = afs_2g;
 uint8_t mScale = mfs_16bits; // choose either 14-bit or 16-bit magnetometer resolution
 
-Eeprom::Eeprom() {
-}
-
-Eeprom::~Eeprom() {
-
-}
+/// \endcond
 
 bool Eeprom::initEEPROM() {
 	// check sentral status, make sure eeprom upload of firmware was accomplished

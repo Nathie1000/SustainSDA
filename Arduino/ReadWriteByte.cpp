@@ -1,6 +1,7 @@
-// 
-// 
-// 
+/**
+ * @file ReadWriteByte.cpp
+ *
+ */
 
 #include "ReadWriteByte.h"
 #include <Arduino.h>

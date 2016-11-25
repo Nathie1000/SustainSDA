@@ -8,18 +8,23 @@
 #ifndef SUSTAINWORK_H_
 #define SUSTAINWORK_H_
 
-//#include "utility/ArrayList.h"
-//#include "utility/Debug.h"
-//#include "utility/CommunicationControler.h"
-//#include "utility/LocationController.h"
-//#include "utility/MotionControler.h"
-//#include "utility/WatchDog.h"
+//Uncomment for library build, comment for development build.
+//#define SUSTIANWORK_LIB
 
-#include "ArrayList.h"
-#include "Debug.h"
-#include "CommunicationControler.h"
-#include "LocationController.h"
-#include "MotionControler.h"
-#include "WatchDog.h"
+#ifdef SUSTIANWORK_LIB
+	#include "utility/ArrayList.h"
+	#include "utility/Debug.h"
+	#include "utility/CommunicationControler.h"
+	#include "utility/LocationController.h"
+	#include "utility/MotionControler.h"
+	#include "utility/WatchDog.h"
+#else
+	#include "ArrayList.h"
+	#include "Debug.h"
+	#include "CommunicationControler.h"
+	#include "LocationController.h"
+	#include "MotionControler.h"
+	#include "WatchDog.h"
+#endif  // SUSTIANWORK_LIB
 
 #endif /* SUSTAINWORK_H_ */

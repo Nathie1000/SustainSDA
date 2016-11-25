@@ -1,18 +1,11 @@
-// 
-// 
-// 
+/**
+ * @file SENtral.cpp
+ *
+ */
 
 #include "SENtral.h"
 #include "ReadWriteByte.h"
 #include "DefineAddress.h"
-
-SENtral::SENtral() {
-
-}
-
-SENtral::~SENtral() {
-
-}
 
 // Read SENtral device information
 void SENtral::readSENtralDevices() {

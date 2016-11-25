@@ -22,6 +22,15 @@ LocationController & LocationController::getInstance(){
 	return *instance;
 }
 
+/**
+ * Helper function to server a a sync provider for the Teensy RTC.
+ * @return The elapsed time in ms.
+ */
+time_t getTeensy3Time()
+{
+  return Teensy3Clock.get();
+}
+
 LocationController::LocationController():
 TaskBase(3, "Location Task"),
 pmtk(PmtkClient::getInstance()),
@@ -30,7 +39,7 @@ latitude(0.0),
 longitude(0.0),
 timer(3000)
 {
-
+	setSyncProvider(getTeensy3Time);
 }
 
 void LocationController::run(){
@@ -104,7 +113,7 @@ int LocationController::getSeconds(){
 	return second();
 }
 
-int LocationController::getMinuts(){
+int LocationController::getMinutes(){
 	return minute();
 }
 

@@ -1,15 +1,10 @@
-// DefineAddress.h
-
+/**
+ * @file DefineAddress.h
+ *
+ */
 #ifndef _DEFINEADDRESS_h
 #define _DEFINEADDRESS_h
-
-#if defined(ARDUINO) && ARDUINO >= 100
-#include "arduino.h"
-#else
-#include "WProgram.h"
-#endif
-
-#define SerialDebug true  // set to true to get Serial output for debugging
+/// \cond
 
 // BMP280 registers
 #define BMP280_TEMP_XLSB  0xFC
@@ -254,6 +249,7 @@
 #define AK8963_ADDRESS           0x0C   // Address of magnetometer
 #define BMP280_ADDRESS 0x76 // Address of BMP280 altimeter when ADO = 0
 
+/// \endcond
 
-#endif
+#endif // _DEFINEADDRESS_h
 

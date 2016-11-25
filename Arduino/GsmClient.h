@@ -1,8 +1,8 @@
-/*
- * GsmClient.h
+/**
+ * @file GsmClient.h
  *
- *  Created on: 26 okt. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 26 okt. 2016
  */
 
 #ifndef GSMCLIENT_H_
@@ -25,6 +25,10 @@ private:
 	explicit GsmClient(AtClient &at);
 
 public:
+	/**
+	 * Get the GsmClient instance.
+	 * @return A reference to the GsmClient that can be used.
+	 */
 	static GsmClient & getInstance();
 
 	/**
@@ -70,6 +74,12 @@ public:
 	 */
 	bool getLocationAndTime(float &latitude, float &longitude, String &date, String &time);
 
+	/**
+	 * Send a SMS.
+	 * @param number the phone number to send the SMS to. Must be complete number include the country prefix.
+	 * e.g. +31654650997
+	 * @param text the SMS body.
+	 */
 	bool sendSms(const String &number, const String text);
 };
 

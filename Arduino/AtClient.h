@@ -13,7 +13,8 @@
 
 /**
  * @class AtClient
- * This class lets you communicate with an AT device over a serial port.
+ * @brief This class lets you communicate with an AT device over a serial port.
+ *
  * The serial life cycle is managed by this class and should not be used by any other instances.
  */
 class AtClient{
@@ -37,6 +38,10 @@ private:
 	AtClient(HardwareSerial &serial, int baudrate, int timeout = 500);
 
 public:
+	 /**
+	 * Get the AtClient instance.
+	 * @return A reference to the AtClient that can be used.
+	 */
 	static AtClient & getInstance();
 
 	/** Command returned valid. **/
@@ -60,6 +65,11 @@ public:
 	 */
 	bool connect();
 
+	/**
+	 * Test if the AtClient is connected. That is to say: test if the AT device is still
+	 * responsive the the AT command.
+	 * @return True if AT device is still connected, false if not.
+	 */
 	bool isConnected();
 
 	/**
@@ -122,7 +132,6 @@ public:
 	 * @return the response parsed as a String.
 	 */
 	String scan(int timeout);
-
 };
 
 #endif /* ATCLIENT_H_ */

@@ -1,8 +1,8 @@
-/*
- * HttpClient.h
+/**
+ * @file HttpClient.h
  *
- *  Created on: 20 sep. 2016
- *      Author: Nathan
+ * @author Nathan Schaaphuizen
+ * @date 20 sep. 2016
  */
 
 #ifndef HTTPCLIENT_H_
