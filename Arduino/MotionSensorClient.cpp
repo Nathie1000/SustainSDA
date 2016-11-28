@@ -109,17 +109,15 @@ void MotionSensorClient::update(){
 		//if no errors, see if new data is ready
 		if (eventStatus & 0x10) { // new acceleration data available
 			sentral.newData(accelCount, EM7180_AX, accelX, accelY, accelZ, 0.000488f);
-			/*if (accelX != oldX || accelY != oldY || accelZ != oldZ) {
-				oldX = accelX;
-				oldY = accelY;
-				oldZ = accelZ;
-			}*/
+			eeprom.readData(accelCount, ACCEL_XOUT_H);
 		}
 		if (eventStatus & 0x20) { // new gyro data available
 			sentral.newData(gyroCount, EM7180_GX, gyroX, gyroY, gyroZ, 0.153f);
+			eeprom.readData(gyroCount, GYRO_XOUT_H);
 		}
 		if (eventStatus & 0x08) { // new mag data available
 			sentral.newData(magCount, EM7180_MX, magX, magY, magZ, 0.305176f);
+			eeprom.readMagData(magCount);
 		}
 		if (eventStatus & 0x04) { // new quaternion data available
 			sentral.readSENtralQuatData(Quat);

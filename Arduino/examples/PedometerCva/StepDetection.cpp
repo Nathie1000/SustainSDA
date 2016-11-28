@@ -1,8 +1,38 @@
 #include "StepDetection.h"
 #include "TemplateMatching.h"
+#include <ArduinoJson.h>
+#include <Arduino.h>
+#include <SustainWork.h>
 
-StepDetection::StepDetection() {
-  MotionControler::getInstance().addMotionListener(*this);
+StepDetection::StepDetection():
+stepCount(0)
+{
+	lastTime = second();
+	MotionControler::getInstance().addMotionListener(*this);
+}
+
+bool StepDetection::isTimeToSend(int interval){
+	int now = second();
+	if(now - lastTime >= interval){
+		lastTime = now;
+		return true;
+	}
+	return false;
+}
+
+void StepDetection::sendSteps(){
+	StaticJsonBuffer<200> jsonBuffer;
+
+	JsonObject& root = jsonBuffer.createObject();
+	root["tel"] = "03461234567";
+	//"YYYY-MM-DDThh:mm:ssTZD"
+	root["time"] = "2016-07-21T05:23:00Z";
+	root["steps"] = stepCount;
+	String data;
+	root.printTo(data);
+
+	PRINTLN(data);
+	CommunicationControler::getInstance().sendPostRequest("", data);
 }
 
 void StepDetection::onMotion(const MotionSensorListener::Motion &newMotion) {
@@ -36,6 +66,12 @@ void StepDetection::onMotion(const MotionSensorListener::Motion &newMotion) {
 
 		stepPer = TemplateMatching::matchTemplate(mag, TemplateMatching::Movement::CVA_WAKLING);
 		PRINTLN(String("Cva Step: ") + stepPer);
+
+
+		if(isTimeToSend(60) || stepCount > 10){
+			sendSteps();
+			stepCount = 0;
+		}
 
 		mag.clear();
 		ax.clear();
