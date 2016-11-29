@@ -34,7 +34,7 @@ smsQueue(10),
 aes(nullptr),
 ip("0.0.0.0"),
 phoneNumber("0000000000"),
-ready(false)
+ready(true)
 {
 	pinMode(2, OUTPUT);
 	digitalWrite(2, LOW);
@@ -152,10 +152,11 @@ void CommunicationControler::run(){
 		if(http.isConnected()){
 			ip = http.getIp();
 		}
-		ready = true;
+
 	}
 	else{
 		PRINTLN("No AT device found, Communication Task suspend.");
+		ready = false;
 		suspend();
 	}
 

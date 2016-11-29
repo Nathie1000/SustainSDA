@@ -9,7 +9,7 @@ public:
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
 		LocationTimeController::getInstance().addLocationListener(*this);
-		MotionControler::getInstance().addMotionListener(*this);
+		//MotionControler::getInstance().addMotionListener(*this);
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
@@ -49,10 +49,10 @@ public:
 		double latitude    = root["data"][0];
 		double longitude   = root["data"][1];
 
-		PRINTLN(sensor)
-		PRINTLN(time)
-		PRINTLN(latitude)
-		PRINTLN(longitude);
+		//PRINTLN(sensor)
+		//PRINTLN(time)
+		//PRINTLN(latitude)
+		//PRINTLN(longitude);
 
 
 		JsonObject& root2 = jsonBuffer.createObject();
@@ -60,7 +60,7 @@ public:
 		root2["time"] = 1351824120;
 		root2["f"] = 23.0f;
 
-		root2.printTo(Serial);
+		//root2.printTo(Serial);
 
 		while(true){
 			sleep(1000);
