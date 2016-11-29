@@ -73,6 +73,7 @@ private:
 
 	Aes *aes;
 	String ip;
+	String phoneNumber;
 	bool ready;
 
 	void encrypt(String &message);
@@ -143,6 +144,13 @@ public:
 	 * @return The IP address as a String.
 	 */
 	String getIpAddress();
+
+	/**
+	 * Get the phone number associated with the SIM card.
+	 * Note: not all devices support this function.
+	 * @return the phone number as a String.
+	 */
+	String getPhoneNumber();
 };
 
 #endif /* COMMUNICATIONCONTROLER_H_ */

@@ -104,3 +104,13 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 bool GsmClient::sendSms(const String &number, const String text){
 	return at.execute("AT+CMGF=1") && at.execute("AT+CMGS="+number+"\r\n"+text+"\032");
 }
+
+bool GsmClient::getPhoneNumber(String &number){
+	String rsp;
+	if(at.execute("AT+CNUM", rsp)){
+		//TODO: parse this.
+		PRINTLN("N: " + rsp);
+		return true;
+	}
+	return false;
+}

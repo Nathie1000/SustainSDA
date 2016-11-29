@@ -22,7 +22,7 @@
 	#include "ArrayList.h"
 	#include "Debug.h"
 	#include "CommunicationControler.h"
-	#include "LocationController.h"
+	#include "LocationTimeController.h"
 	#include "MotionControler.h"
 	#include "WatchDog.h"
 #endif  // SUSTIANWORK_LIB

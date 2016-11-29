@@ -79,8 +79,16 @@ public:
 	 * @param number the phone number to send the SMS to. Must be complete number include the country prefix.
 	 * e.g. +31654650997
 	 * @param text the SMS body.
+	 * @return True if command executed successfully, otherwise false.
 	 */
 	bool sendSms(const String &number, const String text);
+
+	/**
+	 * Get the phone number associated with the SIM card.
+	 * @param number String that will be filled with the found phone number.
+	 * @return True if command executed successfully, otherwise false.
+	 */
+	bool getPhoneNumber(String &number);
 };
 
 #endif /* GSMCLIENT_H_ */

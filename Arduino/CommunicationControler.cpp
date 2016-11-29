@@ -14,7 +14,6 @@
 #include "Base64.h"
 #include <math.h>
 #include "Debug.h"
-#include "SustainWork.h"
 
 CommunicationControler* CommunicationControler::instance = nullptr;
 long long CommunicationControler::globalMessageCounter = 0;
@@ -34,6 +33,7 @@ sendQueue(20),
 smsQueue(10),
 aes(nullptr),
 ip("0.0.0.0"),
+phoneNumber("0000000000"),
 ready(false)
 {
 	pinMode(2, OUTPUT);
@@ -139,6 +139,11 @@ void CommunicationControler::run(){
 				PRINTLN("Failed to set PIN.");
 			}
 		}
+		//Get the phone number
+		if(gsm.getPhoneNumber(phoneNumber)){
+			PRINTLN("Failed to fetch phone number.")
+		}
+
 		//Try to connect to Internet a few times.
 		for(int i=0; i<5 && !http.connect(); i++){
 			sleep(1000);
@@ -205,9 +210,13 @@ void CommunicationControler::sendSms(const String &number, const String &text){
 	p.number = new String(number);
 	p.text = new String(text);
 	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
-	smsQueue.push(p);
+	if(ready)smsQueue.push(p);
 }
 
 String CommunicationControler::getIpAddress(){
 	return ip;
+}
+
+String  CommunicationControler::getPhoneNumber(){
+	return phoneNumber;
 }

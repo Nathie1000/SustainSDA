@@ -8,7 +8,7 @@ public:
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
-		LocationController::getInstance().addLocationListener(*this);
+		LocationTimeController::getInstance().addLocationListener(*this);
 		MotionControler::getInstance().addMotionListener(*this);
 	}
 

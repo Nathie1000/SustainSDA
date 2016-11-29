@@ -1,12 +1,12 @@
 /**
- * @file LocationController.h
+ * @file LocationTimeController
  *
  * @author Nathan Schaaphuizen
  * @date 1 nov. 2016
  */
 
-#ifndef LOCATIONCONTROLLER_H_
-#define LOCATIONCONTROLLER_H_
+#ifndef LOCATIONTIMECONTROLLER_H_
+#define LOCATIONTIMECONTROLLER_H_
 
 #include <Arduino.h>
 #include "TaskBase.h"
@@ -36,7 +36,7 @@ public:
 };
 
 /**
- * @class LocationController
+ * @class LocationTimeController
  * @brief Task that handles location tracking.
  *
  * This task will will automatically keep track of the current location and time, using the GPS if available.
@@ -44,9 +44,9 @@ public:
  * power intensive.
  * The time can is in UTC (GMT) time zone and does not compensate for daylight saving.
  */
-class LocationController : public TaskBase, public TimerListener{
+class LocationTimeController : public TaskBase, public TimerListener{
 private:
-	static LocationController * instance;
+	static LocationTimeController * instance;
 	enum State{
 		USE_NONE,
 		USE_GPS,
@@ -61,14 +61,14 @@ private:
 	float longitude;
 	Timer timer;
 
-	LocationController();
+	LocationTimeController();
 
 public:
 	 /**
 	 * Get the LocationController instance.
 	 * @return A reference to the LocationController that can be used.
 	 */
-	static LocationController & getInstance();
+	static LocationTimeController & getInstance();
 
 	/**
 	 * Implementation of the BaseTask interface.
@@ -136,4 +136,4 @@ public:
 	void addLocationListener(LocationListener &locationListener);
 };
 
-#endif /* LOCATIONCONTROLLER_H_ */
+#endif /* LOCATIONTIMECONTROLLER_H_ */

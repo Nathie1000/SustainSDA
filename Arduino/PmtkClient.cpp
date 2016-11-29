@@ -66,6 +66,7 @@ bool PmtkClient::execute(const String &cmd){
 	//Read the buffer.
 	//int read = serial.readBytes(buffer, length);
 
+	//TODO: implment this
 	String response = serial.readString();
 	PRINTLN(response);
 
