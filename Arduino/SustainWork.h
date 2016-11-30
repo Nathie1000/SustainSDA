@@ -15,14 +15,14 @@
 	#include "utility/ArrayList.h"
 	#include "utility/Debug.h"
 	#include "utility/CommunicationControler.h"
-	#include "utility/LocationController.h"
+	#include "utility/LocationTimeControler.h"
 	#include "utility/MotionControler.h"
 	#include "utility/WatchDog.h"
 #else
 	#include "ArrayList.h"
 	#include "Debug.h"
 	#include "CommunicationControler.h"
-	#include "LocationTimeController.h"
+	#include "LocationTimeControler.h"
 	#include "MotionControler.h"
 	#include "WatchDog.h"
 #endif  // SUSTIANWORK_LIB

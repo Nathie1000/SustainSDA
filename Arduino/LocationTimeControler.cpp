@@ -1,11 +1,11 @@
 /**
- * @file LocationTimeController.cpp
+ * @file LocationTimeControler.cpp
  *
  * @author Nathan Schaaphuizen
  * @date 1 nov. 2016
  */
 
-#include "LocationTimeController.h"
+#include "LocationTimeControler.h"
 
 #include <Arduino.h>
 #include <TimeLib.h>
@@ -14,11 +14,11 @@
 #include "GsmClient.h"
 #include "Debug.h"
 
-LocationTimeController *LocationTimeController::instance = nullptr;
+LocationTimeControler *LocationTimeControler::instance = nullptr;
 
-LocationTimeController & LocationTimeController::getInstance(){
+LocationTimeControler & LocationTimeControler::getInstance(){
 	if(instance == nullptr){
-		instance = new LocationTimeController();
+		instance = new LocationTimeControler();
 	}
 	return *instance;
 }
@@ -32,7 +32,7 @@ time_t getTeensy3Time()
   return Teensy3Clock.get();
 }
 
-LocationTimeController::LocationTimeController():
+LocationTimeControler::LocationTimeControler():
 TaskBase(3, "LocationTime Task"),
 pmtk(PmtkClient::getInstance()),
 gsm(GsmClient::getInstance()),
@@ -43,9 +43,9 @@ timer(3000)
 	setSyncProvider(getTeensy3Time);
 }
 
-void LocationTimeController::run(){
+void LocationTimeControler::run(){
 	State state = USE_NONE;
-	PRINTLN("-----------------Location Task Start-----------");
+	PRINTLN("-----------------LocationTime Task Start-----------");
 	//Test GPS first, this is the better option so we should use it if we can.
 	//Test if device is already connected.
 	if(false){
@@ -65,7 +65,7 @@ void LocationTimeController::run(){
 	}
 	//No device found.
 	else{
-		PRINTLN("No AT or PMTK device found, Location Time Task suspended.");
+		PRINTLN("No AT or PMTK device found, LocationTime Task suspended.");
 		suspend(); //Task will end here.
 	}
 
@@ -100,42 +100,42 @@ void LocationTimeController::run(){
 	}
 }
 
-void LocationTimeController::onTimeout(Timer & timer){
+void LocationTimeControler::onTimeout(Timer & timer){
 	flag.set();
 }
 
-float LocationTimeController::getLatitude(){
+float LocationTimeControler::getLatitude(){
 	return latitude;
 }
 
-float LocationTimeController::getLongitude(){
+float LocationTimeControler::getLongitude(){
 	return longitude;
 }
 
-int LocationTimeController::getSeconds(){
+int LocationTimeControler::getSeconds(){
 	return second();
 }
 
-int LocationTimeController::getMinutes(){
+int LocationTimeControler::getMinutes(){
 	return minute();
 }
 
-int LocationTimeController::getHours(){
+int LocationTimeControler::getHours(){
 	return hour();
 }
 
-int LocationTimeController::getDay(){
+int LocationTimeControler::getDay(){
 	return day();
 }
 
-int LocationTimeController::getMonth(){
+int LocationTimeControler::getMonth(){
 	return month();
 }
 
-int LocationTimeController::getYear(){
+int LocationTimeControler::getYear(){
 	return year();
 }
 
-void LocationTimeController::addLocationListener(LocationListener &locationListener){
+void LocationTimeControler::addLocationListener(LocationListener &locationListener){
 	locationListeners.add(&locationListener);
 }

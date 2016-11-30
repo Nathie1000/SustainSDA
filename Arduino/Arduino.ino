@@ -18,12 +18,12 @@ public:
 
 	void onLocationFound(float latitude, float longitude) override{
 		PRINTLN(String("Location: ") + String(latitude,6) + ", " + longitude);
-		LocationTimeController &lc = LocationTimeController::getInstance();
+		LocationTimeControler &lc = LocationTimeControler::getInstance();
 
 		PRINTLN(String()+ lc.getHours() + ":" + lc.getMinutes() + ":" + lc.getSeconds());
 	}
 
-	void onMotion(const MotionSensorListener::Motion &newMotion){
+	void onMotion(const Motion &newMotion) override{
 		//PRINTLN(String("Motion: ") +newMotion.ax + ", " +newMotion.ay + ", " + newMotion.az);
 		PRINTLN(String("Gyro: ") +newMotion.gx + ", " +newMotion.gy + ", " + newMotion.gz);
 		//TaskBase::sleep(500);

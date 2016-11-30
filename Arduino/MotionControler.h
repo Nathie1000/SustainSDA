@@ -19,6 +19,8 @@
  */
 class MotionListener{
 public:
+	typedef MotionSensorListener::Motion Motion;
+
 	/**
 	 * Virtual deconstructor required by compiler, does nothing.
 	 */
@@ -28,7 +30,7 @@ public:
 	 * Prototype function triggered when a new motion point is available.
 	 * @param newMotion struct containing the motion data of a single point.
 	 */
-	virtual void onMotion(const MotionSensorListener::Motion &newMotion) = 0;
+	virtual void onMotion(const Motion &newMotion) = 0;
 };
 
 /**
