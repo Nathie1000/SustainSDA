@@ -53,6 +53,7 @@ void LocationTimeController::run(){
 		if(false){
 			state = USE_GPS;
 			timer.start();
+			flag.set();
 		}
 	}
 	//The GPRS is is a lesser alternative option.
@@ -60,6 +61,7 @@ void LocationTimeController::run(){
 	else if(gsm.isDeviceOpen() || gsm.openDevice()){
 		state = USE_GSM;
 		timer.start();
+		flag.set();
 	}
 	//No device found.
 	else{

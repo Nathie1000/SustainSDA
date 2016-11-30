@@ -26,12 +26,11 @@ lastResponseStatus(0)
 
 bool HttpClient::httpAction(bool method, int &status, int &length){
 	String rsp;
-	lastResponseStatus = 0;
-
+	lastResponseStatus = -1;
 	//Getting a response from a remote server might take a while.
 	if(at.execute("AT+HTTPACTION="+ String(method ? "0" : "1"))){
 		rsp = at.scan(120000);
-		if(rsp.length() > 0){
+		if(rsp.length() > 0 && rsp.indexOf("+HTTPACTION: ") != -1){
 			rsp = rsp.replace("+HTTPACTION: ", "");
 			//Parse response status.
 			status = rsp.substring(rsp.indexOf(',')+1, rsp.lastIndexOf(',')).toInt();
@@ -74,12 +73,10 @@ String HttpClient::send(const String &url, const String &body, bool method, cons
 		}
 	}
 
-	int status = -1;
 	int length;
 	String response;
 	//Execute the HTTP action.
-	if(httpAction(method, status, length)){
-		lastResponseStatus = status;
+	if(httpAction(method, lastResponseStatus, length)){
 		if(at.execute("AT+HTTPREAD", response)){
 			//Remove the head from the response.
 			response = response.replace("+HTTPREAD: ", "");

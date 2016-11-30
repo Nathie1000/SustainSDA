@@ -8,7 +8,7 @@ public:
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
-		LocationTimeController::getInstance().addLocationListener(*this);
+		//LocationTimeController::getInstance().addLocationListener(*this);
 		//MotionControler::getInstance().addMotionListener(*this);
 	}
 
@@ -17,7 +17,10 @@ public:
 	}
 
 	void onLocationFound(float latitude, float longitude) override{
-		PRINTLN(String("Location: ") + latitude + ", " + longitude);
+		PRINTLN(String("Location: ") + String(latitude,6) + ", " + longitude);
+		LocationTimeController &lc = LocationTimeController::getInstance();
+
+		PRINTLN(String()+ lc.getHours() + ":" + lc.getMinutes() + ":" + lc.getSeconds());
 	}
 
 	void onMotion(const MotionSensorListener::Motion &newMotion){
