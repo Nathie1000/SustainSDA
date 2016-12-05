@@ -1,6 +1,8 @@
 import requests
 import json
 
+#Package http://requests.readthedocs.io/en/master/
+
 class Api:
     url = "http://145.89.152.226:3000"
     endPointPatientInfo = "/api/shd/getPatientInfo"
