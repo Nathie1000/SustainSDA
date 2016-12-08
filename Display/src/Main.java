@@ -1,6 +1,14 @@
-
+import Backend.API.PatientAPI;
+import Backend.Models.Patient;
 public class Main {
 	public static void main(String[] args){
-		System.out.println("Hallo world, Classic nathan");
+		PatientAPI pat = new PatientAPI();
+		Patient p = pat.retrieve("1");
+		System.out.println(p.getFirstName());
+
+
+		System.out.println("Hallo wo1rld, Classic nathan");
 	}
+
+
 }
