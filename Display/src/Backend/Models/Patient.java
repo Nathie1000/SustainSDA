@@ -53,6 +53,10 @@ public class Patient extends Model {
 		this.battery = battery;
 	}
 
+  public String getName(){
+    return this.firstName + " " + this.lastName;
+  }
+
 	/**
 	* Create string representation of Patient for printing
 	* @return
