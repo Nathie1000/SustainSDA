@@ -2,6 +2,8 @@ package UI.Frame;
 
 import java.beans.EventHandler;
 
+import Backend.API.PatientAPI;
+import Backend.Models.Patient;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
@@ -91,6 +93,19 @@ public class HomeDisplayApplication extends Application {
 	}
 
 	public static void main(String[] args) {
-		Application.launch(args);
+		
+		try{
+		PatientAPI pat = new PatientAPI();
+		Patient p = pat.retrieve("1");
+		System.out.println(p.getName());
+		}
+		catch(Exception e){
+			
+		}
+
+		System.out.println("Hallo wo1rld, Classic nathan");
+		
+		
+		launch(args);
 	}
 }
