@@ -13,6 +13,7 @@ import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -29,6 +30,8 @@ public class UserInfoPane extends GridPane {
 		setVgap(15);
 		setHgap(15);
 		
+		setBackground(new Background(new BackgroundFill(Color.BISQUE, null, null)));
+		
 		//Layout
 		Font userNameFont = new Font(30);
 		Font statusFont = new Font(26);
@@ -42,6 +45,7 @@ public class UserInfoPane extends GridPane {
 		GridPane.setConstraints(userName, 0, 0, 2, 1);
 		getChildren().add(userName);
 		GridPane.setHalignment(userName, HPos.CENTER);
+		GridPane.setHgrow(userName, Priority.ALWAYS);
 		
 		//Separator
 		Separator separator = new Separator();

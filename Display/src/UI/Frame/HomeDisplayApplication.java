@@ -4,6 +4,8 @@ import java.beans.EventHandler;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
 import Backend.API.PatientAPI;
 import Backend.Models.Patient;
 import javafx.animation.KeyFrame;
@@ -23,6 +25,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -37,29 +41,28 @@ import javafx.util.Duration;
 
 public class HomeDisplayApplication extends Application {
 
-	private BorderPane root;
+	private StackPane root;
 	private List<Node> nodes;
 	private int currentNode;
 	
-	private UserInfoPane userInfoPane; 
-	
 	private boolean animationIsPlaying;
+	private double startDragX;
 	
 	public void start(final Stage stage) {
 		stage.setWidth(1380);
 		stage.setHeight(720);
 		stage.setMaximized(true);
-		
-		root = new BorderPane(userInfoPane);
-		root.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, Insets.EMPTY )));
+		root = new StackPane();
 		
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
 		
-		userInfoPane = new UserInfoPane();
+		StepChartPane stepPane = new StepChartPane();
+		nodes.add(stepPane);
+		
+		UserInfoPane userInfoPane = new UserInfoPane();
 		userInfoPane.setAlignment(Pos.TOP_CENTER);
-		root.setCenter(userInfoPane);
 		nodes.add(userInfoPane);
 		
         Group view2 = new Group();
@@ -67,17 +70,29 @@ public class HomeDisplayApplication extends Application {
         rectangle2.setFill(Color.BLUE);
         view2.getChildren().add(rectangle2);
         nodes.add(view2);
-      
-        root.setOnDragDetected(new javafx.event.EventHandler<MouseEvent>() {
-
+        
+        root.getChildren().add(nodes.get(0));
+        root.setOnMousePressed(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
-				//System.out.println("Dragging");
-				transits(false);
-				System.out.println(event.getX());
-				
+				startDragX = event.getX();
 			}
 		});
+        
+        root.setOnMouseDragged(new javafx.event.EventHandler<MouseEvent>() {
+			@Override
+			public void handle(MouseEvent event) {
+				double dX = event.getX() - startDragX;
+				if(dX >= 200){
+					transits(false);
+					startDragX = event.getX();
+				}
+				else if (dX <= -200){
+					transits(true);
+					startDragX = event.getX();
+				}
+			}
+         });
         
         root.setOnMouseClicked(new javafx.event.EventHandler<MouseEvent>() {
 
@@ -91,17 +106,6 @@ public class HomeDisplayApplication extends Application {
 			}
 		});
         
-        //root.setOnDragOver(new javafx.event.EventHandler<MouseEvent>() {
-
-		//	@Override
-		//	public void handle(MouseEvent event) {
-				//System.out.println("Dragging");
-				//transits(false);
-		//		System.out.println(event.getX());
-				
-		//	}
-		//});
- 
         Scene scene = new Scene(root);
 		// Add Scene
 		//Scene scene = new Scene(new Group());
@@ -122,17 +126,22 @@ public class HomeDisplayApplication extends Application {
 			return;
 		}
 		
-		int nextNode = currentNode + 1;
+		int nextNode = currentNode + (left ? 1 : -1);
 		Node to = null;
-		if(nextNode < nodes.size()){
+		if(nextNode < nodes.size() && nextNode >= 0){
 			//Next node in list.
 			to = nodes.get(nextNode);
 			currentNode = nextNode;
 		}
-		else if(nodes.size() > 0){
+		else if(nextNode >= nodes.size() && nodes.size() > 0){
 			//Last node in list reached. Loop to first.
 			to = nodes.get(0);
 			currentNode = 0;
+		}
+		else if(nextNode < 0 && nodes.size() > 0){
+			//First node in list reached. Loop to last.
+			to = nodes.get(nodes.size()-1);
+			currentNode = nodes.size() - 1;
 		}
 		else{
 			//Empty list we can do nothing.
