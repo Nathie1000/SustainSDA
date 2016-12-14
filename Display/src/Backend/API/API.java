@@ -10,7 +10,7 @@ import org.json.*;
 
 public abstract class API {
 
-  public JSONObject apiCall(String url) throws Exception
+  public static JSONObject apiCall(String url) throws Exception
   {
     String httpsURL = url;
     URL myurl = new URL(httpsURL);

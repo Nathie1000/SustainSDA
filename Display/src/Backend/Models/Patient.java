@@ -1,5 +1,7 @@
 package Backend.Models;
 
+import Backend.API.PatientAPI;
+
 public class Patient extends Model {
 
   private String firstName,lastName;
@@ -82,4 +84,8 @@ public class Patient extends Model {
 		this.lastName = lastName;
 		this.battery = battery;
 	}
+
+  public static Patient getPatient(String shdNumber){
+    return PatientAPI.retrieve(shdNumber);
+  }
 }

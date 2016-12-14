@@ -3,6 +3,7 @@ package UI.Frame;
 import java.beans.EventHandler;
 
 import Backend.API.PatientAPI;
+import Backend.Models.Chart;
 import Backend.Models.Patient;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -97,6 +98,7 @@ public class HomeDisplayApplication extends Application {
 		try{
 		PatientAPI pat = new PatientAPI();
 		Patient p = pat.retrieve("1");
+		Chart.getChartDataHours();
 		System.out.println(p.getName());
 		}
 		catch(Exception e){
