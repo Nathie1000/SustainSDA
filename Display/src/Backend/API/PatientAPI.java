@@ -9,7 +9,7 @@ import org.json.*;
 import Backend.Models.Patient;
 public class PatientAPI extends API {
 
-	public Patient retrieve(String shdNumber) {
+	public static Patient retrieve(String shdNumber) {
 		System.out.println("balalalala");
 		try{
 			JSONObject json = apiCall("http://localhost:3000/api/shd/patient/"+shdNumber);
