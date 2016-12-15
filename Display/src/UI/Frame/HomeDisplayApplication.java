@@ -107,6 +107,7 @@ public class HomeDisplayApplication extends Application {
 		});
         
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("color.css");
 		// Add Scene
 		//Scene scene = new Scene(new Group());
 		stage.setScene(scene);
