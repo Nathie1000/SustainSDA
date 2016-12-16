@@ -42,7 +42,7 @@ public abstract class API {
 		 return map;
 	}
 
-  private static Map<String,Object> retrieveByUrl(String url){
+  protected static Map<String,Object> retrieveByUrl(String url){
 		try{
 			JSONObject json = apiCall(url);//+shdNumber);
 			return JSONToMap(json);

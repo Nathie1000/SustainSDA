@@ -93,6 +93,7 @@ public class Patient extends Model {
   }
 
   public Map<String,Object> getProgress(){
-    PatientAPI.getProgress(this.id);
+    //PatientAPI.getProgress(this.id);
+    return PatientAPI.retrieveProgress();
   }
 }
