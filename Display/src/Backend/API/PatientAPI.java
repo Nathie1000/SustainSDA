@@ -13,7 +13,7 @@ public class PatientAPI extends API {
 		System.out.println("balalalala");
 		try{
 			JSONObject json = apiCall("http://localhost:3000/api/shd/patient/"+shdNumber);
-			Patient p = new Patient(json.getString("firstName"),json.getString("lastName"),json.getInt("battery"));
+			Patient p = new Patient(json.getString("firstName"),json.getString("lastName"),json.getInt("battery"), 0);
 			return p;
 		} catch(Exception e){
 			System.out.println("Exception: ");
@@ -21,6 +21,10 @@ public class PatientAPI extends API {
 		}
 		return null;
 
+	}
+
+	public static Map<String, Object> retrieveProgress() {
+		return retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
 	}
 
 }

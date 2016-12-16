@@ -24,7 +24,16 @@ public class Chart extends Model {
 		this.steps = stepsMap;
 	}
 
- public static Map<String,Integer> getChartDataHours(){
+ public Map<String,Object> getChartDataHours(){
+   return ChartAPI.retrieveHours();
+ }
+ public Map<String,Object> getChartDataWeek(){
+   return ChartAPI.retrieveWeek();
+ }
+ public Map<String,Object> getChartDataMonth(){
+   return ChartAPI.retrieveMonth();
+ }
+ public Map<String,Object> getChartDataYear(){
    return ChartAPI.retrieveYear();
  }
 
