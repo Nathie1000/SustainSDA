@@ -23,4 +23,8 @@ public class PatientAPI extends API {
 
 	}
 
+	public static Map<String, Object> retrieveProgress() {
+		return retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
+	}
+
 }

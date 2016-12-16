@@ -1,11 +1,13 @@
 package Backend.Models;
 
 import Backend.API.PatientAPI;
+import java.util.Map;
 
 public class Patient extends Model {
 
   private String firstName,lastName;
   private int battery;
+  private int id;
 
 	/**
 	* Returns value of firstName
@@ -78,14 +80,19 @@ public class Patient extends Model {
 	/**
 	* Default Patient constructor
 	*/
-	public Patient(String firstName, String lastName, int battery) {
+	public Patient(String firstName, String lastName, int battery, int id) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.battery = battery;
+    this.id = id;
 	}
 
   public static Patient getPatient(String shdNumber){
     return PatientAPI.retrieve(shdNumber);
+  }
+
+  public Map<String,Object> getProgress(){
+    PatientAPI.getProgress(this.id);
   }
 }
