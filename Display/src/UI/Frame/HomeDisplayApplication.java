@@ -101,8 +101,6 @@ public class HomeDisplayApplication extends Application {
 				if(event.getClickCount() >= 5){
 					Platform.exit();
 				}
-				//931440301765220288f
-
 			}
 		});
         
