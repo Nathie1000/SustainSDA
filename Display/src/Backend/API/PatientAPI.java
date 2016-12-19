@@ -1,9 +1,5 @@
 package Backend.API;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Map;
 
 import org.json.*;
@@ -25,8 +21,10 @@ public class PatientAPI extends API {
 
 	}
 
-	public static Map<String, Object> retrieveProgress() {
-		return retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
+	public static Map<String, Object> retrieveProgress(int id) {
+		Map<String, Object> map = retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
+		System.out.println(map);
+		return map;
 	}
 
 }

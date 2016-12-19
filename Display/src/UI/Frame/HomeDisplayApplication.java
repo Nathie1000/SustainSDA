@@ -44,33 +44,33 @@ public class HomeDisplayApplication extends Application {
 	private StackPane root;
 	private List<Node> nodes;
 	private int currentNode;
-	
+
 	private boolean animationIsPlaying;
 	private double startDragX;
-	
+
 	public void start(final Stage stage) {
 		stage.setWidth(1380);
 		stage.setHeight(720);
 		stage.setMaximized(true);
 		root = new StackPane();
-		
+
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
-		
+
 		StepChartPane stepPane = new StepChartPane();
 		nodes.add(stepPane);
-		
+
 		UserInfoPane userInfoPane = new UserInfoPane();
 		userInfoPane.setAlignment(Pos.TOP_CENTER);
 		nodes.add(userInfoPane);
-		
+
         Group view2 = new Group();
         Rectangle rectangle2 = new Rectangle(300, 250);
         rectangle2.setFill(Color.BLUE);
         view2.getChildren().add(rectangle2);
         nodes.add(view2);
-        
+
         root.getChildren().add(nodes.get(0));
         root.setOnMousePressed(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
@@ -78,7 +78,7 @@ public class HomeDisplayApplication extends Application {
 				startDragX = event.getX();
 			}
 		});
-        
+
         root.setOnMouseDragged(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -93,7 +93,7 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
          });
-        
+
         root.setOnMouseClicked(new javafx.event.EventHandler<MouseEvent>() {
 
 			@Override
@@ -103,7 +103,7 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
 		});
-        
+
         Scene scene = new Scene(root);
         scene.getStylesheets().add("color.css");
 		// Add Scene
@@ -111,10 +111,10 @@ public class HomeDisplayApplication extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-	
+
 	private void transits(boolean left){
 		if(animationIsPlaying) return;
-		
+
 		final Node from;
 		if(currentNode < nodes.size()){
 			//Get current node from list.
@@ -124,7 +124,7 @@ public class HomeDisplayApplication extends Application {
 			//No current node we can do nothing.
 			return;
 		}
-		
+
 		int nextNode = currentNode + (left ? 1 : -1);
 		Node to = null;
 		if(nextNode < nodes.size() && nextNode >= 0){
@@ -146,11 +146,11 @@ public class HomeDisplayApplication extends Application {
 			//Empty list we can do nothing.
 			return;
 		}
-		
+
 		root.getChildren().add(to);
         double width = root.getWidth();
         if(!left) width *= -1;
-        
+
         KeyFrame start = new KeyFrame(Duration.ZERO,
                 new KeyValue(to.translateXProperty(), width),
                 new KeyValue(from.translateXProperty(), 0));
@@ -159,12 +159,12 @@ public class HomeDisplayApplication extends Application {
                 new KeyValue(from.translateXProperty(), -width));
         Timeline slide = new Timeline(start, end);
         slide.setOnFinished(new javafx.event.EventHandler<ActionEvent>() {
-			
+
 			@Override
 			public void handle(ActionEvent event) {
-				root.getChildren().remove(from); 
+				root.getChildren().remove(from);
 				animationIsPlaying = false;
-				
+
 			}
 		});
         animationIsPlaying = true;
@@ -172,14 +172,14 @@ public class HomeDisplayApplication extends Application {
 	}
 
 	public static void main(String[] args) {
-		
+
 		try{
-		//PatientAPI pat = new PatientAPI();
-		//Patient p = pat.retrieve("1");
-		//System.out.println(p.getName());
+		Patient pat = new Patient();
+		pat.getProgress();
+		// System.out.println(p.getName());
 		}
 		catch(Exception e){
-			
+
 		}
 		launch(args);
 	}

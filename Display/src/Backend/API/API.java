@@ -34,7 +34,7 @@ public abstract class API {
 			if(json.get(key) instanceof JSONObject){
 				value = JSONToMap((JSONObject) json.get(key));
 			} else {
-				value = (Integer) json.get(key);
+				value = json.get(key);
 			}
 			System.out.println(key + ": " + value);
 			map.put(key,value);
