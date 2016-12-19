@@ -21,10 +21,10 @@ public class PatientAPI extends API {
 
 	}
 
-	public static Map<String, Object> retrieveProgress(int id) {
-		Map<String, Object> map = retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
-		System.out.println(map);
-		return map;
+	public static JSONObject retrieveProgress(int id) {
+		JSONObject json = retrieveByUrl("http://localhost:3000/api/shd/getProgressData/1");
+		System.out.println(json);
+		return json;
 	}
 
 }

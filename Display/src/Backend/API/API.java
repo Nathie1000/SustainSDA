@@ -3,8 +3,6 @@ package Backend.API;
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.net.ssl.HttpsURLConnection;
 import org.json.*;
@@ -27,25 +25,12 @@ public abstract class API {
     return obj;
   }
 
-  protected static Map<String,Object> JSONToMap(JSONObject json){
-		Map<String,Object> map = new HashMap<>();
-		Object value;
-		for (String key : json.keySet()) {
-			if(json.get(key) instanceof JSONObject){
-				value = JSONToMap((JSONObject) json.get(key));
-			} else {
-				value = json.get(key);
-			}
-			System.out.println(key + ": " + value);
-			map.put(key,value);
-		 }
-		 return map;
-	}
 
-  protected static Map<String,Object> retrieveByUrl(String url){
+
+  protected static JSONObject retrieveByUrl(String url){
 		try{
 			JSONObject json = apiCall(url);//+shdNumber);
-			return JSONToMap(json);
+			return json;
 		} catch(Exception e){
 			System.out.println("Exception: ");
 			System.out.println(e);

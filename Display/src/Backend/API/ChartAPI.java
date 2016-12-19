@@ -6,7 +6,7 @@ import org.json.*;
 
 public class ChartAPI extends API {
 
-	public static Map<String, Object> retrieveChart(int index) {
+	public static JSONObject retrieveChart(int index) {
 		switch(index){
 			case 1:
 				return retrieveHours();
@@ -22,16 +22,16 @@ public class ChartAPI extends API {
 	}
 
 
-	public static Map<String, Object> retrieveHours() {
+	public static JSONObject retrieveHours() {
 		return retrieveByUrl("http://localhost:3000/api/shd/getChartDataHours/1");
 	}
-	public static Map<String, Object> retrieveWeek() {
+	public static JSONObject retrieveWeek() {
 		return retrieveByUrl("http://localhost:3000/api/shd/getChartDataWeek/1");
 	}
-	public static Map<String, Object> retrieveMonth() {
+	public static JSONObject retrieveMonth() {
 		return retrieveByUrl("http://localhost:3000/api/shd/getChartDataMonth/1");
 	}
-	public static Map<String, Object> retrieveYear() {
+	public static JSONObject retrieveYear() {
 		return retrieveByUrl("http://localhost:3000/api/shd/getChartDataYear/1");
 	}
 

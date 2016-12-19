@@ -3,6 +3,8 @@ package Backend.Models;
 import Backend.API.PatientAPI;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 public class Patient extends Model {
 
   private String firstName,lastName;
@@ -95,14 +97,18 @@ public class Patient extends Model {
     return PatientAPI.retrieve(shdNumber);
   }
 
-  public Map<String,Object> getProgress(){
+  public JSONObject getProgress(){
     //PatientAPI.getProgress(this.id);
-    Map<String,Object> map = PatientAPI.retrieveProgress(this.id);
-    this.stepsToday = Integer.parseInt((String)map.get("stepsToday"));
-    this.totalSteps = Integer.parseInt((String)map.get("totalSteps"));
-    this.goalToday = Integer.parseInt((String)map.get("stepGoal"));
-    this.goalsAchieved = (String)map.get("goalsCompleted") + "/" + (String)map.get("totalGoals");
-    return map;
+	JSONObject json = PatientAPI.retrieveProgress(this.id);
+    this.stepsToday = json.getInt("steps");
+    this.totalSteps = json.getInt("totalSteps");
+    if(json.get("stepGoal") instanceof String){
+    	this.goalToday = 0;
+    } else {
+    	this.goalToday = json.getInt("stepGoal");    	
+    }
+    this.goalsAchieved = json.getInt("goalsCompleted") + "/" + json.getInt("totalGoals");
+    return json;
   }
 
 	public int getStepsToday() {

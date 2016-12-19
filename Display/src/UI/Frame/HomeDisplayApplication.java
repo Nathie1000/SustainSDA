@@ -3,10 +3,13 @@ package UI.Frame;
 import java.beans.EventHandler;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.plaf.synth.SynthSeparatorUI;
 
 import Backend.API.PatientAPI;
+import Backend.Models.Chart;
 import Backend.Models.Patient;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -171,11 +174,37 @@ public class HomeDisplayApplication extends Application {
         slide.play();
 	}
 
+	public static void updateUserAndChartData(){
+		System.out.println("timer print thingy");
+		try{
+			Patient pat = new Patient();//opgeslagen worden ergens
+			Chart ch = new Chart();
+			pat.getProgress();
+			//Below returns map<String,Object>
+			ch.getChartDataHours();
+			ch.getChartDataWeek();
+			ch.getChartDataMonth();
+			ch.getChartDataYear();
+		} catch(Exception e){
+			System.out.println(e);
+			e.printStackTrace();
+		}
+
+	}
+
 	public static void main(String[] args) {
 
 		try{
-		Patient pat = new Patient();
-		pat.getProgress();
+			Timer timer = new Timer();
+			timer.scheduleAtFixedRate(new TimerTask() {
+				
+				@Override
+				public void run() {
+					updateUserAndChartData();
+				}
+			}, 0,60*1000);
+			//Makes sure the patient has it's progress
+
 		// System.out.println(p.getName());
 		}
 		catch(Exception e){

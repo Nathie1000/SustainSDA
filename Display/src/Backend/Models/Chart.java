@@ -3,6 +3,8 @@ package Backend.Models;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import Backend.API.ChartAPI;
 
 public class Chart extends Model {
@@ -24,16 +26,16 @@ public class Chart extends Model {
 		this.steps = stepsMap;
 	}
 
- public Map<String,Object> getChartDataHours(){
+ public JSONObject getChartDataHours(){
    return ChartAPI.retrieveHours();
  }
- public Map<String,Object> getChartDataWeek(){
+ public JSONObject getChartDataWeek(){
    return ChartAPI.retrieveWeek();
  }
- public Map<String,Object> getChartDataMonth(){
+ public JSONObject getChartDataMonth(){
    return ChartAPI.retrieveMonth();
  }
- public Map<String,Object> getChartDataYear(){
+ public JSONObject getChartDataYear(){
    return ChartAPI.retrieveYear();
  }
 
