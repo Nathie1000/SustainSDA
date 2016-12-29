@@ -186,8 +186,7 @@ public class HomeDisplayApplication extends Application {
 			ch.getChartDataMonth();
 			ch.getChartDataYear();
 		} catch(Exception e){
-			System.out.println(e);
-			e.printStackTrace();
+			System.out.println("Error no internet.");
 		}
 
 	}
@@ -195,7 +194,7 @@ public class HomeDisplayApplication extends Application {
 	public static void main(String[] args) {
 
 		try{
-			Timer timer = new Timer();
+			Timer timer = new Timer(true);
 			timer.scheduleAtFixedRate(new TimerTask() {
 				
 				@Override

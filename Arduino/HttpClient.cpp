@@ -49,7 +49,7 @@ String HttpClient::send(const String &url, const String &body, bool method, cons
 	//Start HTTP serves.
 	if(!at.execute("AT+HTTPINIT")){ PRINTLN("Failed to initialize HTTP service.") return "";}
 	//Select a bearer. We always use 1.
-	if(!at.execute("AT+HTTPPARA=\"CID\",1")) return "";
+	if(!at.execute("AT+HTTPPARA=\"CID\","+String(getBearerId()))) return "";
 	//Set the URL.
 	if(!at.execute("AT+HTTPPARA=\"URL\",\"" + String(url) +"\"")) return "";
 	//Enable redirect, incase we need it.

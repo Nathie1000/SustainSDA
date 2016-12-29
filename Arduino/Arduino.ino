@@ -36,37 +36,22 @@ public:
 	TestTask():
 		TaskBase(1, "TestTask")
 	{
+		Serial1.begin(9600);
+		pinMode(2, OUTPUT);
+		digitalWrite(2, HIGH);
 
+		pinMode(23, OUTPUT);
+		digitalWrite(23, LOW);
 	}
 
 	void run() override{
-		PRINTLN("-----TEST TAKS------");
-		char json[] = "{\"sensor\":\"gps\",\"time\":1351824120,\"data\":[48.756080,2.302038]}";
-
-		StaticJsonBuffer<200> jsonBuffer;
-
-		JsonObject& root = jsonBuffer.parseObject(json);
-
-		String sensor = root["sensor"];
-		String time         = root["time"];
-		double latitude    = root["data"][0];
-		double longitude   = root["data"][1];
-
-		//PRINTLN(sensor)
-		//PRINTLN(time)
-		//PRINTLN(latitude)
-		//PRINTLN(longitude);
-
-
-		JsonObject& root2 = jsonBuffer.createObject();
-		root2["sensor"] = "lalalala";
-		root2["time"] = 1351824120;
-		root2["f"] = 23.0f;
-
-		//root2.printTo(Serial);
-
 		while(true){
-			sleep(1000);
+
+			char buffer[120];
+	        int read  = Serial1.readBytes(buffer, 120);
+			PRINTLN(String("GPS: ") + read);
+
+			sleep(100);
 		}
 	}
 };
@@ -77,7 +62,7 @@ public:
 void setup(){
 	DEBUG_BEGIN(9600);
 
-	new ComTest;
+	//new ComTest;
 	new TestTask;
 
 	WatchDog::getInstance().start(6000);
