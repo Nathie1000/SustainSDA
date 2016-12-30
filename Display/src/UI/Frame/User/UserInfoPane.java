@@ -38,7 +38,7 @@ public class UserInfoPane extends GridPane {
 		final Font statusFont = new Font(26);
 		final Border valueBorer = new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, new CornerRadii(3), new BorderWidths(2)));
 		final Insets valuePadding = new Insets(5, 15, 5, 15);
-		final int valueLabelSize = 100;
+		final int valueLabelSize = 120;
 		
 		//User Name
 		userName = new Label("User Name");
@@ -73,7 +73,7 @@ public class UserInfoPane extends GridPane {
 		final Label goalToday = new Label("Doelstelling vandaag");
 		setHalignment(goalToday, HPos.CENTER);
 		goalToday.setFont(statusFont);
-		goalTodayNumber = new Label("00");
+		goalTodayNumber = new Label("0");
 		goalTodayNumber.setFont(statusFont);
 		goalTodayNumber.setBorder(valueBorer);
 		goalTodayNumber.setPadding(valuePadding);
@@ -88,7 +88,7 @@ public class UserInfoPane extends GridPane {
 		final Label goalsReached = new Label("Aantal doelstellingen gehaald");
 		setHalignment(goalsReached, HPos.CENTER);
 		goalsReached.setFont(statusFont);
-		goalsReachedNumber = new Label("999");
+		goalsReachedNumber = new Label("0");
 		goalsReachedNumber.setFont(statusFont);
 		goalsReachedNumber.setBorder(valueBorer);
 		goalsReachedNumber.setPadding(valuePadding);
@@ -103,7 +103,7 @@ public class UserInfoPane extends GridPane {
 		final Label totalSteps = new Label("Totaal aantal stappen");
 		setHalignment(totalSteps, HPos.CENTER);
 		totalSteps.setFont(statusFont);
-		totalStepsNumber = new Label("9999");
+		totalStepsNumber = new Label("0");
 		totalStepsNumber.setFont(statusFont);
 		totalStepsNumber.setBorder(valueBorer);
 		totalStepsNumber.setPadding(valuePadding);
