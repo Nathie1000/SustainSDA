@@ -81,7 +81,7 @@ public class WeekChartPane extends GridPane {
 
 			@Override
 			public void handle(MouseEvent event) {
-				dataSet.setStep(4, x+= 100);
+				dataSet.setStep(4, x+= 1);
 				dataSet.setGoal(4, x * 2);
 
 				dataSet.setStep(0, x++);
@@ -117,6 +117,11 @@ public class WeekChartPane extends GridPane {
 			public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds) {
 				dataText.setLayoutX(Math.round(bounds.getMinX() + bounds.getWidth() / 2 - dataText.prefWidth(-1) / 2));
 				dataText.setLayoutY(Math.round(bounds.getMinY() - dataText.prefHeight(-1) * 0.5) + 34);
+				
+				double scale = (bounds.getWidth() - 10) / dataText.getLayoutBounds().getWidth();
+				if(scale > 1.0) scale = 1.0;
+				dataText.setScaleX(scale);
+				dataText.setScaleY(scale);
 			}
 		});
 	}

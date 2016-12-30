@@ -32,9 +32,8 @@ public abstract class API {
 			JSONObject json = apiCall(url);//+shdNumber);
 			return json;
 		} catch(Exception e){
-			System.out.println("Exception: ");
-			System.out.println(e);
-			e.printStackTrace();
+			System.out.println("Exception: " + e.getMessage());
+			//e.printStackTrace();
 		}
 		return null;
 	}
