@@ -1,4 +1,4 @@
-package UI.Frame;
+package UI.Frame.Charts;
 
 import java.util.ArrayList;
 import java.util.List;

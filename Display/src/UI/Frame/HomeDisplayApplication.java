@@ -1,45 +1,28 @@
 package UI.Frame;
 
-import java.beans.EventHandler;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
+import UI.Frame.Charts.WeekChartPane;
+import UI.Frame.User.UserInfoPane;
 
-import Backend.API.PatientAPI;
-import Backend.Models.Chart;
-import Backend.Models.Patient;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Tab;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TabPane.TabClosingPolicy;
-import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.Border;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import javafx.util.Duration;
 
 public class HomeDisplayApplication extends Application {
@@ -52,36 +35,45 @@ public class HomeDisplayApplication extends Application {
 	private double startDragX;
 
 	public void start(final Stage stage) {
-		stage.setWidth(1380);
-		stage.setHeight(720);
+		//Raspberry pi screen dimensions
+		stage.setWidth(800);
+		stage.setHeight(480);
 		stage.setMaximized(true);
+		
+		//Root
 		root = new StackPane();
-
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
 
-		StepChartPane stepPane = new StepChartPane();
+		//Step Chart
+		WeekChartPane stepPane = new WeekChartPane();
 		nodes.add(stepPane);
 
+		//User info
 		UserInfoPane userInfoPane = new UserInfoPane();
 		userInfoPane.setAlignment(Pos.TOP_CENTER);
 		nodes.add(userInfoPane);
 
+		//Blue square
         Group view2 = new Group();
         Rectangle rectangle2 = new Rectangle(300, 250);
         rectangle2.setFill(Color.BLUE);
         view2.getChildren().add(rectangle2);
         nodes.add(view2);
 
+        //Display first node in list
         root.getChildren().add(nodes.get(0));
+       
+        //Start drag location
         root.setOnMousePressed(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
 				startDragX = event.getX();
 			}
 		});
-
+        
+        //Drag motion
         root.setOnMouseDragged(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
 			public void handle(MouseEvent event) {
@@ -96,7 +88,7 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
          });
-
+        //Exit on 5 mouse clicks
         root.setOnMouseClicked(new javafx.event.EventHandler<MouseEvent>() {
 
 			@Override
@@ -106,11 +98,19 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
 		});
+        
+        //Stop task scheduling on application window close
+        stage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>() {
+			
+			@Override
+			public void handle(WindowEvent event) {
+				RepetitiveUpdateTask.scheduler.shutdownNow();
+			}
+		});
 
+        //Create scene and layout
         Scene scene = new Scene(root);
         scene.getStylesheets().add("color.css");
-		// Add Scene
-		//Scene scene = new Scene(new Group());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -174,41 +174,7 @@ public class HomeDisplayApplication extends Application {
         slide.play();
 	}
 
-	public static void updateUserAndChartData(){
-		System.out.println("timer print thingy");
-		try{
-			Patient pat = new Patient();//opgeslagen worden ergens
-			Chart ch = new Chart();
-			pat.getProgress();
-			//Below returns map<String,Object>
-			ch.getChartDataHours();
-			ch.getChartDataWeek();
-			ch.getChartDataMonth();
-			ch.getChartDataYear();
-		} catch(Exception e){
-			System.out.println("Error no internet.");
-		}
-
-	}
-
 	public static void main(String[] args) {
-
-		try{
-			Timer timer = new Timer(true);
-			timer.scheduleAtFixedRate(new TimerTask() {
-				
-				@Override
-				public void run() {
-					updateUserAndChartData();
-				}
-			}, 0,60*1000);
-			//Makes sure the patient has it's progress
-
-		// System.out.println(p.getName());
-		}
-		catch(Exception e){
-
-		}
 		launch(args);
 	}
 }

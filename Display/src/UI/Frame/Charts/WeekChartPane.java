@@ -1,7 +1,11 @@
-package UI.Frame;
+package UI.Frame.Charts;
 
+import org.json.JSONObject;
+
+import Backend.Models.Chart;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
@@ -20,36 +24,51 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class StepChartPane extends GridPane {
+public class WeekChartPane extends GridPane {
 
 	private WeekChartDataSet dataSet;
 
 	int x = 1;
 
-	public StepChartPane() {
+	public WeekChartPane() {
 		dataSet = new WeekChartDataSet();
-
+		
+		final WeekChartUpdateTask task = new WeekChartUpdateTask();
+		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+			
+			@Override
+			public void handle(WorkerStateEvent event) {
+				//TODO: bind chart to data set
+				Chart chart = task.getValue();
+			}
+		});
+		
+		//Chart
+		//Chart Axis
 		final CategoryAxis xAxis = new CategoryAxis();
 		final NumberAxis yAxis = new NumberAxis();
 		yAxis.setMinorTickVisible(false);
 		yAxis.setTickLabelsVisible(false);
 
+		//Bar chart
 		final BarChart<String, Number> bc = new BarChart<>(xAxis, yAxis);
 		bc.setTitle("Aant Stappen per week");
 		xAxis.setLabel("Dag");
 		yAxis.setLabel("Stappen");
 
+		//Steps bar
 		XYChart.Series<String, Number> steps = new XYChart.Series<>();
 		steps.setName("Stappen");
 		steps.getData().addAll(dataSet.getSteps());
+		bc.getData().add(steps);
 
+		//Goal bar
 		XYChart.Series<String, Number> goals = new XYChart.Series<>();
 		goals.setName("Doel");
 		goals.getData().addAll(dataSet.getGoals());
-
-		bc.getData().add(steps);
 		bc.getData().add(goals);
 
+		//Set a custom display label for each bar.
 		for (Data<String, Number> data : steps.getData()) {
 			displayLabelForData(data);
 		}
@@ -57,6 +76,7 @@ public class StepChartPane extends GridPane {
 			displayLabelForData(data);
 		}
 
+		//TODO: remove this shit
 		setOnMousePressed(new EventHandler<MouseEvent>() {
 
 			@Override
@@ -81,15 +101,6 @@ public class StepChartPane extends GridPane {
 		dataText.setFill(Color.WHITE);
 		dataText.setFont(Font.font(null, FontWeight.BOLD, 20));
 		
-		node.parentProperty().addListener(new ChangeListener<Parent>() {
-			@Override
-			public void changed(ObservableValue<? extends Parent> ov, Parent oldParent, Parent parent) {
-				System.out.println("parante changed");
-				Group parentGroup = (Group) parent;
-				parentGroup.getChildren().add(dataText);
-			}
-		});
-		
 		Group parentGroup = (Group)node.getParent();
 		parentGroup.getChildren().add(dataText);
 		
@@ -108,9 +119,5 @@ public class StepChartPane extends GridPane {
 				dataText.setLayoutY(Math.round(bounds.getMinY() - dataText.prefHeight(-1) * 0.5) + 34);
 			}
 		});
-	}
-	
-	public WeekChartDataSet getDataSet() {
-		return dataSet;
 	}
 }
