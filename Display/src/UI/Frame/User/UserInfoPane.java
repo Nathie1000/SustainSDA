@@ -120,6 +120,7 @@ public class UserInfoPane extends GridPane {
 			
 			@Override
 			public void handle(WorkerStateEvent event) {
+				System.out.println("handler");
 				Patient patient = task.getValue();
 				userName.setText(patient.getFirstName() + " " + patient.getLastName());
 				setpsTodayNumber.setText(""+patient.getStepsToday());

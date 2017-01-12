@@ -6,7 +6,7 @@ import UI.Frame.RepetitiveUpdateTask;
 
 
 public class WeekChartUpdateTask extends RepetitiveUpdateTask<Chart>{
-	
+
 	public WeekChartUpdateTask() {
 		super(0, 5, TimeUnit.MINUTES);
 	}

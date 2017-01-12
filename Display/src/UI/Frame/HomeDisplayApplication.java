@@ -4,7 +4,15 @@ package UI.Frame;
 import java.util.ArrayList;
 import java.util.List;
 
-import UI.Frame.Charts.WeekChartPane;
+import UI.Frame.Charts.ChartPane;
+import UI.Frame.Charts.DayChartDataSet;
+import UI.Frame.Charts.DayChartUpdateTask;
+import UI.Frame.Charts.MonthChartDataSet;
+import UI.Frame.Charts.MonthChartUpdateTask;
+import UI.Frame.Charts.WeekChartDataSet;
+import UI.Frame.Charts.WeekChartUpdateTask;
+import UI.Frame.Charts.YearChartDataSet;
+import UI.Frame.Charts.YearChartUpdateTask;
 import UI.Frame.User.UserInfoPane;
 
 import javafx.animation.KeyFrame;
@@ -39,16 +47,25 @@ public class HomeDisplayApplication extends Application {
 		stage.setWidth(800);
 		stage.setHeight(480);
 		stage.setMaximized(true);
-		
+
 		//Root
 		root = new StackPane();
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
 
-		//Step Chart
-		WeekChartPane stepPane = new WeekChartPane();
-		nodes.add(stepPane);
+		//Day steps Chart
+		ChartPane daySepPane = new ChartPane(new DayChartDataSet(), new DayChartUpdateTask(),"Aantal stappen per dag","Uren");
+		nodes.add(daySepPane);
+		//Week steps Chart
+		ChartPane weekSepPane = new ChartPane(new WeekChartDataSet(),new WeekChartUpdateTask(),"Aantal stappen per week","Dagen");
+		nodes.add(weekSepPane);
+		//Week steps Chart
+		ChartPane monthSepPane = new ChartPane(new MonthChartDataSet(),new MonthChartUpdateTask(),"Aantal stappen per maand","Dagen");
+		nodes.add(monthSepPane);
+		//Week steps Chart
+		ChartPane yearSepPane = new ChartPane(new YearChartDataSet(),new YearChartUpdateTask(),"Aantal stappen per jaar","Maanden");
+		nodes.add(yearSepPane);
 
 		//User info
 		UserInfoPane userInfoPane = new UserInfoPane();
@@ -64,7 +81,7 @@ public class HomeDisplayApplication extends Application {
 
         //Display first node in list
         root.getChildren().add(nodes.get(0));
-       
+
         //Start drag location
         root.setOnMousePressed(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
@@ -72,7 +89,7 @@ public class HomeDisplayApplication extends Application {
 				startDragX = event.getX();
 			}
 		});
-        
+
         //Drag motion
         root.setOnMouseDragged(new javafx.event.EventHandler<MouseEvent>() {
 			@Override
@@ -98,10 +115,10 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
 		});
-        
+
         //Stop task scheduling on application window close
         stage.setOnCloseRequest(new javafx.event.EventHandler<WindowEvent>() {
-			
+
 			@Override
 			public void handle(WindowEvent event) {
 				RepetitiveUpdateTask.scheduler.shutdownNow();

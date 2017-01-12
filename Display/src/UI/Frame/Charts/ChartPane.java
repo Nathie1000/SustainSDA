@@ -1,6 +1,7 @@
 package UI.Frame.Charts;
 
 import Backend.Models.Chart;
+import UI.Frame.RepetitiveUpdateTask;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.concurrent.WorkerStateEvent;
@@ -21,25 +22,33 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
-public class WeekChartPane extends GridPane {
+public class ChartPane extends GridPane {
 
-	private WeekChartDataSet dataSet;
+	private DataSet dataSet;
 
 	int x = 1;
 
-	public WeekChartPane() {
-		dataSet = new WeekChartDataSet();
-		
-		final WeekChartUpdateTask task = new WeekChartUpdateTask();
+	public ChartPane(DataSet dataset, RepetitiveUpdateTask<Chart> rtask, String title, String xlabel){
+		this(dataset,rtask,title,xlabel,true);
+	}
+
+	public ChartPane(DataSet dataset, RepetitiveUpdateTask<Chart> rtask, String title, String xlabel, boolean goal) {
+		dataSet = dataset;
+
+		final RepetitiveUpdateTask<Chart> task = rtask;
 		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-			
+
 			@Override
 			public void handle(WorkerStateEvent event) {
+				System.out.println("handling");
 				//TODO: bind chart to data set
 				Chart chart = task.getValue();
+				System.out.println(chart.getSteps());
+				System.out.println(chart.getGoals());
+				dataSet.setData(chart.getSteps(),chart.getGoals());
 			}
 		});
-		
+
 		//Chart
 		//Chart Axis
 		final CategoryAxis xAxis = new CategoryAxis();
@@ -49,8 +58,8 @@ public class WeekChartPane extends GridPane {
 
 		//Bar chart
 		final BarChart<String, Number> bc = new BarChart<>(xAxis, yAxis);
-		bc.setTitle("Aant Stappen per week");
-		xAxis.setLabel("Dag");
+		bc.setTitle(title);
+		xAxis.setLabel(xlabel);
 		yAxis.setLabel("Stappen");
 
 		//Steps bar
@@ -58,49 +67,38 @@ public class WeekChartPane extends GridPane {
 		steps.setName("Stappen");
 		steps.getData().addAll(dataSet.getSteps());
 		bc.getData().add(steps);
-
-		//Goal bar
-		XYChart.Series<String, Number> goals = new XYChart.Series<>();
-		goals.setName("Doel");
-		goals.getData().addAll(dataSet.getGoals());
-		bc.getData().add(goals);
+		XYChart.Series<String, Number> goals = null;
+		if(goal == true){
+			//Goal bar
+			goals = new XYChart.Series<>();
+			goals.setName("Doel");
+			goals.getData().addAll(dataSet.getGoals());
+			bc.getData().add(goals);
+		}
 
 		//Set a custom display label for each bar.
 		for (Data<String, Number> data : steps.getData()) {
 			displayLabelForData(data);
 		}
-		for (Data<String, Number> data : goals.getData()) {
-			displayLabelForData(data);
-		}
-
-		//TODO: remove this shit
-		setOnMousePressed(new EventHandler<MouseEvent>() {
-
-			@Override
-			public void handle(MouseEvent event) {
-				dataSet.setStep(4, x+= 1);
-				dataSet.setGoal(4, x * 2);
-
-				dataSet.setStep(0, x++);
-				dataSet.setGoal(0, x * 2);
-
+		if(goal == true){
+			for (Data<String, Number> data : goals.getData()) {
+				displayLabelForData(data);
 			}
-		});
-
-		GridPane.setHgrow(bc, Priority.ALWAYS);
-		GridPane.setVgrow(bc, Priority.ALWAYS);
-		getChildren().add(bc);
-	}
+		}
+	 	GridPane.setHgrow(bc, Priority.ALWAYS);
+	 	GridPane.setVgrow(bc, Priority.ALWAYS);
+	 	getChildren().add(bc);
+	 }
 
 	private void displayLabelForData(XYChart.Data<String, Number> data) {
 		final Node node = data.getNode();
 		final Text dataText = new Text(data.getYValue() + "");
 		dataText.setFill(Color.WHITE);
 		dataText.setFont(Font.font(null, FontWeight.BOLD, 20));
-		
+
 		Group parentGroup = (Group)node.getParent();
 		parentGroup.getChildren().add(dataText);
-		
+
 		data.YValueProperty().addListener(new ChangeListener<Number>() {
 
 			@Override
@@ -114,7 +112,7 @@ public class WeekChartPane extends GridPane {
 			public void changed(ObservableValue<? extends Bounds> ov, Bounds oldBounds, Bounds bounds) {
 				dataText.setLayoutX(Math.round(bounds.getMinX() + bounds.getWidth() / 2 - dataText.prefWidth(-1) / 2));
 				dataText.setLayoutY(Math.round(bounds.getMinY() - dataText.prefHeight(-1) * 0.5) + 34);
-				
+
 				double scale = (bounds.getWidth() - 10) / dataText.getLayoutBounds().getWidth();
 				if(scale > 1.0) scale = 1.0;
 				dataText.setScaleX(scale);

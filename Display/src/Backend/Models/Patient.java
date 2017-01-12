@@ -99,6 +99,7 @@ public class Patient extends Model {
 	
 
 	public void getProgress() {
+		System.out.println("blabla");
 		// PatientAPI.getProgress(this.id);
 		JSONObject json = PatientAPI.retrieveProgress(this.id);
 		this.stepsToday = json.getInt("steps");
@@ -110,5 +111,6 @@ public class Patient extends Model {
 		}
 		this.goalsCompleted= json.getInt("goalsCompleted"); 
 		this.totalGoals = json.getInt("totalGoals");
+		System.out.println(this.totalSteps);
 	}
 }
