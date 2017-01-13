@@ -29,26 +29,31 @@ Bearer(at,2,"CMNET","GPRS")
 }
 
 bool GsmClient::setPinCode(const String &pin){
-	return at.execute("AT+CPIN="+pin);
+	at.send("AT+CPIN="+pin);
+	String rsp = at.scan(AtClient::AT_OK);
+	return rsp.indexOf(AtClient::AT_OK) != -1;
 }
 
 GsmClient::PinState GsmClient::getPinState(){
-	String rps;
-	if(at.execute("AT+CPIN?", rps)){
-		rps = rps.replace("+CPIN: ", "");
-		if(rps.equals("READY")){
+	at.send("AT+CPIN?");
+	String rsp = at.scan(AtClient::AT_OK);
+	rsp = rsp.replace("AT+CPIN?", "");
+
+	if(at.isOk(rsp)){
+		rsp = rsp.replace("+CPIN: ", "");
+		if(rsp.equals("READY")){
 			return PinState::READY;
 		}
-		else if(rps.equals("SIM PIN")){
+		else if(rsp.equals("SIM PIN")){
 			return PinState::SIM_PIN;
 		}
-		else if(rps.equals("SIM PUK")){
+		else if(rsp.equals("SIM PUK")){
 			return PinState::SIM_PUK;
 		}
-		else if(rps.equals("PH_SIM PIN")){
+		else if(rsp.equals("PH_SIM PIN")){
 			return PinState::PH_SIM_PIN;
 		}
-		else if(rps.equals("PH_SIM PUK")){
+		else if(rsp.equals("PH_SIM PUK")){
 			return PinState::PH_SIM_PUK;
 		}
 	}
@@ -56,8 +61,10 @@ GsmClient::PinState GsmClient::getPinState(){
 }
 
 int GsmClient::getSignalQuality(){
-	String rsp;
-	if(at.execute("AT+CSQ", rsp)){
+	at.send("AT+CSQ");
+	String rsp = at.scan(AtClient::AT_OK);
+	rsp = rsp.replace("AT+CSQ", "");
+	if(at.isOk(rsp)){
 		rsp = rsp.replace("+CSQ: ", "");
 		return rsp.substring(0, rsp.indexOf(",")).toInt();
 	}
@@ -71,10 +78,11 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 		TaskBase::sleep(1000);
 	}
 
-	String rsp;
-	int oldTimeout = at.getTimeout();
-	at.setTimeout(5000);
-	if(at.execute(String("AT+CIPGSMLOC=1,")+getBearerId(), rsp)){
+	at.send(String("AT+CIPGSMLOC=1,")+getBearerId());
+	String rsp = at.scan(AtClient::AT_OK, 3000);
+	rsp.replace(String("AT+CIPGSMLOC=1,")+getBearerId(), "");
+
+	if(at.isOk(rsp)){
 		rsp = rsp.replace("+CIPGSMLOC: ","");
 		//Get location code
 		int locationCode = rsp.substring(0,rsp.indexOf(',')).toInt();
@@ -97,19 +105,37 @@ bool GsmClient::getLocationAndTime(float &latitude, float &longitude, String &da
 	else{
 		PRINTLN("Error getting location and time.");
 	}
-	at.setTimeout(oldTimeout);
 	return rtn;
 }
 
 bool GsmClient::sendSms(const String &number, const String text){
-	return at.execute("AT+CMGF=1") && at.execute("AT+CMGS="+number+"\r\n"+text+"\032");
+	at.send("AT+CMGF=1");
+	String rsp = at.scan(AtClient::AT_OK);
+	if(at.isOk(rsp)){
+		at.send("AT+CMGS="+number+"\r\n"+text+"\032");
+		rsp = at.scan(AtClient::AT_OK);
+		return at.isOk(rsp);
+	}
+	return false;
 }
 
 bool GsmClient::getPhoneNumber(String &number){
-	String rsp;
-	if(at.execute("AT+CNUM", rsp)){
-		//TODO: parse this.
-		PRINTLN("N: " + rsp);
+	at.send("AT+CNUM");
+	String rsp = at.scan(AtClient::AT_OK);
+	rsp.replace("AT+CNUM", "");
+	if(at.isOk(rsp)){
+		number = rsp;
+		return true;
+	}
+	return false;
+}
+
+bool GsmClient::getCcid(String &ccid){
+	at.send("AT+CCID");
+	String rsp = at.scan(AtClient::AT_OK);
+	rsp = rsp.replace("AT+CCID", "");
+	if(at.isOk(rsp)){
+		ccid = rsp;
 		return true;
 	}
 	return false;

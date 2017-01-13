@@ -8,8 +8,10 @@
 #include "AtClient.h"
 
 bool Bearer::querryBearer(int &status, String &ip){
-	String rsp;
-	if(at.execute(String("AT+SAPBR=2,") + bearer, rsp)){
+	at.send(String("AT+SAPBR=2,") + bearer);
+	String rsp = at.scan(AtClient::AT_OK);
+	rsp = rsp.replace(String("AT+SAPBR=2,") + bearer, "");
+	if(at.isOk(rsp)){
 		//Parse the bearer id.
 		rsp = rsp.remove(0, rsp.indexOf(',') + 1);
 		//Parse the status.
@@ -23,11 +25,15 @@ bool Bearer::querryBearer(int &status, String &ip){
 }
 
 bool Bearer::openBearer(){
-	return at.execute(String("AT+SAPBR=1,") + bearer);
+	at.send(String("AT+SAPBR=1,") + bearer);
+	String rsp = at.scan(AtClient::AT_OK, 3000);
+	return at.isOk(rsp);
 }
 
 bool Bearer::closeBearer(){
-	return at.execute(String("AT+SAPBR=0,") + bearer);
+	at.send(String("AT+SAPBR=0,") + bearer);
+	String rsp = at.scan(AtClient::AT_OK, 3000);
+	return at.isOk(rsp);
 }
 
 Bearer::Bearer(AtClient &at, int id, const String &apn, const String &contype):
@@ -72,14 +78,14 @@ bool Bearer::connect(){
 		//If it's closed we need to open it.
 		else if(status == BearesStatus::CLOSED || status == BearesStatus::CLOSING){
 			//Set the connection type and the access point name.
-			if(	at.execute(String("AT+SAPBR=3,") + bearer +",\"Contype\",\""+ contype +"\"") &&
-				at.execute(String("AT+SAPBR=3,") + bearer +",\"APN\",\""+ apn +"\"")
-			){
-				int originalTimeout = at.getTimeout();
-				//Connecting can take a while.
-				at.setTimeout(3000);
-				rtn = openBearer();
-				at.setTimeout(originalTimeout);
+			at.send(String("AT+SAPBR=3,") + bearer +",\"Contype\",\""+ contype +"\"");
+			String rsp = at.scan(AtClient::AT_OK);
+			if(at.isOk(rsp)){
+				at.send(String("AT+SAPBR=3,") + bearer +",\"APN\",\""+ apn +"\"");
+				rsp = at.scan(AtClient::AT_OK);
+				if(at.isOk(rsp)){
+					rtn = openBearer();
+				}
 			}
 		}
 	}
@@ -103,10 +109,7 @@ bool Bearer::disonnect(){
 	if(querryBearer(status, ip)){
 		//If it's connected we do not need to close it.
 		if(status == BearesStatus::CONNECTED || status == BearesStatus::CONNECTING){
-			int originalTimeout = at.getTimeout();
-			at.setTimeout(3000);
 			rtn = closeBearer();
-			at.setTimeout(originalTimeout);
 		}
 		//If it's already closed we do not need to do anything.
 		else if(status == BearesStatus::CLOSED || status == BearesStatus::CLOSING){

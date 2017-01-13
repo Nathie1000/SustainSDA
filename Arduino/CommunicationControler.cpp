@@ -34,10 +34,12 @@ smsQueue(10),
 aes(nullptr),
 ip("0.0.0.0"),
 phoneNumber("0000000000"),
+ccid("000000000000000000"),
 ready(true)
 {
-	pinMode(2, OUTPUT);
-	digitalWrite(2, LOW);
+	//pinMode(2, OUTPUT);
+	//digitalWrite(2, LOW);
+	pinMode(6, OUTPUT);
 }
 
 
@@ -110,7 +112,6 @@ void CommunicationControler::sendInternet(){
 				rsp = http.get(url);
 			}
 			int status = http.getStatus();
-
 			//Decrypt if necessary.
 			if(aes != nullptr && rsp.length() > 0){
 				decrypt(rsp);
@@ -131,6 +132,14 @@ void CommunicationControler::sendInternet(){
 
 void CommunicationControler::run(){
 	PRINTLN("-----------------Communication Task Start-----------");
+	//Power on device
+	if(!http.isDeviceOpen()){
+		digitalWrite(6, HIGH);
+		sleep(1000);
+		digitalWrite(6, LOW);
+		sleep(1000);
+	}
+
 	if(http.isDeviceOpen() || http.openDevice()){
 		//Set the pin code if needed.
 		if(gsm.getPinState() == GsmClient::SIM_PIN){
@@ -139,10 +148,21 @@ void CommunicationControler::run(){
 				PRINTLN("Failed to set PIN.");
 			}
 		}
-		//Get the phone number
-		if(gsm.getPhoneNumber(phoneNumber)){
+		//Get the phone number.
+		if(!gsm.getPhoneNumber(phoneNumber)){
 			PRINTLN("Failed to fetch phone number.")
 		}
+
+		//Get the ccid.
+		if(!gsm.getCcid(ccid)){
+			PRINTLN("Failed to fetch the CCID.")
+		}
+
+		//Weak signal warning.
+		if(gsm.getSignalQuality() < 10){
+			PRINTLN("Warning: weak signal.");
+		}
+		PRINTLN(String("S:") + gsm.getSignalQuality());
 
 		//Try to connect to Internet a few times.
 		for(int i=0; i<5 && !http.connect(); i++){
@@ -152,7 +172,6 @@ void CommunicationControler::run(){
 		if(http.isConnected()){
 			ip = http.getIp();
 		}
-
 	}
 	else{
 		PRINTLN("No AT device found, Communication Task suspend.");
@@ -218,6 +237,10 @@ String CommunicationControler::getIpAddress(){
 	return ip;
 }
 
-String  CommunicationControler::getPhoneNumber(){
+String CommunicationControler::getPhoneNumber(){
 	return phoneNumber;
+}
+
+String CommunicationControler::getCcid(){
+	return ccid;
 }

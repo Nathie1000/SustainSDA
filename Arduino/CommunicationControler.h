@@ -74,6 +74,7 @@ private:
 	Aes *aes;
 	String ip;
 	String phoneNumber;
+	String ccid;
 	bool ready;
 
 	void encrypt(String &message);
@@ -148,9 +149,15 @@ public:
 	/**
 	 * Get the phone number associated with the SIM card.
 	 * Note: not all devices support this function.
-	 * @return the phone number as a String.
+	 * @return The phone number as a String.
 	 */
 	String getPhoneNumber();
+
+	/**
+	 * Get the ICCID (Integrated Circuit Card Identifier) associated with the SIM card.
+	 * @return The ICCID as a String.
+	 */
+	String getCcid();
 };
 
 #endif /* COMMUNICATIONCONTROLER_H_ */

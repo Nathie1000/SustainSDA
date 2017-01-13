@@ -79,17 +79,25 @@ public:
 	 */
 	bool reset();
 
+	void send(const String& atCommand);
+	String scan(int timeout = 200);
+	String scan(const String& until, int timeout = 200);
+
+	bool isOk(String& response);
+	bool isError(String& response);
+
+
 	/**
 	 * Set timeout. This is the time maximum waited for a response from the device.
 	 * @param timeout the timeout time in ms.
 	 */
-	void setTimeout(int timeout);
+	//void setTimeout(int timeout);
 
 	/**
 	 * Get timeout. This is the time maximum waited for a response from the device.
 	 * @return The timeout time in ms.
 	 */
-	int getTimeout();
+	//int getTimeout();
 
 	/**
 	 * Execute an AT command and save the the raw response in a buffer.
@@ -100,7 +108,7 @@ public:
 	 * @param length the length of the response buffer.
 	 * @return The actual amount of bytes read.
 	 */
-	int execute(const String& atCommand, char* buffer, int length);
+	//int execute(const String& atCommand, char* buffer, int length);
 
 	/**
 	 * Execute an AT command and parse the response as String.
@@ -123,7 +131,7 @@ public:
 	 * Note: if the expected string equals ERROR this function will return true even though the command may
 	 * not have been executed correctly.
 	 */
-	bool execute(const String &atCommand, String &data = voidBuffer, const String &expect = AtClient::AT_OK);
+	//bool execute(const String &atCommand, String &data = voidBuffer, const String &expect = AtClient::AT_OK);
 
 	/**
 	 * Scan the bus for any response from the device.
@@ -131,7 +139,7 @@ public:
 	 * @param timeout the amount of time in ms to wait.
 	 * @return the response parsed as a String.
 	 */
-	String scan(int timeout);
+	//String scan(int timeout);
 };
 
 #endif /* ATCLIENT_H_ */

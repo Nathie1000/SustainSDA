@@ -85,10 +85,18 @@ public:
 
 	/**
 	 * Get the phone number associated with the SIM card.
+	 * Note this function is not supported by the SIM800C
 	 * @param number String that will be filled with the found phone number.
 	 * @return True if command executed successfully, otherwise false.
 	 */
 	bool getPhoneNumber(String &number);
+
+	/**
+	 * Get the ICCID (Integrated Circuit Card Identifier).
+	 * @param ccid String that will be filled with the found ICCID.
+	 * @return True if command executed successfully, otherwise false.
+	 */
+	bool getCcid(String &ccid);
 };
 
 #endif /* GSMCLIENT_H_ */

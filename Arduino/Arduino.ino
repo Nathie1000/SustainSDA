@@ -4,7 +4,8 @@
 class ComTest : public CommunicationListener, public LocationListener, public MotionListener{
 public:
 	ComTest(){
-		CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "hallo world", this);
+		//CommunicationControler::getInstance().enableEncryption("thisiskey");
+		CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "ok nu toaal iets ander met ? hallo world met meer text dat dus langer is", this);
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
@@ -13,7 +14,7 @@ public:
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
-		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + " message: " + response);
+		PRINTLN(String("id: ") + (int)messageId + " status: " + responseStatus + " message:\n" + response);
 	}
 
 	void onLocationFound(float latitude, float longitude) override{
@@ -46,12 +47,11 @@ public:
 
 	void run() override{
 		while(true){
+			HttpClient http(AtClient::getInstance());
+			String rsp = http.post("http://www.sustain.net23.net/echo.php", "hallo world");
+			PRINTLN(rsp);
 
-			char buffer[120];
-	        int read  = Serial1.readBytes(buffer, 120);
-			PRINTLN(String("GPS: ") + read);
-
-			sleep(100);
+			sleep(10000);
 		}
 	}
 };
@@ -62,14 +62,13 @@ public:
 void setup(){
 	DEBUG_BEGIN(9600);
 
-	//new ComTest;
-	new TestTask;
+	new ComTest;
+	//new TestTask;
 
-	WatchDog::getInstance().start(6000);
+	//WatchDog::getInstance().start(6000);
 
     TaskBase::startAllTasks();
 }
-
 
 void loop() {
 	//not used
