@@ -3,9 +3,12 @@
 #include <ArduinoJson.h>
 #include <Arduino.h>
 #include <SustainWork.h>
+#include <TimeLib.h>
 
 StepDetection::StepDetection():
-stepCount(0)
+stepCount(0),
+stepsToSend(0),
+isSending(false)
 {
 	lastTime = second();
 	MotionControler::getInstance().addMotionListener(*this);
@@ -21,18 +24,25 @@ bool StepDetection::isTimeToSend(int interval){
 }
 
 void StepDetection::sendSteps(){
+	isSending = true;
 	StaticJsonBuffer<200> jsonBuffer;
 
 	JsonObject& root = jsonBuffer.createObject();
-	root["tel"] = "03461234567";
-	//"YYYY-MM-DDThh:mm:ssTZD"
-	root["time"] = "2016-07-21T05:23:00Z";
-	root["steps"] = stepCount;
+	root["ccid"] = CommunicationControler::getInstance().getCcid();
+	stepsToSend = stepCount;
+	root["steps"] = stepsToSend;
 	String data;
 	root.printTo(data);
-
 	PRINTLN(data);
-	CommunicationControler::getInstance().sendPostRequest("", data);
+	//TODO: add url here!
+	CommunicationControler::getInstance().sendPostRequest("", data, this);
+}
+
+void StepDetection::onMessageReceived(long long messageId, int responseStatus, const String &response){
+	if(responseStatus == 200){
+		stepCount -= stepsToSend;
+	}
+	isSending = false;
 }
 
 void StepDetection::onMotion(const MotionSensorListener::Motion &newMotion) {
@@ -68,9 +78,8 @@ void StepDetection::onMotion(const MotionSensorListener::Motion &newMotion) {
 		PRINTLN(String("Cva Step: ") + stepPer);
 
 
-		if(isTimeToSend(60) || stepCount > 10){
+		if((isTimeToSend(60) || stepCount > 10) && !isSending){
 			sendSteps();
-			stepCount = 0;
 		}
 
 		mag.clear();

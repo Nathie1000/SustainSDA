@@ -26,7 +26,7 @@ public:
 		}
 		else{
 			//Status -1 corresponds to failed to send.
-			PRINTLN(String("An error occurred: " + responseStatus));
+			PRINTLN(String("An error occurred: ")  + responseStatus);
 		}
 	}
 };

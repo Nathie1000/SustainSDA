@@ -19,6 +19,9 @@
  */
 class MotionListener{
 public:
+	/**
+	 * Easy access type definition when using the MotionListener.
+	 */
 	typedef MotionSensorListener::Motion Motion;
 
 	/**

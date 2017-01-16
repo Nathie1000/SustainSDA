@@ -5,12 +5,12 @@ class ComTest : public CommunicationListener, public LocationListener, public Mo
 public:
 	ComTest(){
 		//CommunicationControler::getInstance().enableEncryption("thisiskey");
-		CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "ok nu toaal iets ander met ? hallo world met meer text dat dus langer is", this);
+		//CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "ok nu toaal iets ander met ? hallo world met meer text dat dus langer is", this);
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
 		//LocationTimeController::getInstance().addLocationListener(*this);
-		//MotionControler::getInstance().addMotionListener(*this);
+		MotionControler::getInstance().addMotionListener(*this);
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{

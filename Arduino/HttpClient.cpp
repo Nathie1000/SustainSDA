@@ -29,7 +29,7 @@ bool HttpClient::httpAction(bool method, int &status, int &length){
 	lastResponseStatus = -1;
 	//Getting a response from a remote server might take a while.
 	at.send("AT+HTTPACTION="+ String(method ? "0" : "1"));
-	String rsp = at.scan("+HTTPACTION: ", 15000);
+	String rsp = at.scan("+HTTPACTION: ", 120*1000);
 
 	TaskBase::sleep(1000);
 	rsp.replace("AT+HTTPACTION="+ String(method ? "0" : "1"), "");

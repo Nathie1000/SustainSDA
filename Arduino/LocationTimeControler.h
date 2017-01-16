@@ -1,5 +1,5 @@
 /**
- * @file LocationTimeControler
+ * @file LocationTimeControler.h
  *
  * @author Nathan Schaaphuizen
  * @date 1 nov. 2016

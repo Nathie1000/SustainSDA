@@ -134,13 +134,22 @@ void CommunicationControler::run(){
 	PRINTLN("-----------------Communication Task Start-----------");
 	//Power on device
 	if(!http.isDeviceOpen()){
+		//Make the PWR pin high for 1 second.
+		//This will boot the GRPS it was off.
 		digitalWrite(6, HIGH);
 		sleep(1000);
 		digitalWrite(6, LOW);
-		sleep(1000);
+		//Wait 5 sec for device to start up.
+		sleep(5000);
 	}
 
 	if(http.isDeviceOpen() || http.openDevice()){
+		//Open connection with device.
+		while(!http.openDevice()){
+			PRINTLN("Failed to open communication to AT device.")
+			sleep(100);
+		}
+
 		//Set the pin code if needed.
 		if(gsm.getPinState() == GsmClient::SIM_PIN){
 			PRINTLN("PIN required, setting pin code '0000'.")
@@ -148,26 +157,29 @@ void CommunicationControler::run(){
 				PRINTLN("Failed to set PIN.");
 			}
 		}
+
 		//Get the phone number.
-		if(!gsm.getPhoneNumber(phoneNumber)){
+		while(!gsm.getPhoneNumber(phoneNumber)){
 			PRINTLN("Failed to fetch phone number.")
+			sleep(100);
 		}
 
 		//Get the ccid.
-		if(!gsm.getCcid(ccid)){
+		while(!gsm.getCcid(ccid)){
 			PRINTLN("Failed to fetch the CCID.")
+			sleep(100);
 		}
 
 		//Weak signal warning.
 		if(gsm.getSignalQuality() < 10){
 			PRINTLN("Warning: weak signal.");
 		}
-		PRINTLN(String("S:") + gsm.getSignalQuality());
 
 		//Try to connect to Internet a few times.
-		for(int i=0; i<5 && !http.connect(); i++){
+		for(int i=0; i<3 && !http.connect(); i++){
 			sleep(1000);
 		}
+
 		//Get the IP address.
 		if(http.isConnected()){
 			ip = http.getIp();

@@ -41,19 +41,19 @@ GsmClient::PinState GsmClient::getPinState(){
 
 	if(at.isOk(rsp)){
 		rsp = rsp.replace("+CPIN: ", "");
-		if(rsp.equals("READY")){
+		if(rsp.indexOf("READY") != -1){
 			return PinState::READY;
 		}
-		else if(rsp.equals("SIM PIN")){
+		else if(rsp.indexOf("SIM PIN") != -1){
 			return PinState::SIM_PIN;
 		}
-		else if(rsp.equals("SIM PUK")){
+		else if(rsp.indexOf("SIM PUK") != -1){
 			return PinState::SIM_PUK;
 		}
-		else if(rsp.equals("PH_SIM PIN")){
+		else if(rsp.indexOf("PH_SIM PIN") != -1){
 			return PinState::PH_SIM_PIN;
 		}
-		else if(rsp.equals("PH_SIM PUK")){
+		else if(rsp.indexOf("PH_SIM PUK") != -1){
 			return PinState::PH_SIM_PUK;
 		}
 	}
@@ -124,6 +124,7 @@ bool GsmClient::getPhoneNumber(String &number){
 	String rsp = at.scan(AtClient::AT_OK);
 	rsp.replace("AT+CNUM", "");
 	if(at.isOk(rsp)){
+		rsp = rsp.replace("\r\n", "");
 		number = rsp;
 		return true;
 	}
@@ -135,6 +136,7 @@ bool GsmClient::getCcid(String &ccid){
 	String rsp = at.scan(AtClient::AT_OK);
 	rsp = rsp.replace("AT+CCID", "");
 	if(at.isOk(rsp)){
+		rsp = rsp.replace("\r\n", "");
 		ccid = rsp;
 		return true;
 	}

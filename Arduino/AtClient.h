@@ -79,11 +79,42 @@ public:
 	 */
 	bool reset();
 
+	/**
+	 * Send a command to the AT device.
+	 * @param atCommand the full AT command.
+	 */
 	void send(const String& atCommand);
+
+	/**
+	 * Scan for response from the AT device for x milliseconds.
+	 * @param timeout the amount of time to wait in milliseconds before returning the function.
+	 * @return A string containing all data the the AT device send between this call and timeout.
+	 */
 	String scan(int timeout = 200);
+
+	/**
+	 * Scan for specific response from the AT device.
+	 * This function will return when either the requested String if found or a timeout occurred.
+	 * @param until a String that is matched to the AT response.
+	 * @param timeout the amount of time to wait in milliseconds before returning the function.
+	 * @return A string containing all data the the AT device send between this call and timeout/until.
+	 */
 	String scan(const String& until, int timeout = 200);
 
+	/**
+	 * Check if response is valid (contains OK).
+	 * If so remove the OK from string.
+	 * @param response the response from the AT device to check.
+	 * @return True if response is valid, false if not.
+	 */
 	bool isOk(String& response);
+
+	/**
+	 * Check if response is invalid (contains ERROR).
+	 * If so remove the ERROR from string.
+	 * @param response the response from the AT device to check.
+	 * @return True if response is an error, false if not.
+	 */
 	bool isError(String& response);
 
 
