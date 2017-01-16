@@ -1,7 +1,7 @@
 # SustainSDA
 Minor Smart Devices and Apps
 
-<h3>Getting started</h3><br>
+<h3>Getting started</h3>
 <b>Things you need</b><br>
 <a href="https://www.pjrc.com/teensy/td_download.html">Teensyduino</a> (latest version)<br>
 <a href="https://www.arduino.cc/en/Main/Software">Arduino Studio</a> the latest version of Arduino Studio may not yet be supported by Teensyduino. So pick one that is.<br>
