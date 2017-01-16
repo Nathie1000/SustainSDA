@@ -20,6 +20,9 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -131,7 +134,7 @@ public class HomeDisplayApplication extends Application {
 		stage.setScene(scene);
 		stage.show();
 	}
-
+	
 	private void transits(boolean left){
 		if(animationIsPlaying) return;
 
