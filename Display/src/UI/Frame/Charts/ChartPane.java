@@ -14,7 +14,6 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.chart.XYChart.Data;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 import javafx.scene.paint.Color;
@@ -25,8 +24,6 @@ import javafx.scene.text.Text;
 public class ChartPane extends GridPane {
 
 	private DataSet dataSet;
-
-	int x = 1;
 
 	public ChartPane(DataSet dataset, RepetitiveUpdateTask<Chart> rtask, String title, String xlabel){
 		this(dataset,rtask,title,xlabel,true);

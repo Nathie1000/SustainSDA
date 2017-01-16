@@ -6,7 +6,7 @@ import java.util.List;
 import javafx.scene.chart.XYChart;
 
 public class DataSet {
-
+	
 	public List<XYChart.Data<String,Number>> steps = new ArrayList<>();
 	public List<XYChart.Data<String,Number>> goals = new ArrayList<>();
 
@@ -23,7 +23,7 @@ public class DataSet {
 		}
 	}
 
-	public void setData(ArrayList steps, ArrayList goals){
+	public void setData(ArrayList<Integer> steps, ArrayList<Integer> goals){
 		for(int i = 0;i<steps.size();i++){
 			setStep(i,(Integer)steps.get(i));
 		}
