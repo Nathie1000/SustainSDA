@@ -4,6 +4,7 @@ package UI.Frame;
 import java.util.ArrayList;
 import java.util.List;
 
+import IO.Sim;
 import UI.Frame.Charts.ChartPane;
 import UI.Frame.Charts.DayChartDataSet;
 import UI.Frame.Charts.DayChartUpdateTask;
@@ -115,6 +116,7 @@ public class HomeDisplayApplication extends Application {
 			public void handle(MouseEvent event) {
 				if(event.getClickCount() >= 5){
 					Platform.exit();
+					RepetitiveUpdateTask.scheduler.shutdownNow();
 				}
 			}
 		});
