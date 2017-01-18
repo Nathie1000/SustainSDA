@@ -1,0 +1,39 @@
+	<div class="col s12 switch secondary-content">
+	<div class="col s12 flip-main">
+		{{#if icon}}
+		<div class= "flip-icon {{iconClass}}">
+		</div>
+		{{/if}}
+		{{#if icon}}
+		<div class="flip-name col s12">
+			{{else}}
+				<div class="flip-name col s10">
+{{/if}}
+			{{#if tooltip}}
+				<a  class="tooltipped tooltip-tag" style="width: 100%; heigth: 70px; display:inline-block" data-position="right" data-delay="50" data-tooltip="{{tooltip}}">{{name}}</a>
+			{{else}}
+				{{name}}
+			{{/if}}
+		</div>
+
+		{{#if icon}}
+		<div class="col s12">
+			{{else}}
+				<div class="col s2">
+		{{/if}}
+			<label>
+				{{#if disable}}
+						<!--<<input class="flip-value" type="checkbox" disabled checked="true">-->
+
+					<input checked="checked" disabled type="checkbox" class="filled-in"  id="box_{{field}}" />
+					<label for="box_{{field}}"></label>
+				{{else}}
+					<!--<input class="flip-value" type="checkbox" checked="true">-->
+					<input type="checkbox"  class="filled-in"  id="box_{{field}}" />
+					<label for="box_{{field}}"></label>
+				{{/if}}
+			</label>
+		</div>
+	</div>
+</div>
+<br>

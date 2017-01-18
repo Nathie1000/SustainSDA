@@ -1,0 +1,15 @@
+<div class="col s12">
+  <label>{{label}}</label>
+  <div class="row">
+    {{#each values}}
+      <div class="col s12">
+        {{#if disable}}
+          <input name="{{../../field}}_{{../../attr}}" value="{{id}}" type="radio" id="ms_{{../../field}}_{{id}}" disabled/>
+        {{else}}
+          <input name="{{../../field}}_{{../../attr}}" value="{{id}}" type="radio" id="ms_{{../../field}}_{{id}}" />
+        {{/if}}
+        <label for="ms_{{../field}}_{{id}}">{{label}}</label>
+      </div>
+    {{/each}}
+  </div>
+</div>

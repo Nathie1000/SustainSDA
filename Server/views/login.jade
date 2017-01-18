@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  main.login
+    div.container
+      div.section
+        div.row
+          div.col.s6
+            h1= title
+            p Welkom bij het Sustain programma, log hier in om toegang te krijgen tot de patient informatie.
+          div.col.s6.main-image
+            img.real-image(src="images/background.png" alt="Logo niet gevonden")
+        div.row
+          div.login.s12.col
+            form(method='post', action='/login')
+              div.login-div.col.s6.z-depth-2
+                p.error #{error}
+                p
+                  label Username:
+                  input(type='text', name='username')
+                p
+                  label Password:
+                  input(type='password', name='password')
+                div.login-button-div
+                  input(type='submit', value='Login').login-button

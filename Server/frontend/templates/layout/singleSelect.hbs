@@ -1,0 +1,17 @@
+<div class="input-field single-select-container col s12">
+    {{#if disable}}
+      <select id="ms_{{field}}" name="{{attr}}"disabled>
+    {{else}}
+      <select id="ms_{{field}}" name="{{attr}}">
+    {{/if}}
+      <option disabled selected value="-1">Kies een optie</option>
+    {{#each values}}
+      {{#if disabled}}
+        <option disabled value="{{id}}">{{label}}</option>
+      {{else}}
+        <option value="{{id}}">{{label}}</option>
+      {{/if}}
+    {{/each}}
+  </select>
+  <label for="ms_{{field}}">{{label}}</label>
+</div>

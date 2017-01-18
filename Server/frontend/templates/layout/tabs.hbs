@@ -1,0 +1,18 @@
+<div class="col s12 tab-div">
+  <ul class="tabs row {{mainclass}}">
+    {{#each tabs}}
+    <li class="tab col s{{col}} {{class}} tab{{cid}}" data-cid="{{cid}}">
+      {{#if hover}}
+        <a href="javascript:void(0)" class="tooltipped" data-position="{{hoverPosition}}" data-delay="50" data-tooltip="{{hover}}">{{title}}</a>
+      {{else}}
+      <a href="javascript:void(0)">{{title}}</a>
+      {{/if}}
+      <!-- <a class="btn tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Hover me!</a> -->
+    </li>
+
+    {{/each}}
+  </ul>
+</div>
+{{#each tabs}}
+<div class="col s12 tab{{ cid }} tab-content"></div>
+{{/each}}

@@ -1,0 +1,201 @@
+.bold{
+  font-weight: bold;
+}
+
+.label-large{
+  font-size: 20px;
+}
+
+.error{
+  color: red;
+}
+
+.clickable{
+  cursor:pointer;
+}
+
+.empty-results-dynamic-table {
+    min-height: 50px;
+    background-color: lighten($primary-color-light,30%);
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+.error-results-dynamic-table {
+    min-height: 50px;
+    background-color: lighten($primary-color-light,30%);
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.dynamic-table-header {
+    cursor: pointer;
+}
+.dynamic-table-header.sorting {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.logo{
+  background: url(/images/logo.jpg) no-repeat;
+  height: 100%;
+  width:100%;
+  cursor:pointer;
+}
+.save-button-div{
+  margin:5px;
+  float:right;
+}
+
+.show-hidden-password {
+    position: absolute;
+    margin-left: 95%;
+    top: 10px;
+    cursor: pointer;
+}
+
+ul.breadcrumb-list{
+  .breadcrumb-div{
+    width:10%;
+    height:30px;
+    float: left;
+    margin-top: -15px;
+    li{
+      cursor:pointer;
+    }
+    li.breadcrumb-item{
+      border: 1px solid $primary-color;
+      width:90%;
+      border-radius: 10px;
+      color:$primary-color-dark;
+    }
+    span.breadcrumb-span{
+     float: right;
+    }
+
+    li.breadcrumb-item.current-view{
+      border: 1px solid $primary-color;
+      text-decoration: underline;
+      border-radius: 10px;
+      color: $primary-color-dark;
+      width:90%;
+    }
+    li.breadcrumb-item.current-view.breadcrumb-hover{
+      border: 1px solid $primary-color;
+      border-radius: 10px;
+      text-decoration: underline;
+      color: $primary-color-light;
+      width:90%;
+      cursor:default;
+    }
+
+    li.breadcrumb-item.breadcrumb-hover{
+      border: 1px solid $primary-color;
+      color: $primary-color-light;
+      border-radius: 10px;
+      width:90%;
+    }
+  }
+}
+
+.breadcrumb-span{
+  font-size: 20px;
+
+}
+
+.tablebuttons {
+    text-align: center;
+}
+
+li.dtab{
+  cursor: pointer;
+}
+
+.logout{
+  padding-right: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  .logout-button{
+    font-size:40px!important;
+  }
+}
+
+li.dtab.active {
+  border-bottom: 2px $primary-color solid!important;
+}
+
+h3{
+  color: $primary-color;
+}
+// a.ui-datepicker .ui-datepicker-calendar .ui-state-highlight {
+//
+ // td.ui-state-highlight{
+ //   background: $primary-color-light none; /* a color that fits the widget theme */
+ // }
+a.ui-state-highlight {
+  text-decoration: underline;
+}
+td.ui-state-highlight {
+	background: $primary-color-light none; /* a color that fits the widget theme */
+  a{
+    color: white; /* a color that is readeable with the color above */
+  }
+}
+
+.small-margin{
+  margin:10px!important;
+}
+
+div.ui-datepicker-header{
+  a.ui-datepicker-prev{
+    cursor:pointer;
+    // margin-left: 10%;
+  }
+  a.ui-datepicker-next{
+    cursor:pointer;
+    float:right;
+    // margin-right: 10%;
+  }
+  div.ui-datepicker-title{
+    margin-left: 19%;
+    display: inline-block;
+    color:$primary-color;
+    font-size:18px;
+  }
+}
+
+table.ui-datepicker-calendar {border-collapse: separate;}
+	.ui-datepicker-calendar td {border: 1px solid $primary-color-dark; text-align:center;}
+	// .ui-datepicker-calendar td.steps-value {border: 1px solid $primary-color-dark; text-align:center; padding: 4.65px 5px}
+
+
+.container.main-container{
+    margin-top: -35px;
+}
+
+span.dtab-title{
+  font-size: 18px;
+}
+
+.header-list{
+  height: 80px;
+  margin-top: 0px;
+  border-bottom: 5px solid $primary-color;
+  // background-color: $primary-color-dark;
+  .welcome-text{
+    margin-top: 10px;
+    margin-right:15px;
+    color:$primary-color;
+  }
+  li{
+    display: block;
+    // border: 2px $primary-color solid;
+    left: 10%;
+    width: 12%;
+    height: 100%;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+  }
+}

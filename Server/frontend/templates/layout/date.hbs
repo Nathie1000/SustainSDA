@@ -1,0 +1,11 @@
+<div class="input-field col s12 attr-{{attr}}">
+  {{#if icon }}
+    <i class="material-icons prefix">{{icon}}</i>
+  {{/if}}
+  {{#if disable}}
+    <input name="{{attr}}" id="ms_{{field}}" type="text" disabled>
+  {{else}}
+    <input name="{{attr}}" id="ms_{{field}}" type="text">
+  {{/if}}
+  <label class="active" for="ms_{{field}}">{{label}}</label>
+</div>

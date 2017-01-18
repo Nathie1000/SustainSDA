@@ -1,0 +1,37 @@
+main.doctor {
+  .table-row{
+    cursor:pointer;
+  }
+
+  
+  .progression-div{
+    // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    .patient-info{
+      // margin-left: 5%;
+      // padding-top: 1%;
+      h3{
+        color: $primary-color;
+      }
+      span{
+        color: $primary-color;
+      }
+    }
+  }
+  .tableViewMain{
+    margin:5px;
+  }
+  .patientGoals{
+    .info{
+      .infoButton{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    .dates{
+      .datesButton{
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

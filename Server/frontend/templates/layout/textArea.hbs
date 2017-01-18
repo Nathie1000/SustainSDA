@@ -1,0 +1,29 @@
+<div>
+<div class="input-field col s12 attr-{{attr}}">
+  {{#if icon }}
+    <i class="material-icons prefix">{{icon}}</i>
+  {{/if}}
+  {{#if disable}}
+    {{#if limit}}
+      <textarea name="{{attr}}" id="ms_{{field}}" maxlength="{{limit}}" disabled class="materialize-textarea"></textarea>
+    {{else}}
+      <textarea name="{{attr}}" id="ms_{{field}}" disabled class="materialize-textarea"></textarea>
+    {{/if}}
+  {{else}}
+    {{#if limit}}
+      <textarea name="{{attr}}" id="ms_{{field}}" maxlength="{{limit}}" class="materialize-textarea"></textarea>
+    {{else}}
+      <textarea name="{{attr}}" id="ms_{{field}}" class="materialize-textarea"></textarea>
+    {{/if}}
+  {{/if}}
+  {{#if value}}
+  <label class="active" for="ms_{{field}}">{{label}}</label>
+  {{else}}
+  <label for="ms_{{field}}">{{label}}</label>
+  {{/if}}
+</div>
+  {{#if limit}}
+  <br>
+    <label>Aantal characters over: </label> <label id="limit_{{field}}"> {{limit}}</label>
+  {{/if}}
+</div>

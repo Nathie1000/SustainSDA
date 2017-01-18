@@ -1,0 +1,28 @@
+<div class="input-field col s12 attr-{{attr}}">
+  {{#if icon }}
+    <i class="material-icons prefix">{{icon}}</i>
+  {{/if}}
+  {{#if disable}}
+    {{#if unrequire}}
+      <input name="{{attr}}" id="ms_{{field}}" type="{{type}}" class="validate" value="{{value}}" disabled readonly onfocus="this.removeAttribute('readonly');" style="cursor:text">
+    {{else}}
+      <input name="{{attr}}" id="ms_{{field}}" type="{{type}}" required class="validate" value="{{value}}" disabled readonly onfocus="this.removeAttribute('readonly');" style="cursor:text">
+    {{/if}}
+  {{else}}
+    {{#if unrequire}}
+      <input name="{{attr}}" id="ms_{{field}}" type="{{type}}" class="validate" value="{{value}}" readonly onfocus="this.removeAttribute('readonly');" style="cursor:text">
+    {{else}}
+      <input name="{{attr}}" id="ms_{{field}}" required type="{{type}}" class="validate" value="{{value}}" readonly onfocus="this.removeAttribute('readonly');" style="cursor:text">
+    {{/if}}
+  {{/if}}
+  {{#if showHidden}}
+    <i class="material-icons show-hidden-password">visibility</i>
+  {{/if}}
+  {{#if label}}
+    {{#if value}}
+      <label class="active" data-error="{{errormsg}}" data-success="{{successmsg}}" for="ms_{{field}}">{{label}}</label>
+    {{else}}
+      <label data-error="{{errormsg}}" data-success="{{successmsg}}" for="ms_{{field}}">{{label}}</label>
+    {{/if}}
+  {{/if}}
+</div>

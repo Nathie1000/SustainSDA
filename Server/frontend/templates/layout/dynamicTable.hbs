@@ -1,0 +1,27 @@
+<div class="topBarTable row">
+</div>
+<div class="row">
+  <div class="col s12">
+    <table class="responsive-table striped">
+      <thead>
+        <tr>
+          {{#each columns}}
+            {{#if isOptionsColumn}} <!-- not if basicly -->
+              <th class="header-options">
+              </th>
+            {{else}}
+              <th class="header-{{attr}} {{headerClass}} dynamic-table-header">
+                {{label}}
+                <i class="material-icons"></i>
+              </th>
+            {{/if}}
+          {{/each}}
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+</div>
+<!-- <div class='tablebuttons'>
+<a class="btn-floating btn-large waves-effect waves-light more-btn"><i class="material-icons">expand_more</i></a>
+</div> -->

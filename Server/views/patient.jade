@@ -1,0 +1,18 @@
+
+extends layout
+block content
+  div.main-header
+    ul.header-list
+      li
+        img.logo(src="images/logo.jpg")
+        a(href="#home")
+      //- li  tempnaam
+      //- li  tempnaam2
+      a.logout.right(href="/login")
+        i.material-icons.logout-button power_settings_new
+      span.welcome-text.right
+    div.breadcrumb
+  div.container.main-container
+    div.section
+
+      main.doctor

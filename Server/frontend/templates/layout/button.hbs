@@ -1,0 +1,21 @@
+{{#if href}}
+  {{#if tooltip}}
+    <a href="{{href}}" target="{{target}}" class="waves-effect waves-light btn tooltipped {{class}}" data-tooltip="{{tooltip}}" data-delay="50" data-position="bottom">
+  {{else}}
+    <a href="{{href}}" target="{{target}}" class="waves-effect waves-light btn {{class}}">
+  {{/if}}
+{{else}}
+  {{#if tooltip}}
+    <a class="waves-effect waves-light btn tooltipped {{class}}" data-tooltip="{{tooltip}}" data-delay="50" data-position="bottom">
+  {{else}}
+    <a class="waves-effect waves-light btn {{class}}">
+  {{/if}}
+{{/if}}
+  {{#if icon}}
+  <i class="material-icons">{{icon}}</i>
+  {{/if}}
+  {{#if logo}}
+  <i class="material-icons" src="{{logo}}"></i>
+  {{/if}}
+  {{label}}
+</a>
