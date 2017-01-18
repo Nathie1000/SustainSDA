@@ -1,5 +1,10 @@
 package IO;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * @author Nathan Schaaphuizen
  *
@@ -11,11 +16,23 @@ package IO;
  *
  */
 public class Sim {
+	private static String ccid;
 	
-	public static String getCCID(){
-		
-		//Stub code, will be replaced with the real thing later.
-		return "02358494185083431f";
+	public synchronized static String getCCID(){
+		if(ccid == null){
+			try {
+				File file = new File("/home/pi/ccid.txt");
+				FileReader fr = new FileReader(file);
+				BufferedReader br = new BufferedReader(fr);
+				br.readLine();
+				ccid = br.readLine();
+				br.close();
+				
+			} catch (IOException e) {
+				return "02358494185083431f";
+			}
+		}
+	
+		return ccid;
 	}
-
 }
