@@ -35,7 +35,7 @@ protected:
 	/**
 	 * AtClient that can be used by inherited classes.
 	 */
-	AtClient at;
+	AtClient &at;
 
 public:
 	/**
