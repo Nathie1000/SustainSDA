@@ -1,10 +1,8 @@
 package UI.Frame;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
-import IO.Sim;
 import UI.Frame.Charts.ChartPane;
 import UI.Frame.Charts.DayChartDataSet;
 import UI.Frame.Charts.DayChartUpdateTask;
@@ -21,9 +19,6 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
@@ -109,6 +104,7 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
          });
+        
         //Exit on 5 mouse clicks
         root.setOnMouseClicked(new javafx.event.EventHandler<MouseEvent>() {
 
