@@ -21,13 +21,10 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
@@ -70,13 +67,6 @@ public class HomeDisplayApplication extends Application {
 		UserInfoPane userInfoPane = new UserInfoPane();
 		userInfoPane.setAlignment(Pos.TOP_CENTER);
 		nodes.add(userInfoPane);
-
-		//Blue square
-        Group view2 = new Group();
-        Rectangle rectangle2 = new Rectangle(300, 250);
-        rectangle2.setFill(Color.BLUE);
-        view2.getChildren().add(rectangle2);
-        nodes.add(view2);
 
         //Display first node in list
         root.getChildren().add(nodes.get(0));

@@ -6,11 +6,8 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.scene.chart.XYChart;
-
 public class MonthChartDataSet  extends DataSet{
 
-	
 	public String[] getLabels(){
 		LocalDate today = LocalDate.now();
         LocalDate firstDayOfTheMonth = today.with(TemporalAdjusters.firstDayOfMonth());
@@ -24,7 +21,7 @@ public class MonthChartDataSet  extends DataSet{
             totalDates.add(squareCalendarMonthDayStart);
             squareCalendarMonthDayStart = squareCalendarMonthDayStart.plusDays(1);
         }
-        System.out.println(totalDates);
+        //System.out.println(totalDates);
         List<String> temp = new ArrayList<String>();
         String[] arr = new String[totalDates.size()];
         for(LocalDate ld : totalDates){
@@ -33,10 +30,4 @@ public class MonthChartDataSet  extends DataSet{
         temp.toArray(arr);
 		return arr;
 	}
-
-	public MonthChartDataSet(){
-		super();
-	}
-
-
 }
