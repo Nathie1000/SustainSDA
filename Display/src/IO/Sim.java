@@ -30,7 +30,8 @@ public class Sim {
 				
 			} catch (IOException e) {
 				//Return stub if failed to read file.
-				return "0000000000000000000f";
+				//return "0000000000000000000f";
+				return "02358494185083431f";
 			}
 		}
 		return ccid;

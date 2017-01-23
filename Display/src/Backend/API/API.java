@@ -13,7 +13,7 @@ import Backend.Models.Patient;
 import IO.Sim;
 
 public class API {
-	private static final String HOST 		= "http://localhost:3000/";
+	private static final String HOST 		= "http://145.89.155.166:3000/";
 	private static final String PATIENT		= "api/shd/patient/";
 	private static final String PROGRESS	= "api/shd/getProgressData/";
 	private static final String CHART_HOURS = "api/shd/getChartDataHours/";
@@ -29,7 +29,12 @@ public class API {
 			
 			//Read
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			obj = new JSONObject(in.readLine());
+			System.out.print(url + "   ");
+			String x = in.readLine();
+			System.out.println(x);
+	
+			obj = new JSONObject(x);
+			System.out.println(obj);
 			in.close();
 			return obj;
 			
@@ -57,22 +62,22 @@ public class API {
 	}
 
 	public static JSONObject retrievePatientProgress(Patient patient) {
-		return API.apiCall(HOST + PROGRESS + patient.getCcid());
+		return API.apiCall(HOST + PROGRESS + patient.getId());
 	}
 		
 	public static JSONObject retrieveChartHours(Patient patient) {
-		return API.apiCall(HOST + CHART_HOURS + patient.getCcid());
+		return API.apiCall(HOST + CHART_HOURS + patient.getId());
 	}
 	
 	public static JSONObject retrieveChartWeek(Patient patient) {
-		return API.apiCall(HOST + CHART_WEEK + patient.getCcid());
+		return API.apiCall(HOST + CHART_WEEK + patient.getId());
 	}
 	
 	public static JSONObject retrieveChartMonth(Patient patient) {
-		return API.apiCall(HOST + CHART_MONTH + patient.getCcid());
+		return API.apiCall(HOST + CHART_MONTH + patient.getId());
 	}
 	
 	public static JSONObject retrieveChartYear(Patient patient) {
-		return API.apiCall(HOST + CHART_YEAR + patient.getCcid());
+		return API.apiCall(HOST + CHART_YEAR + patient.getId());
 	}
 }

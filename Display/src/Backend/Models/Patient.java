@@ -16,7 +16,7 @@ public class Patient {
 	
 	
 	public static Patient patient;
-	public static Patient getPatient(){
+	public static synchronized Patient getPatient(){
 		if(patient == null){
 			//retrivePatient() may return null.
 			patient = API.retrievePatient();
@@ -28,6 +28,7 @@ public class Patient {
 	 * Default Patient constructor
 	 */
 	public Patient(String ccid, int id, String firstName, String lastName, int battery) {
+		this.id = id;
 		this.ccid = ccid;
 		this.firstName = firstName;
 		this.lastName = lastName;
