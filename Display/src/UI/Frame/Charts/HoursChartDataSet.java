@@ -1,6 +1,6 @@
 package UI.Frame.Charts;
 
-public class DayChartDataSet  extends DataSet{
+public class HoursChartDataSet extends DataSet{
 
 	public String[] getLabels(){
 		String[] hours = new String[24];

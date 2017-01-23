@@ -6,9 +6,9 @@ import Backend.Models.Patient;
 import UI.Frame.RepetitiveUpdateTask;
 
 
-public class DayChartUpdateTask extends RepetitiveUpdateTask<Chart>{
+public class HoursChartUpdateTask extends RepetitiveUpdateTask<Chart>{
 
-	public DayChartUpdateTask() {
+	public HoursChartUpdateTask() {
 		super(0, 5, TimeUnit.MINUTES);
 	}
 

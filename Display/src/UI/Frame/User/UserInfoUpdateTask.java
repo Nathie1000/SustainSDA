@@ -19,7 +19,7 @@ public class UserInfoUpdateTask extends RepetitiveUpdateTask<Patient>{
 			patient.fetchProgress();
 		}
 		else{
-			patient = new Patient(null, -1, "No", "Internet", -1);
+			patient = new Patient(null, -1, "Geen", "verbinding", -1);
 		}
 		
 		return patient;

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import UI.Frame.Charts.ChartPane;
-import UI.Frame.Charts.DayChartDataSet;
-import UI.Frame.Charts.DayChartUpdateTask;
+import UI.Frame.Charts.HoursChartDataSet;
+import UI.Frame.Charts.HoursChartUpdateTask;
 import UI.Frame.Charts.MonthChartDataSet;
 import UI.Frame.Charts.MonthChartUpdateTask;
 import UI.Frame.Charts.WeekChartDataSet;
@@ -49,9 +49,14 @@ public class HomeDisplayApplication extends Application {
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
+		
+		//User info
+		UserInfoPane userInfoPane = new UserInfoPane();
+		userInfoPane.setAlignment(Pos.TOP_CENTER);
+		nodes.add(userInfoPane);
 
 		//Day steps Chart
-		ChartPane daySepPane = new ChartPane(new DayChartDataSet(), new DayChartUpdateTask(),"Aantal stappen per dag","Uren");
+		ChartPane daySepPane = new ChartPane(new HoursChartDataSet(), new HoursChartUpdateTask(),"Aantal stappen per dag","Uren");
 		nodes.add(daySepPane);
 		//Week steps Chart
 		ChartPane weekSepPane = new ChartPane(new WeekChartDataSet(),new WeekChartUpdateTask(),"Aantal stappen per week","Dagen");
@@ -62,11 +67,6 @@ public class HomeDisplayApplication extends Application {
 		//Week steps Chart
 		ChartPane yearSepPane = new ChartPane(new YearChartDataSet(),new YearChartUpdateTask(),"Aantal stappen per jaar","Maanden");
 		nodes.add(yearSepPane);
-
-		//User info
-		UserInfoPane userInfoPane = new UserInfoPane();
-		userInfoPane.setAlignment(Pos.TOP_CENTER);
-		nodes.add(userInfoPane);
 
         //Display first node in list
         root.getChildren().add(nodes.get(0));
