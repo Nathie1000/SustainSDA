@@ -1,38 +1,41 @@
 package Backend.Models;
 
-import Backend.API.PatientAPI;
+
 import org.json.JSONObject;
 
-public class Patient extends Model {
+import Backend.API.API;
 
+public class Patient {
+
+	private int id;
+	private String ccid;
 	private String firstName, lastName;
 	private int battery;
-	private int id;
 	private int stepsToday, goalToday, totalSteps;
 	private int goalsCompleted, totalGoals;
 	
 	
-	public static Patient getPatient(String shdNumber) {
-		return PatientAPI.retrieve(shdNumber);
+	public static Patient patient;
+	public static Patient getPatient(){
+		if(patient == null){
+			//retrivePatient() may return null.
+			patient = API.retrievePatient();
+		}
+		return patient;
 	}
 	
-	
-	/**
-	 * Default empty Patient constructor
-	 */
-	public Patient() {
-		super();
-	}
-
 	/**
 	 * Default Patient constructor
 	 */
-	public Patient(String firstName, String lastName, int battery, int id) {
-		super();
+	public Patient(String ccid, int id, String firstName, String lastName, int battery) {
+		this.ccid = ccid;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.battery = battery;
-		this.id =id;
+	}
+	
+	public int getId() {
+		return id;
 	}
 
 	/**
@@ -62,8 +65,8 @@ public class Patient extends Model {
 		return battery;
 	}
 
-	public int getId() {
-		return id;
+	public String getCcid() {
+		return ccid;
 	}
 	
 	public int getStepsToday() {
@@ -97,11 +100,8 @@ public class Patient extends Model {
 		return "Patient [firstName=" + firstName + ", lastName=" + lastName + ", battery=" + battery + "]";
 	}
 	
-
-	public void getProgress() {
-		System.out.println("blabla");
-		// PatientAPI.getProgress(this.id);
-		JSONObject json = PatientAPI.retrieveProgress(this.id);
+	public void fetchProgress() {
+		JSONObject json = API.retrievePatientProgress(this);
 		this.stepsToday = json.getInt("steps");
 		this.totalSteps = json.getInt("totalSteps");
 		if (json.get("stepGoal") instanceof String) {
@@ -111,6 +111,5 @@ public class Patient extends Model {
 		}
 		this.goalsCompleted= json.getInt("goalsCompleted"); 
 		this.totalGoals = json.getInt("totalGoals");
-		System.out.println(this.totalSteps);
 	}
 }

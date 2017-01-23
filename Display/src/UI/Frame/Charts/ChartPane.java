@@ -32,16 +32,13 @@ public class ChartPane extends GridPane {
 	public ChartPane(DataSet dataset, RepetitiveUpdateTask<Chart> rtask, String title, String xlabel, boolean goal) {
 		dataSet = dataset;
 
+		//Bind data to data set.
 		final RepetitiveUpdateTask<Chart> task = rtask;
 		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
 
 			@Override
 			public void handle(WorkerStateEvent event) {
-				System.out.println("handling");
-				//TODO: bind chart to data set
 				Chart chart = task.getValue();
-				System.out.println(chart.getSteps());
-				System.out.println(chart.getGoals());
 				dataSet.setData(chart.getSteps(),chart.getGoals());
 			}
 		});

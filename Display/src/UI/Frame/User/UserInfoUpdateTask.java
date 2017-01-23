@@ -2,13 +2,10 @@ package UI.Frame.User;
 
 import java.util.concurrent.TimeUnit;
 import Backend.Models.Patient;
-import IO.Sim;
 import UI.Frame.RepetitiveUpdateTask;
 
 
 public class UserInfoUpdateTask extends RepetitiveUpdateTask<Patient>{
-	
-	private Patient patient;
 	
 	public UserInfoUpdateTask() {
 		super(0, 5, TimeUnit.MINUTES);
@@ -16,12 +13,15 @@ public class UserInfoUpdateTask extends RepetitiveUpdateTask<Patient>{
 
 	@Override
 	protected Patient call() throws Exception {
-		if(patient == null){
-			patient = Patient.getPatient(Sim.getCCID());
+		Patient patient = Patient.getPatient();
+		
+		if(patient != null){
+			patient.fetchProgress();
 		}
-
-		patient.getProgress();
-
+		else{
+			patient = new Patient(null, -1, "Geen", "verbinding", -1);
+		}
+		
 		return patient;
 	}
 } 

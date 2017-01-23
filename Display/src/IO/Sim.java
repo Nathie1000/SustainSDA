@@ -18,21 +18,21 @@ import java.io.IOException;
 public class Sim {
 	private static String ccid;
 	
-	public synchronized static String getCCID(){
+	public synchronized static String getCcid(){
 		if(ccid == null){
 			try {
 				File file = new File("/home/pi/ccid.txt");
-				FileReader fr = new FileReader(file);
-				BufferedReader br = new BufferedReader(fr);
+				BufferedReader br = new BufferedReader(new FileReader(file));
+				//Void the first line.
 				br.readLine();
 				ccid = br.readLine();
 				br.close();
 				
 			} catch (IOException e) {
-				return "02358494185083431f";
+				//Return stub if failed to read file.
+				return "0000000000000000000f";
 			}
 		}
-	
 		return ccid;
 	}
 }

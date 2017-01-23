@@ -2,6 +2,7 @@ package UI.Frame.Charts;
 
 import java.util.concurrent.TimeUnit;
 import Backend.Models.Chart;
+import Backend.Models.Patient;
 import UI.Frame.RepetitiveUpdateTask;
 
 
@@ -13,8 +14,11 @@ public class WeekChartUpdateTask extends RepetitiveUpdateTask<Chart>{
 
 	@Override
 	protected Chart call() throws Exception {
+		Patient patient = Patient.getPatient();
 		Chart chart = new Chart();
-		chart.getChartDataWeek();
+		if(patient != null){
+			chart.fetchChartDataWeek(patient);
+		}
 		return chart;
 	}
 }

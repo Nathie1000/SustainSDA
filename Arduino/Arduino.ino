@@ -1,5 +1,6 @@
+//This file is primarily used for testing the framework.
+
 #include "SustainWork.h"
-#include <ArduinoJson.h>
 
 class ComTest : public CommunicationListener, public LocationListener, public MotionListener{
 public:
@@ -28,31 +29,6 @@ public:
 		//PRINTLN(String("Motion: ") +newMotion.ax + ", " +newMotion.ay + ", " + newMotion.az);
 		PRINTLN(String("Gyro: ") +newMotion.gx + ", " +newMotion.gy + ", " + newMotion.gz);
 		//TaskBase::sleep(500);
-	}
-};
-
-class TestTask : public TaskBase{
-public:
-
-	TestTask():
-		TaskBase(1, "TestTask")
-	{
-		Serial1.begin(9600);
-		pinMode(2, OUTPUT);
-		digitalWrite(2, HIGH);
-
-		pinMode(23, OUTPUT);
-		digitalWrite(23, LOW);
-	}
-
-	void run() override{
-		while(true){
-			HttpClient http(AtClient::getInstance());
-			String rsp = http.post("http://www.sustain.net23.net/echo.php", "hallo world");
-			PRINTLN(rsp);
-
-			sleep(10000);
-		}
 	}
 };
 
