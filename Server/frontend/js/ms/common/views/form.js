@@ -226,20 +226,24 @@ var FormView = Backbone.View.extend({
             this.$el.append('<div class="save-button-div z-depth-2"></div>');
             this.$el.find('.save-button-div').append(add);
             add.click(()=>{
-              var pre;
-              var post;
-              if(this.saveButton.preSave && isFunction(this.saveButton.preSave)) pre = this.saveButton.preSave(self.model);
-              if(pre !== false)
-              {
-                self.model.save(null, {success:()=>{
-                  if(this.saveButton.postSave && isFunction(this.saveButton.postSave)) post = this.saveButton.postSave(self.model);
-                  if(post !== false){
-                    swal({
-                      title: 'Succesvol opgeslagen',
-                      type: 'success'
-                    });
-                  }
-                }});
+              if(this.saveButton.click && isFunction(this.saveButton.click)){
+                this.saveButton.click();
+              } else {
+                var pre;
+                var post;
+                if(this.saveButton.preSave && isFunction(this.saveButton.preSave)) pre = this.saveButton.preSave(self.model);
+                if(pre !== false)
+                {
+                  self.model.save(null, {success:()=>{
+                    if(this.saveButton.postSave && isFunction(this.saveButton.postSave)) post = this.saveButton.postSave(self.model);
+                    if(post !== false){
+                      swal({
+                        title: 'Succesvol opgeslagen',
+                        type: 'success'
+                      });
+                    }
+                  }});
+                }
               }
             });
           }

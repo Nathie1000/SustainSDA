@@ -2,6 +2,7 @@ var Backbone = require('backbone');
 var _ = require('underscore');
 import app from 'ms/app.js';
 import Form from 'ms/common/views/form.js';
+import User from 'ms/models/users.js';
 
 var HomeView = Backbone.View.extend({
   template: Handlebars.templates['doctor/patient/patientDetails'],
@@ -10,17 +11,9 @@ var HomeView = Backbone.View.extend({
     this.$el.html(this.template());
     this.$el.parent().addClass('z-depth-2');
     this.$el.addClass('small-margin');
+    var m;
       var f = new Form({
-        saveButton: {
-          preSave: ()=>{
-            if(!this.model.id)
-              this.newModel = true;
-          },
-          postSave: ()=>{
-            if(this.newModel)
-              app.router.navigate('/patient/'+this.model.id,{trigger: true});
-          }
-        },
+
         model: this.model,
         fields: [
           {
@@ -35,18 +28,68 @@ var HomeView = Backbone.View.extend({
           },
           {
             label: 'Begeleider',
-            attr: 'doctor',
-            size: 6
+            attr: 'doctor_id',
+            type: 'singleselect',
+            values:app.doctors,
+            size: 12
           },
-          {
-            label: 'test',
-            attr: 'test',
-            size: 6,
-          },
+
         ]
       });
       Backbone.Validation.bind(f);
       this.$el.append(f.render().el);
+      if(!this.model.id){
+        m = new User();
+        var form2 = new Form({
+          model: m,
+          fields: [
+            {
+                attr: 'username',
+                label: 'Gebruikersnaam',
+                size: 12
+            }, {
+                attr: 'password',
+                label: 'Wachtwoord',
+                showHidden: true,
+                type: 'password',
+                size: 6
+            }, {
+                attr: 'password_repeat',
+                label: 'Herhaal wachtwoord',
+                showHidden: true,
+                type: 'password',
+                size: 6
+            }
+          ]
+        });
+        Backbone.Validation.bind(form2);
+        this.$el.append(form2.render().el);
+      }
+      var saveSelf = $(Handlebars.templates['layout/button']({
+          label: 'Opslaan',
+          class: 'right'
+      }));
+      this.$el.append(saveSelf);
+      saveSelf.click(()=>{
+        if(!this.model.id){
+          m.save(null,{success:()=>{
+            this.model.set('user_id',m.id);
+            this.model.save(null,{success:()=>{
+              app.router.navigate('/patient/'+this.model.id,{trigger: true});
+            }});
+          }});
+        } else {
+          this.model.save(null,{success:()=>{
+            swal('Succesvol opgeslagen!', null, 'success');
+          }});
+        }
+        // app.currentFysio.save(null,{success:()=>{
+        //   m.save(null,{success:()=>{
+        //     swal('Succesvol opgeslagen!',null,'success');
+        //   }})
+        // }});
+      });
+      $('select').material_select();
     return this;
   }
 });

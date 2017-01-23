@@ -26,7 +26,7 @@ var PatientSearchCollection = _sortableCollection2.default.extend({
 });
 module.exports = PatientSearchCollection;
 
-},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/doctors.js":41,"backbone":54}],2:[function(require,module,exports){
+},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/doctors.js":41,"backbone":58}],2:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -92,7 +92,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/doctorSearch.js":1,"backbone":54,"underscore":401}],3:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/doctorSearch.js":1,"backbone":58,"underscore":403}],3:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -208,7 +208,7 @@ var PatientPageView = Backbone.View.extend({
 
 module.exports = PatientPageView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/users.js":45,"backbone":54,"underscore":401}],4:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/users.js":45,"backbone":58,"underscore":403}],4:[function(require,module,exports){
 'use strict';
 
 var _sortableCollection = require('./../../../common/collections/sortable-collection.js');
@@ -236,7 +236,7 @@ var PracticeSearchCollection = _sortableCollection2.default.extend({
 });
 module.exports = PracticeSearchCollection;
 
-},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/practices.js":44,"backbone":54}],5:[function(require,module,exports){
+},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/practices.js":44,"backbone":58}],5:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -297,36 +297,13 @@ var HomeView = Backbone.View.extend({
       _app2.default.currentPractice = null;
       _app2.default.router.navigate('#practice', { trigger: true });
     });
-    var test = $(Handlebars.templates['layout/button']({
-      label: 'Post data',
-      class: 'right'
-    }));
-    this.$el.find('.practiceTopBar').append(test);
-    test.click(function () {
-      var json = {
-        test: 'hallo',
-        naam: 'je moeder',
-        dat: 85102,
-        waarom: 'trigger time'
-      };
-      $.ajax({
-        url: '/send',
-        type: 'post',
-        data: JSON.stringify(json),
-        contentType: 'application/json',
-        dataType: 'json',
-        success: function success(response) {
-          console.log(response);
-        }
-      });
-    });
     return this;
   }
 });
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/practiceSearch.js":4,"backbone":54,"underscore":401}],6:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/practiceSearch.js":4,"backbone":58,"underscore":403}],6:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -397,7 +374,7 @@ module.exports = function (callback) {
   });
 };
 
-},{"./../app.js":12,"./doctors/views/doctorPage.js":3,"./home/views/adminPractices.js":5,"./patients/views/patientPage.js":9,"./practices/views/practiceInfoPage.js":10,"./practices/views/practiceMaster.js":11,"async":51,"backbone":54,"underscore":401}],7:[function(require,module,exports){
+},{"./../app.js":12,"./doctors/views/doctorPage.js":3,"./home/views/adminPractices.js":5,"./patients/views/patientPage.js":9,"./practices/views/practiceInfoPage.js":10,"./practices/views/practiceMaster.js":11,"async":55,"backbone":58,"underscore":403}],7:[function(require,module,exports){
 'use strict';
 
 var _sortableCollection = require('./../../../common/collections/sortable-collection.js');
@@ -427,7 +404,7 @@ var PatientSearchCollection = _sortableCollection2.default.extend({
 });
 module.exports = PatientSearchCollection;
 
-},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/patients.js":43,"backbone":54}],8:[function(require,module,exports){
+},{"./../../../common/collections/sortable-collection.js":13,"./../../../models/patients.js":43,"backbone":58}],8:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -493,7 +470,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/patientSearch.js":7,"backbone":54,"underscore":401}],9:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/patientSearch.js":7,"backbone":58,"underscore":403}],9:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -635,7 +612,7 @@ var PatientPageView = Backbone.View.extend({
 
 module.exports = PatientPageView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/patients.js":43,"./../../../models/users.js":45,"backbone":54,"underscore":401}],10:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/patients.js":43,"./../../../models/users.js":45,"backbone":58,"underscore":403}],10:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -750,6 +727,8 @@ var PatientPageView = Backbone.View.extend({
                         } });
                     } });
                 } else swal('Succesvol opgeslagen', undefined, 'success');
+              }, error: function error(e) {
+                console.log(e);
               } });
           } else console.log('help');
       } else swal('Wachtwoorden zijn niet gelijk.', undefined, 'error');
@@ -772,7 +751,7 @@ var PatientPageView = Backbone.View.extend({
 
 module.exports = PatientPageView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/practices.js":44,"./../../../models/users.js":45,"./../../../utils.js":50,"backbone":54,"underscore":401}],11:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/practices.js":44,"./../../../models/users.js":45,"./../../../utils.js":54,"backbone":58,"underscore":403}],11:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -839,7 +818,7 @@ var PatientPageView = Backbone.View.extend({
 
 module.exports = PatientPageView;
 
-},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/practices.js":44,"./../../doctors/views/doctorOverview.js":2,"./../../patients/views/patientOverview.js":8,"./practiceInfoPage.js":10,"backbone":54,"underscore":401}],12:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/practices.js":44,"./../../doctors/views/doctorOverview.js":2,"./../../patients/views/patientOverview.js":8,"./practiceInfoPage.js":10,"backbone":58,"underscore":403}],12:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -1066,7 +1045,7 @@ $.ajax('/user/users/current').done(function (response) {
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"./admin/init":6,"./common/helpers/app-page.js":14,"./common/helpers/breadcrumbs.js":15,"./doctor/init":24,"./lib/backbone.collectionView.js":37,"./lib/owl.carousel.min.js":38,"./lib/spectrum.js":39,"./models/users.js":45,"./patient/init":46,"./utils.js":50,"async":51,"babel-polyfill":52,"backbone":54,"backbone-validation":53,"underscore":401}],13:[function(require,module,exports){
+},{"./admin/init":6,"./common/helpers/app-page.js":14,"./common/helpers/breadcrumbs.js":15,"./doctor/init":24,"./lib/backbone.collectionView.js":37,"./lib/owl.carousel.min.js":38,"./lib/spectrum.js":39,"./models/users.js":45,"./patient/init":46,"./utils.js":54,"async":55,"babel-polyfill":56,"backbone":58,"backbone-validation":57,"underscore":403}],13:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -1149,7 +1128,7 @@ var SortableCollection = Backbone.Collection.extend({
 
 module.exports = SortableCollection;
 
-},{"./../../app.js":12,"backbone":54,"underscore":401}],14:[function(require,module,exports){
+},{"./../../app.js":12,"backbone":58,"underscore":403}],14:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -1193,7 +1172,7 @@ AppPage.prototype = {
 
 module.exports = AppPage;
 
-},{"./../../app.js":12,"underscore":401}],15:[function(require,module,exports){
+},{"./../../app.js":12,"underscore":403}],15:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -1268,7 +1247,7 @@ module.exports = Backbone.View.extend({
   // app.history;
 });
 
-},{"./../../app.js":12,"backbone":54,"underscore":401}],16:[function(require,module,exports){
+},{"./../../app.js":12,"backbone":58,"underscore":403}],16:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -1721,7 +1700,7 @@ var Collapsible = Backbone.View.extend({
 
 module.exports = Collapsible;
 
-},{"./../../app.js":12,"./../../utils.js":50,"./form.js":18,"backbone":54,"thenby":400,"underscore":401}],17:[function(require,module,exports){
+},{"./../../app.js":12,"./../../utils.js":54,"./form.js":18,"backbone":58,"thenby":402,"underscore":403}],17:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -1820,7 +1799,7 @@ var TabView = Backbone.View.extend({
 
 module.exports = TabView;
 
-},{"./../../app.js":12,"backbone":54,"underscore":401}],18:[function(require,module,exports){
+},{"./../../app.js":12,"backbone":58,"underscore":403}],18:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -2050,19 +2029,23 @@ var FormView = Backbone.View.extend({
       this.$el.append('<div class="save-button-div z-depth-2"></div>');
       this.$el.find('.save-button-div').append(add);
       add.click(function () {
-        var pre;
-        var post;
-        if (_this.saveButton.preSave && (0, _utils.isFunction)(_this.saveButton.preSave)) pre = _this.saveButton.preSave(self.model);
-        if (pre !== false) {
-          self.model.save(null, { success: function success() {
-              if (_this.saveButton.postSave && (0, _utils.isFunction)(_this.saveButton.postSave)) post = _this.saveButton.postSave(self.model);
-              if (post !== false) {
-                swal({
-                  title: 'Succesvol opgeslagen',
-                  type: 'success'
-                });
-              }
-            } });
+        if (_this.saveButton.click && (0, _utils.isFunction)(_this.saveButton.click)) {
+          _this.saveButton.click();
+        } else {
+          var pre;
+          var post;
+          if (_this.saveButton.preSave && (0, _utils.isFunction)(_this.saveButton.preSave)) pre = _this.saveButton.preSave(self.model);
+          if (pre !== false) {
+            self.model.save(null, { success: function success() {
+                if (_this.saveButton.postSave && (0, _utils.isFunction)(_this.saveButton.postSave)) post = _this.saveButton.postSave(self.model);
+                if (post !== false) {
+                  swal({
+                    title: 'Succesvol opgeslagen',
+                    type: 'success'
+                  });
+                }
+              } });
+          }
         }
       });
     }
@@ -2077,7 +2060,7 @@ var FormView = Backbone.View.extend({
 
 module.exports = FormView;
 
-},{"./../../app.js":12,"./../../utils.js":50,"backbone":54,"underscore":401}],19:[function(require,module,exports){
+},{"./../../app.js":12,"./../../utils.js":54,"backbone":58,"underscore":403}],19:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../app.js');
@@ -2227,7 +2210,7 @@ var TabView = Backbone.View.extend({
 
 module.exports = TabView;
 
-},{"./../../app.js":12,"backbone":54,"underscore":401}],20:[function(require,module,exports){
+},{"./../../app.js":12,"backbone":58,"underscore":403}],20:[function(require,module,exports){
 'use strict';
 
 var _sortableCollection = require('./../../../common/collections/sortable-collection.js');
@@ -2250,7 +2233,7 @@ var DoctorSearchCollection = _sortableCollection2.default.extend({
 });
 module.exports = DoctorSearchCollection;
 
-},{"./../../../common/collections/sortable-collection.js":13,"backbone":54}],21:[function(require,module,exports){
+},{"./../../../common/collections/sortable-collection.js":13,"backbone":58}],21:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2319,7 +2302,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/doctorSearch.js":20,"backbone":54,"underscore":401}],22:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/doctorSearch.js":20,"backbone":58,"underscore":403}],22:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2355,6 +2338,7 @@ var HomeView = Backbone.View.extend({
 
   renderForm: function renderForm(self, fysio) {
     var m = new _users2.default(fysio.toJSON());
+    m.set('id', m.get('user_id'));
     var form = new _form2.default({
       model: fysio,
       fields: [{
@@ -2392,12 +2376,14 @@ var HomeView = Backbone.View.extend({
     Backbone.Validation.bind(form);
     Backbone.Validation.bind(form2);
     var add = $(Handlebars.templates['layout/button']({
-      label: createNew ? 'Fysiotherapeut toevoegen' : 'Opslaan'
+      label: !fysio.id ? 'Fysiotherapeut toevoegen' : 'Opslaan'
     }));
-    this.$el.find('.patient-info-section').append(add);
+    this.$el.append(add);
     add.click(function () {
-      (0, _utils.saveModels)({ fysio: fysio, m: m }, { success: function success() {
-          swal('Succesvol opgeslagen.', undefined, 'success');
+      fysio.save(null, { success: function success() {
+          m.save(null, { success: function success() {
+              swal('Succesvol opgeslagen!', null, 'success');
+            } });
         } });
     });
   },
@@ -2422,7 +2408,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/users.js":45,"./../../../utils.js":50,"./../collections/doctorSearch.js":20,"backbone":54,"underscore":401}],23:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/doctors.js":41,"./../../../models/users.js":45,"./../../../utils.js":54,"./../collections/doctorSearch.js":20,"backbone":58,"underscore":403}],23:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../app.js');
@@ -2489,7 +2475,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../app.js":12,"./../common/views/tabs.js":19,"./doctors/views/doctorOverview.js":21,"./patients/views/patientOverview.js":31,"./practices/views/practiceDetails.js":35,"./self/views/selfDetails.js":36,"backbone":54,"underscore":401}],24:[function(require,module,exports){
+},{"./../app.js":12,"./../common/views/tabs.js":19,"./doctors/views/doctorOverview.js":21,"./patients/views/patientOverview.js":31,"./practices/views/practiceDetails.js":35,"./self/views/selfDetails.js":36,"backbone":58,"underscore":403}],24:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -2559,15 +2545,23 @@ module.exports = function (callback) {
   }, function (next) {
     $.ajax('/fysio/practices/current').done(function (response) {
       _app2.default.currentPractice = new _practices2.default(response);
+      console.log(_app2.default.currentPractice);
       next();
     });
   }], function (err, results) {
     console.log('test');
-    callback();
+    $.ajax('fysio/doctors/allDoctorsByPractice/' + _app2.default.currentPractice.id).done(function (res) {
+      _app2.default.doctors = [];
+      _.each(res, function (d) {
+        _app2.default.doctors.push({ id: d.id, label: d.firstName + ' ' + d.lastName });
+      });
+      callback();
+    });
+    // callback();
   });
 };
 
-},{"./../app.js":12,"./../models/doctors.js":41,"./../models/practices.js":44,"./doctors/views/doctorPage.js":22,"./homePage.js":23,"./patients/views/patientMaster.js":30,"async":51,"backbone":54,"underscore":401}],25:[function(require,module,exports){
+},{"./../app.js":12,"./../models/doctors.js":41,"./../models/practices.js":44,"./doctors/views/doctorPage.js":22,"./homePage.js":23,"./patients/views/patientMaster.js":30,"async":55,"backbone":58,"underscore":403}],25:[function(require,module,exports){
 'use strict';
 
 var _sortableCollection = require('./../../../common/collections/sortable-collection.js');
@@ -2593,7 +2587,7 @@ var PatientSearchCollection = _sortableCollection2.default.extend({
 });
 module.exports = PatientSearchCollection;
 
-},{"./../../../common/collections/sortable-collection.js":13,"backbone":54}],26:[function(require,module,exports){
+},{"./../../../common/collections/sortable-collection.js":13,"backbone":58}],26:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2621,8 +2615,8 @@ var HomeView = Backbone.View.extend({
       datasets: [{
         label: 'Stappen gezet',
         data: this.model.chartData.tf,
-        backgroundColor: ['rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 30, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(130, 39, 120, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 30, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(130, 39, 120, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 30, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(130, 39, 120, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(54, 162, 235, 0.4)', 'rgba(255, 206, 86, 0.4)', 'rgba(75, 192, 30, 0.4)', 'rgba(153, 102, 255, 0.4)', 'rgba(130, 39, 120, 0.4)'],
-        borderColor: ['rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 30, 1)', 'rgba(153, 102, 255, 1)', 'rgba(130, 39, 120, 1)', 'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 30, 1)', 'rgba(153, 102, 255, 1)', 'rgba(130, 39, 120, 1)', 'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 30, 1)', 'rgba(153, 102, 255, 1)', 'rgba(130, 39, 120, 1)', 'rgba(255,99,132,1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)', 'rgba(75, 192, 30, 1)', 'rgba(153, 102, 255, 1)', 'rgba(130, 39, 120, 1)'],
+        backgroundColor: ['rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)'],
+        borderColor: ['rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)'],
         borderWidth: 1
       }] };
     setTimeout(function () {
@@ -2648,7 +2642,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"backbone":54,"chart.js":58,"underscore":401}],27:[function(require,module,exports){
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"underscore":403}],27:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2689,11 +2683,11 @@ var HomeView = Backbone.View.extend({
     var dataLine = { labels: this.model.chartData.month.dates,
       datasets: [{
         backgroundColor: ['rgba(255, 99, 132, 0.4)'],
-        label: 'Stappen gezet',
+        label: 'Totaal aantal stappen gezet',
         data: this.model.chartData.month.stepsTotal
       }, {
         backgroundColor: ['rgba(0, 0, 240, 0.4)'],
-        label: 'Stappen doel',
+        label: 'Totaal aantal stappen doel',
         data: this.model.chartData.month.goalsTotal
       }] };
     setTimeout(function () {
@@ -2731,7 +2725,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"backbone":54,"chart.js":58,"underscore":401}],28:[function(require,module,exports){
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"underscore":403}],28:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2741,6 +2735,10 @@ var _app2 = _interopRequireDefault(_app);
 var _form = require('./../../../common/views/form.js');
 
 var _form2 = _interopRequireDefault(_form);
+
+var _users = require('./../../../models/users.js');
+
+var _users2 = _interopRequireDefault(_users);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2757,15 +2755,9 @@ var HomeView = Backbone.View.extend({
     this.$el.html(this.template());
     this.$el.parent().addClass('z-depth-2');
     this.$el.addClass('small-margin');
+    var m;
     var f = new _form2.default({
-      saveButton: {
-        preSave: function preSave() {
-          if (!_this.model.id) _this.newModel = true;
-        },
-        postSave: function postSave() {
-          if (_this.newModel) _app2.default.router.navigate('/patient/' + _this.model.id, { trigger: true });
-        }
-      },
+
       model: this.model,
       fields: [{
         label: 'Voornaam',
@@ -2777,23 +2769,71 @@ var HomeView = Backbone.View.extend({
         size: 6
       }, {
         label: 'Begeleider',
-        attr: 'doctor',
-        size: 6
-      }, {
-        label: 'test',
-        attr: 'test',
-        size: 6
+        attr: 'doctor_id',
+        type: 'singleselect',
+        values: _app2.default.doctors,
+        size: 12
       }]
     });
     Backbone.Validation.bind(f);
     this.$el.append(f.render().el);
+    if (!this.model.id) {
+      m = new _users2.default();
+      var form2 = new _form2.default({
+        model: m,
+        fields: [{
+          attr: 'username',
+          label: 'Gebruikersnaam',
+          size: 12
+        }, {
+          attr: 'password',
+          label: 'Wachtwoord',
+          showHidden: true,
+          type: 'password',
+          size: 6
+        }, {
+          attr: 'password_repeat',
+          label: 'Herhaal wachtwoord',
+          showHidden: true,
+          type: 'password',
+          size: 6
+        }]
+      });
+      Backbone.Validation.bind(form2);
+      this.$el.append(form2.render().el);
+    }
+    var saveSelf = $(Handlebars.templates['layout/button']({
+      label: 'Opslaan',
+      class: 'right'
+    }));
+    this.$el.append(saveSelf);
+    saveSelf.click(function () {
+      if (!_this.model.id) {
+        m.save(null, { success: function success() {
+            _this.model.set('user_id', m.id);
+            _this.model.save(null, { success: function success() {
+                _app2.default.router.navigate('/patient/' + _this.model.id, { trigger: true });
+              } });
+          } });
+      } else {
+        _this.model.save(null, { success: function success() {
+            swal('Succesvol opgeslagen!', null, 'success');
+          } });
+      }
+      // app.currentFysio.save(null,{success:()=>{
+      //   m.save(null,{success:()=>{
+      //     swal('Succesvol opgeslagen!',null,'success');
+      //   }})
+      // }});
+    });
+    $('select').material_select();
     return this;
   }
 });
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"backbone":54,"underscore":401}],29:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/users.js":45,"backbone":58,"underscore":403}],29:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -2954,7 +2994,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/goals.js":42,"./../../../utils.js":50,"backbone":54,"underscore":401}],30:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/goals.js":42,"./../../../utils.js":54,"backbone":58,"underscore":403}],30:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3038,7 +3078,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/patients.js":43,"./patientDetails.js":28,"./patientGoals.js":29,"./patientProgression.js":32,"backbone":54,"underscore":401}],31:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/patients.js":43,"./patientDetails.js":28,"./patientGoals.js":29,"./patientProgression.js":32,"backbone":58,"underscore":403}],31:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3104,7 +3144,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/patientSearch.js":25,"backbone":54,"underscore":401}],32:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTable.js":16,"./../collections/patientSearch.js":25,"backbone":58,"underscore":403}],32:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3210,7 +3250,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTabs.js":17,"./../../../common/views/form.js":18,"./../../../common/views/tabs.js":19,"./24Progression.js":26,"./monthProgression.js":27,"./weekProgression.js":33,"./yearProgression.js":34,"backbone":54,"chart.js":58,"underscore":401}],33:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTabs.js":17,"./../../../common/views/form.js":18,"./../../../common/views/tabs.js":19,"./24Progression.js":26,"./monthProgression.js":27,"./weekProgression.js":33,"./yearProgression.js":34,"backbone":58,"chart.js":59,"underscore":403}],33:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3251,11 +3291,11 @@ var HomeView = Backbone.View.extend({
     var dataLine = { labels: this.model.chartData.week.dates,
       datasets: [{
         backgroundColor: ['rgba(255, 99, 132, 0.4)'],
-        label: 'Stappen gezet',
+        label: 'Totaal aantal stappen gezet',
         data: this.model.chartData.week.stepsTotal
       }, {
         backgroundColor: ['rgba(0, 0, 240, 0.4)'],
-        label: 'Stappen doel',
+        label: 'Totaal aantal stappen doel',
         data: this.model.chartData.week.goalsTotal
       }] };
     setTimeout(function () {
@@ -3293,7 +3333,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"backbone":54,"chart.js":58,"underscore":401}],34:[function(require,module,exports){
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"underscore":403}],34:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3337,11 +3377,11 @@ var HomeView = Backbone.View.extend({
             labels: ["Januari", "Februari", "Maart", "April", "Mei", "Juni", "juli", "Augustus", "September", "Oktober", "November", "December"],
             datasets: [{
                 backgroundColor: ['rgba(255, 99, 132, 0.4)'],
-                label: 'Stappen gezet',
+                label: 'Totaal aantal stappen gezet',
                 data: this.model.chartData.year.stepsTotal
             }, {
                 backgroundColor: ['rgba(0, 0, 240, 0.4)'],
-                label: 'Stappen doel',
+                label: 'Totaal aantal stappen doel',
                 data: this.model.chartData.year.goalsTotal
             }]
         };
@@ -3378,7 +3418,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"backbone":54,"chart.js":58,"underscore":401}],35:[function(require,module,exports){
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"underscore":403}],35:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3419,7 +3459,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"backbone":54,"underscore":401}],36:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"backbone":58,"underscore":403}],36:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -3444,6 +3484,7 @@ var HomeView = Backbone.View.extend({
 
   render: function render() {
     var m = new _users2.default(_app2.default.currentFysio.toJSON());
+    m.set('id', m.get('user_id'));
     var form = new _form2.default({
       model: _app2.default.currentFysio,
       fields: [{
@@ -3480,13 +3521,25 @@ var HomeView = Backbone.View.extend({
     this.$el.append(form2.render().el);
     Backbone.Validation.bind(form);
     Backbone.Validation.bind(form2);
+    var saveSelf = $(Handlebars.templates['layout/button']({
+      label: 'Opslaan',
+      class: 'right'
+    }));
+    this.$el.append(saveSelf);
+    saveSelf.click(function () {
+      _app2.default.currentFysio.save(null, { success: function success() {
+          m.save(null, { success: function success() {
+              swal('Succesvol opgeslagen!', null, 'success');
+            } });
+        } });
+    });
     return this;
   }
 });
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/users.js":45,"backbone":54,"underscore":401}],37:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/users.js":45,"backbone":58,"underscore":403}],37:[function(require,module,exports){
 'use strict';
 
 /*!
@@ -4639,7 +4692,7 @@ module.exports = HomeView;
 	return Backbone.CollectionView;
 });
 
-},{"backbone":54,"underscore":401}],38:[function(require,module,exports){
+},{"backbone":58,"underscore":403}],38:[function(require,module,exports){
 "use strict";
 
 "function" !== typeof Object.create && (Object.create = function (f) {
@@ -7190,9 +7243,15 @@ var BaseModel = _backbone2.default.Model.extend({
   },
 
   save: function save(attrs, options) {
-    console.log(this);
+    console.log(2, attrs, options);
     if (this.internalValidate(attrs, options) === true) {
+      console.log(1, options);
       _backbone2.default.Model.prototype.save.call(this, attrs, options);
+      // var temp = options.success;
+      // options.success = (model,response)=>{
+      //   console.log(123);
+      //   temp(model,response);
+      // }
     } else {
       console.log(this.internalValidate(attrs, options));
     }
@@ -7202,7 +7261,7 @@ var BaseModel = _backbone2.default.Model.extend({
 
 module.exports = BaseModel;
 
-},{"backbone":54}],41:[function(require,module,exports){
+},{"backbone":58}],41:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7241,7 +7300,7 @@ var Doctor = _baseModel2.default.extend({
 
 module.exports = Doctor;
 
-},{"./../app.js":12,"./baseModel.js":40,"backbone":54}],42:[function(require,module,exports){
+},{"./../app.js":12,"./baseModel.js":40,"backbone":58}],42:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7268,7 +7327,7 @@ var Goal = _baseModel2.default.extend({
 
 module.exports = Goal;
 
-},{"./../app.js":12,"./baseModel.js":40,"backbone":54}],43:[function(require,module,exports){
+},{"./../app.js":12,"./baseModel.js":40,"backbone":58}],43:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7307,7 +7366,7 @@ var Patient = _baseModel2.default.extend({
 
 module.exports = Patient;
 
-},{"./../app.js":12,"./baseModel.js":40,"backbone":54}],44:[function(require,module,exports){
+},{"./../app.js":12,"./baseModel.js":40,"backbone":58}],44:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7346,7 +7405,7 @@ var Practice = _baseModel2.default.extend({
 
 module.exports = Practice;
 
-},{"./../app.js":12,"./baseModel.js":40,"backbone":54}],45:[function(require,module,exports){
+},{"./../app.js":12,"./baseModel.js":40,"backbone":58}],45:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7375,7 +7434,7 @@ var User = _baseModel2.default.extend({
       msg: 'Gebruikersnaam is vereist'
     },
     password: {
-      minLength: 6 || 0,
+      minLength: 6,
       maxLength: 32,
       required: false,
       msg: 'Wachtwoord is vereist en moet tussen de 6 en 32 karakters bevatten.'
@@ -7391,7 +7450,7 @@ var User = _baseModel2.default.extend({
 
 module.exports = User;
 
-},{"./../app.js":12,"./baseModel.js":40,"backbone":54}],46:[function(require,module,exports){
+},{"./../app.js":12,"./baseModel.js":40,"backbone":58}],46:[function(require,module,exports){
 'use strict';
 
 var _backbone = require('backbone');
@@ -7418,9 +7477,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var _ = require('underscore');
 
-var aesjs = require('aes-js');
-var base64url = require('base64-url');
-var crypto = require('crypto-js');
 
 module.exports = function (callback) {
   if (_app2.default.currentUser.get('role') !== _app2.default.ROLE_PATIENT) {
@@ -7446,7 +7502,65 @@ module.exports = function (callback) {
   });
 };
 
-},{"./../app.js":12,"./../models/patients.js":43,"./patients/views/patientMaster.js":48,"aes-js":402,"async":51,"backbone":54,"base64-url":403,"crypto-js":412,"underscore":401}],47:[function(require,module,exports){
+},{"./../app.js":12,"./../models/patients.js":43,"./patients/views/patientMaster.js":50,"async":55,"backbone":58,"underscore":403}],47:[function(require,module,exports){
+'use strict';
+
+var _app = require('./../../../app.js');
+
+var _app2 = _interopRequireDefault(_app);
+
+var _chart = require('chart.js');
+
+var _chart2 = _interopRequireDefault(_chart);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Backbone = require('backbone');
+var _ = require('underscore');
+
+
+var HomeView = Backbone.View.extend({
+  template: Handlebars.templates['doctor/patient/patientProgressionTab24'],
+
+  render: function render() {
+    var _this = this;
+
+    console.log(123);
+    this.$el.html(this.template());
+    var data = { labels: ["Om 1 uur", "Om 2 uur", "Om 3 uur", "Om 4 uur", "Om 5 uur", "Om 6 uur", "Om 7 uur", "Om 8 uur", "Om 9 uur", "Om 10 uur", "Om 11 uur", "Om 12 uur", "Om 13 uur", "Om 14 uur", "Om 15 uur", "Om 16 uur", "Om 17 uur", "Om 18 uur", "Om 19 uur", "Om 20 uur", "Om 21 uur", "Om 22 uur", "Om 23 uur", "Om 24 uur"],
+      datasets: [{
+        label: 'Stappen gezet',
+        data: this.model.chartData.tf,
+        backgroundColor: ['rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)', 'rgba(255, 99, 132, 0.4)'],
+        borderColor: ['rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)', 'rgba(255,99,132,1)'],
+        borderWidth: 1
+      }] };
+    setTimeout(function () {
+      var c = new _chart2.default(_this.$el.find('#firstChart'), {
+        type: 'bar',
+        data: data,
+        options: {
+          scales: {
+            yAxes: [{
+              ticks: {
+                beginAtZero: true
+              }
+            }]
+          }
+        }
+      });
+    }, 1);
+    // });
+
+    return this;
+  }
+});
+
+module.exports = HomeView;
+
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"underscore":403}],48:[function(require,module,exports){
+arguments[4][27][0].apply(exports,arguments)
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"dup":27,"underscore":403}],49:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -7520,8 +7634,20 @@ var HomeView = Backbone.View.extend({
     this.$el.append(add);
     add.click(function () {
       _this.model.save(null, { success: function success() {
+          console.log(456);
+          // m.save(null, {
+          //     success: function (model, response) {
+          //         console.log("success");
+          //     },
+          //     error: function (model, response) {
+          //         console.log("error");
+          //     }
+          // });
           m.save(null, { success: function success() {
+              console.log(1235555);
               swal('Succesvol opgeslagen', null, 'success');
+            }, error: function error(e) {
+              console.log(e);
             } });
         } });
     });
@@ -7531,7 +7657,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/users.js":45,"backbone":54,"underscore":401}],48:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/form.js":18,"./../../../models/users.js":45,"backbone":58,"underscore":403}],50:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -7565,16 +7691,16 @@ var HomeView = Backbone.View.extend({
 
   renderTabs: function renderTabs(self, patient) {
     var t = new _tabs2.default([{
-      title: 'Persoonsgegevens',
+      title: 'Jouw Vorderingen',
       view: function view() {
-        var v = new _patientDetails2.default();
+        var v = new _patientProgression2.default();
         v.model = patient;
         return v;
       }
     }, {
-      title: 'Jouw Vorderingen',
+      title: 'Persoonsgegevens',
       view: function view() {
-        var v = new _patientProgression2.default();
+        var v = new _patientDetails2.default();
         v.model = patient;
         return v;
       }
@@ -7592,7 +7718,7 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/patients.js":43,"./patientDetails.js":47,"./patientProgression.js":49,"backbone":54,"underscore":401}],49:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/tabs.js":19,"./../../../models/patients.js":43,"./patientDetails.js":49,"./patientProgression.js":51,"backbone":58,"underscore":403}],51:[function(require,module,exports){
 'use strict';
 
 var _app = require('./../../../app.js');
@@ -7615,19 +7741,19 @@ var _chart = require('chart.js');
 
 var _chart2 = _interopRequireDefault(_chart);
 
-var _Progression = require('./../../../doctor/patients/views/24Progression.js');
+var _Progression = require('./24Progression.js');
 
 var _Progression2 = _interopRequireDefault(_Progression);
 
-var _weekProgression = require('./../../../doctor/patients/views/weekProgression.js');
+var _weekProgression = require('./weekProgression.js');
 
 var _weekProgression2 = _interopRequireDefault(_weekProgression);
 
-var _monthProgression = require('./../../../doctor/patients/views/monthProgression.js');
+var _monthProgression = require('./monthProgression.js');
 
 var _monthProgression2 = _interopRequireDefault(_monthProgression);
 
-var _yearProgression = require('./../../../doctor/patients/views/yearProgression.js');
+var _yearProgression = require('./yearProgression.js');
 
 var _yearProgression2 = _interopRequireDefault(_yearProgression);
 
@@ -7698,7 +7824,11 @@ var HomeView = Backbone.View.extend({
 
 module.exports = HomeView;
 
-},{"./../../../app.js":12,"./../../../common/views/dynamicTabs.js":17,"./../../../common/views/form.js":18,"./../../../common/views/tabs.js":19,"./../../../doctor/patients/views/24Progression.js":26,"./../../../doctor/patients/views/monthProgression.js":27,"./../../../doctor/patients/views/weekProgression.js":33,"./../../../doctor/patients/views/yearProgression.js":34,"backbone":54,"chart.js":58,"underscore":401}],50:[function(require,module,exports){
+},{"./../../../app.js":12,"./../../../common/views/dynamicTabs.js":17,"./../../../common/views/form.js":18,"./../../../common/views/tabs.js":19,"./24Progression.js":47,"./monthProgression.js":48,"./weekProgression.js":52,"./yearProgression.js":53,"backbone":58,"chart.js":59,"underscore":403}],52:[function(require,module,exports){
+arguments[4][33][0].apply(exports,arguments)
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"dup":33,"underscore":403}],53:[function(require,module,exports){
+arguments[4][34][0].apply(exports,arguments)
+},{"./../../../app.js":12,"backbone":58,"chart.js":59,"dup":34,"underscore":403}],54:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -7890,33 +8020,13 @@ function getStackTrace() {
   return stack.splice(stack[0] == 'Error' ? 2 : 1);
 }
 
-},{"backbone":54,"underscore":401}],51:[function(require,module,exports){
+},{"backbone":58,"underscore":403}],55:[function(require,module,exports){
 (function (process,global){
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
     typeof define === 'function' && define.amd ? define(['exports'], factory) :
     (factory((global.async = global.async || {})));
 }(this, (function (exports) { 'use strict';
-
-/**
- * This method returns the first argument it receives.
- *
- * @static
- * @since 0.1.0
- * @memberOf _
- * @category Util
- * @param {*} value Any value.
- * @returns {*} Returns `value`.
- * @example
- *
- * var object = { 'a': 1 };
- *
- * console.log(_.identity(object) === object);
- * // => true
- */
-function identity(value) {
-  return value;
-}
 
 /**
  * A faster alternative to `Function#apply`, this function invokes `func`
@@ -7950,7 +8060,7 @@ var nativeMax = Math.max;
  * @param {Function} transform The rest array transform.
  * @returns {Function} Returns the new function.
  */
-function overRest(func, start, transform) {
+function overRest$1(func, start, transform) {
   start = nativeMax(start === undefined ? (func.length - 1) : start, 0);
   return function() {
     var args = arguments,
@@ -7972,28 +8082,152 @@ function overRest(func, start, transform) {
 }
 
 /**
- * Creates a function that returns `value`.
+ * This method returns the first argument it receives.
  *
  * @static
+ * @since 0.1.0
  * @memberOf _
- * @since 2.4.0
  * @category Util
- * @param {*} value The value to return from the new function.
- * @returns {Function} Returns the new constant function.
+ * @param {*} value Any value.
+ * @returns {*} Returns `value`.
  * @example
  *
- * var objects = _.times(2, _.constant({ 'a': 1 }));
+ * var object = { 'a': 1 };
  *
- * console.log(objects);
- * // => [{ 'a': 1 }, { 'a': 1 }]
- *
- * console.log(objects[0] === objects[1]);
+ * console.log(_.identity(object) === object);
  * // => true
  */
-function constant(value) {
-  return function() {
-    return value;
-  };
+function identity(value) {
+  return value;
+}
+
+// Lodash rest function without function.toString()
+// remappings
+function rest(func, start) {
+    return overRest$1(func, start, identity);
+}
+
+var initialParams = function (fn) {
+    return rest(function (args /*..., callback*/) {
+        var callback = args.pop();
+        fn.call(this, args, callback);
+    });
+};
+
+function applyEach$1(eachfn) {
+    return rest(function (fns, args) {
+        var go = initialParams(function (args, callback) {
+            var that = this;
+            return eachfn(fns, function (fn, cb) {
+                fn.apply(that, args.concat([cb]));
+            }, callback);
+        });
+        if (args.length) {
+            return go.apply(this, args);
+        } else {
+            return go;
+        }
+    });
+}
+
+/** Detect free variable `global` from Node.js. */
+var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+/** Detect free variable `self`. */
+var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+/** Used as a reference to the global object. */
+var root = freeGlobal || freeSelf || Function('return this')();
+
+/** Built-in value references. */
+var Symbol$1 = root.Symbol;
+
+/** Used for built-in method references. */
+var objectProto = Object.prototype;
+
+/** Used to check objects for own properties. */
+var hasOwnProperty = objectProto.hasOwnProperty;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString = objectProto.toString;
+
+/** Built-in value references. */
+var symToStringTag$1 = Symbol$1 ? Symbol$1.toStringTag : undefined;
+
+/**
+ * A specialized version of `baseGetTag` which ignores `Symbol.toStringTag` values.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the raw `toStringTag`.
+ */
+function getRawTag(value) {
+  var isOwn = hasOwnProperty.call(value, symToStringTag$1),
+      tag = value[symToStringTag$1];
+
+  try {
+    value[symToStringTag$1] = undefined;
+    var unmasked = true;
+  } catch (e) {}
+
+  var result = nativeObjectToString.call(value);
+  if (unmasked) {
+    if (isOwn) {
+      value[symToStringTag$1] = tag;
+    } else {
+      delete value[symToStringTag$1];
+    }
+  }
+  return result;
+}
+
+/** Used for built-in method references. */
+var objectProto$1 = Object.prototype;
+
+/**
+ * Used to resolve the
+ * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+ * of values.
+ */
+var nativeObjectToString$1 = objectProto$1.toString;
+
+/**
+ * Converts `value` to a string using `Object.prototype.toString`.
+ *
+ * @private
+ * @param {*} value The value to convert.
+ * @returns {string} Returns the converted string.
+ */
+function objectToString(value) {
+  return nativeObjectToString$1.call(value);
+}
+
+/** `Object#toString` result references. */
+var nullTag = '[object Null]';
+var undefinedTag = '[object Undefined]';
+
+/** Built-in value references. */
+var symToStringTag = Symbol$1 ? Symbol$1.toStringTag : undefined;
+
+/**
+ * The base implementation of `getTag` without fallbacks for buggy environments.
+ *
+ * @private
+ * @param {*} value The value to query.
+ * @returns {string} Returns the `toStringTag`.
+ */
+function baseGetTag(value) {
+  if (value == null) {
+    return value === undefined ? undefinedTag : nullTag;
+  }
+  value = Object(value);
+  return (symToStringTag && symToStringTag in value)
+    ? getRawTag(value)
+    : objectToString(value);
 }
 
 /**
@@ -8027,19 +8261,10 @@ function isObject(value) {
 }
 
 /** `Object#toString` result references. */
+var asyncTag = '[object AsyncFunction]';
 var funcTag = '[object Function]';
 var genTag = '[object GeneratorFunction]';
 var proxyTag = '[object Proxy]';
-
-/** Used for built-in method references. */
-var objectProto$1 = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString = objectProto$1.toString;
 
 /**
  * Checks if `value` is classified as a `Function` object.
@@ -8059,236 +8284,13 @@ var objectToString = objectProto$1.toString;
  * // => false
  */
 function isFunction(value) {
-  // The use of `Object#toString` avoids issues with the `typeof` operator
-  // in Safari 9 which returns 'object' for typed array and other constructors.
-  var tag = isObject(value) ? objectToString.call(value) : '';
-  return tag == funcTag || tag == genTag || tag == proxyTag;
-}
-
-/** Detect free variable `global` from Node.js. */
-var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-/** Detect free variable `self`. */
-var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-/** Used as a reference to the global object. */
-var root = freeGlobal || freeSelf || Function('return this')();
-
-/** Used to detect overreaching core-js shims. */
-var coreJsData = root['__core-js_shared__'];
-
-/** Used to detect methods masquerading as native. */
-var maskSrcKey = (function() {
-  var uid = /[^.]+$/.exec(coreJsData && coreJsData.keys && coreJsData.keys.IE_PROTO || '');
-  return uid ? ('Symbol(src)_1.' + uid) : '';
-}());
-
-/**
- * Checks if `func` has its source masked.
- *
- * @private
- * @param {Function} func The function to check.
- * @returns {boolean} Returns `true` if `func` is masked, else `false`.
- */
-function isMasked(func) {
-  return !!maskSrcKey && (maskSrcKey in func);
-}
-
-/** Used for built-in method references. */
-var funcProto$1 = Function.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString$1 = funcProto$1.toString;
-
-/**
- * Converts `func` to its source code.
- *
- * @private
- * @param {Function} func The function to process.
- * @returns {string} Returns the source code.
- */
-function toSource(func) {
-  if (func != null) {
-    try {
-      return funcToString$1.call(func);
-    } catch (e) {}
-    try {
-      return (func + '');
-    } catch (e) {}
-  }
-  return '';
-}
-
-/**
- * Used to match `RegExp`
- * [syntax characters](http://ecma-international.org/ecma-262/7.0/#sec-patterns).
- */
-var reRegExpChar = /[\\^$.*+?()[\]{}|]/g;
-
-/** Used to detect host constructors (Safari). */
-var reIsHostCtor = /^\[object .+?Constructor\]$/;
-
-/** Used for built-in method references. */
-var funcProto = Function.prototype;
-var objectProto = Object.prototype;
-
-/** Used to resolve the decompiled source of functions. */
-var funcToString = funcProto.toString;
-
-/** Used to check objects for own properties. */
-var hasOwnProperty = objectProto.hasOwnProperty;
-
-/** Used to detect if a method is native. */
-var reIsNative = RegExp('^' +
-  funcToString.call(hasOwnProperty).replace(reRegExpChar, '\\$&')
-  .replace(/hasOwnProperty|(function).*?(?=\\\()| for .+?(?=\\\])/g, '$1.*?') + '$'
-);
-
-/**
- * The base implementation of `_.isNative` without bad shim checks.
- *
- * @private
- * @param {*} value The value to check.
- * @returns {boolean} Returns `true` if `value` is a native function,
- *  else `false`.
- */
-function baseIsNative(value) {
-  if (!isObject(value) || isMasked(value)) {
+  if (!isObject(value)) {
     return false;
   }
-  var pattern = isFunction(value) ? reIsNative : reIsHostCtor;
-  return pattern.test(toSource(value));
-}
-
-/**
- * Gets the value at `key` of `object`.
- *
- * @private
- * @param {Object} [object] The object to query.
- * @param {string} key The key of the property to get.
- * @returns {*} Returns the property value.
- */
-function getValue(object, key) {
-  return object == null ? undefined : object[key];
-}
-
-/**
- * Gets the native function at `key` of `object`.
- *
- * @private
- * @param {Object} object The object to query.
- * @param {string} key The key of the method to get.
- * @returns {*} Returns the function if it's native, else `undefined`.
- */
-function getNative(object, key) {
-  var value = getValue(object, key);
-  return baseIsNative(value) ? value : undefined;
-}
-
-var defineProperty = (function() {
-  try {
-    var func = getNative(Object, 'defineProperty');
-    func({}, '', {});
-    return func;
-  } catch (e) {}
-}());
-
-/**
- * The base implementation of `setToString` without support for hot loop shorting.
- *
- * @private
- * @param {Function} func The function to modify.
- * @param {Function} string The `toString` result.
- * @returns {Function} Returns `func`.
- */
-var baseSetToString = !defineProperty ? identity : function(func, string) {
-  return defineProperty(func, 'toString', {
-    'configurable': true,
-    'enumerable': false,
-    'value': constant(string),
-    'writable': true
-  });
-};
-
-/** Used to detect hot functions by number of calls within a span of milliseconds. */
-var HOT_COUNT = 500;
-var HOT_SPAN = 16;
-
-/* Built-in method references for those with the same name as other `lodash` methods. */
-var nativeNow = Date.now;
-
-/**
- * Creates a function that'll short out and invoke `identity` instead
- * of `func` when it's called `HOT_COUNT` or more times in `HOT_SPAN`
- * milliseconds.
- *
- * @private
- * @param {Function} func The function to restrict.
- * @returns {Function} Returns the new shortable function.
- */
-function shortOut(func) {
-  var count = 0,
-      lastCalled = 0;
-
-  return function() {
-    var stamp = nativeNow(),
-        remaining = HOT_SPAN - (stamp - lastCalled);
-
-    lastCalled = stamp;
-    if (remaining > 0) {
-      if (++count >= HOT_COUNT) {
-        return arguments[0];
-      }
-    } else {
-      count = 0;
-    }
-    return func.apply(undefined, arguments);
-  };
-}
-
-/**
- * Sets the `toString` method of `func` to return `string`.
- *
- * @private
- * @param {Function} func The function to modify.
- * @param {Function} string The `toString` result.
- * @returns {Function} Returns `func`.
- */
-var setToString = shortOut(baseSetToString);
-
-/**
- * The base implementation of `_.rest` which doesn't validate or coerce arguments.
- *
- * @private
- * @param {Function} func The function to apply a rest parameter to.
- * @param {number} [start=func.length-1] The start position of the rest parameter.
- * @returns {Function} Returns the new function.
- */
-function baseRest$1(func, start) {
-  return setToString(overRest(func, start, identity), func + '');
-}
-
-var initialParams = function (fn) {
-    return baseRest$1(function (args /*..., callback*/) {
-        var callback = args.pop();
-        fn.call(this, args, callback);
-    });
-};
-
-function applyEach$1(eachfn) {
-    return baseRest$1(function (fns, args) {
-        var go = initialParams(function (args, callback) {
-            var that = this;
-            return eachfn(fns, function (fn, cb) {
-                fn.apply(that, args.concat([cb]));
-            }, callback);
-        });
-        if (args.length) {
-            return go.apply(this, args);
-        } else {
-            return go;
-        }
-    });
+  // The use of `Object#toString` avoids issues with the `typeof` operator
+  // in Safari 9 which returns 'object' for typed arrays and other constructors.
+  var tag = baseGetTag(value);
+  return tag == funcTag || tag == genTag || tag == asyncTag || tag == proxyTag;
 }
 
 /** Used as references for various `Number` constants. */
@@ -8435,16 +8437,6 @@ function isObjectLike(value) {
 /** `Object#toString` result references. */
 var argsTag = '[object Arguments]';
 
-/** Used for built-in method references. */
-var objectProto$4 = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString$1 = objectProto$4.toString;
-
 /**
  * The base implementation of `_.isArguments`.
  *
@@ -8453,7 +8445,7 @@ var objectToString$1 = objectProto$4.toString;
  * @returns {boolean} Returns `true` if `value` is an `arguments` object,
  */
 function baseIsArguments(value) {
-  return isObjectLike(value) && objectToString$1.call(value) == argsTag;
+  return isObjectLike(value) && baseGetTag(value) == argsTag;
 }
 
 /** Used for built-in method references. */
@@ -8628,16 +8620,6 @@ typedArrayTags[objectTag] = typedArrayTags[regexpTag] =
 typedArrayTags[setTag] = typedArrayTags[stringTag] =
 typedArrayTags[weakMapTag] = false;
 
-/** Used for built-in method references. */
-var objectProto$5 = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString$2 = objectProto$5.toString;
-
 /**
  * The base implementation of `_.isTypedArray` without Node.js optimizations.
  *
@@ -8647,7 +8629,7 @@ var objectToString$2 = objectProto$5.toString;
  */
 function baseIsTypedArray(value) {
   return isObjectLike(value) &&
-    isLength(value.length) && !!typedArrayTags[objectToString$2.call(value)];
+    isLength(value.length) && !!typedArrayTags[baseGetTag(value)];
 }
 
 /**
@@ -8746,7 +8728,7 @@ function arrayLikeKeys(value, inherited) {
 }
 
 /** Used for built-in method references. */
-var objectProto$7 = Object.prototype;
+var objectProto$5 = Object.prototype;
 
 /**
  * Checks if `value` is likely a prototype object.
@@ -8757,7 +8739,7 @@ var objectProto$7 = Object.prototype;
  */
 function isPrototype(value) {
   var Ctor = value && value.constructor,
-      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$7;
+      proto = (typeof Ctor == 'function' && Ctor.prototype) || objectProto$5;
 
   return value === proto;
 }
@@ -8780,10 +8762,10 @@ function overArg(func, transform) {
 var nativeKeys = overArg(Object.keys, Object);
 
 /** Used for built-in method references. */
-var objectProto$6 = Object.prototype;
+var objectProto$4 = Object.prototype;
 
 /** Used to check objects for own properties. */
-var hasOwnProperty$3 = objectProto$6.hasOwnProperty;
+var hasOwnProperty$3 = objectProto$4.hasOwnProperty;
 
 /**
  * The base implementation of `_.keys` which doesn't treat sparse arrays as dense.
@@ -9040,7 +9022,7 @@ function doParallel(fn) {
 }
 
 function _asyncMap(eachfn, arr, iteratee, callback) {
-    callback = once(callback || noop);
+    callback = callback || noop;
     arr = arr || [];
     var results = [];
     var counter = 0;
@@ -9241,8 +9223,8 @@ var applyEachSeries = applyEach$1(mapSeries);
  * two
  * three
  */
-var apply$2 = baseRest$1(function (fn, args) {
-    return baseRest$1(function (callArgs) {
+var apply$2 = rest(function (fn, args) {
+    return rest(function (callArgs) {
         return fn.apply(null, args.concat(callArgs));
     });
 });
@@ -9334,7 +9316,7 @@ function asyncify(func) {
  */
 function arrayEach(array, iteratee) {
   var index = -1,
-      length = array ? array.length : 0;
+      length = array == null ? 0 : array.length;
 
   while (++index < length) {
     if (iteratee(array[index], index, array) === false) {
@@ -9641,7 +9623,7 @@ var auto = function (tasks, concurrency, callback) {
     function runTask(key, task) {
         if (hasError) return;
 
-        var taskCallback = onlyOnce(baseRest$1(function (err, args) {
+        var taskCallback = onlyOnce(rest(function (err, args) {
             runningTasks--;
             if (args.length <= 1) {
                 args = args[0];
@@ -9714,7 +9696,7 @@ var auto = function (tasks, concurrency, callback) {
  */
 function arrayMap(array, iteratee) {
   var index = -1,
-      length = array ? array.length : 0,
+      length = array == null ? 0 : array.length,
       result = Array(length);
 
   while (++index < length) {
@@ -9723,40 +9705,8 @@ function arrayMap(array, iteratee) {
   return result;
 }
 
-/**
- * Copies the values of `source` to `array`.
- *
- * @private
- * @param {Array} source The array to copy values from.
- * @param {Array} [array=[]] The array to copy values to.
- * @returns {Array} Returns `array`.
- */
-function copyArray(source, array) {
-  var index = -1,
-      length = source.length;
-
-  array || (array = Array(length));
-  while (++index < length) {
-    array[index] = source[index];
-  }
-  return array;
-}
-
-/** Built-in value references. */
-var Symbol$1 = root.Symbol;
-
 /** `Object#toString` result references. */
 var symbolTag = '[object Symbol]';
-
-/** Used for built-in method references. */
-var objectProto$8 = Object.prototype;
-
-/**
- * Used to resolve the
- * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
- * of values.
- */
-var objectToString$3 = objectProto$8.toString;
 
 /**
  * Checks if `value` is classified as a `Symbol` primitive or object.
@@ -9777,7 +9727,7 @@ var objectToString$3 = objectProto$8.toString;
  */
 function isSymbol(value) {
   return typeof value == 'symbol' ||
-    (isObjectLike(value) && objectToString$3.call(value) == symbolTag);
+    (isObjectLike(value) && baseGetTag(value) == symbolTag);
 }
 
 /** Used as references for various `Number` constants. */
@@ -10143,8 +10093,8 @@ function autoInject(tasks, callback) {
         var params;
 
         if (isArray(taskFn)) {
-            params = copyArray(taskFn);
-            taskFn = params.pop();
+            params = taskFn.slice(0, -1);
+            taskFn = taskFn[taskFn.length - 1];
 
             newTasks[key] = params.concat(params.length > 0 ? newTask : taskFn);
         } else if (taskFn.length === 1) {
@@ -10181,7 +10131,7 @@ function fallback(fn) {
 }
 
 function wrap(defer) {
-    return baseRest$1(function (fn, args) {
+    return rest(function (fn, args) {
         defer(function () {
             fn.apply(null, args);
         });
@@ -10295,7 +10245,7 @@ function queue(worker, concurrency, payload) {
     }
 
     function _next(tasks) {
-        return baseRest$1(function (args) {
+        return rest(function (args) {
             workers -= 1;
 
             for (var i = 0, l = tasks.length; i < l; i++) {
@@ -10597,8 +10547,8 @@ function reduce(coll, memo, iteratee, callback) {
  *     });
  * });
  */
-var seq$1 = baseRest$1(function seq(functions) {
-    return baseRest$1(function (args) {
+var seq$1 = rest(function seq(functions) {
+    return rest(function (args) {
         var that = this;
 
         var cb = args[args.length - 1];
@@ -10609,7 +10559,7 @@ var seq$1 = baseRest$1(function seq(functions) {
         }
 
         reduce(functions, args, function (newargs, fn, cb) {
-            fn.apply(that, newargs.concat([baseRest$1(function (err, nextargs) {
+            fn.apply(that, newargs.concat([rest(function (err, nextargs) {
                 cb(err, nextargs);
             })]));
         }, function (err, results) {
@@ -10653,7 +10603,7 @@ var seq$1 = baseRest$1(function seq(functions) {
  *     // result now equals 15
  * });
  */
-var compose = baseRest$1(function (args) {
+var compose = rest(function (args) {
   return seq$1.apply(null, args.reverse());
 });
 
@@ -10767,7 +10717,7 @@ var concatSeries = doSeries(concat$1);
  *     //...
  * }, callback);
  */
-var constant$2 = baseRest$1(function (values) {
+var constant = rest(function (values) {
     var args = [null].concat(values);
     return initialParams(function (ignoredArgs, callback) {
         return callback.apply(this, args);
@@ -10895,8 +10845,8 @@ var detectLimit = _createTester(eachOfLimit, identity, _findGetResult);
 var detectSeries = _createTester(eachOfSeries, identity, _findGetResult);
 
 function consoleFunc(name) {
-    return baseRest$1(function (fn, args) {
-        fn.apply(null, args.concat([baseRest$1(function (err, args) {
+    return rest(function (fn, args) {
+        fn.apply(null, args.concat([rest(function (err, args) {
             if (typeof console === 'object') {
                 if (err) {
                     if (console.error) {
@@ -10966,7 +10916,7 @@ var dir = consoleFunc('dir');
 function doDuring(fn, test, callback) {
     callback = onlyOnce(callback || noop);
 
-    var next = baseRest$1(function (err, args) {
+    var next = rest(function (err, args) {
         if (err) return callback(err);
         args.push(check);
         test.apply(this, args);
@@ -11006,7 +10956,7 @@ function doDuring(fn, test, callback) {
  */
 function doWhilst(iteratee, test, callback) {
     callback = onlyOnce(callback || noop);
-    var next = baseRest$1(function (err, args) {
+    var next = rest(function (err, args) {
         if (err) return callback(err);
         if (test.apply(this, args)) return iteratee(next);
         callback.apply(null, [null].concat(args));
@@ -11352,10 +11302,26 @@ function baseProperty(key) {
   };
 }
 
-function _filter(eachfn, arr, iteratee, callback) {
-    callback = once(callback || noop);
-    var results = [];
+function filterArray(eachfn, arr, iteratee, callback) {
+    var truthValues = new Array(arr.length);
     eachfn(arr, function (x, index, callback) {
+        iteratee(x, function (err, v) {
+            truthValues[index] = !!v;
+            callback(err);
+        });
+    }, function (err) {
+        if (err) return callback(err);
+        var results = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (truthValues[i]) results.push(arr[i]);
+        }
+        callback(null, results);
+    });
+}
+
+function filterGeneric(eachfn, coll, iteratee, callback) {
+    var results = [];
+    eachfn(coll, function (x, index, callback) {
         iteratee(x, function (err, v) {
             if (err) {
                 callback(err);
@@ -11375,6 +11341,11 @@ function _filter(eachfn, arr, iteratee, callback) {
             }), baseProperty('value')));
         }
     });
+}
+
+function _filter(eachfn, coll, iteratee, callback) {
+    var filter = isArrayLike(coll) ? filterArray : filterGeneric;
+    filter(eachfn, coll, iteratee, callback || noop);
 }
 
 /**
@@ -11673,7 +11644,7 @@ function memoize(fn, hasher) {
             queues[key].push(callback);
         } else {
             queues[key] = [callback];
-            fn.apply(null, args.concat([baseRest$1(function (args) {
+            fn.apply(null, args.concat([rest(function (args) {
                 memo[key] = args;
                 var q = queues[key];
                 delete queues[key];
@@ -11736,7 +11707,7 @@ function _parallel(eachfn, tasks, callback) {
     var results = isArrayLike(tasks) ? [] : {};
 
     eachfn(tasks, function (task, key, callback) {
-        task(baseRest$1(function (err, args) {
+        task(rest(function (err, args) {
             if (args.length <= 1) {
                 args = args[0];
             }
@@ -12137,7 +12108,7 @@ function reduceRight(array, memo, iteratee, callback) {
  */
 function reflect(fn) {
     return initialParams(function reflectOn(args, reflectCallback) {
-        args.push(baseRest$1(function callback(err, cbArgs) {
+        args.push(rest(function callback(err, cbArgs) {
             if (err) {
                 reflectCallback(null, {
                     error: err
@@ -12162,11 +12133,7 @@ function reflect(fn) {
 function reject$1(eachfn, arr, iteratee, callback) {
     _filter(eachfn, arr, function (value, cb) {
         iteratee(value, function (err, v) {
-            if (err) {
-                cb(err);
-            } else {
-                cb(null, !v);
-            }
+            cb(err, !v);
         });
     }, callback);
 }
@@ -12317,6 +12284,31 @@ var rejectLimit = doParallelLimit(reject$1);
 var rejectSeries = doLimit(rejectLimit, 1);
 
 /**
+ * Creates a function that returns `value`.
+ *
+ * @static
+ * @memberOf _
+ * @since 2.4.0
+ * @category Util
+ * @param {*} value The value to return from the new function.
+ * @returns {Function} Returns the new constant function.
+ * @example
+ *
+ * var objects = _.times(2, _.constant({ 'a': 1 }));
+ *
+ * console.log(objects);
+ * // => [{ 'a': 1 }, { 'a': 1 }]
+ *
+ * console.log(objects[0] === objects[1]);
+ * // => true
+ */
+function constant$1(value) {
+  return function() {
+    return value;
+  };
+}
+
+/**
  * Attempts to get a successful response from `task` no more than `times` times
  * before returning an error. If the task is successful, the `callback` will be
  * passed the result of the successful task. If all attempts fail, the callback
@@ -12408,14 +12400,14 @@ function retry(opts, task, callback) {
 
     var options = {
         times: DEFAULT_TIMES,
-        intervalFunc: constant(DEFAULT_INTERVAL)
+        intervalFunc: constant$1(DEFAULT_INTERVAL)
     };
 
     function parseTimes(acc, t) {
         if (typeof t === 'object') {
             acc.times = +t.times || DEFAULT_TIMES;
 
-            acc.intervalFunc = typeof t.interval === 'function' ? t.interval : constant(+t.interval || DEFAULT_INTERVAL);
+            acc.intervalFunc = typeof t.interval === 'function' ? t.interval : constant$1(+t.interval || DEFAULT_INTERVAL);
 
             acc.errorFilter = t.errorFilter;
         } else if (typeof t === 'number' || typeof t === 'string') {
@@ -12984,7 +12976,7 @@ function unmemoize(fn) {
 function whilst(test, iteratee, callback) {
     callback = onlyOnce(callback || noop);
     if (!test()) return callback(null);
-    var next = baseRest$1(function (err, args) {
+    var next = rest(function (err, args) {
         if (err) return callback(err);
         if (test()) return iteratee(next);
         callback.apply(null, [null].concat(args));
@@ -13089,7 +13081,7 @@ var waterfall = function (tasks, callback) {
             return callback.apply(null, [null].concat(args));
         }
 
-        var taskCallback = onlyOnce(baseRest$1(function (err, args) {
+        var taskCallback = onlyOnce(rest(function (err, args) {
             if (err) {
                 return callback.apply(null, [err].concat(args));
             }
@@ -13139,7 +13131,7 @@ var index = {
   compose: compose,
   concat: concat,
   concatSeries: concatSeries,
-  constant: constant$2,
+  constant: constant,
   detect: detect,
   detectLimit: detectLimit,
   detectSeries: detectSeries,
@@ -13231,7 +13223,7 @@ exports.cargo = cargo;
 exports.compose = compose;
 exports.concat = concat;
 exports.concatSeries = concatSeries;
-exports.constant = constant$2;
+exports.constant = constant;
 exports.detect = detect;
 exports.detectLimit = detectLimit;
 exports.detectSeries = detectSeries;
@@ -13322,7 +13314,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"_process":398}],52:[function(require,module,exports){
+},{"_process":400}],56:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -13354,7 +13346,7 @@ define(String.prototype, "padRight", "".padEnd);
 });
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"core-js/fn/regexp/escape":101,"core-js/shim":394,"regenerator-runtime/runtime":399}],53:[function(require,module,exports){
+},{"core-js/fn/regexp/escape":104,"core-js/shim":397,"regenerator-runtime/runtime":401}],57:[function(require,module,exports){
 // Backbone.Validation v0.11.5
 //
 // Copyright (c) 2011-2015 Thomas Pedersen
@@ -14073,7 +14065,7 @@ define(String.prototype, "padRight", "".padEnd);
   }(_));
   return Backbone.Validation;
 }));
-},{"backbone":54,"underscore":401}],54:[function(require,module,exports){
+},{"backbone":58,"underscore":403}],58:[function(require,module,exports){
 (function (global){
 //     Backbone.js 1.2.1
 
@@ -15951,1693 +15943,7 @@ define(String.prototype, "padRight", "".padEnd);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"jquery":396,"underscore":401}],55:[function(require,module,exports){
-var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
-
-;(function (exports) {
-	'use strict';
-
-  var Arr = (typeof Uint8Array !== 'undefined')
-    ? Uint8Array
-    : Array
-
-	var PLUS   = '+'.charCodeAt(0)
-	var SLASH  = '/'.charCodeAt(0)
-	var NUMBER = '0'.charCodeAt(0)
-	var LOWER  = 'a'.charCodeAt(0)
-	var UPPER  = 'A'.charCodeAt(0)
-	var PLUS_URL_SAFE = '-'.charCodeAt(0)
-	var SLASH_URL_SAFE = '_'.charCodeAt(0)
-
-	function decode (elt) {
-		var code = elt.charCodeAt(0)
-		if (code === PLUS ||
-		    code === PLUS_URL_SAFE)
-			return 62 // '+'
-		if (code === SLASH ||
-		    code === SLASH_URL_SAFE)
-			return 63 // '/'
-		if (code < NUMBER)
-			return -1 //no match
-		if (code < NUMBER + 10)
-			return code - NUMBER + 26 + 26
-		if (code < UPPER + 26)
-			return code - UPPER
-		if (code < LOWER + 26)
-			return code - LOWER + 26
-	}
-
-	function b64ToByteArray (b64) {
-		var i, j, l, tmp, placeHolders, arr
-
-		if (b64.length % 4 > 0) {
-			throw new Error('Invalid string. Length must be a multiple of 4')
-		}
-
-		// the number of equal signs (place holders)
-		// if there are two placeholders, than the two characters before it
-		// represent one byte
-		// if there is only one, then the three characters before it represent 2 bytes
-		// this is just a cheap hack to not do indexOf twice
-		var len = b64.length
-		placeHolders = '=' === b64.charAt(len - 2) ? 2 : '=' === b64.charAt(len - 1) ? 1 : 0
-
-		// base64 is 4/3 + up to two characters of the original data
-		arr = new Arr(b64.length * 3 / 4 - placeHolders)
-
-		// if there are placeholders, only get up to the last complete 4 chars
-		l = placeHolders > 0 ? b64.length - 4 : b64.length
-
-		var L = 0
-
-		function push (v) {
-			arr[L++] = v
-		}
-
-		for (i = 0, j = 0; i < l; i += 4, j += 3) {
-			tmp = (decode(b64.charAt(i)) << 18) | (decode(b64.charAt(i + 1)) << 12) | (decode(b64.charAt(i + 2)) << 6) | decode(b64.charAt(i + 3))
-			push((tmp & 0xFF0000) >> 16)
-			push((tmp & 0xFF00) >> 8)
-			push(tmp & 0xFF)
-		}
-
-		if (placeHolders === 2) {
-			tmp = (decode(b64.charAt(i)) << 2) | (decode(b64.charAt(i + 1)) >> 4)
-			push(tmp & 0xFF)
-		} else if (placeHolders === 1) {
-			tmp = (decode(b64.charAt(i)) << 10) | (decode(b64.charAt(i + 1)) << 4) | (decode(b64.charAt(i + 2)) >> 2)
-			push((tmp >> 8) & 0xFF)
-			push(tmp & 0xFF)
-		}
-
-		return arr
-	}
-
-	function uint8ToBase64 (uint8) {
-		var i,
-			extraBytes = uint8.length % 3, // if we have 1 byte left, pad 2 bytes
-			output = "",
-			temp, length
-
-		function encode (num) {
-			return lookup.charAt(num)
-		}
-
-		function tripletToBase64 (num) {
-			return encode(num >> 18 & 0x3F) + encode(num >> 12 & 0x3F) + encode(num >> 6 & 0x3F) + encode(num & 0x3F)
-		}
-
-		// go through the array every three bytes, we'll deal with trailing stuff later
-		for (i = 0, length = uint8.length - extraBytes; i < length; i += 3) {
-			temp = (uint8[i] << 16) + (uint8[i + 1] << 8) + (uint8[i + 2])
-			output += tripletToBase64(temp)
-		}
-
-		// pad the end with zeros, but make sure to not forget the extra bytes
-		switch (extraBytes) {
-			case 1:
-				temp = uint8[uint8.length - 1]
-				output += encode(temp >> 2)
-				output += encode((temp << 4) & 0x3F)
-				output += '=='
-				break
-			case 2:
-				temp = (uint8[uint8.length - 2] << 8) + (uint8[uint8.length - 1])
-				output += encode(temp >> 10)
-				output += encode((temp >> 4) & 0x3F)
-				output += encode((temp << 2) & 0x3F)
-				output += '='
-				break
-		}
-
-		return output
-	}
-
-	exports.toByteArray = b64ToByteArray
-	exports.fromByteArray = uint8ToBase64
-}(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
-
-},{}],56:[function(require,module,exports){
-(function (global){
-/*!
- * The buffer module from node.js, for the browser.
- *
- * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
- * @license  MIT
- */
-/* eslint-disable no-proto */
-
-'use strict'
-
-var base64 = require('base64-js')
-var ieee754 = require('ieee754')
-var isArray = require('isarray')
-
-exports.Buffer = Buffer
-exports.SlowBuffer = SlowBuffer
-exports.INSPECT_MAX_BYTES = 50
-Buffer.poolSize = 8192 // not used by this implementation
-
-var rootParent = {}
-
-/**
- * If `Buffer.TYPED_ARRAY_SUPPORT`:
- *   === true    Use Uint8Array implementation (fastest)
- *   === false   Use Object implementation (most compatible, even IE6)
- *
- * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
- * Opera 11.6+, iOS 4.2+.
- *
- * Due to various browser bugs, sometimes the Object implementation will be used even
- * when the browser supports typed arrays.
- *
- * Note:
- *
- *   - Firefox 4-29 lacks support for adding new properties to `Uint8Array` instances,
- *     See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438.
- *
- *   - Safari 5-7 lacks support for changing the `Object.prototype.constructor` property
- *     on objects.
- *
- *   - Chrome 9-10 is missing the `TypedArray.prototype.subarray` function.
- *
- *   - IE10 has a broken `TypedArray.prototype.subarray` function which returns arrays of
- *     incorrect length in some situations.
-
- * We detect these buggy browsers and set `Buffer.TYPED_ARRAY_SUPPORT` to `false` so they
- * get the Object implementation, which is slower but behaves correctly.
- */
-Buffer.TYPED_ARRAY_SUPPORT = global.TYPED_ARRAY_SUPPORT !== undefined
-  ? global.TYPED_ARRAY_SUPPORT
-  : typedArraySupport()
-
-function typedArraySupport () {
-  function Bar () {}
-  try {
-    var arr = new Uint8Array(1)
-    arr.foo = function () { return 42 }
-    arr.constructor = Bar
-    return arr.foo() === 42 && // typed array instances can be augmented
-        arr.constructor === Bar && // constructor can be set
-        typeof arr.subarray === 'function' && // chrome 9-10 lack `subarray`
-        arr.subarray(1, 1).byteLength === 0 // ie10 has broken `subarray`
-  } catch (e) {
-    return false
-  }
-}
-
-function kMaxLength () {
-  return Buffer.TYPED_ARRAY_SUPPORT
-    ? 0x7fffffff
-    : 0x3fffffff
-}
-
-/**
- * Class: Buffer
- * =============
- *
- * The Buffer constructor returns instances of `Uint8Array` that are augmented
- * with function properties for all the node `Buffer` API functions. We use
- * `Uint8Array` so that square bracket notation works as expected -- it returns
- * a single octet.
- *
- * By augmenting the instances, we can avoid modifying the `Uint8Array`
- * prototype.
- */
-function Buffer (arg) {
-  if (!(this instanceof Buffer)) {
-    // Avoid going through an ArgumentsAdaptorTrampoline in the common case.
-    if (arguments.length > 1) return new Buffer(arg, arguments[1])
-    return new Buffer(arg)
-  }
-
-  if (!Buffer.TYPED_ARRAY_SUPPORT) {
-    this.length = 0
-    this.parent = undefined
-  }
-
-  // Common case.
-  if (typeof arg === 'number') {
-    return fromNumber(this, arg)
-  }
-
-  // Slightly less common case.
-  if (typeof arg === 'string') {
-    return fromString(this, arg, arguments.length > 1 ? arguments[1] : 'utf8')
-  }
-
-  // Unusual.
-  return fromObject(this, arg)
-}
-
-function fromNumber (that, length) {
-  that = allocate(that, length < 0 ? 0 : checked(length) | 0)
-  if (!Buffer.TYPED_ARRAY_SUPPORT) {
-    for (var i = 0; i < length; i++) {
-      that[i] = 0
-    }
-  }
-  return that
-}
-
-function fromString (that, string, encoding) {
-  if (typeof encoding !== 'string' || encoding === '') encoding = 'utf8'
-
-  // Assumption: byteLength() return value is always < kMaxLength.
-  var length = byteLength(string, encoding) | 0
-  that = allocate(that, length)
-
-  that.write(string, encoding)
-  return that
-}
-
-function fromObject (that, object) {
-  if (Buffer.isBuffer(object)) return fromBuffer(that, object)
-
-  if (isArray(object)) return fromArray(that, object)
-
-  if (object == null) {
-    throw new TypeError('must start with number, buffer, array or string')
-  }
-
-  if (typeof ArrayBuffer !== 'undefined') {
-    if (object.buffer instanceof ArrayBuffer) {
-      return fromTypedArray(that, object)
-    }
-    if (object instanceof ArrayBuffer) {
-      return fromArrayBuffer(that, object)
-    }
-  }
-
-  if (object.length) return fromArrayLike(that, object)
-
-  return fromJsonObject(that, object)
-}
-
-function fromBuffer (that, buffer) {
-  var length = checked(buffer.length) | 0
-  that = allocate(that, length)
-  buffer.copy(that, 0, 0, length)
-  return that
-}
-
-function fromArray (that, array) {
-  var length = checked(array.length) | 0
-  that = allocate(that, length)
-  for (var i = 0; i < length; i += 1) {
-    that[i] = array[i] & 255
-  }
-  return that
-}
-
-// Duplicate of fromArray() to keep fromArray() monomorphic.
-function fromTypedArray (that, array) {
-  var length = checked(array.length) | 0
-  that = allocate(that, length)
-  // Truncating the elements is probably not what people expect from typed
-  // arrays with BYTES_PER_ELEMENT > 1 but it's compatible with the behavior
-  // of the old Buffer constructor.
-  for (var i = 0; i < length; i += 1) {
-    that[i] = array[i] & 255
-  }
-  return that
-}
-
-function fromArrayBuffer (that, array) {
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    // Return an augmented `Uint8Array` instance, for best performance
-    array.byteLength
-    that = Buffer._augment(new Uint8Array(array))
-  } else {
-    // Fallback: Return an object instance of the Buffer class
-    that = fromTypedArray(that, new Uint8Array(array))
-  }
-  return that
-}
-
-function fromArrayLike (that, array) {
-  var length = checked(array.length) | 0
-  that = allocate(that, length)
-  for (var i = 0; i < length; i += 1) {
-    that[i] = array[i] & 255
-  }
-  return that
-}
-
-// Deserialize { type: 'Buffer', data: [1,2,3,...] } into a Buffer object.
-// Returns a zero-length buffer for inputs that don't conform to the spec.
-function fromJsonObject (that, object) {
-  var array
-  var length = 0
-
-  if (object.type === 'Buffer' && isArray(object.data)) {
-    array = object.data
-    length = checked(array.length) | 0
-  }
-  that = allocate(that, length)
-
-  for (var i = 0; i < length; i += 1) {
-    that[i] = array[i] & 255
-  }
-  return that
-}
-
-if (Buffer.TYPED_ARRAY_SUPPORT) {
-  Buffer.prototype.__proto__ = Uint8Array.prototype
-  Buffer.__proto__ = Uint8Array
-} else {
-  // pre-set for values that may exist in the future
-  Buffer.prototype.length = undefined
-  Buffer.prototype.parent = undefined
-}
-
-function allocate (that, length) {
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    // Return an augmented `Uint8Array` instance, for best performance
-    that = Buffer._augment(new Uint8Array(length))
-    that.__proto__ = Buffer.prototype
-  } else {
-    // Fallback: Return an object instance of the Buffer class
-    that.length = length
-    that._isBuffer = true
-  }
-
-  var fromPool = length !== 0 && length <= Buffer.poolSize >>> 1
-  if (fromPool) that.parent = rootParent
-
-  return that
-}
-
-function checked (length) {
-  // Note: cannot use `length < kMaxLength` here because that fails when
-  // length is NaN (which is otherwise coerced to zero.)
-  if (length >= kMaxLength()) {
-    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
-                         'size: 0x' + kMaxLength().toString(16) + ' bytes')
-  }
-  return length | 0
-}
-
-function SlowBuffer (subject, encoding) {
-  if (!(this instanceof SlowBuffer)) return new SlowBuffer(subject, encoding)
-
-  var buf = new Buffer(subject, encoding)
-  delete buf.parent
-  return buf
-}
-
-Buffer.isBuffer = function isBuffer (b) {
-  return !!(b != null && b._isBuffer)
-}
-
-Buffer.compare = function compare (a, b) {
-  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
-    throw new TypeError('Arguments must be Buffers')
-  }
-
-  if (a === b) return 0
-
-  var x = a.length
-  var y = b.length
-
-  var i = 0
-  var len = Math.min(x, y)
-  while (i < len) {
-    if (a[i] !== b[i]) break
-
-    ++i
-  }
-
-  if (i !== len) {
-    x = a[i]
-    y = b[i]
-  }
-
-  if (x < y) return -1
-  if (y < x) return 1
-  return 0
-}
-
-Buffer.isEncoding = function isEncoding (encoding) {
-  switch (String(encoding).toLowerCase()) {
-    case 'hex':
-    case 'utf8':
-    case 'utf-8':
-    case 'ascii':
-    case 'binary':
-    case 'base64':
-    case 'raw':
-    case 'ucs2':
-    case 'ucs-2':
-    case 'utf16le':
-    case 'utf-16le':
-      return true
-    default:
-      return false
-  }
-}
-
-Buffer.concat = function concat (list, length) {
-  if (!isArray(list)) throw new TypeError('list argument must be an Array of Buffers.')
-
-  if (list.length === 0) {
-    return new Buffer(0)
-  }
-
-  var i
-  if (length === undefined) {
-    length = 0
-    for (i = 0; i < list.length; i++) {
-      length += list[i].length
-    }
-  }
-
-  var buf = new Buffer(length)
-  var pos = 0
-  for (i = 0; i < list.length; i++) {
-    var item = list[i]
-    item.copy(buf, pos)
-    pos += item.length
-  }
-  return buf
-}
-
-function byteLength (string, encoding) {
-  if (typeof string !== 'string') string = '' + string
-
-  var len = string.length
-  if (len === 0) return 0
-
-  // Use a for loop to avoid recursion
-  var loweredCase = false
-  for (;;) {
-    switch (encoding) {
-      case 'ascii':
-      case 'binary':
-      // Deprecated
-      case 'raw':
-      case 'raws':
-        return len
-      case 'utf8':
-      case 'utf-8':
-        return utf8ToBytes(string).length
-      case 'ucs2':
-      case 'ucs-2':
-      case 'utf16le':
-      case 'utf-16le':
-        return len * 2
-      case 'hex':
-        return len >>> 1
-      case 'base64':
-        return base64ToBytes(string).length
-      default:
-        if (loweredCase) return utf8ToBytes(string).length // assume utf8
-        encoding = ('' + encoding).toLowerCase()
-        loweredCase = true
-    }
-  }
-}
-Buffer.byteLength = byteLength
-
-function slowToString (encoding, start, end) {
-  var loweredCase = false
-
-  start = start | 0
-  end = end === undefined || end === Infinity ? this.length : end | 0
-
-  if (!encoding) encoding = 'utf8'
-  if (start < 0) start = 0
-  if (end > this.length) end = this.length
-  if (end <= start) return ''
-
-  while (true) {
-    switch (encoding) {
-      case 'hex':
-        return hexSlice(this, start, end)
-
-      case 'utf8':
-      case 'utf-8':
-        return utf8Slice(this, start, end)
-
-      case 'ascii':
-        return asciiSlice(this, start, end)
-
-      case 'binary':
-        return binarySlice(this, start, end)
-
-      case 'base64':
-        return base64Slice(this, start, end)
-
-      case 'ucs2':
-      case 'ucs-2':
-      case 'utf16le':
-      case 'utf-16le':
-        return utf16leSlice(this, start, end)
-
-      default:
-        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
-        encoding = (encoding + '').toLowerCase()
-        loweredCase = true
-    }
-  }
-}
-
-Buffer.prototype.toString = function toString () {
-  var length = this.length | 0
-  if (length === 0) return ''
-  if (arguments.length === 0) return utf8Slice(this, 0, length)
-  return slowToString.apply(this, arguments)
-}
-
-Buffer.prototype.equals = function equals (b) {
-  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
-  if (this === b) return true
-  return Buffer.compare(this, b) === 0
-}
-
-Buffer.prototype.inspect = function inspect () {
-  var str = ''
-  var max = exports.INSPECT_MAX_BYTES
-  if (this.length > 0) {
-    str = this.toString('hex', 0, max).match(/.{2}/g).join(' ')
-    if (this.length > max) str += ' ... '
-  }
-  return '<Buffer ' + str + '>'
-}
-
-Buffer.prototype.compare = function compare (b) {
-  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
-  if (this === b) return 0
-  return Buffer.compare(this, b)
-}
-
-Buffer.prototype.indexOf = function indexOf (val, byteOffset) {
-  if (byteOffset > 0x7fffffff) byteOffset = 0x7fffffff
-  else if (byteOffset < -0x80000000) byteOffset = -0x80000000
-  byteOffset >>= 0
-
-  if (this.length === 0) return -1
-  if (byteOffset >= this.length) return -1
-
-  // Negative offsets start from the end of the buffer
-  if (byteOffset < 0) byteOffset = Math.max(this.length + byteOffset, 0)
-
-  if (typeof val === 'string') {
-    if (val.length === 0) return -1 // special case: looking for empty string always fails
-    return String.prototype.indexOf.call(this, val, byteOffset)
-  }
-  if (Buffer.isBuffer(val)) {
-    return arrayIndexOf(this, val, byteOffset)
-  }
-  if (typeof val === 'number') {
-    if (Buffer.TYPED_ARRAY_SUPPORT && Uint8Array.prototype.indexOf === 'function') {
-      return Uint8Array.prototype.indexOf.call(this, val, byteOffset)
-    }
-    return arrayIndexOf(this, [ val ], byteOffset)
-  }
-
-  function arrayIndexOf (arr, val, byteOffset) {
-    var foundIndex = -1
-    for (var i = 0; byteOffset + i < arr.length; i++) {
-      if (arr[byteOffset + i] === val[foundIndex === -1 ? 0 : i - foundIndex]) {
-        if (foundIndex === -1) foundIndex = i
-        if (i - foundIndex + 1 === val.length) return byteOffset + foundIndex
-      } else {
-        foundIndex = -1
-      }
-    }
-    return -1
-  }
-
-  throw new TypeError('val must be string, number or Buffer')
-}
-
-// `get` is deprecated
-Buffer.prototype.get = function get (offset) {
-  console.log('.get() is deprecated. Access using array indexes instead.')
-  return this.readUInt8(offset)
-}
-
-// `set` is deprecated
-Buffer.prototype.set = function set (v, offset) {
-  console.log('.set() is deprecated. Access using array indexes instead.')
-  return this.writeUInt8(v, offset)
-}
-
-function hexWrite (buf, string, offset, length) {
-  offset = Number(offset) || 0
-  var remaining = buf.length - offset
-  if (!length) {
-    length = remaining
-  } else {
-    length = Number(length)
-    if (length > remaining) {
-      length = remaining
-    }
-  }
-
-  // must be an even number of digits
-  var strLen = string.length
-  if (strLen % 2 !== 0) throw new Error('Invalid hex string')
-
-  if (length > strLen / 2) {
-    length = strLen / 2
-  }
-  for (var i = 0; i < length; i++) {
-    var parsed = parseInt(string.substr(i * 2, 2), 16)
-    if (isNaN(parsed)) throw new Error('Invalid hex string')
-    buf[offset + i] = parsed
-  }
-  return i
-}
-
-function utf8Write (buf, string, offset, length) {
-  return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
-}
-
-function asciiWrite (buf, string, offset, length) {
-  return blitBuffer(asciiToBytes(string), buf, offset, length)
-}
-
-function binaryWrite (buf, string, offset, length) {
-  return asciiWrite(buf, string, offset, length)
-}
-
-function base64Write (buf, string, offset, length) {
-  return blitBuffer(base64ToBytes(string), buf, offset, length)
-}
-
-function ucs2Write (buf, string, offset, length) {
-  return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
-}
-
-Buffer.prototype.write = function write (string, offset, length, encoding) {
-  // Buffer#write(string)
-  if (offset === undefined) {
-    encoding = 'utf8'
-    length = this.length
-    offset = 0
-  // Buffer#write(string, encoding)
-  } else if (length === undefined && typeof offset === 'string') {
-    encoding = offset
-    length = this.length
-    offset = 0
-  // Buffer#write(string, offset[, length][, encoding])
-  } else if (isFinite(offset)) {
-    offset = offset | 0
-    if (isFinite(length)) {
-      length = length | 0
-      if (encoding === undefined) encoding = 'utf8'
-    } else {
-      encoding = length
-      length = undefined
-    }
-  // legacy write(string, encoding, offset, length) - remove in v0.13
-  } else {
-    var swap = encoding
-    encoding = offset
-    offset = length | 0
-    length = swap
-  }
-
-  var remaining = this.length - offset
-  if (length === undefined || length > remaining) length = remaining
-
-  if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
-    throw new RangeError('attempt to write outside buffer bounds')
-  }
-
-  if (!encoding) encoding = 'utf8'
-
-  var loweredCase = false
-  for (;;) {
-    switch (encoding) {
-      case 'hex':
-        return hexWrite(this, string, offset, length)
-
-      case 'utf8':
-      case 'utf-8':
-        return utf8Write(this, string, offset, length)
-
-      case 'ascii':
-        return asciiWrite(this, string, offset, length)
-
-      case 'binary':
-        return binaryWrite(this, string, offset, length)
-
-      case 'base64':
-        // Warning: maxLength not taken into account in base64Write
-        return base64Write(this, string, offset, length)
-
-      case 'ucs2':
-      case 'ucs-2':
-      case 'utf16le':
-      case 'utf-16le':
-        return ucs2Write(this, string, offset, length)
-
-      default:
-        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
-        encoding = ('' + encoding).toLowerCase()
-        loweredCase = true
-    }
-  }
-}
-
-Buffer.prototype.toJSON = function toJSON () {
-  return {
-    type: 'Buffer',
-    data: Array.prototype.slice.call(this._arr || this, 0)
-  }
-}
-
-function base64Slice (buf, start, end) {
-  if (start === 0 && end === buf.length) {
-    return base64.fromByteArray(buf)
-  } else {
-    return base64.fromByteArray(buf.slice(start, end))
-  }
-}
-
-function utf8Slice (buf, start, end) {
-  end = Math.min(buf.length, end)
-  var res = []
-
-  var i = start
-  while (i < end) {
-    var firstByte = buf[i]
-    var codePoint = null
-    var bytesPerSequence = (firstByte > 0xEF) ? 4
-      : (firstByte > 0xDF) ? 3
-      : (firstByte > 0xBF) ? 2
-      : 1
-
-    if (i + bytesPerSequence <= end) {
-      var secondByte, thirdByte, fourthByte, tempCodePoint
-
-      switch (bytesPerSequence) {
-        case 1:
-          if (firstByte < 0x80) {
-            codePoint = firstByte
-          }
-          break
-        case 2:
-          secondByte = buf[i + 1]
-          if ((secondByte & 0xC0) === 0x80) {
-            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
-            if (tempCodePoint > 0x7F) {
-              codePoint = tempCodePoint
-            }
-          }
-          break
-        case 3:
-          secondByte = buf[i + 1]
-          thirdByte = buf[i + 2]
-          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
-            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
-            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
-              codePoint = tempCodePoint
-            }
-          }
-          break
-        case 4:
-          secondByte = buf[i + 1]
-          thirdByte = buf[i + 2]
-          fourthByte = buf[i + 3]
-          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
-            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
-            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
-              codePoint = tempCodePoint
-            }
-          }
-      }
-    }
-
-    if (codePoint === null) {
-      // we did not generate a valid codePoint so insert a
-      // replacement char (U+FFFD) and advance only 1 byte
-      codePoint = 0xFFFD
-      bytesPerSequence = 1
-    } else if (codePoint > 0xFFFF) {
-      // encode to utf16 (surrogate pair dance)
-      codePoint -= 0x10000
-      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
-      codePoint = 0xDC00 | codePoint & 0x3FF
-    }
-
-    res.push(codePoint)
-    i += bytesPerSequence
-  }
-
-  return decodeCodePointsArray(res)
-}
-
-// Based on http://stackoverflow.com/a/22747272/680742, the browser with
-// the lowest limit is Chrome, with 0x10000 args.
-// We go 1 magnitude less, for safety
-var MAX_ARGUMENTS_LENGTH = 0x1000
-
-function decodeCodePointsArray (codePoints) {
-  var len = codePoints.length
-  if (len <= MAX_ARGUMENTS_LENGTH) {
-    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
-  }
-
-  // Decode in chunks to avoid "call stack size exceeded".
-  var res = ''
-  var i = 0
-  while (i < len) {
-    res += String.fromCharCode.apply(
-      String,
-      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
-    )
-  }
-  return res
-}
-
-function asciiSlice (buf, start, end) {
-  var ret = ''
-  end = Math.min(buf.length, end)
-
-  for (var i = start; i < end; i++) {
-    ret += String.fromCharCode(buf[i] & 0x7F)
-  }
-  return ret
-}
-
-function binarySlice (buf, start, end) {
-  var ret = ''
-  end = Math.min(buf.length, end)
-
-  for (var i = start; i < end; i++) {
-    ret += String.fromCharCode(buf[i])
-  }
-  return ret
-}
-
-function hexSlice (buf, start, end) {
-  var len = buf.length
-
-  if (!start || start < 0) start = 0
-  if (!end || end < 0 || end > len) end = len
-
-  var out = ''
-  for (var i = start; i < end; i++) {
-    out += toHex(buf[i])
-  }
-  return out
-}
-
-function utf16leSlice (buf, start, end) {
-  var bytes = buf.slice(start, end)
-  var res = ''
-  for (var i = 0; i < bytes.length; i += 2) {
-    res += String.fromCharCode(bytes[i] + bytes[i + 1] * 256)
-  }
-  return res
-}
-
-Buffer.prototype.slice = function slice (start, end) {
-  var len = this.length
-  start = ~~start
-  end = end === undefined ? len : ~~end
-
-  if (start < 0) {
-    start += len
-    if (start < 0) start = 0
-  } else if (start > len) {
-    start = len
-  }
-
-  if (end < 0) {
-    end += len
-    if (end < 0) end = 0
-  } else if (end > len) {
-    end = len
-  }
-
-  if (end < start) end = start
-
-  var newBuf
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    newBuf = Buffer._augment(this.subarray(start, end))
-  } else {
-    var sliceLen = end - start
-    newBuf = new Buffer(sliceLen, undefined)
-    for (var i = 0; i < sliceLen; i++) {
-      newBuf[i] = this[i + start]
-    }
-  }
-
-  if (newBuf.length) newBuf.parent = this.parent || this
-
-  return newBuf
-}
-
-/*
- * Need to make sure that buffer isn't trying to write out of bounds.
- */
-function checkOffset (offset, ext, length) {
-  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
-  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
-}
-
-Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) checkOffset(offset, byteLength, this.length)
-
-  var val = this[offset]
-  var mul = 1
-  var i = 0
-  while (++i < byteLength && (mul *= 0x100)) {
-    val += this[offset + i] * mul
-  }
-
-  return val
-}
-
-Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) {
-    checkOffset(offset, byteLength, this.length)
-  }
-
-  var val = this[offset + --byteLength]
-  var mul = 1
-  while (byteLength > 0 && (mul *= 0x100)) {
-    val += this[offset + --byteLength] * mul
-  }
-
-  return val
-}
-
-Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 1, this.length)
-  return this[offset]
-}
-
-Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 2, this.length)
-  return this[offset] | (this[offset + 1] << 8)
-}
-
-Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 2, this.length)
-  return (this[offset] << 8) | this[offset + 1]
-}
-
-Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-
-  return ((this[offset]) |
-      (this[offset + 1] << 8) |
-      (this[offset + 2] << 16)) +
-      (this[offset + 3] * 0x1000000)
-}
-
-Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-
-  return (this[offset] * 0x1000000) +
-    ((this[offset + 1] << 16) |
-    (this[offset + 2] << 8) |
-    this[offset + 3])
-}
-
-Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) checkOffset(offset, byteLength, this.length)
-
-  var val = this[offset]
-  var mul = 1
-  var i = 0
-  while (++i < byteLength && (mul *= 0x100)) {
-    val += this[offset + i] * mul
-  }
-  mul *= 0x80
-
-  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
-
-  return val
-}
-
-Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) checkOffset(offset, byteLength, this.length)
-
-  var i = byteLength
-  var mul = 1
-  var val = this[offset + --i]
-  while (i > 0 && (mul *= 0x100)) {
-    val += this[offset + --i] * mul
-  }
-  mul *= 0x80
-
-  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
-
-  return val
-}
-
-Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 1, this.length)
-  if (!(this[offset] & 0x80)) return (this[offset])
-  return ((0xff - this[offset] + 1) * -1)
-}
-
-Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 2, this.length)
-  var val = this[offset] | (this[offset + 1] << 8)
-  return (val & 0x8000) ? val | 0xFFFF0000 : val
-}
-
-Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 2, this.length)
-  var val = this[offset + 1] | (this[offset] << 8)
-  return (val & 0x8000) ? val | 0xFFFF0000 : val
-}
-
-Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-
-  return (this[offset]) |
-    (this[offset + 1] << 8) |
-    (this[offset + 2] << 16) |
-    (this[offset + 3] << 24)
-}
-
-Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-
-  return (this[offset] << 24) |
-    (this[offset + 1] << 16) |
-    (this[offset + 2] << 8) |
-    (this[offset + 3])
-}
-
-Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-  return ieee754.read(this, offset, true, 23, 4)
-}
-
-Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 4, this.length)
-  return ieee754.read(this, offset, false, 23, 4)
-}
-
-Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 8, this.length)
-  return ieee754.read(this, offset, true, 52, 8)
-}
-
-Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
-  if (!noAssert) checkOffset(offset, 8, this.length)
-  return ieee754.read(this, offset, false, 52, 8)
-}
-
-function checkInt (buf, value, offset, ext, max, min) {
-  if (!Buffer.isBuffer(buf)) throw new TypeError('buffer must be a Buffer instance')
-  if (value > max || value < min) throw new RangeError('value is out of bounds')
-  if (offset + ext > buf.length) throw new RangeError('index out of range')
-}
-
-Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
-  value = +value
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
-
-  var mul = 1
-  var i = 0
-  this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100)) {
-    this[offset + i] = (value / mul) & 0xFF
-  }
-
-  return offset + byteLength
-}
-
-Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
-  value = +value
-  offset = offset | 0
-  byteLength = byteLength | 0
-  if (!noAssert) checkInt(this, value, offset, byteLength, Math.pow(2, 8 * byteLength), 0)
-
-  var i = byteLength - 1
-  var mul = 1
-  this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100)) {
-    this[offset + i] = (value / mul) & 0xFF
-  }
-
-  return offset + byteLength
-}
-
-Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
-  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
-  this[offset] = (value & 0xff)
-  return offset + 1
-}
-
-function objectWriteUInt16 (buf, value, offset, littleEndian) {
-  if (value < 0) value = 0xffff + value + 1
-  for (var i = 0, j = Math.min(buf.length - offset, 2); i < j; i++) {
-    buf[offset + i] = (value & (0xff << (8 * (littleEndian ? i : 1 - i)))) >>>
-      (littleEndian ? i : 1 - i) * 8
-  }
-}
-
-Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value & 0xff)
-    this[offset + 1] = (value >>> 8)
-  } else {
-    objectWriteUInt16(this, value, offset, true)
-  }
-  return offset + 2
-}
-
-Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value >>> 8)
-    this[offset + 1] = (value & 0xff)
-  } else {
-    objectWriteUInt16(this, value, offset, false)
-  }
-  return offset + 2
-}
-
-function objectWriteUInt32 (buf, value, offset, littleEndian) {
-  if (value < 0) value = 0xffffffff + value + 1
-  for (var i = 0, j = Math.min(buf.length - offset, 4); i < j; i++) {
-    buf[offset + i] = (value >>> (littleEndian ? i : 3 - i) * 8) & 0xff
-  }
-}
-
-Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset + 3] = (value >>> 24)
-    this[offset + 2] = (value >>> 16)
-    this[offset + 1] = (value >>> 8)
-    this[offset] = (value & 0xff)
-  } else {
-    objectWriteUInt32(this, value, offset, true)
-  }
-  return offset + 4
-}
-
-Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value >>> 24)
-    this[offset + 1] = (value >>> 16)
-    this[offset + 2] = (value >>> 8)
-    this[offset + 3] = (value & 0xff)
-  } else {
-    objectWriteUInt32(this, value, offset, false)
-  }
-  return offset + 4
-}
-
-Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) {
-    var limit = Math.pow(2, 8 * byteLength - 1)
-
-    checkInt(this, value, offset, byteLength, limit - 1, -limit)
-  }
-
-  var i = 0
-  var mul = 1
-  var sub = value < 0 ? 1 : 0
-  this[offset] = value & 0xFF
-  while (++i < byteLength && (mul *= 0x100)) {
-    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
-  }
-
-  return offset + byteLength
-}
-
-Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) {
-    var limit = Math.pow(2, 8 * byteLength - 1)
-
-    checkInt(this, value, offset, byteLength, limit - 1, -limit)
-  }
-
-  var i = byteLength - 1
-  var mul = 1
-  var sub = value < 0 ? 1 : 0
-  this[offset + i] = value & 0xFF
-  while (--i >= 0 && (mul *= 0x100)) {
-    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
-  }
-
-  return offset + byteLength
-}
-
-Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
-  if (!Buffer.TYPED_ARRAY_SUPPORT) value = Math.floor(value)
-  if (value < 0) value = 0xff + value + 1
-  this[offset] = (value & 0xff)
-  return offset + 1
-}
-
-Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value & 0xff)
-    this[offset + 1] = (value >>> 8)
-  } else {
-    objectWriteUInt16(this, value, offset, true)
-  }
-  return offset + 2
-}
-
-Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value >>> 8)
-    this[offset + 1] = (value & 0xff)
-  } else {
-    objectWriteUInt16(this, value, offset, false)
-  }
-  return offset + 2
-}
-
-Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value & 0xff)
-    this[offset + 1] = (value >>> 8)
-    this[offset + 2] = (value >>> 16)
-    this[offset + 3] = (value >>> 24)
-  } else {
-    objectWriteUInt32(this, value, offset, true)
-  }
-  return offset + 4
-}
-
-Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
-  value = +value
-  offset = offset | 0
-  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
-  if (value < 0) value = 0xffffffff + value + 1
-  if (Buffer.TYPED_ARRAY_SUPPORT) {
-    this[offset] = (value >>> 24)
-    this[offset + 1] = (value >>> 16)
-    this[offset + 2] = (value >>> 8)
-    this[offset + 3] = (value & 0xff)
-  } else {
-    objectWriteUInt32(this, value, offset, false)
-  }
-  return offset + 4
-}
-
-function checkIEEE754 (buf, value, offset, ext, max, min) {
-  if (value > max || value < min) throw new RangeError('value is out of bounds')
-  if (offset + ext > buf.length) throw new RangeError('index out of range')
-  if (offset < 0) throw new RangeError('index out of range')
-}
-
-function writeFloat (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert) {
-    checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
-  }
-  ieee754.write(buf, value, offset, littleEndian, 23, 4)
-  return offset + 4
-}
-
-Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
-  return writeFloat(this, value, offset, true, noAssert)
-}
-
-Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
-  return writeFloat(this, value, offset, false, noAssert)
-}
-
-function writeDouble (buf, value, offset, littleEndian, noAssert) {
-  if (!noAssert) {
-    checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
-  }
-  ieee754.write(buf, value, offset, littleEndian, 52, 8)
-  return offset + 8
-}
-
-Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
-  return writeDouble(this, value, offset, true, noAssert)
-}
-
-Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
-  return writeDouble(this, value, offset, false, noAssert)
-}
-
-// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
-Buffer.prototype.copy = function copy (target, targetStart, start, end) {
-  if (!start) start = 0
-  if (!end && end !== 0) end = this.length
-  if (targetStart >= target.length) targetStart = target.length
-  if (!targetStart) targetStart = 0
-  if (end > 0 && end < start) end = start
-
-  // Copy 0 bytes; we're done
-  if (end === start) return 0
-  if (target.length === 0 || this.length === 0) return 0
-
-  // Fatal error conditions
-  if (targetStart < 0) {
-    throw new RangeError('targetStart out of bounds')
-  }
-  if (start < 0 || start >= this.length) throw new RangeError('sourceStart out of bounds')
-  if (end < 0) throw new RangeError('sourceEnd out of bounds')
-
-  // Are we oob?
-  if (end > this.length) end = this.length
-  if (target.length - targetStart < end - start) {
-    end = target.length - targetStart + start
-  }
-
-  var len = end - start
-  var i
-
-  if (this === target && start < targetStart && targetStart < end) {
-    // descending copy from end
-    for (i = len - 1; i >= 0; i--) {
-      target[i + targetStart] = this[i + start]
-    }
-  } else if (len < 1000 || !Buffer.TYPED_ARRAY_SUPPORT) {
-    // ascending copy from start
-    for (i = 0; i < len; i++) {
-      target[i + targetStart] = this[i + start]
-    }
-  } else {
-    target._set(this.subarray(start, start + len), targetStart)
-  }
-
-  return len
-}
-
-// fill(value, start=0, end=buffer.length)
-Buffer.prototype.fill = function fill (value, start, end) {
-  if (!value) value = 0
-  if (!start) start = 0
-  if (!end) end = this.length
-
-  if (end < start) throw new RangeError('end < start')
-
-  // Fill 0 bytes; we're done
-  if (end === start) return
-  if (this.length === 0) return
-
-  if (start < 0 || start >= this.length) throw new RangeError('start out of bounds')
-  if (end < 0 || end > this.length) throw new RangeError('end out of bounds')
-
-  var i
-  if (typeof value === 'number') {
-    for (i = start; i < end; i++) {
-      this[i] = value
-    }
-  } else {
-    var bytes = utf8ToBytes(value.toString())
-    var len = bytes.length
-    for (i = start; i < end; i++) {
-      this[i] = bytes[i % len]
-    }
-  }
-
-  return this
-}
-
-/**
- * Creates a new `ArrayBuffer` with the *copied* memory of the buffer instance.
- * Added in Node 0.12. Only available in browsers that support ArrayBuffer.
- */
-Buffer.prototype.toArrayBuffer = function toArrayBuffer () {
-  if (typeof Uint8Array !== 'undefined') {
-    if (Buffer.TYPED_ARRAY_SUPPORT) {
-      return (new Buffer(this)).buffer
-    } else {
-      var buf = new Uint8Array(this.length)
-      for (var i = 0, len = buf.length; i < len; i += 1) {
-        buf[i] = this[i]
-      }
-      return buf.buffer
-    }
-  } else {
-    throw new TypeError('Buffer.toArrayBuffer not supported in this browser')
-  }
-}
-
-// HELPER FUNCTIONS
-// ================
-
-var BP = Buffer.prototype
-
-/**
- * Augment a Uint8Array *instance* (not the Uint8Array class!) with Buffer methods
- */
-Buffer._augment = function _augment (arr) {
-  arr.constructor = Buffer
-  arr._isBuffer = true
-
-  // save reference to original Uint8Array set method before overwriting
-  arr._set = arr.set
-
-  // deprecated
-  arr.get = BP.get
-  arr.set = BP.set
-
-  arr.write = BP.write
-  arr.toString = BP.toString
-  arr.toLocaleString = BP.toString
-  arr.toJSON = BP.toJSON
-  arr.equals = BP.equals
-  arr.compare = BP.compare
-  arr.indexOf = BP.indexOf
-  arr.copy = BP.copy
-  arr.slice = BP.slice
-  arr.readUIntLE = BP.readUIntLE
-  arr.readUIntBE = BP.readUIntBE
-  arr.readUInt8 = BP.readUInt8
-  arr.readUInt16LE = BP.readUInt16LE
-  arr.readUInt16BE = BP.readUInt16BE
-  arr.readUInt32LE = BP.readUInt32LE
-  arr.readUInt32BE = BP.readUInt32BE
-  arr.readIntLE = BP.readIntLE
-  arr.readIntBE = BP.readIntBE
-  arr.readInt8 = BP.readInt8
-  arr.readInt16LE = BP.readInt16LE
-  arr.readInt16BE = BP.readInt16BE
-  arr.readInt32LE = BP.readInt32LE
-  arr.readInt32BE = BP.readInt32BE
-  arr.readFloatLE = BP.readFloatLE
-  arr.readFloatBE = BP.readFloatBE
-  arr.readDoubleLE = BP.readDoubleLE
-  arr.readDoubleBE = BP.readDoubleBE
-  arr.writeUInt8 = BP.writeUInt8
-  arr.writeUIntLE = BP.writeUIntLE
-  arr.writeUIntBE = BP.writeUIntBE
-  arr.writeUInt16LE = BP.writeUInt16LE
-  arr.writeUInt16BE = BP.writeUInt16BE
-  arr.writeUInt32LE = BP.writeUInt32LE
-  arr.writeUInt32BE = BP.writeUInt32BE
-  arr.writeIntLE = BP.writeIntLE
-  arr.writeIntBE = BP.writeIntBE
-  arr.writeInt8 = BP.writeInt8
-  arr.writeInt16LE = BP.writeInt16LE
-  arr.writeInt16BE = BP.writeInt16BE
-  arr.writeInt32LE = BP.writeInt32LE
-  arr.writeInt32BE = BP.writeInt32BE
-  arr.writeFloatLE = BP.writeFloatLE
-  arr.writeFloatBE = BP.writeFloatBE
-  arr.writeDoubleLE = BP.writeDoubleLE
-  arr.writeDoubleBE = BP.writeDoubleBE
-  arr.fill = BP.fill
-  arr.inspect = BP.inspect
-  arr.toArrayBuffer = BP.toArrayBuffer
-
-  return arr
-}
-
-var INVALID_BASE64_RE = /[^+\/0-9A-Za-z-_]/g
-
-function base64clean (str) {
-  // Node strips out invalid characters like \n and \t from the string, base64-js does not
-  str = stringtrim(str).replace(INVALID_BASE64_RE, '')
-  // Node converts strings with length < 2 to ''
-  if (str.length < 2) return ''
-  // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
-  while (str.length % 4 !== 0) {
-    str = str + '='
-  }
-  return str
-}
-
-function stringtrim (str) {
-  if (str.trim) return str.trim()
-  return str.replace(/^\s+|\s+$/g, '')
-}
-
-function toHex (n) {
-  if (n < 16) return '0' + n.toString(16)
-  return n.toString(16)
-}
-
-function utf8ToBytes (string, units) {
-  units = units || Infinity
-  var codePoint
-  var length = string.length
-  var leadSurrogate = null
-  var bytes = []
-
-  for (var i = 0; i < length; i++) {
-    codePoint = string.charCodeAt(i)
-
-    // is surrogate component
-    if (codePoint > 0xD7FF && codePoint < 0xE000) {
-      // last char was a lead
-      if (!leadSurrogate) {
-        // no lead yet
-        if (codePoint > 0xDBFF) {
-          // unexpected trail
-          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-          continue
-        } else if (i + 1 === length) {
-          // unpaired lead
-          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-          continue
-        }
-
-        // valid lead
-        leadSurrogate = codePoint
-
-        continue
-      }
-
-      // 2 leads in a row
-      if (codePoint < 0xDC00) {
-        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-        leadSurrogate = codePoint
-        continue
-      }
-
-      // valid surrogate pair
-      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
-    } else if (leadSurrogate) {
-      // valid bmp char, but last char was a lead
-      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
-    }
-
-    leadSurrogate = null
-
-    // encode utf8
-    if (codePoint < 0x80) {
-      if ((units -= 1) < 0) break
-      bytes.push(codePoint)
-    } else if (codePoint < 0x800) {
-      if ((units -= 2) < 0) break
-      bytes.push(
-        codePoint >> 0x6 | 0xC0,
-        codePoint & 0x3F | 0x80
-      )
-    } else if (codePoint < 0x10000) {
-      if ((units -= 3) < 0) break
-      bytes.push(
-        codePoint >> 0xC | 0xE0,
-        codePoint >> 0x6 & 0x3F | 0x80,
-        codePoint & 0x3F | 0x80
-      )
-    } else if (codePoint < 0x110000) {
-      if ((units -= 4) < 0) break
-      bytes.push(
-        codePoint >> 0x12 | 0xF0,
-        codePoint >> 0xC & 0x3F | 0x80,
-        codePoint >> 0x6 & 0x3F | 0x80,
-        codePoint & 0x3F | 0x80
-      )
-    } else {
-      throw new Error('Invalid code point')
-    }
-  }
-
-  return bytes
-}
-
-function asciiToBytes (str) {
-  var byteArray = []
-  for (var i = 0; i < str.length; i++) {
-    // Node's code seems to be doing this and not & 0x7F..
-    byteArray.push(str.charCodeAt(i) & 0xFF)
-  }
-  return byteArray
-}
-
-function utf16leToBytes (str, units) {
-  var c, hi, lo
-  var byteArray = []
-  for (var i = 0; i < str.length; i++) {
-    if ((units -= 2) < 0) break
-
-    c = str.charCodeAt(i)
-    hi = c >> 8
-    lo = c % 256
-    byteArray.push(lo)
-    byteArray.push(hi)
-  }
-
-  return byteArray
-}
-
-function base64ToBytes (str) {
-  return base64.toByteArray(base64clean(str))
-}
-
-function blitBuffer (src, dst, offset, length) {
-  for (var i = 0; i < length; i++) {
-    if ((i + offset >= dst.length) || (i >= src.length)) break
-    dst[i + offset] = src[i]
-  }
-  return i
-}
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-
-},{"base64-js":55,"ieee754":395,"isarray":57}],57:[function(require,module,exports){
-var toString = {}.toString;
-
-module.exports = Array.isArray || function (arr) {
-  return toString.call(arr) == '[object Array]';
-};
-
-},{}],58:[function(require,module,exports){
+},{"jquery":398,"underscore":403}],59:[function(require,module,exports){
 /**
  * @namespace Chart
  */
@@ -17652,9 +15958,11 @@ require('./core/core.datasetController')(Chart);
 require('./core/core.layoutService')(Chart);
 require('./core/core.scaleService')(Chart);
 require('./core/core.plugin.js')(Chart);
+require('./core/core.ticks.js')(Chart);
 require('./core/core.scale')(Chart);
 require('./core/core.title')(Chart);
 require('./core/core.legend')(Chart);
+require('./core/core.interaction')(Chart);
 require('./core/core.tooltip')(Chart);
 
 require('./elements/element.arc')(Chart);
@@ -17688,7 +15996,7 @@ require('./charts/Chart.Scatter')(Chart);
 
 window.Chart = module.exports = Chart;
 
-},{"./charts/Chart.Bar":59,"./charts/Chart.Bubble":60,"./charts/Chart.Doughnut":61,"./charts/Chart.Line":62,"./charts/Chart.PolarArea":63,"./charts/Chart.Radar":64,"./charts/Chart.Scatter":65,"./controllers/controller.bar":66,"./controllers/controller.bubble":67,"./controllers/controller.doughnut":68,"./controllers/controller.line":69,"./controllers/controller.polarArea":70,"./controllers/controller.radar":71,"./core/core.animation":72,"./core/core.canvasHelpers":73,"./core/core.controller":74,"./core/core.datasetController":75,"./core/core.element":76,"./core/core.helpers":77,"./core/core.js":78,"./core/core.layoutService":79,"./core/core.legend":80,"./core/core.plugin.js":81,"./core/core.scale":82,"./core/core.scaleService":83,"./core/core.title":84,"./core/core.tooltip":85,"./elements/element.arc":86,"./elements/element.line":87,"./elements/element.point":88,"./elements/element.rectangle":89,"./scales/scale.category":90,"./scales/scale.linear":91,"./scales/scale.linearbase.js":92,"./scales/scale.logarithmic":93,"./scales/scale.radialLinear":94,"./scales/scale.time":95}],59:[function(require,module,exports){
+},{"./charts/Chart.Bar":60,"./charts/Chart.Bubble":61,"./charts/Chart.Doughnut":62,"./charts/Chart.Line":63,"./charts/Chart.PolarArea":64,"./charts/Chart.Radar":65,"./charts/Chart.Scatter":66,"./controllers/controller.bar":67,"./controllers/controller.bubble":68,"./controllers/controller.doughnut":69,"./controllers/controller.line":70,"./controllers/controller.polarArea":71,"./controllers/controller.radar":72,"./core/core.animation":73,"./core/core.canvasHelpers":74,"./core/core.controller":75,"./core/core.datasetController":76,"./core/core.element":77,"./core/core.helpers":78,"./core/core.interaction":79,"./core/core.js":80,"./core/core.layoutService":81,"./core/core.legend":82,"./core/core.plugin.js":83,"./core/core.scale":84,"./core/core.scaleService":85,"./core/core.ticks.js":86,"./core/core.title":87,"./core/core.tooltip":88,"./elements/element.arc":89,"./elements/element.line":90,"./elements/element.point":91,"./elements/element.rectangle":92,"./scales/scale.category":93,"./scales/scale.linear":94,"./scales/scale.linearbase.js":95,"./scales/scale.logarithmic":96,"./scales/scale.radialLinear":97,"./scales/scale.time":98}],60:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17701,7 +16009,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],60:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17713,7 +16021,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17726,7 +16034,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17739,7 +16047,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],63:[function(require,module,exports){
+},{}],64:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17752,13 +16060,12 @@ module.exports = function(Chart) {
 
 };
 
-},{}],64:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
 
 	Chart.Radar = function(context, config) {
-		config.options = Chart.helpers.configMerge({aspectRatio: 1}, config.options);
 		config.type = 'radar';
 
 		return new Chart(context, config);
@@ -17766,7 +16073,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],65:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17815,7 +16122,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -17887,31 +16194,29 @@ module.exports = function(Chart) {
 			var custom = rectangle.custom || {};
 			var dataset = me.getDataset();
 
-			helpers.extend(rectangle, {
-				// Utility
-				_xScale: xScale,
-				_yScale: yScale,
-				_datasetIndex: me.index,
-				_index: index,
+			rectangle._xScale = xScale;
+			rectangle._yScale = yScale;
+			rectangle._datasetIndex = me.index;
+			rectangle._index = index;
 
-				// Desired view properties
-				_model: {
-					x: me.calculateBarX(index, me.index),
-					y: reset ? scaleBase : me.calculateBarY(index, me.index),
+			var ruler = me.getRuler(index);
+			rectangle._model = {
+				x: me.calculateBarX(index, me.index, ruler),
+				y: reset ? scaleBase : me.calculateBarY(index, me.index),
 
-					// Tooltip
-					label: me.chart.data.labels[index],
-					datasetLabel: dataset.label,
+				// Tooltip
+				label: me.chart.data.labels[index],
+				datasetLabel: dataset.label,
 
-					// Appearance
-					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
-					width: me.calculateBarWidth(index),
-					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
-					borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
-					borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
-					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
-				}
-			});
+				// Appearance
+				base: reset ? scaleBase : me.calculateBarBase(me.index, index),
+				width: me.calculateBarWidth(ruler),
+				backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
+				borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
+				borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
+				borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
+			};
+
 			rectangle.pivot();
 		},
 
@@ -17978,12 +16283,11 @@ module.exports = function(Chart) {
 			};
 		},
 
-		calculateBarWidth: function(index) {
+		calculateBarWidth: function(ruler) {
 			var xScale = this.getScaleForId(this.getMeta().xAxisID);
 			if (xScale.options.barThickness) {
 				return xScale.options.barThickness;
 			}
-			var ruler = this.getRuler(index);
 			return xScale.options.stacked ? ruler.categoryWidth : ruler.barWidth;
 		},
 
@@ -18002,13 +16306,11 @@ module.exports = function(Chart) {
 			return barIndex;
 		},
 
-		calculateBarX: function(index, datasetIndex) {
+		calculateBarX: function(index, datasetIndex, ruler) {
 			var me = this;
 			var meta = me.getMeta();
 			var xScale = me.getScaleForId(meta.xAxisID);
 			var barIndex = me.getBarIndex(datasetIndex);
-
-			var ruler = me.getRuler(index);
 			var leftTick = xScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 			leftTick -= me.chart.isCombo ? (ruler.tickWidth / 2) : 0;
 
@@ -18060,12 +16362,16 @@ module.exports = function(Chart) {
 		draw: function(ease) {
 			var me = this;
 			var easingDecimal = ease || 1;
-			helpers.each(me.getMeta().data, function(rectangle, index) {
-				var d = me.getDataset().data[index];
+			var metaData = me.getMeta().data;
+			var dataset = me.getDataset();
+			var i, len;
+
+			for (i = 0, len = metaData.length; i < len; ++i) {
+				var d = dataset.data[i];
 				if (d !== null && d !== undefined && !isNaN(d)) {
-					rectangle.transition(easingDecimal).draw();
+					metaData[i].transition(easingDecimal).draw();
 				}
-			}, me);
+			}
 		},
 
 		setHoverStyle: function(rectangle) {
@@ -18160,103 +16466,84 @@ module.exports = function(Chart) {
 			var dataset = me.getDataset();
 			var rectangleElementOptions = me.chart.options.elements.rectangle;
 
-			helpers.extend(rectangle, {
-				// Utility
-				_xScale: xScale,
-				_yScale: yScale,
-				_datasetIndex: me.index,
-				_index: index,
+			rectangle._xScale = xScale;
+			rectangle._yScale = yScale;
+			rectangle._datasetIndex = me.index;
+			rectangle._index = index;
 
-				// Desired view properties
-				_model: {
-					x: reset ? scaleBase : me.calculateBarX(index, me.index),
-					y: me.calculateBarY(index, me.index),
+			var ruler = me.getRuler(index);
+			rectangle._model = {
+				x: reset ? scaleBase : me.calculateBarX(index, me.index),
+				y: me.calculateBarY(index, me.index, ruler),
 
-					// Tooltip
-					label: me.chart.data.labels[index],
-					datasetLabel: dataset.label,
+				// Tooltip
+				label: me.chart.data.labels[index],
+				datasetLabel: dataset.label,
 
-					// Appearance
-					base: reset ? scaleBase : me.calculateBarBase(me.index, index),
-					height: me.calculateBarHeight(index),
-					backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
-					borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
-					borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
-					borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
-				},
+				// Appearance
+				base: reset ? scaleBase : me.calculateBarBase(me.index, index),
+				height: me.calculateBarHeight(ruler),
+				backgroundColor: custom.backgroundColor ? custom.backgroundColor : helpers.getValueAtIndexOrDefault(dataset.backgroundColor, index, rectangleElementOptions.backgroundColor),
+				borderSkipped: custom.borderSkipped ? custom.borderSkipped : rectangleElementOptions.borderSkipped,
+				borderColor: custom.borderColor ? custom.borderColor : helpers.getValueAtIndexOrDefault(dataset.borderColor, index, rectangleElementOptions.borderColor),
+				borderWidth: custom.borderWidth ? custom.borderWidth : helpers.getValueAtIndexOrDefault(dataset.borderWidth, index, rectangleElementOptions.borderWidth)
+			};
+			rectangle.draw = function() {
+				var ctx = this._chart.ctx;
+				var vm = this._view;
 
-				draw: function() {
-					var ctx = this._chart.ctx;
-					var vm = this._view;
+				var halfHeight = vm.height / 2,
+					topY = vm.y - halfHeight,
+					bottomY = vm.y + halfHeight,
+					right = vm.base - (vm.base - vm.x),
+					halfStroke = vm.borderWidth / 2;
 
-					var halfHeight = vm.height / 2,
-						topY = vm.y - halfHeight,
-						bottomY = vm.y + halfHeight,
-						right = vm.base - (vm.base - vm.x),
-						halfStroke = vm.borderWidth / 2;
-
-					// Canvas doesn't allow us to stroke inside the width so we can
-					// adjust the sizes to fit if we're setting a stroke on the line
-					if (vm.borderWidth) {
-						topY += halfStroke;
-						bottomY -= halfStroke;
-						right += halfStroke;
-					}
-
-					ctx.beginPath();
-
-					ctx.fillStyle = vm.backgroundColor;
-					ctx.strokeStyle = vm.borderColor;
-					ctx.lineWidth = vm.borderWidth;
-
-					// Corner points, from bottom-left to bottom-right clockwise
-					// | 1 2 |
-					// | 0 3 |
-					var corners = [
-						[vm.base, bottomY],
-						[vm.base, topY],
-						[right, topY],
-						[right, bottomY]
-					];
-
-					// Find first (starting) corner with fallback to 'bottom'
-					var borders = ['bottom', 'left', 'top', 'right'];
-					var startCorner = borders.indexOf(vm.borderSkipped, 0);
-					if (startCorner === -1) {
-						startCorner = 0;
-					}
-
-					function cornerAt(cornerIndex) {
-						return corners[(startCorner + cornerIndex) % 4];
-					}
-
-					// Draw rectangle from 'startCorner'
-					ctx.moveTo.apply(ctx, cornerAt(0));
-					for (var i = 1; i < 4; i++) {
-						ctx.lineTo.apply(ctx, cornerAt(i));
-					}
-
-					ctx.fill();
-					if (vm.borderWidth) {
-						ctx.stroke();
-					}
-				},
-
-				inRange: function(mouseX, mouseY) {
-					var vm = this._view;
-					var inRange = false;
-
-					if (vm) {
-						if (vm.x < vm.base) {
-							inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.x && mouseX <= vm.base);
-						} else {
-							inRange = (mouseY >= vm.y - vm.height / 2 && mouseY <= vm.y + vm.height / 2) && (mouseX >= vm.base && mouseX <= vm.x);
-						}
-					}
-
-					return inRange;
+				// Canvas doesn't allow us to stroke inside the width so we can
+				// adjust the sizes to fit if we're setting a stroke on the line
+				if (vm.borderWidth) {
+					topY += halfStroke;
+					bottomY -= halfStroke;
+					right += halfStroke;
 				}
-			});
+
+				ctx.beginPath();
+
+				ctx.fillStyle = vm.backgroundColor;
+				ctx.strokeStyle = vm.borderColor;
+				ctx.lineWidth = vm.borderWidth;
+
+				// Corner points, from bottom-left to bottom-right clockwise
+				// | 1 2 |
+				// | 0 3 |
+				var corners = [
+					[vm.base, bottomY],
+					[vm.base, topY],
+					[right, topY],
+					[right, bottomY]
+				];
+
+				// Find first (starting) corner with fallback to 'bottom'
+				var borders = ['bottom', 'left', 'top', 'right'];
+				var startCorner = borders.indexOf(vm.borderSkipped, 0);
+				if (startCorner === -1) {
+					startCorner = 0;
+				}
+
+				function cornerAt(cornerIndex) {
+					return corners[(startCorner + cornerIndex) % 4];
+				}
+
+				// Draw rectangle from 'startCorner'
+				ctx.moveTo.apply(ctx, cornerAt(0));
+				for (var i = 1; i < 4; i++) {
+					ctx.lineTo.apply(ctx, cornerAt(i));
+				}
+
+				ctx.fill();
+				if (vm.borderWidth) {
+					ctx.stroke();
+				}
+			};
 
 			rectangle.pivot();
 		},
@@ -18323,13 +16610,12 @@ module.exports = function(Chart) {
 			};
 		},
 
-		calculateBarHeight: function(index) {
+		calculateBarHeight: function(ruler) {
 			var me = this;
 			var yScale = me.getScaleForId(me.getMeta().yAxisID);
 			if (yScale.options.barThickness) {
 				return yScale.options.barThickness;
 			}
-			var ruler = me.getRuler(index);
 			return yScale.options.stacked ? ruler.categoryHeight : ruler.barHeight;
 		},
 
@@ -18366,13 +16652,11 @@ module.exports = function(Chart) {
 			return xScale.getPixelForValue(value);
 		},
 
-		calculateBarY: function(index, datasetIndex) {
+		calculateBarY: function(index, datasetIndex, ruler) {
 			var me = this;
 			var meta = me.getMeta();
 			var yScale = me.getScaleForId(meta.yAxisID);
 			var barIndex = me.getBarIndex(datasetIndex);
-
-			var ruler = me.getRuler(index);
 			var topTick = yScale.getPixelForValue(null, index, datasetIndex, me.chart.isCombo);
 			topTick -= me.chart.isCombo ? (ruler.tickHeight / 2) : 0;
 
@@ -18390,7 +16674,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -18424,7 +16708,7 @@ module.exports = function(Chart) {
 				label: function(tooltipItem, data) {
 					var datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
 					var dataPoint = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
-					return datasetLabel + ': (' + dataPoint.x + ', ' + dataPoint.y + ', ' + dataPoint.r + ')';
+					return datasetLabel + ': (' + tooltipItem.xLabel + ', ' + tooltipItem.yLabel + ', ' + dataPoint.r + ')';
 				}
 			}
 		}
@@ -18514,7 +16798,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -18619,7 +16903,19 @@ module.exports = function(Chart) {
 					return '';
 				},
 				label: function(tooltipItem, data) {
-					return data.labels[tooltipItem.index] + ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+					var dataLabel = data.labels[tooltipItem.index];
+					var value = ': ' + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+
+					if (helpers.isArray(dataLabel)) {
+						// show value on first line of multiline label
+						// need to clone because we are changing the value
+						dataLabel = dataLabel.slice();
+						dataLabel[0] += value;
+					} else {
+						dataLabel += value;
+					}
+
+					return dataLabel;
 				}
 			}
 		}
@@ -18807,7 +17103,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],69:[function(require,module,exports){
+},{}],70:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -18844,19 +17140,6 @@ module.exports = function(Chart) {
 
 		dataElementType: Chart.elements.Point,
 
-		addElementAndReset: function(index) {
-			var me = this;
-			var options = me.chart.options;
-			var meta = me.getMeta();
-
-			Chart.DatasetController.prototype.addElementAndReset.call(me, index);
-
-			// Make sure bezier control points are updated
-			if (lineEnabled(me.getDataset(), options) && meta.dataset._model.tension !== 0) {
-				me.updateBezierControlPoints();
-			}
-		},
-
 		update: function(reset) {
 			var me = this;
 			var meta = me.getMeta();
@@ -18888,7 +17171,7 @@ module.exports = function(Chart) {
 					// Appearance
 					// The default behavior of lines is to break at null values, according
 					// to https://github.com/chartjs/Chart.js/issues/2435#issuecomment-216718158
-					// This option gives linse the ability to span gaps
+					// This option gives lines the ability to span gaps
 					spanGaps: dataset.spanGaps ? dataset.spanGaps : options.spanGaps,
 					tension: custom.tension ? custom.tension : helpers.getValueOrDefault(dataset.lineTension, lineElementOptions.tension),
 					backgroundColor: custom.backgroundColor ? custom.backgroundColor : (dataset.backgroundColor || lineElementOptions.backgroundColor),
@@ -19159,7 +17442,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],70:[function(require,module,exports){
+},{}],71:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -19194,11 +17477,11 @@ module.exports = function(Chart) {
 
 			if (datasets.length) {
 				for (var i = 0; i < datasets[0].data.length; ++i) {
-					text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '">');
+					text.push('<li><span style="background-color:' + datasets[0].backgroundColor[i] + '"></span>');
 					if (labels[i]) {
 						text.push(labels[i]);
 					}
-					text.push('</span></li>');
+					text.push('</li>');
 				}
 			}
 
@@ -19376,7 +17659,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],71:[function(require,module,exports){
+},{}],72:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -19384,6 +17667,7 @@ module.exports = function(Chart) {
 	var helpers = Chart.helpers;
 
 	Chart.defaults.radar = {
+		aspectRatio: 1,
 		scale: {
 			type: 'radialLinear'
 		},
@@ -19401,13 +17685,6 @@ module.exports = function(Chart) {
 		dataElementType: Chart.elements.Point,
 
 		linkScales: helpers.noop,
-
-		addElementAndReset: function(index) {
-			Chart.DatasetController.prototype.addElementAndReset.call(this, index);
-
-			// Make sure bezier control points are updated
-			this.updateBezierControlPoints();
-		},
 
 		update: function(reset) {
 			var me = this;
@@ -19456,7 +17733,6 @@ module.exports = function(Chart) {
 			helpers.each(points, function(point, index) {
 				me.updateElement(point, index, reset);
 			}, me);
-
 
 			// Update bezier control points
 			me.updateBezierControlPoints();
@@ -19566,7 +17842,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],72:[function(require,module,exports){
+},{}],73:[function(require,module,exports){
 /* global window: false */
 'use strict';
 
@@ -19596,6 +17872,14 @@ module.exports = function(Chart) {
 		animations: [],
 		dropFrames: 0,
 		request: null,
+
+		/**
+		 * @function Chart.animationService.addAnimation
+		 * @param chartInstance {ChartController} the chart to animate
+		 * @param animationObject {IAnimation} the animation that we will animate
+		 * @param duration {Number} length of animation in ms
+		 * @param lazy {Boolean} if true, the chart is not marked as animating to enable more responsive interactions
+		 */
 		addAnimation: function(chartInstance, animationObject, duration, lazy) {
 			var me = this;
 
@@ -19699,7 +17983,7 @@ module.exports = function(Chart) {
 	};
 };
 
-},{}],73:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -19805,12 +18089,13 @@ module.exports = function(Chart) {
 	};
 };
 
-},{}],74:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
+
 	// Create a dictionary of chart types, to allow for extension of existing types
 	Chart.types = {};
 
@@ -19822,39 +18107,228 @@ module.exports = function(Chart) {
 	Chart.controllers = {};
 
 	/**
-	 * @class Chart.Controller
-	 * The main controller of a chart.
+	 * The "used" size is the final value of a dimension property after all calculations have
+	 * been performed. This method uses the computed style of `element` but returns undefined
+	 * if the computed style is not expressed in pixels. That can happen in some cases where
+	 * `element` has a size relative to its parent and this last one is not yet displayed,
+	 * for example because of `display: none` on a parent node.
+	 * TODO(SB) Move this method in the upcoming core.platform class.
+	 * @see https://developer.mozilla.org/en-US/docs/Web/CSS/used_value
+	 * @returns {Number} Size in pixels or undefined if unknown.
 	 */
-	Chart.Controller = function(instance) {
+	function readUsedSize(element, property) {
+		var value = helpers.getStyle(element, property);
+		var matches = value && value.match(/(\d+)px/);
+		return matches? Number(matches[1]) : undefined;
+	}
 
-		this.chart = instance;
-		this.config = instance.config;
-		this.options = this.config.options = helpers.configMerge(Chart.defaults.global, Chart.defaults[this.config.type], this.config.options || {});
-		this.id = helpers.uid();
+	/**
+	 * Initializes the canvas style and render size without modifying the canvas display size,
+	 * since responsiveness is handled by the controller.resize() method. The config is used
+	 * to determine the aspect ratio to apply in case no explicit height has been specified.
+	 * TODO(SB) Move this method in the upcoming core.platform class.
+	 */
+	function initCanvas(canvas, config) {
+		var style = canvas.style;
 
-		Object.defineProperty(this, 'data', {
-			get: function() {
-				return this.config.data;
+		// NOTE(SB) canvas.getAttribute('width') !== canvas.width: in the first case it
+		// returns null or '' if no explicit value has been set to the canvas attribute.
+		var renderHeight = canvas.getAttribute('height');
+		var renderWidth = canvas.getAttribute('width');
+
+		// Chart.js modifies some canvas values that we want to restore on destroy
+		canvas._chartjs = {
+			initial: {
+				height: renderHeight,
+				width: renderWidth,
+				style: {
+					display: style.display,
+					height: style.height,
+					width: style.width
+				}
+			}
+		};
+
+		// Force canvas to display as block to avoid extra space caused by inline
+		// elements, which would interfere with the responsive resize process.
+		// https://github.com/chartjs/Chart.js/issues/2538
+		style.display = style.display || 'block';
+
+		if (renderWidth === null || renderWidth === '') {
+			var displayWidth = readUsedSize(canvas, 'width');
+			if (displayWidth !== undefined) {
+				canvas.width = displayWidth;
+			}
+		}
+
+		if (renderHeight === null || renderHeight === '') {
+			if (canvas.style.height === '') {
+				// If no explicit render height and style height, let's apply the aspect ratio,
+				// which one can be specified by the user but also by charts as default option
+				// (i.e. options.aspectRatio). If not specified, use canvas aspect ratio of 2.
+				canvas.height = canvas.width / (config.options.aspectRatio || 2);
+			} else {
+				var displayHeight = readUsedSize(canvas, 'height');
+				if (displayWidth !== undefined) {
+					canvas.height = displayHeight;
+				}
+			}
+		}
+
+		return canvas;
+	}
+
+	/**
+	 * Restores the canvas initial state, such as render/display sizes and style.
+	 * TODO(SB) Move this method in the upcoming core.platform class.
+	 */
+	function releaseCanvas(canvas) {
+		if (!canvas._chartjs) {
+			return;
+		}
+
+		var initial = canvas._chartjs.initial;
+		['height', 'width'].forEach(function(prop) {
+			var value = initial[prop];
+			if (value === undefined || value === null) {
+				canvas.removeAttribute(prop);
+			} else {
+				canvas.setAttribute(prop, value);
 			}
 		});
 
-		// Add the chart instance to the global namespace
-		Chart.instances[this.id] = this;
+		helpers.each(initial.style || {}, function(value, key) {
+			canvas.style[key] = value;
+		});
 
-		if (this.options.responsive) {
-			// Silent resize before chart draws
-			this.resize(true);
+		// The canvas render size might have been changed (and thus the state stack discarded),
+		// we can't use save() and restore() to restore the initial state. So make sure that at
+		// least the canvas context is reset to the default state by setting the canvas width.
+		// https://www.w3.org/TR/2011/WD-html5-20110525/the-canvas-element.html
+		canvas.width = canvas.width;
+
+		delete canvas._chartjs;
+	}
+
+	/**
+	 * TODO(SB) Move this method in the upcoming core.platform class.
+	 */
+	function acquireContext(item, config) {
+		if (typeof item === 'string') {
+			item = document.getElementById(item);
+		} else if (item.length) {
+			// Support for array based queries (such as jQuery)
+			item = item[0];
 		}
 
-		this.initialize();
+		if (item && item.canvas) {
+			// Support for any object associated to a canvas (including a context2d)
+			item = item.canvas;
+		}
 
-		return this;
+		if (item instanceof HTMLCanvasElement) {
+			// To prevent canvas fingerprinting, some add-ons undefine the getContext
+			// method, for example: https://github.com/kkapsner/CanvasBlocker
+			// https://github.com/chartjs/Chart.js/issues/2807
+			var context = item.getContext && item.getContext('2d');
+			if (context instanceof CanvasRenderingContext2D) {
+				initCanvas(item, config);
+				return context;
+			}
+		}
+
+		return null;
+	}
+
+	/**
+	 * Initializes the given config with global and chart default values.
+	 */
+	function initConfig(config) {
+		config = config || {};
+
+		// Do NOT use configMerge() for the data object because this method merges arrays
+		// and so would change references to labels and datasets, preventing data updates.
+		var data = config.data = config.data || {};
+		data.datasets = data.datasets || [];
+		data.labels = data.labels || [];
+
+		config.options = helpers.configMerge(
+			Chart.defaults.global,
+			Chart.defaults[config.type],
+			config.options || {});
+
+		return config;
+	}
+
+	/**
+	 * @class Chart.Controller
+	 * The main controller of a chart.
+	 */
+	Chart.Controller = function(item, config, instance) {
+		var me = this;
+
+		config = initConfig(config);
+
+		var context = acquireContext(item, config);
+		var canvas = context && context.canvas;
+		var height = canvas && canvas.height;
+		var width = canvas && canvas.width;
+
+		instance.ctx = context;
+		instance.canvas = canvas;
+		instance.config = config;
+		instance.width = width;
+		instance.height = height;
+		instance.aspectRatio = height? width / height : null;
+
+		me.id = helpers.uid();
+		me.chart = instance;
+		me.config = config;
+		me.options = config.options;
+		me._bufferedRender = false;
+
+		// Add the chart instance to the global namespace
+		Chart.instances[me.id] = me;
+
+		Object.defineProperty(me, 'data', {
+			get: function() {
+				return me.config.data;
+			}
+		});
+
+		if (!context || !canvas) {
+			// The given item is not a compatible context2d element, let's return before finalizing
+			// the chart initialization but after setting basic chart / controller properties that
+			// can help to figure out that the chart is not valid (e.g chart.canvas !== null);
+			// https://github.com/chartjs/Chart.js/issues/2807
+			console.error("Failed to create chart: can't acquire context from the given item");
+			return me;
+		}
+
+		helpers.retinaScale(instance);
+
+		// Responsiveness is currently based on the use of an iframe, however this method causes
+		// performance issues and could be troublesome when used with ad blockers. So make sure
+		// that the user is still able to create a chart without iframe when responsive is false.
+		// See https://github.com/chartjs/Chart.js/issues/2210
+		if (me.options.responsive) {
+			helpers.addResizeListener(canvas.parentNode, function() {
+				me.resize();
+			});
+
+			// Initial resize before chart draws (must be silent to preserve initial animations).
+			me.resize(true);
+		}
+
+		me.initialize();
+
+		return me;
 	};
 
 	helpers.extend(Chart.Controller.prototype, /** @lends Chart.Controller */ {
-
 		initialize: function() {
 			var me = this;
+
 			// Before init plugin notification
 			Chart.plugins.notify('beforeInit', [me]);
 
@@ -19882,7 +18356,7 @@ module.exports = function(Chart) {
 		},
 
 		stop: function() {
-			// Stops any current animation loop occuring
+			// Stops any current animation loop occurring
 			Chart.animationService.cancelAnimation(this);
 			return this;
 		},
@@ -19890,19 +18364,23 @@ module.exports = function(Chart) {
 		resize: function(silent) {
 			var me = this;
 			var chart = me.chart;
+			var options = me.options;
 			var canvas = chart.canvas;
-			var newWidth = helpers.getMaximumWidth(canvas);
-			var aspectRatio = chart.aspectRatio;
-			var newHeight = (me.options.maintainAspectRatio && isNaN(aspectRatio) === false && isFinite(aspectRatio) && aspectRatio !== 0) ? newWidth / aspectRatio : helpers.getMaximumHeight(canvas);
+			var aspectRatio = (options.maintainAspectRatio && chart.aspectRatio) || null;
 
-			var sizeChanged = chart.width !== newWidth || chart.height !== newHeight;
+			// the canvas render width and height will be casted to integers so make sure that
+			// the canvas display style uses the same integer values to avoid blurring effect.
+			var newWidth = Math.floor(helpers.getMaximumWidth(canvas));
+			var newHeight = Math.floor(aspectRatio? newWidth / aspectRatio : helpers.getMaximumHeight(canvas));
 
-			if (!sizeChanged) {
-				return me;
+			if (chart.width === newWidth && chart.height === newHeight) {
+				return;
 			}
 
 			canvas.width = chart.width = newWidth;
 			canvas.height = chart.height = newHeight;
+			canvas.style.width = newWidth + 'px';
+			canvas.style.height = newHeight + 'px';
 
 			helpers.retinaScale(chart);
 
@@ -19919,8 +18397,6 @@ module.exports = function(Chart) {
 				me.stop();
 				me.update(me.options.responsiveAnimationDuration);
 			}
-
-			return me;
 		},
 
 		ensureScalesHaveIDs: function() {
@@ -20030,11 +18506,25 @@ module.exports = function(Chart) {
 			return newControllers;
 		},
 
+		/**
+		 * Reset the elements of all datasets
+		 * @method resetElements
+		 * @private
+		 */
 		resetElements: function() {
 			var me = this;
 			helpers.each(me.data.datasets, function(dataset, datasetIndex) {
 				me.getDatasetMeta(datasetIndex).controller.reset();
 			}, me);
+		},
+
+		/**
+		* Resets the chart back to it's state before the initial animation
+		* @method reset
+		*/
+		reset: function() {
+			this.resetElements();
+			this.tooltip.initialize();
 		},
 
 		update: function(animationDuration, lazy) {
@@ -20054,7 +18544,7 @@ module.exports = function(Chart) {
 
 			Chart.layoutService.update(me, me.chart.width, me.chart.height);
 
-			// Apply changes to the dataets that require the scales to have been calculated i.e BorderColor chages
+			// Apply changes to the datasets that require the scales to have been calculated i.e BorderColor changes
 			Chart.plugins.notify('afterScaleUpdate', [me]);
 
 			// Can only reset the new controllers after the scales have been updated
@@ -20067,7 +18557,14 @@ module.exports = function(Chart) {
 			// Do this before render so that any plugins that need final scale updates can use it
 			Chart.plugins.notify('afterUpdate', [me]);
 
-			me.render(animationDuration, lazy);
+			if (me._bufferedRender) {
+				me._bufferedRequest = {
+					lazy: lazy,
+					duration: animationDuration
+				};
+			} else {
+				me.render(animationDuration, lazy);
+			}
 		},
 
 		/**
@@ -20179,125 +18676,28 @@ module.exports = function(Chart) {
 		// Get the single element that was clicked on
 		// @return : An object containing the dataset index and element index of the matching element. Also contains the rectangle that was draw
 		getElementAtEvent: function(e) {
-			var me = this;
-			var eventPosition = helpers.getRelativePosition(e, me.chart);
-			var elementsArray = [];
-
-			helpers.each(me.data.datasets, function(dataset, datasetIndex) {
-				if (me.isDatasetVisible(datasetIndex)) {
-					var meta = me.getDatasetMeta(datasetIndex);
-					helpers.each(meta.data, function(element) {
-						if (element.inRange(eventPosition.x, eventPosition.y)) {
-							elementsArray.push(element);
-							return elementsArray;
-						}
-					});
-				}
-			});
-
-			return elementsArray.slice(0, 1);
+			return Chart.Interaction.modes.single(this, e);
 		},
 
 		getElementsAtEvent: function(e) {
-			var me = this;
-			var eventPosition = helpers.getRelativePosition(e, me.chart);
-			var elementsArray = [];
-
-			var found = function() {
-				if (me.data.datasets) {
-					for (var i = 0; i < me.data.datasets.length; i++) {
-						var meta = me.getDatasetMeta(i);
-						if (me.isDatasetVisible(i)) {
-							for (var j = 0; j < meta.data.length; j++) {
-								if (meta.data[j].inRange(eventPosition.x, eventPosition.y)) {
-									return meta.data[j];
-								}
-							}
-						}
-					}
-				}
-			}.call(me);
-
-			if (!found) {
-				return elementsArray;
-			}
-
-			helpers.each(me.data.datasets, function(dataset, datasetIndex) {
-				if (me.isDatasetVisible(datasetIndex)) {
-					var meta = me.getDatasetMeta(datasetIndex),
-						element = meta.data[found._index];
-					if (element && !element._view.skip) {
-						elementsArray.push(element);
-					}
-				}
-			}, me);
-
-			return elementsArray;
+			return Chart.Interaction.modes.label(this, e, {intersect: true});
 		},
 
 		getElementsAtXAxis: function(e) {
-			var me = this;
-			var eventPosition = helpers.getRelativePosition(e, me.chart);
-			var elementsArray = [];
-
-			var found = function() {
-				if (me.data.datasets) {
-					for (var i = 0; i < me.data.datasets.length; i++) {
-						var meta = me.getDatasetMeta(i);
-						if (me.isDatasetVisible(i)) {
-							for (var j = 0; j < meta.data.length; j++) {
-								if (meta.data[j].inLabelRange(eventPosition.x, eventPosition.y)) {
-									return meta.data[j];
-								}
-							}
-						}
-					}
-				}
-			}.call(me);
-
-			if (!found) {
-				return elementsArray;
-			}
-
-			helpers.each(me.data.datasets, function(dataset, datasetIndex) {
-				if (me.isDatasetVisible(datasetIndex)) {
-					var meta = me.getDatasetMeta(datasetIndex);
-					var index = helpers.findIndex(meta.data, function(it) {
-						return found._model.x === it._model.x;
-					});
-					if (index !== -1 && !meta.data[index]._view.skip) {
-						elementsArray.push(meta.data[index]);
-					}
-				}
-			}, me);
-
-			return elementsArray;
+			return Chart.Interaction.modes['x-axis'](this, e, {intersect: true});
 		},
 
-		getElementsAtEventForMode: function(e, mode) {
-			var me = this;
-			switch (mode) {
-			case 'single':
-				return me.getElementAtEvent(e);
-			case 'label':
-				return me.getElementsAtEvent(e);
-			case 'dataset':
-				return me.getDatasetAtEvent(e);
-			case 'x-axis':
-				return me.getElementsAtXAxis(e);
-			default:
-				return e;
+		getElementsAtEventForMode: function(e, mode, options) {
+			var method = Chart.Interaction.modes[mode];
+			if (typeof method === 'function') {
+				return method(this, e, options);
 			}
+
+			return [];
 		},
 
 		getDatasetAtEvent: function(e) {
-			var elementsArray = this.getElementAtEvent(e);
-
-			if (elementsArray.length > 0) {
-				elementsArray = this.getDatasetMeta(elementsArray[0]._datasetIndex).data;
-			}
-
-			return elementsArray;
+			return Chart.Interaction.modes.dataset(this, e);
 		},
 
 		getDatasetMeta: function(datasetIndex) {
@@ -20347,24 +18747,28 @@ module.exports = function(Chart) {
 
 		destroy: function() {
 			var me = this;
-			me.stop();
-			me.clear();
-			helpers.unbindEvents(me, me.events);
-			helpers.removeResizeListener(me.chart.canvas.parentNode);
-
-			// Reset canvas height/width attributes
 			var canvas = me.chart.canvas;
-			canvas.width = me.chart.width;
-			canvas.height = me.chart.height;
+			var meta, i, ilen;
 
-			// if we scaled the canvas in response to a devicePixelRatio !== 1, we need to undo that transform here
-			if (me.chart.originalDevicePixelRatio !== undefined) {
-				me.chart.ctx.scale(1 / me.chart.originalDevicePixelRatio, 1 / me.chart.originalDevicePixelRatio);
+			me.stop();
+
+			// dataset controllers need to cleanup associated data
+			for (i = 0, ilen = me.data.datasets.length; i < ilen; ++i) {
+				meta = me.getDatasetMeta(i);
+				if (meta.controller) {
+					meta.controller.destroy();
+					meta.controller = null;
+				}
 			}
 
-			// Reset to the old style since it may have been changed by the device pixel ratio changes
-			canvas.style.width = me.chart.originalCanvasStyleWidth;
-			canvas.style.height = me.chart.originalCanvasStyleHeight;
+			if (canvas) {
+				helpers.unbindEvents(me, me.events);
+				helpers.removeResizeListener(canvas.parentNode);
+				helpers.clear(me.chart);
+				releaseCanvas(canvas);
+				me.chart.canvas = null;
+				me.chart.ctx = null;
+			}
 
 			Chart.plugins.notify('destroy', [me]);
 
@@ -20383,6 +18787,7 @@ module.exports = function(Chart) {
 				_data: me.data,
 				_options: me.options.tooltips
 			}, me);
+			me.tooltip.initialize();
 		},
 
 		bindEvents: function() {
@@ -20396,20 +18801,6 @@ module.exports = function(Chart) {
 			var method = enabled? 'setHoverStyle' : 'removeHoverStyle';
 			var element, i, ilen;
 
-			switch (mode) {
-			case 'single':
-				elements = [elements[0]];
-				break;
-			case 'label':
-			case 'dataset':
-			case 'x-axis':
-				// elements = elements;
-				break;
-			default:
-				// unsupported mode
-				return;
-			}
-
 			for (i=0, ilen=elements.length; i<ilen; ++i) {
 				element = elements[i];
 				if (element) {
@@ -20420,30 +18811,61 @@ module.exports = function(Chart) {
 
 		eventHandler: function(e) {
 			var me = this;
+			var legend = me.legend;
 			var tooltip = me.tooltip;
+			var hoverOptions = me.options.hover;
+
+			// Buffer any update calls so that renders do not occur
+			me._bufferedRender = true;
+			me._bufferedRequest = null;
+
+			var changed = me.handleEvent(e);
+			changed |= legend && legend.handleEvent(e);
+			changed |= tooltip && tooltip.handleEvent(e);
+
+			var bufferedRequest = me._bufferedRequest;
+			if (bufferedRequest) {
+				// If we have an update that was triggered, we need to do a normal render
+				me.render(bufferedRequest.duration, bufferedRequest.lazy);
+			} else if (changed && !me.animating) {
+				// If entering, leaving, or changing elements, animate the change via pivot
+				me.stop();
+
+				// We only need to render at this point. Updating will cause scales to be
+				// recomputed generating flicker & using more memory than necessary.
+				me.render(hoverOptions.animationDuration, true);
+			}
+
+			me._bufferedRender = false;
+			me._bufferedRequest = null;
+
+			return me;
+		},
+
+		/**
+		 * Handle an event
+		 * @private
+		 * param e {Event} the event to handle
+		 * @return {Boolean} true if the chart needs to re-render
+		 */
+		handleEvent: function(e) {
+			var me = this;
 			var options = me.options || {};
 			var hoverOptions = options.hover;
-			var tooltipsOptions = options.tooltips;
+			var changed = false;
 
 			me.lastActive = me.lastActive || [];
-			me.lastTooltipActive = me.lastTooltipActive || [];
 
 			// Find Active Elements for hover and tooltips
 			if (e.type === 'mouseout') {
 				me.active = [];
-				me.tooltipActive = [];
 			} else {
-				me.active = me.getElementsAtEventForMode(e, hoverOptions.mode);
-				me.tooltipActive = me.getElementsAtEventForMode(e, tooltipsOptions.mode);
+				me.active = me.getElementsAtEventForMode(e, hoverOptions.mode, hoverOptions);
 			}
 
 			// On Hover hook
 			if (hoverOptions.onHover) {
 				hoverOptions.onHover.call(me, me.active);
-			}
-
-			if (me.legend && me.legend.handleEvent) {
-				me.legend.handleEvent(e);
 			}
 
 			if (e.type === 'mouseup' || e.type === 'click') {
@@ -20462,48 +18884,93 @@ module.exports = function(Chart) {
 				me.updateHoverStyle(me.active, hoverOptions.mode, true);
 			}
 
-			// Built in Tooltips
-			if (tooltipsOptions.enabled || tooltipsOptions.custom) {
-				tooltip.initialize();
-				tooltip._active = me.tooltipActive;
-				tooltip.update(true);
-			}
-
-			// Hover animations
-			tooltip.pivot();
-
-			if (!me.animating) {
-				// If entering, leaving, or changing elements, animate the change via pivot
-				if (!helpers.arrayEquals(me.active, me.lastActive) ||
-					!helpers.arrayEquals(me.tooltipActive, me.lastTooltipActive)) {
-
-					me.stop();
-
-					if (tooltipsOptions.enabled || tooltipsOptions.custom) {
-						tooltip.update(true);
-					}
-
-					// We only need to render at this point. Updating will cause scales to be
-					// recomputed generating flicker & using more memory than necessary.
-					me.render(hoverOptions.animationDuration, true);
-				}
-			}
+			changed = !helpers.arrayEquals(me.active, me.lastActive);
 
 			// Remember Last Actives
 			me.lastActive = me.active;
-			me.lastTooltipActive = me.tooltipActive;
-			return me;
+
+			return changed;
 		}
 	});
 };
 
-},{}],75:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
-	var noop = helpers.noop;
+
+	var arrayEvents = ['push', 'pop', 'shift', 'splice', 'unshift'];
+
+	/**
+	 * Hooks the array methods that add or remove values ('push', pop', 'shift', 'splice',
+	 * 'unshift') and notify the listener AFTER the array has been altered. Listeners are
+	 * called on the 'onData*' callbacks (e.g. onDataPush, etc.) with same arguments.
+	 */
+	function listenArrayEvents(array, listener) {
+		if (array._chartjs) {
+			array._chartjs.listeners.push(listener);
+			return;
+		}
+
+		Object.defineProperty(array, '_chartjs', {
+			configurable: true,
+			enumerable: false,
+			value: {
+				listeners: [listener]
+			}
+		});
+
+		arrayEvents.forEach(function(key) {
+			var method = 'onData' + key.charAt(0).toUpperCase() + key.slice(1);
+			var base = array[key];
+
+			Object.defineProperty(array, key, {
+				configurable: true,
+				enumerable: false,
+				value: function() {
+					var args = Array.prototype.slice.call(arguments);
+					var res = base.apply(this, args);
+
+					helpers.each(array._chartjs.listeners, function(object) {
+						if (typeof object[method] === 'function') {
+							object[method].apply(object, args);
+						}
+					});
+
+					return res;
+				}
+			});
+		});
+	}
+
+	/**
+	 * Removes the given array event listener and cleanup extra attached properties (such as
+	 * the _chartjs stub and overridden methods) if array doesn't have any more listeners.
+	 */
+	function unlistenArrayEvents(array, listener) {
+		var stub = array._chartjs;
+		if (!stub) {
+			return;
+		}
+
+		var listeners = stub.listeners;
+		var index = listeners.indexOf(listener);
+		if (index !== -1) {
+			listeners.splice(index, 1);
+		}
+
+		if (listeners.length > 0) {
+			return;
+		}
+
+		arrayEvents.forEach(function(key) {
+			delete array[key];
+		});
+
+		delete array._chartjs;
+	}
 
 	// Base class for all dataset controllers (line, bar, etc)
 	Chart.DatasetController = function(chart, datasetIndex) {
@@ -20565,6 +19032,15 @@ module.exports = function(Chart) {
 			this.update(true);
 		},
 
+		/**
+		 * @private
+		 */
+		destroy: function() {
+			if (this._data) {
+				unlistenArrayEvents(this._data, this);
+			}
+		},
+
 		createMetaDataset: function() {
 			var me = this;
 			var type = me.datasetElementType;
@@ -20592,45 +19068,50 @@ module.exports = function(Chart) {
 			var i, ilen;
 
 			for (i=0, ilen=data.length; i<ilen; ++i) {
-				metaData[i] = metaData[i] || me.createMetaData(meta, i);
+				metaData[i] = metaData[i] || me.createMetaData(i);
 			}
 
 			meta.dataset = meta.dataset || me.createMetaDataset();
 		},
 
 		addElementAndReset: function(index) {
-			var me = this;
-			var element = me.createMetaData(index);
-			me.getMeta().data.splice(index, 0, element);
-			me.updateElement(element, index, true);
+			var element = this.createMetaData(index);
+			this.getMeta().data.splice(index, 0, element);
+			this.updateElement(element, index, true);
 		},
 
 		buildOrUpdateElements: function() {
-			// Handle the number of data points changing
-			var meta = this.getMeta(),
-				md = meta.data,
-				numData = this.getDataset().data.length,
-				numMetaData = md.length;
+			var me = this;
+			var dataset = me.getDataset();
+			var data = dataset.data || (dataset.data = []);
 
-			// Make sure that we handle number of datapoints changing
-			if (numData < numMetaData) {
-				// Remove excess bars for data points that have been removed
-				md.splice(numData, numMetaData - numData);
-			} else if (numData > numMetaData) {
-				// Add new elements
-				for (var index = numMetaData; index < numData; ++index) {
-					this.addElementAndReset(index);
+			// In order to correctly handle data addition/deletion animation (an thus simulate
+			// real-time charts), we need to monitor these data modifications and synchronize
+			// the internal meta data accordingly.
+			if (me._data !== data) {
+				if (me._data) {
+					// This case happens when the user replaced the data array instance.
+					unlistenArrayEvents(me._data, me);
 				}
+
+				listenArrayEvents(data, me);
+				me._data = data;
 			}
+
+			// Re-sync meta data in case the user replaced the data array or if we missed
+			// any updates and so make sure that we handle number of datapoints changing.
+			me.resyncElements();
 		},
 
-		update: noop,
+		update: helpers.noop,
 
 		draw: function(ease) {
 			var easingDecimal = ease || 1;
-			helpers.each(this.getMeta().data, function(element) {
-				element.transition(easingDecimal).draw();
-			});
+			var i, len;
+			var metaData = this.getMeta().data;
+			for (i = 0, len = metaData.length; i < len; ++i) {
+				metaData[i].transition(easingDecimal).draw();
+			}
 		},
 
 		removeHoverStyle: function(element, elementOpts) {
@@ -20656,14 +19137,75 @@ module.exports = function(Chart) {
 			model.backgroundColor = custom.hoverBackgroundColor ? custom.hoverBackgroundColor : valueOrDefault(dataset.hoverBackgroundColor, index, getHoverColor(model.backgroundColor));
 			model.borderColor = custom.hoverBorderColor ? custom.hoverBorderColor : valueOrDefault(dataset.hoverBorderColor, index, getHoverColor(model.borderColor));
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : valueOrDefault(dataset.hoverBorderWidth, index, model.borderWidth);
-		}
+		},
 
+		/**
+		 * @private
+		 */
+		resyncElements: function() {
+			var me = this;
+			var meta = me.getMeta();
+			var data = me.getDataset().data;
+			var numMeta = meta.data.length;
+			var numData = data.length;
+
+			if (numData < numMeta) {
+				meta.data.splice(numData, numMeta - numData);
+			} else if (numData > numMeta) {
+				me.insertElements(numMeta, numData - numMeta);
+			}
+		},
+
+		/**
+		 * @private
+		 */
+		insertElements: function(start, count) {
+			for (var i=0; i<count; ++i) {
+				this.addElementAndReset(start + i);
+			}
+		},
+
+		/**
+		 * @private
+		 */
+		onDataPush: function() {
+			this.insertElements(this.getDataset().data.length-1, arguments.length);
+		},
+
+		/**
+		 * @private
+		 */
+		onDataPop: function() {
+			this.getMeta().data.pop();
+		},
+
+		/**
+		 * @private
+		 */
+		onDataShift: function() {
+			this.getMeta().data.shift();
+		},
+
+		/**
+		 * @private
+		 */
+		onDataSplice: function(start, count) {
+			this.getMeta().data.splice(start, count);
+			this.insertElements(start, arguments.length - 2);
+		},
+
+		/**
+		 * @private
+		 */
+		onDataUnshift: function() {
+			this.insertElements(0, arguments.length);
+		}
 	});
 
 	Chart.DatasetController.extend = helpers.inherits;
 };
 
-},{}],76:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -20761,7 +19303,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],77:[function(require,module,exports){
+},{}],78:[function(require,module,exports){
 /* global window: false */
 /* global document: false */
 'use strict';
@@ -20822,37 +19364,23 @@ module.exports = function(Chart) {
 		var base = helpers.clone(_base);
 		helpers.each(Array.prototype.slice.call(arguments, 1), function(extension) {
 			helpers.each(extension, function(value, key) {
-				if (key === 'scales') {
-					// Scale config merging is complex. Add out own function here for that
-					base[key] = helpers.scaleMerge(base.hasOwnProperty(key) ? base[key] : {}, value);
+				var baseHasProperty = base.hasOwnProperty(key);
+				var baseVal = baseHasProperty ? base[key] : {};
 
+				if (key === 'scales') {
+					// Scale config merging is complex. Add our own function here for that
+					base[key] = helpers.scaleMerge(baseVal, value);
 				} else if (key === 'scale') {
 					// Used in polar area & radar charts since there is only one scale
-					base[key] = helpers.configMerge(base.hasOwnProperty(key) ? base[key] : {}, Chart.scaleService.getScaleDefaults(value.type), value);
-				} else if (base.hasOwnProperty(key) && helpers.isArray(base[key]) && helpers.isArray(value)) {
-					// In this case we have an array of objects replacing another array. Rather than doing a strict replace,
-					// merge. This allows easy scale option merging
-					var baseArray = base[key];
-
-					helpers.each(value, function(valueObj, index) {
-
-						if (index < baseArray.length) {
-							if (typeof baseArray[index] === 'object' && baseArray[index] !== null && typeof valueObj === 'object' && valueObj !== null) {
-								// Two objects are coming together. Do a merge of them.
-								baseArray[index] = helpers.configMerge(baseArray[index], valueObj);
-							} else {
-								// Just overwrite in this case since there is nothing to merge
-								baseArray[index] = valueObj;
-							}
-						} else {
-							baseArray.push(valueObj); // nothing to merge
-						}
-					});
-
-				} else if (base.hasOwnProperty(key) && typeof base[key] === 'object' && base[key] !== null && typeof value === 'object') {
+					base[key] = helpers.configMerge(baseVal, Chart.scaleService.getScaleDefaults(value.type), value);
+				} else if (baseHasProperty
+						&& typeof baseVal === 'object'
+						&& !helpers.isArray(baseVal)
+						&& baseVal !== null
+						&& typeof value === 'object'
+						&& !helpers.isArray(value)) {
 					// If we are overwriting an object with an object, do a merge of the properties.
-					base[key] = helpers.configMerge(base[key], value);
-
+					base[key] = helpers.configMerge(baseVal, value);
 				} else {
 					// can just overwrite the value in this case
 					base[key] = value;
@@ -21071,6 +19599,9 @@ module.exports = function(Chart) {
 			angle: angle,
 			distance: radialDistanceFromCenter
 		};
+	};
+	helpers.distanceBetweenPoints = function(pt1, pt2) {
+		return Math.sqrt(Math.pow(pt2.x - pt1.x, 2) + Math.pow(pt2.y - pt1.y, 2));
 	};
 	helpers.aliasPixel = function(pixelWidth) {
 		return (pixelWidth % 2 === 0) ? 0 : 0.5;
@@ -21607,25 +20138,24 @@ module.exports = function(Chart) {
 			document.defaultView.getComputedStyle(el, null).getPropertyValue(property);
 	};
 	helpers.retinaScale = function(chart) {
-		var ctx = chart.ctx;
-		var canvas = chart.canvas;
-		var width = canvas.width;
-		var height = canvas.height;
 		var pixelRatio = chart.currentDevicePixelRatio = window.devicePixelRatio || 1;
-
-		if (pixelRatio !== 1) {
-			canvas.height = height * pixelRatio;
-			canvas.width = width * pixelRatio;
-			ctx.scale(pixelRatio, pixelRatio);
-
-			// Store the device pixel ratio so that we can go backwards in `destroy`.
-			// The devicePixelRatio changes with zoom, so there are no guarantees that it is the same
-			// when destroy is called
-			chart.originalDevicePixelRatio = chart.originalDevicePixelRatio || pixelRatio;
+		if (pixelRatio === 1) {
+			return;
 		}
 
-		canvas.style.width = width + 'px';
+		var canvas = chart.canvas;
+		var height = chart.height;
+		var width = chart.width;
+
+		canvas.height = height * pixelRatio;
+		canvas.width = width * pixelRatio;
+		chart.ctx.scale(pixelRatio, pixelRatio);
+
+		// If no style has been set on the canvas, the render size is used as display size,
+		// making the chart visually bigger, so let's enforce it to the "correct" values.
+		// See https://github.com/chartjs/Chart.js/issues/3575
 		canvas.style.height = height + 'px';
+		canvas.style.width = width + 'px';
 	};
 	// -- Canvas methods
 	helpers.clear = function(chart) {
@@ -21721,47 +20251,71 @@ module.exports = function(Chart) {
 		return color(c);
 	};
 	helpers.addResizeListener = function(node, callback) {
-		// Hide an iframe before the node
-		var hiddenIframe = document.createElement('iframe');
-		var hiddenIframeClass = 'chartjs-hidden-iframe';
+		var iframe = document.createElement('iframe');
+		iframe.className = 'chartjs-hidden-iframe';
+		iframe.style.cssText =
+			'display:block;'+
+			'overflow:hidden;'+
+			'border:0;'+
+			'margin:0;'+
+			'top:0;'+
+			'left:0;'+
+			'bottom:0;'+
+			'right:0;'+
+			'height:100%;'+
+			'width:100%;'+
+			'position:absolute;'+
+			'pointer-events:none;'+
+			'z-index:-1;';
 
-		if (hiddenIframe.classlist) {
-			// can use classlist
-			hiddenIframe.classlist.add(hiddenIframeClass);
-		} else {
-			hiddenIframe.setAttribute('class', hiddenIframeClass);
-		}
+		// Prevent the iframe to gain focus on tab.
+		// https://github.com/chartjs/Chart.js/issues/3090
+		iframe.tabIndex = -1;
 
-		// Set the style
-		hiddenIframe.tabIndex = -1;
-		var style = hiddenIframe.style;
-		style.width = '100%';
-		style.display = 'block';
-		style.border = 0;
-		style.height = 0;
-		style.margin = 0;
-		style.position = 'absolute';
-		style.left = 0;
-		style.right = 0;
-		style.top = 0;
-		style.bottom = 0;
+		// Let's keep track of this added iframe and thus avoid DOM query when removing it.
+		var stub = node._chartjs = {
+			resizer: iframe,
+			ticking: false
+		};
 
-		// Insert the iframe so that contentWindow is available
-		node.insertBefore(hiddenIframe, node.firstChild);
-
-		(hiddenIframe.contentWindow || hiddenIframe).onresize = function() {
-			if (callback) {
-				return callback();
+		// Throttle the callback notification until the next animation frame.
+		var notify = function() {
+			if (!stub.ticking) {
+				stub.ticking = true;
+				helpers.requestAnimFrame.call(window, function() {
+					if (stub.resizer) {
+						stub.ticking = false;
+						return callback();
+					}
+				});
 			}
 		};
+
+		// If the iframe is re-attached to the DOM, the resize listener is removed because the
+		// content is reloaded, so make sure to install the handler after the iframe is loaded.
+		// https://github.com/chartjs/Chart.js/issues/3521
+		helpers.addEvent(iframe, 'load', function() {
+			helpers.addEvent(iframe.contentWindow || iframe, 'resize', notify);
+
+			// The iframe size might have changed while loading, which can also
+			// happen if the size has been changed while detached from the DOM.
+			notify();
+		});
+
+		node.insertBefore(iframe, node.firstChild);
 	};
 	helpers.removeResizeListener = function(node) {
-		var hiddenIframe = node.querySelector('.chartjs-hidden-iframe');
-
-		// Remove the resize detect iframe
-		if (hiddenIframe) {
-			hiddenIframe.parentNode.removeChild(hiddenIframe);
+		if (!node || !node._chartjs) {
+			return;
 		}
+
+		var iframe = node._chartjs.resizer;
+		if (iframe) {
+			iframe.parentNode.removeChild(iframe);
+			node._chartjs.resizer = null;
+		}
+
+		delete node._chartjs;
 	};
 	helpers.isArray = Array.isArray?
 		function(obj) {
@@ -21807,69 +20361,312 @@ module.exports = function(Chart) {
 	};
 };
 
-},{"chartjs-color":97}],78:[function(require,module,exports){
+},{"chartjs-color":100}],79:[function(require,module,exports){
+'use strict';
+
+module.exports = function(Chart) {
+	var helpers = Chart.helpers;
+
+	/**
+	 * Helper function to traverse all of the visible elements in the chart
+	 * @param chart {chart} the chart
+	 * @param handler {Function} the callback to execute for each visible item
+	 */
+	function parseVisibleItems(chart, handler) {
+		var datasets = chart.data.datasets;
+		var meta, i, j, ilen, jlen;
+
+		for (i = 0, ilen = datasets.length; i < ilen; ++i) {
+			if (!chart.isDatasetVisible(i)) {
+				continue;
+			}
+
+			meta = chart.getDatasetMeta(i);
+			for (j = 0, jlen = meta.data.length; j < jlen; ++j) {
+				var element = meta.data[j];
+				if (!element._view.skip) {
+					handler(element);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Helper function to get the items that intersect the event position
+	 * @param items {ChartElement[]} elements to filter
+	 * @param position {Point} the point to be nearest to
+	 * @return {ChartElement[]} the nearest items
+	 */
+	function getIntersectItems(chart, position) {
+		var elements = [];
+
+		parseVisibleItems(chart, function(element) {
+			if (element.inRange(position.x, position.y)) {
+				elements.push(element);
+			}
+		});
+
+		return elements;
+	}
+
+	/**
+	 * Helper function to get the items nearest to the event position considering all visible items in teh chart
+	 * @param chart {Chart} the chart to look at elements from
+	 * @param position {Point} the point to be nearest to
+	 * @param intersect {Boolean} if true, only consider items that intersect the position
+	 * @param distanceMetric {Function} Optional function to provide the distance between
+	 * @return {ChartElement[]} the nearest items
+	 */
+	function getNearestItems(chart, position, intersect, distanceMetric) {
+		var minDistance = Number.POSITIVE_INFINITY;
+		var nearestItems = [];
+
+		if (!distanceMetric) {
+			distanceMetric = helpers.distanceBetweenPoints;
+		}
+
+		parseVisibleItems(chart, function(element) {
+			if (intersect && !element.inRange(position.x, position.y)) {
+				return;
+			}
+
+			var center = element.getCenterPoint();
+			var distance = distanceMetric(position, center);
+
+			if (distance < minDistance) {
+				nearestItems = [element];
+				minDistance = distance;
+			} else if (distance === minDistance) {
+				// Can have multiple items at the same distance in which case we sort by size
+				nearestItems.push(element);
+			}
+		});
+
+		return nearestItems;
+	}
+
+	function indexMode(chart, e, options) {
+		var position = helpers.getRelativePosition(e, chart.chart);
+		var distanceMetric = function(pt1, pt2) {
+			return Math.abs(pt1.x - pt2.x);
+		};
+		var items = options.intersect ? getIntersectItems(chart, position) : getNearestItems(chart, position, false, distanceMetric);
+		var elements = [];
+
+		if (!items.length) {
+			return [];
+		}
+
+		chart.data.datasets.forEach(function(dataset, datasetIndex) {
+			if (chart.isDatasetVisible(datasetIndex)) {
+				var meta = chart.getDatasetMeta(datasetIndex),
+					element = meta.data[items[0]._index];
+
+				// don't count items that are skipped (null data)
+				if (element && !element._view.skip) {
+					elements.push(element);
+				}
+			}
+		});
+
+		return elements;
+	}
+
+	/**
+	 * @interface IInteractionOptions
+	 */
+	/**
+	 * If true, only consider items that intersect the point
+	 * @name IInterfaceOptions#boolean
+	 * @type Boolean
+	 */
+
+	/**
+	 * @namespace Chart.Interaction
+	 * Contains interaction related functions
+	 */
+	Chart.Interaction = {
+		// Helper function for different modes
+		modes: {
+			single: function(chart, e) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				var elements = [];
+
+				parseVisibleItems(chart, function(element) {
+					if (element.inRange(position.x, position.y)) {
+						elements.push(element);
+						return elements;
+					}
+				});
+
+				return elements.slice(0, 1);
+			},
+
+			/**
+			 * @function Chart.Interaction.modes.label
+			 * @deprecated since version 2.4.0
+			 */
+			label: indexMode,
+
+			/**
+			 * Returns items at the same index. If the options.intersect parameter is true, we only return items if we intersect something
+			 * If the options.intersect mode is false, we find the nearest item and return the items at the same index as that item
+			 * @function Chart.Interaction.modes.index
+			 * @since v2.4.0
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @param options {IInteractionOptions} options to use during interaction
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			index: indexMode,
+
+			/**
+			 * Returns items in the same dataset. If the options.intersect parameter is true, we only return items if we intersect something
+			 * If the options.intersect is false, we find the nearest item and return the items in that dataset
+			 * @function Chart.Interaction.modes.dataset
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @param options {IInteractionOptions} options to use during interaction
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			dataset: function(chart, e, options) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				var items = options.intersect ? getIntersectItems(chart, position) : getNearestItems(chart, position, false);
+
+				if (items.length > 0) {
+					items = chart.getDatasetMeta(items[0]._datasetIndex).data;
+				}
+
+				return items;
+			},
+
+			/**
+			 * @function Chart.Interaction.modes.x-axis
+			 * @deprecated since version 2.4.0. Use index mode and intersect == true
+			 */
+			'x-axis': function(chart, e) {
+				return indexMode(chart, e, true);
+			},
+
+			/**
+			 * Point mode returns all elements that hit test based on the event position
+			 * of the event
+			 * @function Chart.Interaction.modes.intersect
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			point: function(chart, e) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				return getIntersectItems(chart, position);
+			},
+
+			/**
+			 * nearest mode returns the element closest to the point
+			 * @function Chart.Interaction.modes.intersect
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @param options {IInteractionOptions} options to use
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			nearest: function(chart, e, options) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				var nearestItems = getNearestItems(chart, position, options.intersect);
+
+				// We have multiple items at the same distance from the event. Now sort by smallest
+				if (nearestItems.length > 1) {
+					nearestItems.sort(function(a, b) {
+						var sizeA = a.getArea();
+						var sizeB = b.getArea();
+						var ret = sizeA - sizeB;
+
+						if (ret === 0) {
+							// if equal sort by dataset index
+							ret = a._datasetIndex - b._datasetIndex;
+						}
+
+						return ret;
+					});
+				}
+
+				// Return only 1 item
+				return nearestItems.slice(0, 1);
+			},
+
+			/**
+			 * x mode returns the elements that hit-test at the current x coordinate
+			 * @function Chart.Interaction.modes.x
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @param options {IInteractionOptions} options to use
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			x: function(chart, e, options) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				var items = [];
+				var intersectsItem = false;
+
+				parseVisibleItems(chart, function(element) {
+					if (element.inXRange(position.x)) {
+						items.push(element);
+					}
+
+					if (element.inRange(position.x, position.y)) {
+						intersectsItem = true;
+					}
+				});
+
+				// If we want to trigger on an intersect and we don't have any items
+				// that intersect the position, return nothing
+				if (options.intersect && !intersectsItem) {
+					items = [];
+				}
+				return items;
+			},
+
+			/**
+			 * y mode returns the elements that hit-test at the current y coordinate
+			 * @function Chart.Interaction.modes.y
+			 * @param chart {chart} the chart we are returning items from
+			 * @param e {Event} the event we are find things at
+			 * @param options {IInteractionOptions} options to use
+			 * @return {Chart.Element[]} Array of elements that are under the point. If none are found, an empty array is returned
+			 */
+			y: function(chart, e, options) {
+				var position = helpers.getRelativePosition(e, chart.chart);
+				var items = [];
+				var intersectsItem = false;
+
+				parseVisibleItems(chart, function(element) {
+					if (element.inYRange(position.y)) {
+						items.push(element);
+					}
+
+					if (element.inRange(position.x, position.y)) {
+						intersectsItem = true;
+					}
+				});
+
+				// If we want to trigger on an intersect and we don't have any items
+				// that intersect the position, return nothing
+				if (options.intersect && !intersectsItem) {
+					items = [];
+				}
+				return items;
+			}
+		}
+	};
+};
+
+},{}],80:[function(require,module,exports){
 'use strict';
 
 module.exports = function() {
 
 	// Occupy the global variable of Chart, and create a simple base class
-	var Chart = function(context, config) {
-		var me = this;
-		var helpers = Chart.helpers;
-		me.config = config || {
-			data: {
-				datasets: []
-			}
-		};
-
-		// Support a jQuery'd canvas element
-		if (context.length && context[0].getContext) {
-			context = context[0];
-		}
-
-		// Support a canvas domnode
-		if (context.getContext) {
-			context = context.getContext('2d');
-		}
-
-		me.ctx = context;
-		me.canvas = context.canvas;
-
-		context.canvas.style.display = context.canvas.style.display || 'block';
-
-		// Figure out what the size of the chart will be.
-		// If the canvas has a specified width and height, we use those else
-		// we look to see if the canvas node has a CSS width and height.
-		// If there is still no height, fill the parent container
-		me.width = context.canvas.width || parseInt(helpers.getStyle(context.canvas, 'width'), 10) || helpers.getMaximumWidth(context.canvas);
-		me.height = context.canvas.height || parseInt(helpers.getStyle(context.canvas, 'height'), 10) || helpers.getMaximumHeight(context.canvas);
-
-		me.aspectRatio = me.width / me.height;
-
-		if (isNaN(me.aspectRatio) || isFinite(me.aspectRatio) === false) {
-			// If the canvas has no size, try and figure out what the aspect ratio will be.
-			// Some charts prefer square canvases (pie, radar, etc). If that is specified, use that
-			// else use the canvas default ratio of 2
-			me.aspectRatio = config.aspectRatio !== undefined ? config.aspectRatio : 2;
-		}
-
-		// Store the original style of the element so we can set it back
-		me.originalCanvasStyleWidth = context.canvas.style.width;
-		me.originalCanvasStyleHeight = context.canvas.style.height;
-
-		// High pixel density displays - multiply the size of the canvas height/width by the device pixel ratio, then scale.
-		helpers.retinaScale(me);
-		me.controller = new Chart.Controller(me);
-
-		// Always bind this so that if the responsive state changes we still work
-		helpers.addResizeListener(context.canvas.parentNode, function() {
-			if (me.controller && me.controller.config.options.responsive) {
-				me.controller.resize();
-			}
-		});
-
-		return me.controller ? me.controller : me;
-
+	var Chart = function(item, config) {
+		this.controller = new Chart.Controller(item, config, this);
+		return this.controller;
 	};
 
 	// Globally expose the defaults to allow for user updating/changing
@@ -21881,7 +20678,8 @@ module.exports = function() {
 			events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove'],
 			hover: {
 				onHover: null,
-				mode: 'single',
+				mode: 'nearest',
+				intersect: true,
 				animationDuration: 400
 			},
 			onClick: null,
@@ -21916,10 +20714,9 @@ module.exports = function() {
 	Chart.Chart = Chart;
 
 	return Chart;
-
 };
 
-},{}],79:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -21954,8 +20751,26 @@ module.exports = function(Chart) {
 				return;
 			}
 
-			var xPadding = 0;
-			var yPadding = 0;
+			var layoutOptions = chartInstance.options.layout;
+			var padding = layoutOptions ? layoutOptions.padding : null;
+
+			var leftPadding = 0;
+			var rightPadding = 0;
+			var topPadding = 0;
+			var bottomPadding = 0;
+
+			if (!isNaN(padding)) {
+				// options.layout.padding is a number. assign to all
+				leftPadding = padding;
+				rightPadding = padding;
+				topPadding = padding;
+				bottomPadding = padding;
+			} else {
+				leftPadding = padding.left || 0;
+				rightPadding = padding.right || 0;
+				topPadding = padding.top || 0;
+				bottomPadding = padding.bottom || 0;
+			}
 
 			var leftBoxes = helpers.where(chartInstance.boxes, function(box) {
 				return box.options.position === 'left';
@@ -22021,8 +20836,8 @@ module.exports = function(Chart) {
 			// 9. Tell any axes that overlay the chart area the positions of the chart area
 
 			// Step 1
-			var chartWidth = width - (2 * xPadding);
-			var chartHeight = height - (2 * yPadding);
+			var chartWidth = width - leftPadding - rightPadding;
+			var chartHeight = height - topPadding - bottomPadding;
 			var chartAreaWidth = chartWidth / 2; // min 50%
 			var chartAreaHeight = chartHeight / 2; // min 50%
 
@@ -22062,10 +20877,10 @@ module.exports = function(Chart) {
 			// be if the axes are drawn at their minimum sizes.
 
 			// Steps 5 & 6
-			var totalLeftBoxesWidth = xPadding;
-			var totalRightBoxesWidth = xPadding;
-			var totalTopBoxesHeight = yPadding;
-			var totalBottomBoxesHeight = yPadding;
+			var totalLeftBoxesWidth = leftPadding;
+			var totalRightBoxesWidth = rightPadding;
+			var totalTopBoxesHeight = topPadding;
+			var totalBottomBoxesHeight = bottomPadding;
 
 			// Function to fit a box
 			function fitBox(box) {
@@ -22135,10 +20950,10 @@ module.exports = function(Chart) {
 			helpers.each(leftBoxes.concat(rightBoxes), finalFitVerticalBox);
 
 			// Recalculate because the size of each layout might have changed slightly due to the margins (label rotation for instance)
-			totalLeftBoxesWidth = xPadding;
-			totalRightBoxesWidth = xPadding;
-			totalTopBoxesHeight = yPadding;
-			totalBottomBoxesHeight = yPadding;
+			totalLeftBoxesWidth = leftPadding;
+			totalRightBoxesWidth = rightPadding;
+			totalTopBoxesHeight = topPadding;
+			totalBottomBoxesHeight = bottomPadding;
 
 			helpers.each(leftBoxes, function(box) {
 				totalLeftBoxesWidth += box.width;
@@ -22187,13 +21002,13 @@ module.exports = function(Chart) {
 			}
 
 			// Step 7 - Position the boxes
-			var left = xPadding;
-			var top = yPadding;
+			var left = leftPadding;
+			var top = topPadding;
 
 			function placeBox(box) {
 				if (box.isHorizontal()) {
-					box.left = box.options.fullWidth ? xPadding : totalLeftBoxesWidth;
-					box.right = box.options.fullWidth ? width - xPadding : totalLeftBoxesWidth + maxChartAreaWidth;
+					box.left = box.options.fullWidth ? leftPadding : totalLeftBoxesWidth;
+					box.right = box.options.fullWidth ? width - rightPadding : totalLeftBoxesWidth + maxChartAreaWidth;
 					box.top = top;
 					box.bottom = top + box.height;
 
@@ -22242,7 +21057,7 @@ module.exports = function(Chart) {
 	};
 };
 
-},{}],80:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -22309,6 +21124,18 @@ module.exports = function(Chart) {
 		}
 	};
 
+	/**
+	 * Helper function to get the box width based on the usePointStyle option
+	 * @param labelopts {Object} the label options on the legend
+	 * @param fontSize {Number} the label font size
+	 * @return {Number} width of the color box area
+	 */
+	function getBoxWidth(labelOpts, fontSize) {
+		return labelOpts.usePointStyle ?
+			fontSize * Math.SQRT2 :
+			labelOpts.boxWidth;
+	}
+
 	Chart.Legend = Chart.Element.extend({
 
 		initialize: function(config) {
@@ -22321,7 +21148,7 @@ module.exports = function(Chart) {
 			this.doughnutMode = false;
 		},
 
-		// These methods are ordered by lifecyle. Utilities then follow.
+		// These methods are ordered by lifecycle. Utilities then follow.
 		// Any function defined here is inherited by all legend types.
 		// Any function can be extended by the legend type
 
@@ -22449,11 +21276,9 @@ module.exports = function(Chart) {
 					ctx.textBaseline = 'top';
 
 					helpers.each(me.legendItems, function(legendItem, i) {
-						var boxWidth = labelOpts.usePointStyle ?
-							fontSize * Math.sqrt(2) :
-							labelOpts.boxWidth;
-
+						var boxWidth = getBoxWidth(labelOpts, fontSize);
 						var width = boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
+
 						if (lineWidths[lineWidths.length - 1] + width + labelOpts.padding >= me.width) {
 							totalHeight += fontSize + (labelOpts.padding);
 							lineWidths[lineWidths.length] = me.left;
@@ -22481,10 +21306,7 @@ module.exports = function(Chart) {
 					var itemHeight = fontSize + vPadding;
 
 					helpers.each(me.legendItems, function(legendItem, i) {
-						// If usePointStyle is set, multiple boxWidth by 2 since it represents
-						// the radius and not truly the width
-						var boxWidth = labelOpts.usePointStyle ? 2 * labelOpts.boxWidth : labelOpts.boxWidth;
-
+						var boxWidth = getBoxWidth(labelOpts, fontSize);
 						var itemWidth = boxWidth + (fontSize / 2) + ctx.measureText(legendItem.text).width;
 
 						// If too tall, go to new column
@@ -22525,7 +21347,7 @@ module.exports = function(Chart) {
 			return this.options.position === 'top' || this.options.position === 'bottom';
 		},
 
-		// Actualy draw the legend on the canvas
+		// Actually draw the legend on the canvas
 		draw: function() {
 			var me = this;
 			var opts = me.options;
@@ -22553,7 +21375,7 @@ module.exports = function(Chart) {
 				ctx.fillStyle = fontColor; // render in correct colour
 				ctx.font = labelFont;
 
-				var boxWidth = labelOpts.boxWidth,
+				var boxWidth = getBoxWidth(labelOpts, fontSize),
 					hitboxes = me.legendHitBoxes;
 
 				// current position
@@ -22579,7 +21401,7 @@ module.exports = function(Chart) {
 					}
 
 					if (opts.labels && opts.labels.usePointStyle) {
-						// Recalulate x and y for drawPoint() because its expecting
+						// Recalculate x and y for drawPoint() because its expecting
 						// x and y to be center of figure (instead of top left)
 						var radius = fontSize * Math.SQRT2 / 2;
 						var offSet = radius / Math.SQRT2;
@@ -22630,9 +21452,7 @@ module.exports = function(Chart) {
 				var itemHeight = fontSize + labelOpts.padding;
 				helpers.each(me.legendItems, function(legendItem, i) {
 					var textWidth = ctx.measureText(legendItem.text).width,
-						width = labelOpts.usePointStyle ?
-							fontSize + (fontSize / 2) + textWidth :
-							boxWidth + (fontSize / 2) + textWidth,
+						width = boxWidth + (fontSize / 2) + textWidth,
 						x = cursor.x,
 						y = cursor.y;
 
@@ -22666,11 +21486,17 @@ module.exports = function(Chart) {
 			}
 		},
 
-		// Handle an event
+		/**
+		 * Handle an event
+		 * @private
+		 * @param e {Event} the event to handle
+		 * @return {Boolean} true if a change occured
+		 */
 		handleEvent: function(e) {
 			var me = this;
 			var opts = me.options;
 			var type = e.type === 'mouseup' ? 'click' : e.type;
+			var changed = false;
 
 			if (type === 'mousemove') {
 				if (!opts.onHover) {
@@ -22698,14 +21524,18 @@ module.exports = function(Chart) {
 						// Touching an element
 						if (type === 'click') {
 							opts.onClick.call(me, e, me.legendItems[i]);
+							changed = true;
 							break;
 						} else if (type === 'mousemove') {
 							opts.onHover.call(me, e, me.legendItems[i]);
+							changed = true;
 							break;
 						}
 					}
 				}
 			}
+
+			return changed;
 		}
 	});
 
@@ -22728,7 +21558,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],81:[function(require,module,exports){
+},{}],83:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -22771,7 +21601,7 @@ module.exports = function(Chart) {
 		},
 
 		/**
-		 * Remove all registered p^lugins.
+		 * Remove all registered plugins.
 		 * @since 2.1.5
 		 */
 		clear: function() {
@@ -22788,7 +21618,7 @@ module.exports = function(Chart) {
 		},
 
 		/**
-		 * Returns all registered plugin intances.
+		 * Returns all registered plugin instances.
 		 * @returns {Array} array of plugin objects.
 		 * @since 2.1.5
 		 */
@@ -22859,7 +21689,7 @@ module.exports = function(Chart) {
 	Chart.pluginService = Chart.plugins;
 };
 
-},{}],82:[function(require,module,exports){
+},{}],84:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -22908,15 +21738,13 @@ module.exports = function(Chart) {
 			autoSkipPadding: 0,
 			labelOffset: 0,
 			// We pass through arrays to be rendered as multiline labels, we convert Others to strings here.
-			callback: function(value) {
-				return helpers.isArray(value) ? value : '' + value;
-			}
+			callback: Chart.Ticks.formatters.values
 		}
 	};
 
 	Chart.Scale = Chart.Element.extend({
 
-		// These methods are ordered by lifecyle. Utilities then follow.
+		// These methods are ordered by lifecycle. Utilities then follow.
 		// Any function defined here is inherited by all scale types.
 		// Any function can be extended by the scale type
 
@@ -23031,13 +21859,8 @@ module.exports = function(Chart) {
 		convertTicksToLabels: function() {
 			var me = this;
 			// Convert ticks to strings
-			me.ticks = me.ticks.map(function(numericalTick, index, ticks) {
-				if (me.options.ticks.userCallback) {
-					return me.options.ticks.userCallback(numericalTick, index, ticks);
-				}
-				return me.options.ticks.callback(numericalTick, index, ticks);
-			},
-			me);
+			var tickOpts = me.options.ticks;
+			me.ticks = me.ticks.map(tickOpts.userCallback || tickOpts.callback);
 		},
 		afterTickToLabelConversion: function() {
 			helpers.callCallback(this.options.afterTickToLabelConversion, [this]);
@@ -23260,8 +22083,8 @@ module.exports = function(Chart) {
 			if (rawValue === null || typeof(rawValue) === 'undefined') {
 				return NaN;
 			}
-			// isNaN(object) returns true, so make sure NaN is checking for a number
-			if (typeof(rawValue) === 'number' && isNaN(rawValue)) {
+			// isNaN(object) returns true, so make sure NaN is checking for a number; Discard Infinite values
+			if (typeof(rawValue) === 'number' && !isFinite(rawValue)) {
 				return NaN;
 			}
 			// If it is in fact an object, dive in one more level
@@ -23332,7 +22155,7 @@ module.exports = function(Chart) {
 				0);
 		},
 
-		// Actualy draw the scale on the canvas
+		// Actually draw the scale on the canvas
 		// @param {rectangle} chartArea : the area of the chart to draw full grid lines on
 		draw: function(chartArea) {
 			var me = this;
@@ -23619,7 +22442,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],83:[function(require,module,exports){
+},{}],85:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -23661,7 +22484,211 @@ module.exports = function(Chart) {
 	};
 };
 
-},{}],84:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
+'use strict';
+
+module.exports = function(Chart) {
+
+	var helpers = Chart.helpers;
+
+	/**
+	 * Namespace to hold static tick generation functions
+	 * @namespace Chart.Ticks
+	 */
+	Chart.Ticks = {
+		/**
+		 * Namespace to hold generators for different types of ticks
+		 * @namespace Chart.Ticks.generators
+		 */
+		generators: {
+			/**
+			 * Interface for the options provided to the numeric tick generator
+			 * @interface INumericTickGenerationOptions
+			 */
+			/**
+			 * The maximum number of ticks to display
+			 * @name INumericTickGenerationOptions#maxTicks
+			 * @type Number
+			 */
+			/**
+			 * The distance between each tick.
+			 * @name INumericTickGenerationOptions#stepSize
+			 * @type Number
+			 * @optional
+			 */
+			/**
+			 * Forced minimum for the ticks. If not specified, the minimum of the data range is used to calculate the tick minimum
+			 * @name INumericTickGenerationOptions#min
+			 * @type Number
+			 * @optional
+			 */
+			/**
+			 * The maximum value of the ticks. If not specified, the maximum of the data range is used to calculate the tick maximum
+			 * @name INumericTickGenerationOptions#max
+			 * @type Number
+			 * @optional
+			 */
+
+			/**
+			 * Generate a set of linear ticks
+			 * @method Chart.Ticks.generators.linear
+			 * @param generationOptions {INumericTickGenerationOptions} the options used to generate the ticks
+			 * @param dataRange {IRange} the range of the data
+			 * @returns {Array<Number>} array of tick values
+			 */
+			linear: function(generationOptions, dataRange) {
+				var ticks = [];
+				// To get a "nice" value for the tick spacing, we will use the appropriately named
+				// "nice number" algorithm. See http://stackoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
+				// for details.
+
+				var spacing;
+				if (generationOptions.stepSize && generationOptions.stepSize > 0) {
+					spacing = generationOptions.stepSize;
+				} else {
+					var niceRange = helpers.niceNum(dataRange.max - dataRange.min, false);
+					spacing = helpers.niceNum(niceRange / (generationOptions.maxTicks - 1), true);
+				}
+				var niceMin = Math.floor(dataRange.min / spacing) * spacing;
+				var niceMax = Math.ceil(dataRange.max / spacing) * spacing;
+
+				// If min, max and stepSize is set and they make an evenly spaced scale use it.
+				if (generationOptions.min && generationOptions.max && generationOptions.stepSize) {
+					var minMaxDeltaDivisibleByStepSize = ((generationOptions.max - generationOptions.min) % generationOptions.stepSize) === 0;
+					if (minMaxDeltaDivisibleByStepSize) {
+						niceMin = generationOptions.min;
+						niceMax = generationOptions.max;
+					}
+				}
+
+				var numSpaces = (niceMax - niceMin) / spacing;
+				// If very close to our rounded value, use it.
+				if (helpers.almostEquals(numSpaces, Math.round(numSpaces), spacing / 1000)) {
+					numSpaces = Math.round(numSpaces);
+				} else {
+					numSpaces = Math.ceil(numSpaces);
+				}
+
+				// Put the values into the ticks array
+				ticks.push(generationOptions.min !== undefined ? generationOptions.min : niceMin);
+				for (var j = 1; j < numSpaces; ++j) {
+					ticks.push(niceMin + (j * spacing));
+				}
+				ticks.push(generationOptions.max !== undefined ? generationOptions.max : niceMax);
+
+				return ticks;
+			},
+
+			/**
+			 * Generate a set of logarithmic ticks
+			 * @method Chart.Ticks.generators.logarithmic
+			 * @param generationOptions {INumericTickGenerationOptions} the options used to generate the ticks
+			 * @param dataRange {IRange} the range of the data
+			 * @returns {Array<Number>} array of tick values
+			 */
+			logarithmic: function(generationOptions, dataRange) {
+				var ticks = [];
+				var getValueOrDefault = helpers.getValueOrDefault;
+
+				// Figure out what the max number of ticks we can support it is based on the size of
+				// the axis area. For now, we say that the minimum tick spacing in pixels must be 50
+				// We also limit the maximum number of ticks to 11 which gives a nice 10 squares on
+				// the graph
+				var tickVal = getValueOrDefault(generationOptions.min, Math.pow(10, Math.floor(helpers.log10(dataRange.min))));
+
+				while (tickVal < dataRange.max) {
+					ticks.push(tickVal);
+
+					var exp;
+					var significand;
+
+					if (tickVal === 0) {
+						exp = Math.floor(helpers.log10(dataRange.minNotZero));
+						significand = Math.round(dataRange.minNotZero / Math.pow(10, exp));
+					} else {
+						exp = Math.floor(helpers.log10(tickVal));
+						significand = Math.floor(tickVal / Math.pow(10, exp)) + 1;
+					}
+
+					if (significand === 10) {
+						significand = 1;
+						++exp;
+					}
+
+					tickVal = significand * Math.pow(10, exp);
+				}
+
+				var lastTick = getValueOrDefault(generationOptions.max, tickVal);
+				ticks.push(lastTick);
+
+				return ticks;
+			}
+		},
+
+		/**
+		 * Namespace to hold formatters for different types of ticks
+		 * @namespace Chart.Ticks.formatters
+		 */
+		formatters: {
+			/**
+			 * Formatter for value labels
+			 * @method Chart.Ticks.formatters.values
+			 * @param value the value to display
+			 * @return {String|Array} the label to display
+			 */
+			values: function(value) {
+				return helpers.isArray(value) ? value : '' + value;
+			},
+
+			/**
+			 * Formatter for linear numeric ticks
+			 * @method Chart.Ticks.formatters.linear
+			 * @param tickValue {Number} the value to be formatted
+			 * @param index {Number} the position of the tickValue parameter in the ticks array
+			 * @param ticks {Array<Number>} the list of ticks being converted
+			 * @return {String} string representation of the tickValue parameter
+			 */
+			linear: function(tickValue, index, ticks) {
+				// If we have lots of ticks, don't use the ones
+				var delta = ticks.length > 3 ? ticks[2] - ticks[1] : ticks[1] - ticks[0];
+
+				// If we have a number like 2.5 as the delta, figure out how many decimal places we need
+				if (Math.abs(delta) > 1) {
+					if (tickValue !== Math.floor(tickValue)) {
+						// not an integer
+						delta = tickValue - Math.floor(tickValue);
+					}
+				}
+
+				var logDelta = helpers.log10(Math.abs(delta));
+				var tickString = '';
+
+				if (tickValue !== 0) {
+					var numDecimal = -1 * Math.floor(logDelta);
+					numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
+					tickString = tickValue.toFixed(numDecimal);
+				} else {
+					tickString = '0'; // never show decimal places for 0
+				}
+
+				return tickString;
+			},
+
+			logarithmic: function(tickValue, index, ticks) {
+				var remain = tickValue / (Math.pow(10, Math.floor(helpers.log10(tickValue))));
+
+				if (tickValue === 0) {
+					return '0';
+				} else if (remain === 1 || remain === 2 || remain === 5 || index === 0 || index === ticks.length - 1) {
+					return tickValue.toExponential();
+				}
+				return '';
+			}
+		}
+	};
+};
+
+},{}],87:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -23692,7 +22719,7 @@ module.exports = function(Chart) {
 			me.legendHitBoxes = [];
 		},
 
-		// These methods are ordered by lifecyle. Utilities then follow.
+		// These methods are ordered by lifecycle. Utilities then follow.
 
 		beforeUpdate: function() {
 			var chartOpts = this.chart.options;
@@ -23803,7 +22830,7 @@ module.exports = function(Chart) {
 			return pos === 'top' || pos === 'bottom';
 		},
 
-		// Actualy draw the title block on the canvas
+		// Actually draw the title block on the canvas
 		draw: function() {
 			var me = this,
 				ctx = me.ctx,
@@ -23822,7 +22849,8 @@ module.exports = function(Chart) {
 					top = me.top,
 					left = me.left,
 					bottom = me.bottom,
-					right = me.right;
+					right = me.right,
+					maxWidth;
 
 				ctx.fillStyle = valueOrDefault(opts.fontColor, globalDefaults.defaultFontColor); // render in correct colour
 				ctx.font = titleFont;
@@ -23831,9 +22859,11 @@ module.exports = function(Chart) {
 				if (me.isHorizontal()) {
 					titleX = left + ((right - left) / 2); // midpoint of the width
 					titleY = top + ((bottom - top) / 2); // midpoint of the height
+					maxWidth = right - left;
 				} else {
 					titleX = opts.position === 'left' ? left + (fontSize / 2) : right - (fontSize / 2);
 					titleY = top + ((bottom - top) / 2);
+					maxWidth = bottom - top;
 					rotation = Math.PI * (opts.position === 'left' ? -0.5 : 0.5);
 				}
 
@@ -23842,7 +22872,7 @@ module.exports = function(Chart) {
 				ctx.rotate(rotation);
 				ctx.textAlign = 'center';
 				ctx.textBaseline = 'middle';
-				ctx.fillText(opts.text, 0, 0);
+				ctx.fillText(opts.text, 0, 0, maxWidth);
 				ctx.restore();
 			}
 		}
@@ -23867,17 +22897,27 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],85:[function(require,module,exports){
+},{}],88:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
 
 	var helpers = Chart.helpers;
 
+	/**
+ 	 * Helper method to merge the opacity into a color
+ 	 */
+	function mergeOpacity(colorString, opacity) {
+		var color = helpers.color(colorString);
+		return color.alpha(opacity * color.alpha()).rgbaString();
+	}
+
 	Chart.defaults.global.tooltips = {
 		enabled: true,
 		custom: null,
-		mode: 'single',
+		mode: 'nearest',
+		position: 'average',
+		intersect: true,
 		backgroundColor: 'rgba(0,0,0,0.8)',
 		titleFontStyle: 'bold',
 		titleSpacing: 2,
@@ -23894,11 +22934,10 @@ module.exports = function(Chart) {
 		footerAlign: 'left',
 		yPadding: 6,
 		xPadding: 6,
-		yAlign: 'center',
-		xAlign: 'center',
 		caretSize: 5,
 		cornerRadius: 6,
 		multiKeyBackground: '#fff',
+		displayColors: true,
 		callbacks: {
 			// Args are: (tooltipItems, data)
 			beforeTitle: helpers.noop,
@@ -23966,40 +23005,7 @@ module.exports = function(Chart) {
 		return base;
 	}
 
-	function getAveragePosition(elements) {
-		if (!elements.length) {
-			return false;
-		}
-
-		var i, len;
-		var xPositions = [];
-		var yPositions = [];
-
-		for (i = 0, len = elements.length; i < len; ++i) {
-			var el = elements[i];
-			if (el && el.hasValue()) {
-				var pos = el.tooltipPosition();
-				xPositions.push(pos.x);
-				yPositions.push(pos.y);
-			}
-		}
-
-		var x = 0,
-			y = 0;
-		for (i = 0; i < xPositions.length; ++i) {
-			if (xPositions[i]) {
-				x += xPositions[i];
-				y += yPositions[i];
-			}
-		}
-
-		return {
-			x: Math.round(x / xPositions.length),
-			y: Math.round(y / xPositions.length)
-		};
-	}
-
-	// Private helper to create a tooltip iteam model
+	// Private helper to create a tooltip item model
 	// @param element : the chart element (point, arc, bar) to create the tooltip item for
 	// @return : new tooltip item
 	function createTooltipItem(element) {
@@ -24012,59 +23018,255 @@ module.exports = function(Chart) {
 			xLabel: xScale ? xScale.getLabelForIndex(index, datasetIndex) : '',
 			yLabel: yScale ? yScale.getLabelForIndex(index, datasetIndex) : '',
 			index: index,
-			datasetIndex: datasetIndex
+			datasetIndex: datasetIndex,
+			x: element._model.x,
+			y: element._model.y
+		};
+	}
+
+	/**
+	 * Helper to get the reset model for the tooltip
+	 * @param tooltipOpts {Object} the tooltip options
+	 */
+	function getBaseModel(tooltipOpts) {
+		var globalDefaults = Chart.defaults.global;
+		var getValueOrDefault = helpers.getValueOrDefault;
+
+		return {
+			// Positioning
+			xPadding: tooltipOpts.xPadding,
+			yPadding: tooltipOpts.yPadding,
+			xAlign: tooltipOpts.xAlign,
+			yAlign: tooltipOpts.yAlign,
+
+			// Body
+			bodyFontColor: tooltipOpts.bodyFontColor,
+			_bodyFontFamily: getValueOrDefault(tooltipOpts.bodyFontFamily, globalDefaults.defaultFontFamily),
+			_bodyFontStyle: getValueOrDefault(tooltipOpts.bodyFontStyle, globalDefaults.defaultFontStyle),
+			_bodyAlign: tooltipOpts.bodyAlign,
+			bodyFontSize: getValueOrDefault(tooltipOpts.bodyFontSize, globalDefaults.defaultFontSize),
+			bodySpacing: tooltipOpts.bodySpacing,
+
+			// Title
+			titleFontColor: tooltipOpts.titleFontColor,
+			_titleFontFamily: getValueOrDefault(tooltipOpts.titleFontFamily, globalDefaults.defaultFontFamily),
+			_titleFontStyle: getValueOrDefault(tooltipOpts.titleFontStyle, globalDefaults.defaultFontStyle),
+			titleFontSize: getValueOrDefault(tooltipOpts.titleFontSize, globalDefaults.defaultFontSize),
+			_titleAlign: tooltipOpts.titleAlign,
+			titleSpacing: tooltipOpts.titleSpacing,
+			titleMarginBottom: tooltipOpts.titleMarginBottom,
+
+			// Footer
+			footerFontColor: tooltipOpts.footerFontColor,
+			_footerFontFamily: getValueOrDefault(tooltipOpts.footerFontFamily, globalDefaults.defaultFontFamily),
+			_footerFontStyle: getValueOrDefault(tooltipOpts.footerFontStyle, globalDefaults.defaultFontStyle),
+			footerFontSize: getValueOrDefault(tooltipOpts.footerFontSize, globalDefaults.defaultFontSize),
+			_footerAlign: tooltipOpts.footerAlign,
+			footerSpacing: tooltipOpts.footerSpacing,
+			footerMarginTop: tooltipOpts.footerMarginTop,
+
+			// Appearance
+			caretSize: tooltipOpts.caretSize,
+			cornerRadius: tooltipOpts.cornerRadius,
+			backgroundColor: tooltipOpts.backgroundColor,
+			opacity: 0,
+			legendColorBackground: tooltipOpts.multiKeyBackground,
+			displayColors: tooltipOpts.displayColors
+		};
+	}
+
+	/**
+	 * Get the size of the tooltip
+	 */
+	function getTooltipSize(tooltip, model) {
+		var ctx = tooltip._chart.ctx;
+
+		var height = model.yPadding * 2; // Tooltip Padding
+		var width = 0;
+
+		// Count of all lines in the body
+		var body = model.body;
+		var combinedBodyLength = body.reduce(function(count, bodyItem) {
+			return count + bodyItem.before.length + bodyItem.lines.length + bodyItem.after.length;
+		}, 0);
+		combinedBodyLength += model.beforeBody.length + model.afterBody.length;
+
+		var titleLineCount = model.title.length;
+		var footerLineCount = model.footer.length;
+		var titleFontSize = model.titleFontSize,
+			bodyFontSize = model.bodyFontSize,
+			footerFontSize = model.footerFontSize;
+
+		height += titleLineCount * titleFontSize; // Title Lines
+		height += titleLineCount ? (titleLineCount - 1) * model.titleSpacing : 0; // Title Line Spacing
+		height += titleLineCount ? model.titleMarginBottom : 0; // Title's bottom Margin
+		height += combinedBodyLength * bodyFontSize; // Body Lines
+		height += combinedBodyLength ? (combinedBodyLength - 1) * model.bodySpacing : 0; // Body Line Spacing
+		height += footerLineCount ? model.footerMarginTop : 0; // Footer Margin
+		height += footerLineCount * (footerFontSize); // Footer Lines
+		height += footerLineCount ? (footerLineCount - 1) * model.footerSpacing : 0; // Footer Line Spacing
+
+		// Title width
+		var widthPadding = 0;
+		var maxLineWidth = function(line) {
+			width = Math.max(width, ctx.measureText(line).width + widthPadding);
+		};
+
+		ctx.font = helpers.fontString(titleFontSize, model._titleFontStyle, model._titleFontFamily);
+		helpers.each(model.title, maxLineWidth);
+
+		// Body width
+		ctx.font = helpers.fontString(bodyFontSize, model._bodyFontStyle, model._bodyFontFamily);
+		helpers.each(model.beforeBody.concat(model.afterBody), maxLineWidth);
+
+		// Body lines may include some extra width due to the color box
+		widthPadding = model.displayColors ? (bodyFontSize + 2) : 0;
+		helpers.each(body, function(bodyItem) {
+			helpers.each(bodyItem.before, maxLineWidth);
+			helpers.each(bodyItem.lines, maxLineWidth);
+			helpers.each(bodyItem.after, maxLineWidth);
+		});
+
+		// Reset back to 0
+		widthPadding = 0;
+
+		// Footer width
+		ctx.font = helpers.fontString(footerFontSize, model._footerFontStyle, model._footerFontFamily);
+		helpers.each(model.footer, maxLineWidth);
+
+		// Add padding
+		width += 2 * model.xPadding;
+
+		return {
+			width: width,
+			height: height
+		};
+	}
+
+	/**
+	 * Helper to get the alignment of a tooltip given the size
+	 */
+	function determineAlignment(tooltip, size) {
+		var model = tooltip._model;
+		var chart = tooltip._chart;
+		var chartArea = tooltip._chartInstance.chartArea;
+		var xAlign = 'center';
+		var yAlign = 'center';
+
+		if (model.y < size.height) {
+			yAlign = 'top';
+		} else if (model.y > (chart.height - size.height)) {
+			yAlign = 'bottom';
+		}
+
+		var lf, rf; // functions to determine left, right alignment
+		var olf, orf; // functions to determine if left/right alignment causes tooltip to go outside chart
+		var yf; // function to get the y alignment if the tooltip goes outside of the left or right edges
+		var midX = (chartArea.left + chartArea.right) / 2;
+		var midY = (chartArea.top + chartArea.bottom) / 2;
+
+		if (yAlign === 'center') {
+			lf = function(x) {
+				return x <= midX;
+			};
+			rf = function(x) {
+				return x > midX;
+			};
+		} else {
+			lf = function(x) {
+				return x <= (size.width / 2);
+			};
+			rf = function(x) {
+				return x >= (chart.width - (size.width / 2));
+			};
+		}
+
+		olf = function(x) {
+			return x + size.width > chart.width;
+		};
+		orf = function(x) {
+			return x - size.width < 0;
+		};
+		yf = function(y) {
+			return y <= midY ? 'top' : 'bottom';
+		};
+
+		if (lf(model.x)) {
+			xAlign = 'left';
+
+			// Is tooltip too wide and goes over the right side of the chart.?
+			if (olf(model.x)) {
+				xAlign = 'center';
+				yAlign = yf(model.y);
+			}
+		} else if (rf(model.x)) {
+			xAlign = 'right';
+
+			// Is tooltip too wide and goes outside left edge of canvas?
+			if (orf(model.x)) {
+				xAlign = 'center';
+				yAlign = yf(model.y);
+			}
+		}
+
+		var opts = tooltip._options;
+		return {
+			xAlign: opts.xAlign ? opts.xAlign : xAlign,
+			yAlign: opts.yAlign ? opts.yAlign : yAlign
+		};
+	}
+
+	/**
+	 * @Helper to get the location a tooltip needs to be placed at given the initial position (via the vm) and the size and alignment
+	 */
+	function getBackgroundPoint(vm, size, alignment) {
+		// Background Position
+		var x = vm.x;
+		var y = vm.y;
+
+		var caretSize = vm.caretSize,
+			caretPadding = vm.caretPadding,
+			cornerRadius = vm.cornerRadius,
+			xAlign = alignment.xAlign,
+			yAlign = alignment.yAlign,
+			paddingAndSize = caretSize + caretPadding,
+			radiusAndPadding = cornerRadius + caretPadding;
+
+		if (xAlign === 'right') {
+			x -= size.width;
+		} else if (xAlign === 'center') {
+			x -= (size.width / 2);
+		}
+
+		if (yAlign === 'top') {
+			y += paddingAndSize;
+		} else if (yAlign === 'bottom') {
+			y -= size.height + paddingAndSize;
+		} else {
+			y -= (size.height / 2);
+		}
+
+		if (yAlign === 'center') {
+			if (xAlign === 'left') {
+				x += paddingAndSize;
+			} else if (xAlign === 'right') {
+				x -= paddingAndSize;
+			}
+		} else if (xAlign === 'left') {
+			x -= radiusAndPadding;
+		} else if (xAlign === 'right') {
+			x += radiusAndPadding;
+		}
+
+		return {
+			x: x,
+			y: y
 		};
 	}
 
 	Chart.Tooltip = Chart.Element.extend({
 		initialize: function() {
-			var me = this;
-			var globalDefaults = Chart.defaults.global;
-			var tooltipOpts = me._options;
-			var getValueOrDefault = helpers.getValueOrDefault;
-
-			helpers.extend(me, {
-				_model: {
-					// Positioning
-					xPadding: tooltipOpts.xPadding,
-					yPadding: tooltipOpts.yPadding,
-					xAlign: tooltipOpts.xAlign,
-					yAlign: tooltipOpts.yAlign,
-
-					// Body
-					bodyFontColor: tooltipOpts.bodyFontColor,
-					_bodyFontFamily: getValueOrDefault(tooltipOpts.bodyFontFamily, globalDefaults.defaultFontFamily),
-					_bodyFontStyle: getValueOrDefault(tooltipOpts.bodyFontStyle, globalDefaults.defaultFontStyle),
-					_bodyAlign: tooltipOpts.bodyAlign,
-					bodyFontSize: getValueOrDefault(tooltipOpts.bodyFontSize, globalDefaults.defaultFontSize),
-					bodySpacing: tooltipOpts.bodySpacing,
-
-					// Title
-					titleFontColor: tooltipOpts.titleFontColor,
-					_titleFontFamily: getValueOrDefault(tooltipOpts.titleFontFamily, globalDefaults.defaultFontFamily),
-					_titleFontStyle: getValueOrDefault(tooltipOpts.titleFontStyle, globalDefaults.defaultFontStyle),
-					titleFontSize: getValueOrDefault(tooltipOpts.titleFontSize, globalDefaults.defaultFontSize),
-					_titleAlign: tooltipOpts.titleAlign,
-					titleSpacing: tooltipOpts.titleSpacing,
-					titleMarginBottom: tooltipOpts.titleMarginBottom,
-
-					// Footer
-					footerFontColor: tooltipOpts.footerFontColor,
-					_footerFontFamily: getValueOrDefault(tooltipOpts.footerFontFamily, globalDefaults.defaultFontFamily),
-					_footerFontStyle: getValueOrDefault(tooltipOpts.footerFontStyle, globalDefaults.defaultFontStyle),
-					footerFontSize: getValueOrDefault(tooltipOpts.footerFontSize, globalDefaults.defaultFontSize),
-					_footerAlign: tooltipOpts.footerAlign,
-					footerSpacing: tooltipOpts.footerSpacing,
-					footerMarginTop: tooltipOpts.footerMarginTop,
-
-					// Appearance
-					caretSize: tooltipOpts.caretSize,
-					cornerRadius: tooltipOpts.cornerRadius,
-					backgroundColor: tooltipOpts.backgroundColor,
-					opacity: 0,
-					legendColorBackground: tooltipOpts.multiKeyBackground
-				}
-			});
+			this._model = getBaseModel(this._options);
 		},
 
 		// Get the title
@@ -24141,23 +23343,53 @@ module.exports = function(Chart) {
 		update: function(changed) {
 			var me = this;
 			var opts = me._options;
-			var model = me._model;
+
+			// Need to regenerate the model because its faster than using extend and it is necessary due to the optimization in Chart.Element.transition
+			// that does _view = _model if ease === 1. This causes the 2nd tooltip update to set properties in both the view and model at the same time
+			// which breaks any animations.
+			var existingModel = me._model;
+			var model = me._model = getBaseModel(opts);
 			var active = me._active;
 
 			var data = me._data;
 			var chartInstance = me._chartInstance;
+
+			// In the case where active.length === 0 we need to keep these at existing values for good animations
+			var alignment = {
+				xAlign: existingModel.xAlign,
+				yAlign: existingModel.yAlign
+			};
+			var backgroundPoint = {
+				x: existingModel.x,
+				y: existingModel.y
+			};
+			var tooltipSize = {
+				width: existingModel.width,
+				height: existingModel.height
+			};
+			var tooltipPosition = {
+				x: existingModel.caretX,
+				y: existingModel.caretY
+			};
 
 			var i, len;
 
 			if (active.length) {
 				model.opacity = 1;
 
-				var labelColors = [],
-					tooltipPosition = getAveragePosition(active);
+				var labelColors = [];
+				tooltipPosition = Chart.Tooltip.positioners[opts.position](active, me._eventPosition);
 
 				var tooltipItems = [];
 				for (i = 0, len = active.length; i < len; ++i) {
 					tooltipItems.push(createTooltipItem(active[i]));
+				}
+
+				// If the user provided a filter function, use it to modify the tooltip items
+				if (opts.filter) {
+					tooltipItems = tooltipItems.filter(function(a) {
+						return opts.filter(a, data);
+					});
 				}
 
 				// If the user provided a sorting function, use it to modify the tooltip items
@@ -24167,208 +23399,54 @@ module.exports = function(Chart) {
 					});
 				}
 
-				// If there is more than one item, show color items
-				if (active.length > 1) {
-					helpers.each(tooltipItems, function(tooltipItem) {
-						labelColors.push(opts.callbacks.labelColor.call(me, tooltipItem, chartInstance));
-					});
-				}
-
-				// Build the Text Lines
-				helpers.extend(model, {
-					title: me.getTitle(tooltipItems, data),
-					beforeBody: me.getBeforeBody(tooltipItems, data),
-					body: me.getBody(tooltipItems, data),
-					afterBody: me.getAfterBody(tooltipItems, data),
-					footer: me.getFooter(tooltipItems, data),
-					x: Math.round(tooltipPosition.x),
-					y: Math.round(tooltipPosition.y),
-					caretPadding: helpers.getValueOrDefault(tooltipPosition.padding, 2),
-					labelColors: labelColors
+				// Determine colors for boxes
+				helpers.each(tooltipItems, function(tooltipItem) {
+					labelColors.push(opts.callbacks.labelColor.call(me, tooltipItem, chartInstance));
 				});
 
-				// We need to determine alignment of
-				var tooltipSize = me.getTooltipSize(model);
-				me.determineAlignment(tooltipSize); // Smart Tooltip placement to stay on the canvas
+				// Build the Text Lines
+				model.title = me.getTitle(tooltipItems, data);
+				model.beforeBody = me.getBeforeBody(tooltipItems, data);
+				model.body = me.getBody(tooltipItems, data);
+				model.afterBody = me.getAfterBody(tooltipItems, data);
+				model.footer = me.getFooter(tooltipItems, data);
 
-				helpers.extend(model, me.getBackgroundPoint(model, tooltipSize));
+				// Initial positioning and colors
+				model.x = Math.round(tooltipPosition.x);
+				model.y = Math.round(tooltipPosition.y);
+				model.caretPadding = helpers.getValueOrDefault(tooltipPosition.padding, 2);
+				model.labelColors = labelColors;
+
+				// data points
+				model.dataPoints = tooltipItems;
+
+				// We need to determine alignment of the tooltip
+				tooltipSize = getTooltipSize(this, model);
+				alignment = determineAlignment(this, tooltipSize);
+				// Final Size and Position
+				backgroundPoint = getBackgroundPoint(model, tooltipSize, alignment);
 			} else {
-				me._model.opacity = 0;
+				model.opacity = 0;
 			}
+
+			model.xAlign = alignment.xAlign;
+			model.yAlign = alignment.yAlign;
+			model.x = backgroundPoint.x;
+			model.y = backgroundPoint.y;
+			model.width = tooltipSize.width;
+			model.height = tooltipSize.height;
+
+			// Point where the caret on the tooltip points to
+			model.caretX = tooltipPosition.x;
+			model.caretY = tooltipPosition.y;
+
+			me._model = model;
 
 			if (changed && opts.custom) {
 				opts.custom.call(me, model);
 			}
 
 			return me;
-		},
-		getTooltipSize: function(vm) {
-			var ctx = this._chart.ctx;
-
-			var size = {
-				height: vm.yPadding * 2, // Tooltip Padding
-				width: 0
-			};
-
-			// Count of all lines in the body
-			var body = vm.body;
-			var combinedBodyLength = body.reduce(function(count, bodyItem) {
-				return count + bodyItem.before.length + bodyItem.lines.length + bodyItem.after.length;
-			}, 0);
-			combinedBodyLength += vm.beforeBody.length + vm.afterBody.length;
-
-			var titleLineCount = vm.title.length;
-			var footerLineCount = vm.footer.length;
-			var titleFontSize = vm.titleFontSize,
-				bodyFontSize = vm.bodyFontSize,
-				footerFontSize = vm.footerFontSize;
-
-			size.height += titleLineCount * titleFontSize; // Title Lines
-			size.height += (titleLineCount - 1) * vm.titleSpacing; // Title Line Spacing
-			size.height += titleLineCount ? vm.titleMarginBottom : 0; // Title's bottom Margin
-			size.height += combinedBodyLength * bodyFontSize; // Body Lines
-			size.height += combinedBodyLength ? (combinedBodyLength - 1) * vm.bodySpacing : 0; // Body Line Spacing
-			size.height += footerLineCount ? vm.footerMarginTop : 0; // Footer Margin
-			size.height += footerLineCount * (footerFontSize); // Footer Lines
-			size.height += footerLineCount ? (footerLineCount - 1) * vm.footerSpacing : 0; // Footer Line Spacing
-
-			// Title width
-			var widthPadding = 0;
-			var maxLineWidth = function(line) {
-				size.width = Math.max(size.width, ctx.measureText(line).width + widthPadding);
-			};
-
-			ctx.font = helpers.fontString(titleFontSize, vm._titleFontStyle, vm._titleFontFamily);
-			helpers.each(vm.title, maxLineWidth);
-
-			// Body width
-			ctx.font = helpers.fontString(bodyFontSize, vm._bodyFontStyle, vm._bodyFontFamily);
-			helpers.each(vm.beforeBody.concat(vm.afterBody), maxLineWidth);
-
-			// Body lines may include some extra width due to the color box
-			widthPadding = body.length > 1 ? (bodyFontSize + 2) : 0;
-			helpers.each(body, function(bodyItem) {
-				helpers.each(bodyItem.before, maxLineWidth);
-				helpers.each(bodyItem.lines, maxLineWidth);
-				helpers.each(bodyItem.after, maxLineWidth);
-			});
-
-			// Reset back to 0
-			widthPadding = 0;
-
-			// Footer width
-			ctx.font = helpers.fontString(footerFontSize, vm._footerFontStyle, vm._footerFontFamily);
-			helpers.each(vm.footer, maxLineWidth);
-
-			// Add padding
-			size.width += 2 * vm.xPadding;
-
-			return size;
-		},
-		determineAlignment: function(size) {
-			var me = this;
-			var model = me._model;
-			var chart = me._chart;
-			var chartArea = me._chartInstance.chartArea;
-
-			if (model.y < size.height) {
-				model.yAlign = 'top';
-			} else if (model.y > (chart.height - size.height)) {
-				model.yAlign = 'bottom';
-			}
-
-			var lf, rf; // functions to determine left, right alignment
-			var olf, orf; // functions to determine if left/right alignment causes tooltip to go outside chart
-			var yf; // function to get the y alignment if the tooltip goes outside of the left or right edges
-			var midX = (chartArea.left + chartArea.right) / 2;
-			var midY = (chartArea.top + chartArea.bottom) / 2;
-
-			if (model.yAlign === 'center') {
-				lf = function(x) {
-					return x <= midX;
-				};
-				rf = function(x) {
-					return x > midX;
-				};
-			} else {
-				lf = function(x) {
-					return x <= (size.width / 2);
-				};
-				rf = function(x) {
-					return x >= (chart.width - (size.width / 2));
-				};
-			}
-
-			olf = function(x) {
-				return x + size.width > chart.width;
-			};
-			orf = function(x) {
-				return x - size.width < 0;
-			};
-			yf = function(y) {
-				return y <= midY ? 'top' : 'bottom';
-			};
-
-			if (lf(model.x)) {
-				model.xAlign = 'left';
-
-				// Is tooltip too wide and goes over the right side of the chart.?
-				if (olf(model.x)) {
-					model.xAlign = 'center';
-					model.yAlign = yf(model.y);
-				}
-			} else if (rf(model.x)) {
-				model.xAlign = 'right';
-
-				// Is tooltip too wide and goes outside left edge of canvas?
-				if (orf(model.x)) {
-					model.xAlign = 'center';
-					model.yAlign = yf(model.y);
-				}
-			}
-		},
-		getBackgroundPoint: function(vm, size) {
-			// Background Position
-			var pt = {
-				x: vm.x,
-				y: vm.y
-			};
-
-			var caretSize = vm.caretSize,
-				caretPadding = vm.caretPadding,
-				cornerRadius = vm.cornerRadius,
-				xAlign = vm.xAlign,
-				yAlign = vm.yAlign,
-				paddingAndSize = caretSize + caretPadding,
-				radiusAndPadding = cornerRadius + caretPadding;
-
-			if (xAlign === 'right') {
-				pt.x -= size.width;
-			} else if (xAlign === 'center') {
-				pt.x -= (size.width / 2);
-			}
-
-			if (yAlign === 'top') {
-				pt.y += paddingAndSize;
-			} else if (yAlign === 'bottom') {
-				pt.y -= size.height + paddingAndSize;
-			} else {
-				pt.y -= (size.height / 2);
-			}
-
-			if (yAlign === 'center') {
-				if (xAlign === 'left') {
-					pt.x += paddingAndSize;
-				} else if (xAlign === 'right') {
-					pt.x -= paddingAndSize;
-				}
-			} else if (xAlign === 'left') {
-				pt.x -= radiusAndPadding;
-			} else if (xAlign === 'right') {
-				pt.x += radiusAndPadding;
-			}
-
-			return pt;
 		},
 		drawCaret: function(tooltipPoint, size, opacity) {
 			var vm = this._view;
@@ -24425,8 +23503,7 @@ module.exports = function(Chart) {
 				}
 			}
 
-			var bgColor = helpers.color(vm.backgroundColor);
-			ctx.fillStyle = bgColor.alpha(opacity * bgColor.alpha()).rgbString();
+			ctx.fillStyle = mergeOpacity(vm.backgroundColor, opacity);
 			ctx.beginPath();
 			ctx.moveTo(x1, y1);
 			ctx.lineTo(x2, y2);
@@ -24444,8 +23521,7 @@ module.exports = function(Chart) {
 				var titleFontSize = vm.titleFontSize,
 					titleSpacing = vm.titleSpacing;
 
-				var titleFontColor = helpers.color(vm.titleFontColor);
-				ctx.fillStyle = titleFontColor.alpha(opacity * titleFontColor.alpha()).rgbString();
+				ctx.fillStyle = mergeOpacity(vm.titleFontColor, opacity);
 				ctx.font = helpers.fontString(titleFontSize, vm._titleFontStyle, vm._titleFontFamily);
 
 				var i, len;
@@ -24467,8 +23543,7 @@ module.exports = function(Chart) {
 			ctx.textAlign = vm._bodyAlign;
 			ctx.textBaseline = 'top';
 
-			var bodyFontColor = helpers.color(vm.bodyFontColor);
-			var textColor = bodyFontColor.alpha(opacity * bodyFontColor.alpha()).rgbString();
+			var textColor = mergeOpacity(vm.bodyFontColor, opacity);
 			ctx.fillStyle = textColor;
 			ctx.font = helpers.fontString(bodyFontSize, vm._bodyFontStyle, vm._bodyFontFamily);
 
@@ -24482,7 +23557,7 @@ module.exports = function(Chart) {
 			// Before body lines
 			helpers.each(vm.beforeBody, fillLineOfText);
 
-			var drawColorBoxes = body.length > 1;
+			var drawColorBoxes = vm.displayColors;
 			xLinePadding = drawColorBoxes ? (bodyFontSize + 2) : 0;
 
 			// Draw body lines now
@@ -24493,15 +23568,15 @@ module.exports = function(Chart) {
 					// Draw Legend-like boxes if needed
 					if (drawColorBoxes) {
 						// Fill a white rect so that colours merge nicely if the opacity is < 1
-						ctx.fillStyle = helpers.color(vm.legendColorBackground).alpha(opacity).rgbaString();
+						ctx.fillStyle = mergeOpacity(vm.legendColorBackground, opacity);
 						ctx.fillRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
 
 						// Border
-						ctx.strokeStyle = helpers.color(vm.labelColors[i].borderColor).alpha(opacity).rgbaString();
+						ctx.strokeStyle = mergeOpacity(vm.labelColors[i].borderColor, opacity);
 						ctx.strokeRect(pt.x, pt.y, bodyFontSize, bodyFontSize);
 
 						// Inner square
-						ctx.fillStyle = helpers.color(vm.labelColors[i].backgroundColor).alpha(opacity).rgbaString();
+						ctx.fillStyle = mergeOpacity(vm.labelColors[i].backgroundColor, opacity);
 						ctx.fillRect(pt.x + 1, pt.y + 1, bodyFontSize - 2, bodyFontSize - 2);
 
 						ctx.fillStyle = textColor;
@@ -24529,8 +23604,7 @@ module.exports = function(Chart) {
 				ctx.textAlign = vm._footerAlign;
 				ctx.textBaseline = 'top';
 
-				var footerFontColor = helpers.color(vm.footerFontColor);
-				ctx.fillStyle = footerFontColor.alpha(opacity * footerFontColor.alpha()).rgbString();
+				ctx.fillStyle = mergeOpacity(vm.footerFontColor, opacity);
 				ctx.font = helpers.fontString(vm.footerFontSize, vm._footerFontStyle, vm._footerFontFamily);
 
 				helpers.each(footer, function(line) {
@@ -24538,6 +23612,11 @@ module.exports = function(Chart) {
 					pt.y += vm.footerFontSize + vm.footerSpacing;
 				});
 			}
+		},
+		drawBackground: function(pt, vm, ctx, tooltipSize, opacity) {
+			ctx.fillStyle = mergeOpacity(vm.backgroundColor, opacity);
+			helpers.drawRoundedRectangle(ctx, pt.x, pt.y, tooltipSize.width, tooltipSize.height, vm.cornerRadius);
+			ctx.fill();
 		},
 		draw: function() {
 			var ctx = this._chart.ctx;
@@ -24547,7 +23626,10 @@ module.exports = function(Chart) {
 				return;
 			}
 
-			var tooltipSize = this.getTooltipSize(vm);
+			var tooltipSize = {
+				width: vm.width,
+				height: vm.height
+			};
 			var pt = {
 				x: vm.x,
 				y: vm.y
@@ -24558,10 +23640,7 @@ module.exports = function(Chart) {
 
 			if (this._options.enabled) {
 				// Draw Background
-				var bgColor = helpers.color(vm.backgroundColor);
-				ctx.fillStyle = bgColor.alpha(opacity * bgColor.alpha()).rgbString();
-				helpers.drawRoundedRectangle(ctx, pt.x, pt.y, tooltipSize.width, tooltipSize.height, vm.cornerRadius);
-				ctx.fill();
+				this.drawBackground(pt, vm, ctx, tooltipSize, opacity);
 
 				// Draw Caret
 				this.drawCaret(pt, tooltipSize, opacity);
@@ -24579,11 +23658,125 @@ module.exports = function(Chart) {
 				// Footer
 				this.drawFooter(pt, vm, ctx, opacity);
 			}
+		},
+
+		/**
+		 * Handle an event
+		 * @private
+		 * @param e {Event} the event to handle
+		 * @returns {Boolean} true if the tooltip changed
+		 */
+		handleEvent: function(e) {
+			var me = this;
+			var options = me._options;
+			var changed = false;
+
+			me._lastActive = me._lastActive || [];
+
+			// Find Active Elements for tooltips
+			if (e.type === 'mouseout') {
+				me._active = [];
+			} else {
+				me._active = me._chartInstance.getElementsAtEventForMode(e, options.mode, options);
+			}
+
+			// Remember Last Actives
+			changed = !helpers.arrayEquals(me._active, me._lastActive);
+			me._lastActive = me._active;
+
+			if (options.enabled || options.custom) {
+				me._eventPosition = helpers.getRelativePosition(e, me._chart);
+
+				var model = me._model;
+				me.update(true);
+				me.pivot();
+
+				// See if our tooltip position changed
+				changed |= (model.x !== me._model.x) || (model.y !== me._model.y);
+			}
+
+			return changed;
 		}
 	});
+
+	/**
+	 * @namespace Chart.Tooltip.positioners
+	 */
+	Chart.Tooltip.positioners = {
+		/**
+		 * Average mode places the tooltip at the average position of the elements shown
+		 * @function Chart.Tooltip.positioners.average
+		 * @param elements {ChartElement[]} the elements being displayed in the tooltip
+		 * @returns {Point} tooltip position
+		 */
+		average: function(elements) {
+			if (!elements.length) {
+				return false;
+			}
+
+			var i, len;
+			var x = 0;
+			var y = 0;
+			var count = 0;
+
+			for (i = 0, len = elements.length; i < len; ++i) {
+				var el = elements[i];
+				if (el && el.hasValue()) {
+					var pos = el.tooltipPosition();
+					x += pos.x;
+					y += pos.y;
+					++count;
+				}
+			}
+
+			return {
+				x: Math.round(x / count),
+				y: Math.round(y / count)
+			};
+		},
+
+		/**
+		 * Gets the tooltip position nearest of the item nearest to the event position
+		 * @function Chart.Tooltip.positioners.nearest
+		 * @param elements {Chart.Element[]} the tooltip elements
+		 * @param eventPosition {Point} the position of the event in canvas coordinates
+		 * @returns {Point} the tooltip position
+		 */
+		nearest: function(elements, eventPosition) {
+			var x = eventPosition.x;
+			var y = eventPosition.y;
+
+			var nearestElement;
+			var minDistance = Number.POSITIVE_INFINITY;
+			var i, len;
+			for (i = 0, len = elements.length; i < len; ++i) {
+				var el = elements[i];
+				if (el && el.hasValue()) {
+					var center = el.getCenterPoint();
+					var d = helpers.distanceBetweenPoints(eventPosition, center);
+
+					if (d < minDistance) {
+						minDistance = d;
+						nearestElement = el;
+					}
+				}
+			}
+
+			if (nearestElement) {
+				var tp = nearestElement.tooltipPosition();
+				x = tp.x;
+				y = tp.y;
+			}
+
+			return {
+				x: x,
+				y: y
+			};
+		}
+	};
 };
 
-},{}],86:[function(require,module,exports){
+},{}],89:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -24638,6 +23831,19 @@ module.exports = function(Chart) {
 			}
 			return false;
 		},
+		getCenterPoint: function() {
+			var vm = this._view;
+			var halfAngle = (vm.startAngle + vm.endAngle) / 2;
+			var halfRadius = (vm.innerRadius + vm.outerRadius) / 2;
+			return {
+				x: vm.x + Math.cos(halfAngle) * halfRadius,
+				y: vm.y + Math.sin(halfAngle) * halfRadius
+			};
+		},
+		getArea: function() {
+			var vm = this._view;
+			return Math.PI * ((vm.endAngle - vm.startAngle) / (2 * Math.PI)) * (Math.pow(vm.outerRadius, 2) - Math.pow(vm.innerRadius, 2));
+		},
 		tooltipPosition: function() {
 			var vm = this._view;
 
@@ -24676,7 +23882,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],87:[function(require,module,exports){
+},{}],90:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -24694,7 +23900,7 @@ module.exports = function(Chart) {
 		borderDashOffset: 0.0,
 		borderJoinStyle: 'miter',
 		capBezierPoints: true,
-		fill: true // do we fill in the area between the line and its base axis
+		fill: true, // do we fill in the area between the line and its base axis
 	};
 
 	Chart.elements.Line = Chart.Element.extend({
@@ -24702,8 +23908,17 @@ module.exports = function(Chart) {
 			var me = this;
 			var vm = me._view;
 			var spanGaps = vm.spanGaps;
-			var scaleZero = vm.scaleZero;
+			var fillPoint = vm.scaleZero;
 			var loop = me._loop;
+
+			// Handle different fill modes for cartesian lines
+			if (!loop) {
+				if (vm.fill === 'top') {
+					fillPoint = vm.scaleTop;
+				} else if (vm.fill === 'bottom') {
+					fillPoint = vm.scaleBottom;
+				}
+			}
 
 			var ctx = me._chart.ctx;
 			ctx.save();
@@ -24750,9 +23965,9 @@ module.exports = function(Chart) {
 					// First point moves to it's starting position no matter what
 					if (index === 0) {
 						if (loop) {
-							ctx.moveTo(scaleZero.x, scaleZero.y);
+							ctx.moveTo(fillPoint.x, fillPoint.y);
 						} else {
-							ctx.moveTo(currentVM.x, scaleZero);
+							ctx.moveTo(currentVM.x, fillPoint);
 						}
 
 						if (!currentVM.skip) {
@@ -24766,9 +23981,9 @@ module.exports = function(Chart) {
 							// Only do this if this is the first point that is skipped
 							if (!spanGaps && lastDrawnIndex === (index - 1)) {
 								if (loop) {
-									ctx.lineTo(scaleZero.x, scaleZero.y);
+									ctx.lineTo(fillPoint.x, fillPoint.y);
 								} else {
-									ctx.lineTo(previous._view.x, scaleZero);
+									ctx.lineTo(previous._view.x, fillPoint);
 								}
 							}
 						} else {
@@ -24781,7 +23996,7 @@ module.exports = function(Chart) {
 								} else if (loop) {
 									ctx.lineTo(currentVM.x, currentVM.y);
 								} else {
-									ctx.lineTo(currentVM.x, scaleZero);
+									ctx.lineTo(currentVM.x, fillPoint);
 									ctx.lineTo(currentVM.x, currentVM.y);
 								}
 							} else {
@@ -24794,7 +24009,7 @@ module.exports = function(Chart) {
 				}
 
 				if (!loop && lastDrawnIndex !== -1) {
-					ctx.lineTo(points[lastDrawnIndex]._view.x, scaleZero);
+					ctx.lineTo(points[lastDrawnIndex]._view.x, fillPoint);
 				}
 
 				ctx.fillStyle = vm.backgroundColor || globalDefaults.defaultColor;
@@ -24853,7 +24068,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],88:[function(require,module,exports){
+},{}],91:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -24874,14 +24089,35 @@ module.exports = function(Chart) {
 		hoverBorderWidth: 1
 	};
 
+	function xRange(mouseX) {
+		var vm = this._view;
+		return vm ? (Math.pow(mouseX - vm.x, 2) < Math.pow(vm.radius + vm.hitRadius, 2)) : false;
+	}
+
+	function yRange(mouseY) {
+		var vm = this._view;
+		return vm ? (Math.pow(mouseY - vm.y, 2) < Math.pow(vm.radius + vm.hitRadius, 2)) : false;
+	}
+
 	Chart.elements.Point = Chart.Element.extend({
 		inRange: function(mouseX, mouseY) {
 			var vm = this._view;
 			return vm ? ((Math.pow(mouseX - vm.x, 2) + Math.pow(mouseY - vm.y, 2)) < Math.pow(vm.hitRadius + vm.radius, 2)) : false;
 		},
-		inLabelRange: function(mouseX) {
+
+		inLabelRange: xRange,
+		inXRange: xRange,
+		inYRange: yRange,
+
+		getCenterPoint: function() {
 			var vm = this._view;
-			return vm ? (Math.pow(mouseX - vm.x, 2) < Math.pow(vm.radius + vm.hitRadius, 2)) : false;
+			return {
+				x: vm.x,
+				y: vm.y
+			};
+		},
+		getArea: function() {
+			return Math.PI * Math.pow(this._view.radius, 2);
 		},
 		tooltipPosition: function() {
 			var vm = this._view;
@@ -24912,7 +24148,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],89:[function(require,module,exports){
+},{}],92:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -24925,6 +24161,44 @@ module.exports = function(Chart) {
 		borderColor: globalOpts.defaultColor,
 		borderSkipped: 'bottom'
 	};
+
+	function isVertical(bar) {
+		return bar._view.width !== undefined;
+	}
+
+	/**
+	 * Helper function to get the bounds of the bar regardless of the orientation
+	 * @private
+	 * @param bar {Chart.Element.Rectangle} the bar
+	 * @return {Bounds} bounds of the bar
+	 */
+	function getBarBounds(bar) {
+		var vm = bar._view;
+		var x1, x2, y1, y2;
+
+		if (isVertical(bar)) {
+			// vertical
+			var halfWidth = vm.width / 2;
+			x1 = vm.x - halfWidth;
+			x2 = vm.x + halfWidth;
+			y1 = Math.min(vm.y, vm.base);
+			y2 = Math.max(vm.y, vm.base);
+		} else {
+			// horizontal bar
+			var halfHeight = vm.height / 2;
+			x1 = Math.min(vm.x, vm.base);
+			x2 = Math.max(vm.x, vm.base);
+			y1 = vm.y - halfHeight;
+			y2 = vm.y + halfHeight;
+		}
+
+		return {
+			left: x1,
+			top: y1,
+			right: x2,
+			bottom: y2
+		};
+	}
 
 	Chart.elements.Rectangle = Chart.Element.extend({
 		draw: function() {
@@ -24972,9 +24246,12 @@ module.exports = function(Chart) {
 			}
 
 			// Draw rectangle from 'startCorner'
-			ctx.moveTo.apply(ctx, cornerAt(0));
+			var corner = cornerAt(0);
+			ctx.moveTo(corner[0], corner[1]);
+
 			for (var i = 1; i < 4; i++) {
-				ctx.lineTo.apply(ctx, cornerAt(i));
+				corner = cornerAt(i);
+				ctx.lineTo(corner[0], corner[1]);
 			}
 
 			ctx.fill();
@@ -24987,16 +24264,56 @@ module.exports = function(Chart) {
 			return vm.base - vm.y;
 		},
 		inRange: function(mouseX, mouseY) {
-			var vm = this._view;
-			return vm ?
-					(vm.y < vm.base ?
-						(mouseX >= vm.x - vm.width / 2 && mouseX <= vm.x + vm.width / 2) && (mouseY >= vm.y && mouseY <= vm.base) :
-						(mouseX >= vm.x - vm.width / 2 && mouseX <= vm.x + vm.width / 2) && (mouseY >= vm.base && mouseY <= vm.y)) :
-					false;
+			var inRange = false;
+
+			if (this._view) {
+				var bounds = getBarBounds(this);
+				inRange = mouseX >= bounds.left && mouseX <= bounds.right && mouseY >= bounds.top && mouseY <= bounds.bottom;
+			}
+
+			return inRange;
 		},
-		inLabelRange: function(mouseX) {
+		inLabelRange: function(mouseX, mouseY) {
+			var me = this;
+			if (!me._view) {
+				return false;
+			}
+
+			var inRange = false;
+			var bounds = getBarBounds(me);
+
+			if (isVertical(me)) {
+				inRange = mouseX >= bounds.left && mouseX <= bounds.right;
+			} else {
+				inRange = mouseY >= bounds.top && mouseY <= bounds.bottom;
+			}
+
+			return inRange;
+		},
+		inXRange: function(mouseX) {
+			var bounds = getBarBounds(this);
+			return mouseX >= bounds.left && mouseX <= bounds.right;
+		},
+		inYRange: function(mouseY) {
+			var bounds = getBarBounds(this);
+			return mouseY >= bounds.top && mouseY <= bounds.bottom;
+		},
+		getCenterPoint: function() {
 			var vm = this._view;
-			return vm ? (mouseX >= vm.x - vm.width / 2 && mouseX <= vm.x + vm.width / 2) : false;
+			var x, y;
+			if (isVertical(this)) {
+				x = vm.x;
+				y = (vm.y + vm.base) / 2;
+			} else {
+				x = (vm.x + vm.base) / 2;
+				y = vm.y;
+			}
+
+			return {x: x, y: y};
+		},
+		getArea: function() {
+			var vm = this._view;
+			return vm.width * Math.abs(vm.y - vm.base);
 		},
 		tooltipPosition: function() {
 			var vm = this._view;
@@ -25009,7 +24326,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],90:[function(require,module,exports){
+},{}],93:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -25022,7 +24339,7 @@ module.exports = function(Chart) {
 
 	var DatasetScale = Chart.Scale.extend({
 		/**
-		* Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use tose
+		* Internal function to get the correct labels. If data.xLabels or data.yLabels are defined, use those
 		* else fall back to data.labels
 		* @private
 		*/
@@ -25140,7 +24457,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],91:[function(require,module,exports){
+},{}],94:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -25150,31 +24467,7 @@ module.exports = function(Chart) {
 	var defaultConfig = {
 		position: 'left',
 		ticks: {
-			callback: function(tickValue, index, ticks) {
-				// If we have lots of ticks, don't use the ones
-				var delta = ticks.length > 3 ? ticks[2] - ticks[1] : ticks[1] - ticks[0];
-
-				// If we have a number like 2.5 as the delta, figure out how many decimal places we need
-				if (Math.abs(delta) > 1) {
-					if (tickValue !== Math.floor(tickValue)) {
-						// not an integer
-						delta = tickValue - Math.floor(tickValue);
-					}
-				}
-
-				var logDelta = helpers.log10(Math.abs(delta));
-				var tickString = '';
-
-				if (tickValue !== 0) {
-					var numDecimal = -1 * Math.floor(logDelta);
-					numDecimal = Math.max(Math.min(numDecimal, 20), 0); // toFixed has a max of 20 decimal places
-					tickString = tickValue.toFixed(numDecimal);
-				} else {
-					tickString = '0'; // never show decimal places for 0
-				}
-
-				return tickString;
-			}
+			callback: Chart.Ticks.formatters.linear
 		}
 	};
 
@@ -25334,7 +24627,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],92:[function(require,module,exports){
+},{}],95:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -25359,7 +24652,7 @@ module.exports = function(Chart) {
 					// move the top up to 0
 					me.max = 0;
 				} else if (minSign > 0 && maxSign > 0) {
-					// move the botttom down to 0
+					// move the bottom down to 0
 					me.min = 0;
 				}
 			}
@@ -25390,49 +24683,22 @@ module.exports = function(Chart) {
 		buildTicks: function() {
 			var me = this;
 			var opts = me.options;
-			var ticks = me.ticks = [];
 			var tickOpts = opts.ticks;
-			var getValueOrDefault = helpers.getValueOrDefault;
 
 			// Figure out what the max number of ticks we can support it is based on the size of
 			// the axis area. For now, we say that the minimum tick spacing in pixels must be 50
 			// We also limit the maximum number of ticks to 11 which gives a nice 10 squares on
-			// the graph
-
+			// the graph. Make sure we always have at least 2 ticks
 			var maxTicks = me.getTickLimit();
-
-			// Make sure we always have at least 2 ticks
 			maxTicks = Math.max(2, maxTicks);
 
-			// To get a "nice" value for the tick spacing, we will use the appropriately named
-			// "nice number" algorithm. See http://stackoverflow.com/questions/8506881/nice-label-algorithm-for-charts-with-minimum-ticks
-			// for details.
-
-			var spacing;
-			var fixedStepSizeSet = (tickOpts.fixedStepSize && tickOpts.fixedStepSize > 0) || (tickOpts.stepSize && tickOpts.stepSize > 0);
-			if (fixedStepSizeSet) {
-				spacing = getValueOrDefault(tickOpts.fixedStepSize, tickOpts.stepSize);
-			} else {
-				var niceRange = helpers.niceNum(me.max - me.min, false);
-				spacing = helpers.niceNum(niceRange / (maxTicks - 1), true);
-			}
-			var niceMin = Math.floor(me.min / spacing) * spacing;
-			var niceMax = Math.ceil(me.max / spacing) * spacing;
-			var numSpaces = (niceMax - niceMin) / spacing;
-
-			// If very close to our rounded value, use it.
-			if (helpers.almostEquals(numSpaces, Math.round(numSpaces), spacing / 1000)) {
-				numSpaces = Math.round(numSpaces);
-			} else {
-				numSpaces = Math.ceil(numSpaces);
-			}
-
-			// Put the values into the ticks array
-			ticks.push(tickOpts.min !== undefined ? tickOpts.min : niceMin);
-			for (var j = 1; j < numSpaces; ++j) {
-				ticks.push(niceMin + (j * spacing));
-			}
-			ticks.push(tickOpts.max !== undefined ? tickOpts.max : niceMax);
+			var numericGeneratorOptions = {
+				maxTicks: maxTicks,
+				min: tickOpts.min,
+				max: tickOpts.max,
+				stepSize: helpers.getValueOrDefault(tickOpts.fixedStepSize, tickOpts.stepSize)
+			};
+			var ticks = me.ticks = Chart.Ticks.generators.linear(numericGeneratorOptions, me);
 
 			me.handleDirectionalChanges();
 
@@ -25461,7 +24727,7 @@ module.exports = function(Chart) {
 	});
 };
 
-},{}],93:[function(require,module,exports){
+},{}],96:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -25473,16 +24739,7 @@ module.exports = function(Chart) {
 
 		// label settings
 		ticks: {
-			callback: function(value, index, arr) {
-				var remain = value / (Math.pow(10, Math.floor(helpers.log10(value))));
-
-				if (value === 0) {
-					return '0';
-				} else if (remain === 1 || remain === 2 || remain === 5 || index === 0 || index === arr.length - 1) {
-					return value.toExponential();
-				}
-				return '';
-			}
+			callback: Chart.Ticks.formatters.logarithmic
 		}
 	};
 
@@ -25588,43 +24845,12 @@ module.exports = function(Chart) {
 			var me = this;
 			var opts = me.options;
 			var tickOpts = opts.ticks;
-			var getValueOrDefault = helpers.getValueOrDefault;
 
-			// Reset the ticks array. Later on, we will draw a grid line at these positions
-			// The array simply contains the numerical value of the spots where ticks will be
-			var ticks = me.ticks = [];
-
-			// Figure out what the max number of ticks we can support it is based on the size of
-			// the axis area. For now, we say that the minimum tick spacing in pixels must be 50
-			// We also limit the maximum number of ticks to 11 which gives a nice 10 squares on
-			// the graph
-
-			var tickVal = getValueOrDefault(tickOpts.min, Math.pow(10, Math.floor(helpers.log10(me.min))));
-
-			while (tickVal < me.max) {
-				ticks.push(tickVal);
-
-				var exp;
-				var significand;
-
-				if (tickVal === 0) {
-					exp = Math.floor(helpers.log10(me.minNotZero));
-					significand = Math.round(me.minNotZero / Math.pow(10, exp));
-				} else {
-					exp = Math.floor(helpers.log10(tickVal));
-					significand = Math.floor(tickVal / Math.pow(10, exp)) + 1;
-				}
-
-				if (significand === 10) {
-					significand = 1;
-					++exp;
-				}
-
-				tickVal = significand * Math.pow(10, exp);
-			}
-
-			var lastTick = getValueOrDefault(tickOpts.max, tickVal);
-			ticks.push(lastTick);
+			var generationOptions = {
+				min: tickOpts.min,
+				max: tickOpts.max
+			};
+			var ticks = me.ticks = Chart.Ticks.generators.logarithmic(generationOptions, me);
 
 			if (!me.isHorizontal()) {
 				// We are in a vertical orientation. The top value is the highest. So reverse the array
@@ -25682,7 +24908,7 @@ module.exports = function(Chart) {
 					pixel += paddingLeft;
 				}
 			} else {
-				// Bottom - top since pixels increase downard on a screen
+				// Bottom - top since pixels increase downward on a screen
 				innerDimension = me.height - (paddingTop + paddingBottom);
 				if (start === 0 && !tickOpts.reverse) {
 					range = helpers.log10(me.end) - helpers.log10(me.minNotZero);
@@ -25729,7 +24955,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],94:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 'use strict';
 
 module.exports = function(Chart) {
@@ -25763,7 +24989,9 @@ module.exports = function(Chart) {
 			backdropPaddingY: 2,
 
 			// Number - The backdrop padding to the side of the label in pixels
-			backdropPaddingX: 2
+			backdropPaddingX: 2,
+
+			callback: Chart.Ticks.formatters.linear
 		},
 
 		pointLabels: {
@@ -26145,7 +25373,7 @@ module.exports = function(Chart) {
 
 };
 
-},{}],95:[function(require,module,exports){
+},{}],98:[function(require,module,exports){
 /* global window: false */
 'use strict';
 
@@ -26412,7 +25640,7 @@ module.exports = function(Chart) {
 					me.unitScale = 1;
 
 					if (helpers.isArray(unitDefinition.steps) && Math.ceil(me.scaleSizeInUnits / labelCapacity) < helpers.max(unitDefinition.steps)) {
-						// Use one of the prefedined steps
+						// Use one of the predefined steps
 						for (var idx = 0; idx < unitDefinition.steps.length; ++idx) {
 							if (unitDefinition.steps[idx] >= Math.ceil(me.scaleSizeInUnits / labelCapacity)) {
 								me.unitScale = helpers.getValueOrDefault(me.options.time.unitStepSize, unitDefinition.steps[idx]);
@@ -26607,7 +25835,7 @@ module.exports = function(Chart) {
 
 };
 
-},{"moment":397}],96:[function(require,module,exports){
+},{"moment":399}],99:[function(require,module,exports){
 /* MIT license */
 var colorNames = require('color-name');
 
@@ -26830,7 +26058,7 @@ for (var name in colorNames) {
    reverseNames[colorNames[name]] = name;
 }
 
-},{"color-name":100}],97:[function(require,module,exports){
+},{"color-name":103}],100:[function(require,module,exports){
 /* MIT license */
 var convert = require('color-convert');
 var string = require('chartjs-color-string');
@@ -27315,7 +26543,7 @@ if (typeof window !== 'undefined') {
 
 module.exports = Color;
 
-},{"chartjs-color-string":96,"color-convert":99}],98:[function(require,module,exports){
+},{"chartjs-color-string":99,"color-convert":102}],101:[function(require,module,exports){
 /* MIT license */
 
 module.exports = {
@@ -28015,7 +27243,7 @@ for (var key in cssKeywords) {
   reverseKeywords[JSON.stringify(cssKeywords[key])] = key;
 }
 
-},{}],99:[function(require,module,exports){
+},{}],102:[function(require,module,exports){
 var conversions = require("./conversions");
 
 var convert = function() {
@@ -28108,7 +27336,7 @@ Converter.prototype.getValues = function(space) {
 });
 
 module.exports = convert;
-},{"./conversions":98}],100:[function(require,module,exports){
+},{"./conversions":101}],103:[function(require,module,exports){
 module.exports = {
 	"aliceblue": [240, 248, 255],
 	"antiquewhite": [250, 235, 215],
@@ -28259,21 +27487,21 @@ module.exports = {
 	"yellow": [255, 255, 0],
 	"yellowgreen": [154, 205, 50]
 };
-},{}],101:[function(require,module,exports){
+},{}],104:[function(require,module,exports){
 require('../../modules/core.regexp.escape');
 module.exports = require('../../modules/_core').RegExp.escape;
-},{"../../modules/_core":122,"../../modules/core.regexp.escape":218}],102:[function(require,module,exports){
+},{"../../modules/_core":125,"../../modules/core.regexp.escape":221}],105:[function(require,module,exports){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],103:[function(require,module,exports){
+},{}],106:[function(require,module,exports){
 var cof = require('./_cof');
 module.exports = function(it, msg){
   if(typeof it != 'number' && cof(it) != 'Number')throw TypeError(msg);
   return +it;
 };
-},{"./_cof":117}],104:[function(require,module,exports){
+},{"./_cof":120}],107:[function(require,module,exports){
 // 22.1.3.31 Array.prototype[@@unscopables]
 var UNSCOPABLES = require('./_wks')('unscopables')
   , ArrayProto  = Array.prototype;
@@ -28281,19 +27509,19 @@ if(ArrayProto[UNSCOPABLES] == undefined)require('./_hide')(ArrayProto, UNSCOPABL
 module.exports = function(key){
   ArrayProto[UNSCOPABLES][key] = true;
 };
-},{"./_hide":139,"./_wks":216}],105:[function(require,module,exports){
+},{"./_hide":142,"./_wks":219}],108:[function(require,module,exports){
 module.exports = function(it, Constructor, name, forbiddenField){
   if(!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)){
     throw TypeError(name + ': incorrect invocation!');
   } return it;
 };
-},{}],106:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 var isObject = require('./_is-object');
 module.exports = function(it){
   if(!isObject(it))throw TypeError(it + ' is not an object!');
   return it;
 };
-},{"./_is-object":148}],107:[function(require,module,exports){
+},{"./_is-object":151}],110:[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 'use strict';
 var toObject = require('./_to-object')
@@ -28320,7 +27548,7 @@ module.exports = [].copyWithin || function copyWithin(target/*= 0*/, start/*= 0,
     from += inc;
   } return O;
 };
-},{"./_to-index":204,"./_to-length":207,"./_to-object":208}],108:[function(require,module,exports){
+},{"./_to-index":207,"./_to-length":210,"./_to-object":211}],111:[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 'use strict';
 var toObject = require('./_to-object')
@@ -28336,7 +27564,7 @@ module.exports = function fill(value /*, start = 0, end = @length */){
   while(endPos > index)O[index++] = value;
   return O;
 };
-},{"./_to-index":204,"./_to-length":207,"./_to-object":208}],109:[function(require,module,exports){
+},{"./_to-index":207,"./_to-length":210,"./_to-object":211}],112:[function(require,module,exports){
 var forOf = require('./_for-of');
 
 module.exports = function(iter, ITERATOR){
@@ -28345,7 +27573,7 @@ module.exports = function(iter, ITERATOR){
   return result;
 };
 
-},{"./_for-of":136}],110:[function(require,module,exports){
+},{"./_for-of":139}],113:[function(require,module,exports){
 // false -> Array#indexOf
 // true  -> Array#includes
 var toIObject = require('./_to-iobject')
@@ -28367,7 +27595,7 @@ module.exports = function(IS_INCLUDES){
     } return !IS_INCLUDES && -1;
   };
 };
-},{"./_to-index":204,"./_to-iobject":206,"./_to-length":207}],111:[function(require,module,exports){
+},{"./_to-index":207,"./_to-iobject":209,"./_to-length":210}],114:[function(require,module,exports){
 // 0 -> Array#forEach
 // 1 -> Array#map
 // 2 -> Array#filter
@@ -28412,7 +27640,7 @@ module.exports = function(TYPE, $create){
     return IS_FIND_INDEX ? -1 : IS_SOME || IS_EVERY ? IS_EVERY : result;
   };
 };
-},{"./_array-species-create":114,"./_ctx":124,"./_iobject":144,"./_to-length":207,"./_to-object":208}],112:[function(require,module,exports){
+},{"./_array-species-create":117,"./_ctx":127,"./_iobject":147,"./_to-length":210,"./_to-object":211}],115:[function(require,module,exports){
 var aFunction = require('./_a-function')
   , toObject  = require('./_to-object')
   , IObject   = require('./_iobject')
@@ -28441,7 +27669,7 @@ module.exports = function(that, callbackfn, aLen, memo, isRight){
   }
   return memo;
 };
-},{"./_a-function":102,"./_iobject":144,"./_to-length":207,"./_to-object":208}],113:[function(require,module,exports){
+},{"./_a-function":105,"./_iobject":147,"./_to-length":210,"./_to-object":211}],116:[function(require,module,exports){
 var isObject = require('./_is-object')
   , isArray  = require('./_is-array')
   , SPECIES  = require('./_wks')('species');
@@ -28458,14 +27686,14 @@ module.exports = function(original){
     }
   } return C === undefined ? Array : C;
 };
-},{"./_is-array":146,"./_is-object":148,"./_wks":216}],114:[function(require,module,exports){
+},{"./_is-array":149,"./_is-object":151,"./_wks":219}],117:[function(require,module,exports){
 // 9.4.2.3 ArraySpeciesCreate(originalArray, length)
 var speciesConstructor = require('./_array-species-constructor');
 
 module.exports = function(original, length){
   return new (speciesConstructor(original))(length);
 };
-},{"./_array-species-constructor":113}],115:[function(require,module,exports){
+},{"./_array-species-constructor":116}],118:[function(require,module,exports){
 'use strict';
 var aFunction  = require('./_a-function')
   , isObject   = require('./_is-object')
@@ -28490,7 +27718,7 @@ module.exports = Function.bind || function bind(that /*, args... */){
   if(isObject(fn.prototype))bound.prototype = fn.prototype;
   return bound;
 };
-},{"./_a-function":102,"./_invoke":143,"./_is-object":148}],116:[function(require,module,exports){
+},{"./_a-function":105,"./_invoke":146,"./_is-object":151}],119:[function(require,module,exports){
 // getting tag from 19.1.3.6 Object.prototype.toString()
 var cof = require('./_cof')
   , TAG = require('./_wks')('toStringTag')
@@ -28514,13 +27742,13 @@ module.exports = function(it){
     // ES3 arguments fallback
     : (B = cof(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : B;
 };
-},{"./_cof":117,"./_wks":216}],117:[function(require,module,exports){
+},{"./_cof":120,"./_wks":219}],120:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],118:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 'use strict';
 var dP          = require('./_object-dp').f
   , create      = require('./_object-create')
@@ -28663,7 +27891,7 @@ module.exports = {
     setSpecies(NAME);
   }
 };
-},{"./_an-instance":105,"./_ctx":124,"./_defined":126,"./_descriptors":127,"./_for-of":136,"./_iter-define":152,"./_iter-step":154,"./_meta":161,"./_object-create":165,"./_object-dp":166,"./_redefine-all":185,"./_set-species":190}],119:[function(require,module,exports){
+},{"./_an-instance":108,"./_ctx":127,"./_defined":129,"./_descriptors":130,"./_for-of":139,"./_iter-define":155,"./_iter-step":157,"./_meta":164,"./_object-create":168,"./_object-dp":169,"./_redefine-all":188,"./_set-species":193}],122:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var classof = require('./_classof')
   , from    = require('./_array-from-iterable');
@@ -28673,7 +27901,7 @@ module.exports = function(NAME){
     return from(this);
   };
 };
-},{"./_array-from-iterable":109,"./_classof":116}],120:[function(require,module,exports){
+},{"./_array-from-iterable":112,"./_classof":119}],123:[function(require,module,exports){
 'use strict';
 var redefineAll       = require('./_redefine-all')
   , getWeak           = require('./_meta').getWeak
@@ -28757,7 +27985,7 @@ module.exports = {
   },
   ufstore: uncaughtFrozenStore
 };
-},{"./_an-instance":105,"./_an-object":106,"./_array-methods":111,"./_for-of":136,"./_has":138,"./_is-object":148,"./_meta":161,"./_redefine-all":185}],121:[function(require,module,exports){
+},{"./_an-instance":108,"./_an-object":109,"./_array-methods":114,"./_for-of":139,"./_has":141,"./_is-object":151,"./_meta":164,"./_redefine-all":188}],124:[function(require,module,exports){
 'use strict';
 var global            = require('./_global')
   , $export           = require('./_export')
@@ -28843,10 +28071,10 @@ module.exports = function(NAME, wrapper, methods, common, IS_MAP, IS_WEAK){
 
   return C;
 };
-},{"./_an-instance":105,"./_export":131,"./_fails":133,"./_for-of":136,"./_global":137,"./_inherit-if-required":142,"./_is-object":148,"./_iter-detect":153,"./_meta":161,"./_redefine":186,"./_redefine-all":185,"./_set-to-string-tag":191}],122:[function(require,module,exports){
+},{"./_an-instance":108,"./_export":134,"./_fails":136,"./_for-of":139,"./_global":140,"./_inherit-if-required":145,"./_is-object":151,"./_iter-detect":156,"./_meta":164,"./_redefine":189,"./_redefine-all":188,"./_set-to-string-tag":194}],125:[function(require,module,exports){
 var core = module.exports = {version: '2.4.0'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],123:[function(require,module,exports){
+},{}],126:[function(require,module,exports){
 'use strict';
 var $defineProperty = require('./_object-dp')
   , createDesc      = require('./_property-desc');
@@ -28855,7 +28083,7 @@ module.exports = function(object, index, value){
   if(index in object)$defineProperty.f(object, index, createDesc(0, value));
   else object[index] = value;
 };
-},{"./_object-dp":166,"./_property-desc":184}],124:[function(require,module,exports){
+},{"./_object-dp":169,"./_property-desc":187}],127:[function(require,module,exports){
 // optional / simple context binding
 var aFunction = require('./_a-function');
 module.exports = function(fn, that, length){
@@ -28876,7 +28104,7 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./_a-function":102}],125:[function(require,module,exports){
+},{"./_a-function":105}],128:[function(require,module,exports){
 'use strict';
 var anObject    = require('./_an-object')
   , toPrimitive = require('./_to-primitive')
@@ -28886,18 +28114,18 @@ module.exports = function(hint){
   if(hint !== 'string' && hint !== NUMBER && hint !== 'default')throw TypeError('Incorrect hint');
   return toPrimitive(anObject(this), hint != NUMBER);
 };
-},{"./_an-object":106,"./_to-primitive":209}],126:[function(require,module,exports){
+},{"./_an-object":109,"./_to-primitive":212}],129:[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],127:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 // Thank's IE8 for his funny defineProperty
 module.exports = !require('./_fails')(function(){
   return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./_fails":133}],128:[function(require,module,exports){
+},{"./_fails":136}],131:[function(require,module,exports){
 var isObject = require('./_is-object')
   , document = require('./_global').document
   // in old IE typeof document.createElement is 'object'
@@ -28905,12 +28133,12 @@ var isObject = require('./_is-object')
 module.exports = function(it){
   return is ? document.createElement(it) : {};
 };
-},{"./_global":137,"./_is-object":148}],129:[function(require,module,exports){
+},{"./_global":140,"./_is-object":151}],132:[function(require,module,exports){
 // IE 8- don't enum bug keys
 module.exports = (
   'constructor,hasOwnProperty,isPrototypeOf,propertyIsEnumerable,toLocaleString,toString,valueOf'
 ).split(',');
-},{}],130:[function(require,module,exports){
+},{}],133:[function(require,module,exports){
 // all enumerable object keys, includes symbols
 var getKeys = require('./_object-keys')
   , gOPS    = require('./_object-gops')
@@ -28926,7 +28154,7 @@ module.exports = function(it){
     while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))result.push(key);
   } return result;
 };
-},{"./_object-gops":172,"./_object-keys":175,"./_object-pie":176}],131:[function(require,module,exports){
+},{"./_object-gops":175,"./_object-keys":178,"./_object-pie":179}],134:[function(require,module,exports){
 var global    = require('./_global')
   , core      = require('./_core')
   , hide      = require('./_hide')
@@ -28970,7 +28198,7 @@ $export.W = 32;  // wrap
 $export.U = 64;  // safe
 $export.R = 128; // real proto method for `library` 
 module.exports = $export;
-},{"./_core":122,"./_ctx":124,"./_global":137,"./_hide":139,"./_redefine":186}],132:[function(require,module,exports){
+},{"./_core":125,"./_ctx":127,"./_global":140,"./_hide":142,"./_redefine":189}],135:[function(require,module,exports){
 var MATCH = require('./_wks')('match');
 module.exports = function(KEY){
   var re = /./;
@@ -28983,7 +28211,7 @@ module.exports = function(KEY){
     } catch(f){ /* empty */ }
   } return true;
 };
-},{"./_wks":216}],133:[function(require,module,exports){
+},{"./_wks":219}],136:[function(require,module,exports){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -28991,7 +28219,7 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],134:[function(require,module,exports){
+},{}],137:[function(require,module,exports){
 'use strict';
 var hide     = require('./_hide')
   , redefine = require('./_redefine')
@@ -29020,7 +28248,7 @@ module.exports = function(KEY, length, exec){
     );
   }
 };
-},{"./_defined":126,"./_fails":133,"./_hide":139,"./_redefine":186,"./_wks":216}],135:[function(require,module,exports){
+},{"./_defined":129,"./_fails":136,"./_hide":142,"./_redefine":189,"./_wks":219}],138:[function(require,module,exports){
 'use strict';
 // 21.2.5.3 get RegExp.prototype.flags
 var anObject = require('./_an-object');
@@ -29034,7 +28262,7 @@ module.exports = function(){
   if(that.sticky)     result += 'y';
   return result;
 };
-},{"./_an-object":106}],136:[function(require,module,exports){
+},{"./_an-object":109}],139:[function(require,module,exports){
 var ctx         = require('./_ctx')
   , call        = require('./_iter-call')
   , isArrayIter = require('./_is-array-iter')
@@ -29060,17 +28288,17 @@ var exports = module.exports = function(iterable, entries, fn, that, ITERATOR){
 };
 exports.BREAK  = BREAK;
 exports.RETURN = RETURN;
-},{"./_an-object":106,"./_ctx":124,"./_is-array-iter":145,"./_iter-call":150,"./_to-length":207,"./core.get-iterator-method":217}],137:[function(require,module,exports){
+},{"./_an-object":109,"./_ctx":127,"./_is-array-iter":148,"./_iter-call":153,"./_to-length":210,"./core.get-iterator-method":220}],140:[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],138:[function(require,module,exports){
+},{}],141:[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 module.exports = function(it, key){
   return hasOwnProperty.call(it, key);
 };
-},{}],139:[function(require,module,exports){
+},{}],142:[function(require,module,exports){
 var dP         = require('./_object-dp')
   , createDesc = require('./_property-desc');
 module.exports = require('./_descriptors') ? function(object, key, value){
@@ -29079,13 +28307,13 @@ module.exports = require('./_descriptors') ? function(object, key, value){
   object[key] = value;
   return object;
 };
-},{"./_descriptors":127,"./_object-dp":166,"./_property-desc":184}],140:[function(require,module,exports){
+},{"./_descriptors":130,"./_object-dp":169,"./_property-desc":187}],143:[function(require,module,exports){
 module.exports = require('./_global').document && document.documentElement;
-},{"./_global":137}],141:[function(require,module,exports){
+},{"./_global":140}],144:[function(require,module,exports){
 module.exports = !require('./_descriptors') && !require('./_fails')(function(){
   return Object.defineProperty(require('./_dom-create')('div'), 'a', {get: function(){ return 7; }}).a != 7;
 });
-},{"./_descriptors":127,"./_dom-create":128,"./_fails":133}],142:[function(require,module,exports){
+},{"./_descriptors":130,"./_dom-create":131,"./_fails":136}],145:[function(require,module,exports){
 var isObject       = require('./_is-object')
   , setPrototypeOf = require('./_set-proto').set;
 module.exports = function(that, target, C){
@@ -29094,7 +28322,7 @@ module.exports = function(that, target, C){
     setPrototypeOf(that, P);
   } return that;
 };
-},{"./_is-object":148,"./_set-proto":189}],143:[function(require,module,exports){
+},{"./_is-object":151,"./_set-proto":192}],146:[function(require,module,exports){
 // fast apply, http://jsperf.lnkit.com/fast-apply/5
 module.exports = function(fn, args, that){
   var un = that === undefined;
@@ -29111,13 +28339,13 @@ module.exports = function(fn, args, that){
                       : fn.call(that, args[0], args[1], args[2], args[3]);
   } return              fn.apply(that, args);
 };
-},{}],144:[function(require,module,exports){
+},{}],147:[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./_cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./_cof":117}],145:[function(require,module,exports){
+},{"./_cof":120}],148:[function(require,module,exports){
 // check on default Array iterator
 var Iterators  = require('./_iterators')
   , ITERATOR   = require('./_wks')('iterator')
@@ -29126,24 +28354,24 @@ var Iterators  = require('./_iterators')
 module.exports = function(it){
   return it !== undefined && (Iterators.Array === it || ArrayProto[ITERATOR] === it);
 };
-},{"./_iterators":155,"./_wks":216}],146:[function(require,module,exports){
+},{"./_iterators":158,"./_wks":219}],149:[function(require,module,exports){
 // 7.2.2 IsArray(argument)
 var cof = require('./_cof');
 module.exports = Array.isArray || function isArray(arg){
   return cof(arg) == 'Array';
 };
-},{"./_cof":117}],147:[function(require,module,exports){
+},{"./_cof":120}],150:[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
 var isObject = require('./_is-object')
   , floor    = Math.floor;
 module.exports = function isInteger(it){
   return !isObject(it) && isFinite(it) && floor(it) === it;
 };
-},{"./_is-object":148}],148:[function(require,module,exports){
+},{"./_is-object":151}],151:[function(require,module,exports){
 module.exports = function(it){
   return typeof it === 'object' ? it !== null : typeof it === 'function';
 };
-},{}],149:[function(require,module,exports){
+},{}],152:[function(require,module,exports){
 // 7.2.8 IsRegExp(argument)
 var isObject = require('./_is-object')
   , cof      = require('./_cof')
@@ -29152,7 +28380,7 @@ module.exports = function(it){
   var isRegExp;
   return isObject(it) && ((isRegExp = it[MATCH]) !== undefined ? !!isRegExp : cof(it) == 'RegExp');
 };
-},{"./_cof":117,"./_is-object":148,"./_wks":216}],150:[function(require,module,exports){
+},{"./_cof":120,"./_is-object":151,"./_wks":219}],153:[function(require,module,exports){
 // call something on iterator step with safe closing on error
 var anObject = require('./_an-object');
 module.exports = function(iterator, fn, value, entries){
@@ -29165,7 +28393,7 @@ module.exports = function(iterator, fn, value, entries){
     throw e;
   }
 };
-},{"./_an-object":106}],151:[function(require,module,exports){
+},{"./_an-object":109}],154:[function(require,module,exports){
 'use strict';
 var create         = require('./_object-create')
   , descriptor     = require('./_property-desc')
@@ -29179,7 +28407,7 @@ module.exports = function(Constructor, NAME, next){
   Constructor.prototype = create(IteratorPrototype, {next: descriptor(1, next)});
   setToStringTag(Constructor, NAME + ' Iterator');
 };
-},{"./_hide":139,"./_object-create":165,"./_property-desc":184,"./_set-to-string-tag":191,"./_wks":216}],152:[function(require,module,exports){
+},{"./_hide":142,"./_object-create":168,"./_property-desc":187,"./_set-to-string-tag":194,"./_wks":219}],155:[function(require,module,exports){
 'use strict';
 var LIBRARY        = require('./_library')
   , $export        = require('./_export')
@@ -29250,7 +28478,7 @@ module.exports = function(Base, NAME, Constructor, next, DEFAULT, IS_SET, FORCED
   }
   return methods;
 };
-},{"./_export":131,"./_has":138,"./_hide":139,"./_iter-create":151,"./_iterators":155,"./_library":157,"./_object-gpo":173,"./_redefine":186,"./_set-to-string-tag":191,"./_wks":216}],153:[function(require,module,exports){
+},{"./_export":134,"./_has":141,"./_hide":142,"./_iter-create":154,"./_iterators":158,"./_library":160,"./_object-gpo":176,"./_redefine":189,"./_set-to-string-tag":194,"./_wks":219}],156:[function(require,module,exports){
 var ITERATOR     = require('./_wks')('iterator')
   , SAFE_CLOSING = false;
 
@@ -29272,13 +28500,13 @@ module.exports = function(exec, skipClosing){
   } catch(e){ /* empty */ }
   return safe;
 };
-},{"./_wks":216}],154:[function(require,module,exports){
+},{"./_wks":219}],157:[function(require,module,exports){
 module.exports = function(done, value){
   return {value: value, done: !!done};
 };
-},{}],155:[function(require,module,exports){
+},{}],158:[function(require,module,exports){
 module.exports = {};
-},{}],156:[function(require,module,exports){
+},{}],159:[function(require,module,exports){
 var getKeys   = require('./_object-keys')
   , toIObject = require('./_to-iobject');
 module.exports = function(object, el){
@@ -29289,9 +28517,9 @@ module.exports = function(object, el){
     , key;
   while(length > index)if(O[key = keys[index++]] === el)return key;
 };
-},{"./_object-keys":175,"./_to-iobject":206}],157:[function(require,module,exports){
+},{"./_object-keys":178,"./_to-iobject":209}],160:[function(require,module,exports){
 module.exports = false;
-},{}],158:[function(require,module,exports){
+},{}],161:[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
 var $expm1 = Math.expm1;
 module.exports = (!$expm1
@@ -29302,17 +28530,17 @@ module.exports = (!$expm1
 ) ? function expm1(x){
   return (x = +x) == 0 ? x : x > -1e-6 && x < 1e-6 ? x + x * x / 2 : Math.exp(x) - 1;
 } : $expm1;
-},{}],159:[function(require,module,exports){
+},{}],162:[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
 module.exports = Math.log1p || function log1p(x){
   return (x = +x) > -1e-8 && x < 1e-8 ? x - x * x / 2 : Math.log(1 + x);
 };
-},{}],160:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
 module.exports = Math.sign || function sign(x){
   return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
 };
-},{}],161:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 var META     = require('./_uid')('meta')
   , isObject = require('./_is-object')
   , has      = require('./_has')
@@ -29366,7 +28594,7 @@ var meta = module.exports = {
   getWeak:  getWeak,
   onFreeze: onFreeze
 };
-},{"./_fails":133,"./_has":138,"./_is-object":148,"./_object-dp":166,"./_uid":213}],162:[function(require,module,exports){
+},{"./_fails":136,"./_has":141,"./_is-object":151,"./_object-dp":169,"./_uid":216}],165:[function(require,module,exports){
 var Map     = require('./es6.map')
   , $export = require('./_export')
   , shared  = require('./_shared')('metadata')
@@ -29418,7 +28646,7 @@ module.exports = {
   key: toMetaKey,
   exp: exp
 };
-},{"./_export":131,"./_shared":193,"./es6.map":248,"./es6.weak-map":354}],163:[function(require,module,exports){
+},{"./_export":134,"./_shared":196,"./es6.map":251,"./es6.weak-map":357}],166:[function(require,module,exports){
 var global    = require('./_global')
   , macrotask = require('./_task').set
   , Observer  = global.MutationObserver || global.WebKitMutationObserver
@@ -29487,7 +28715,7 @@ module.exports = function(){
     } last = task;
   };
 };
-},{"./_cof":117,"./_global":137,"./_task":203}],164:[function(require,module,exports){
+},{"./_cof":120,"./_global":140,"./_task":206}],167:[function(require,module,exports){
 'use strict';
 // 19.1.2.1 Object.assign(target, source, ...)
 var getKeys  = require('./_object-keys')
@@ -29521,7 +28749,7 @@ module.exports = !$assign || require('./_fails')(function(){
     while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
   } return T;
 } : $assign;
-},{"./_fails":133,"./_iobject":144,"./_object-gops":172,"./_object-keys":175,"./_object-pie":176,"./_to-object":208}],165:[function(require,module,exports){
+},{"./_fails":136,"./_iobject":147,"./_object-gops":175,"./_object-keys":178,"./_object-pie":179,"./_to-object":211}],168:[function(require,module,exports){
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 var anObject    = require('./_an-object')
   , dPs         = require('./_object-dps')
@@ -29564,7 +28792,7 @@ module.exports = Object.create || function create(O, Properties){
   return Properties === undefined ? result : dPs(result, Properties);
 };
 
-},{"./_an-object":106,"./_dom-create":128,"./_enum-bug-keys":129,"./_html":140,"./_object-dps":167,"./_shared-key":192}],166:[function(require,module,exports){
+},{"./_an-object":109,"./_dom-create":131,"./_enum-bug-keys":132,"./_html":143,"./_object-dps":170,"./_shared-key":195}],169:[function(require,module,exports){
 var anObject       = require('./_an-object')
   , IE8_DOM_DEFINE = require('./_ie8-dom-define')
   , toPrimitive    = require('./_to-primitive')
@@ -29581,7 +28809,7 @@ exports.f = require('./_descriptors') ? Object.defineProperty : function defineP
   if('value' in Attributes)O[P] = Attributes.value;
   return O;
 };
-},{"./_an-object":106,"./_descriptors":127,"./_ie8-dom-define":141,"./_to-primitive":209}],167:[function(require,module,exports){
+},{"./_an-object":109,"./_descriptors":130,"./_ie8-dom-define":144,"./_to-primitive":212}],170:[function(require,module,exports){
 var dP       = require('./_object-dp')
   , anObject = require('./_an-object')
   , getKeys  = require('./_object-keys');
@@ -29595,7 +28823,7 @@ module.exports = require('./_descriptors') ? Object.defineProperties : function 
   while(length > i)dP.f(O, P = keys[i++], Properties[P]);
   return O;
 };
-},{"./_an-object":106,"./_descriptors":127,"./_object-dp":166,"./_object-keys":175}],168:[function(require,module,exports){
+},{"./_an-object":109,"./_descriptors":130,"./_object-dp":169,"./_object-keys":178}],171:[function(require,module,exports){
 // Forced replacement prototype accessors methods
 module.exports = require('./_library')|| !require('./_fails')(function(){
   var K = Math.random();
@@ -29603,7 +28831,7 @@ module.exports = require('./_library')|| !require('./_fails')(function(){
   __defineSetter__.call(null, K, function(){ /* empty */});
   delete require('./_global')[K];
 });
-},{"./_fails":133,"./_global":137,"./_library":157}],169:[function(require,module,exports){
+},{"./_fails":136,"./_global":140,"./_library":160}],172:[function(require,module,exports){
 var pIE            = require('./_object-pie')
   , createDesc     = require('./_property-desc')
   , toIObject      = require('./_to-iobject')
@@ -29620,7 +28848,7 @@ exports.f = require('./_descriptors') ? gOPD : function getOwnPropertyDescriptor
   } catch(e){ /* empty */ }
   if(has(O, P))return createDesc(!pIE.f.call(O, P), O[P]);
 };
-},{"./_descriptors":127,"./_has":138,"./_ie8-dom-define":141,"./_object-pie":176,"./_property-desc":184,"./_to-iobject":206,"./_to-primitive":209}],170:[function(require,module,exports){
+},{"./_descriptors":130,"./_has":141,"./_ie8-dom-define":144,"./_object-pie":179,"./_property-desc":187,"./_to-iobject":209,"./_to-primitive":212}],173:[function(require,module,exports){
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
 var toIObject = require('./_to-iobject')
   , gOPN      = require('./_object-gopn').f
@@ -29641,7 +28869,7 @@ module.exports.f = function getOwnPropertyNames(it){
   return windowNames && toString.call(it) == '[object Window]' ? getWindowNames(it) : gOPN(toIObject(it));
 };
 
-},{"./_object-gopn":171,"./_to-iobject":206}],171:[function(require,module,exports){
+},{"./_object-gopn":174,"./_to-iobject":209}],174:[function(require,module,exports){
 // 19.1.2.7 / 15.2.3.4 Object.getOwnPropertyNames(O)
 var $keys      = require('./_object-keys-internal')
   , hiddenKeys = require('./_enum-bug-keys').concat('length', 'prototype');
@@ -29649,9 +28877,9 @@ var $keys      = require('./_object-keys-internal')
 exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O){
   return $keys(O, hiddenKeys);
 };
-},{"./_enum-bug-keys":129,"./_object-keys-internal":174}],172:[function(require,module,exports){
+},{"./_enum-bug-keys":132,"./_object-keys-internal":177}],175:[function(require,module,exports){
 exports.f = Object.getOwnPropertySymbols;
-},{}],173:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 var has         = require('./_has')
   , toObject    = require('./_to-object')
@@ -29665,7 +28893,7 @@ module.exports = Object.getPrototypeOf || function(O){
     return O.constructor.prototype;
   } return O instanceof Object ? ObjectProto : null;
 };
-},{"./_has":138,"./_shared-key":192,"./_to-object":208}],174:[function(require,module,exports){
+},{"./_has":141,"./_shared-key":195,"./_to-object":211}],177:[function(require,module,exports){
 var has          = require('./_has')
   , toIObject    = require('./_to-iobject')
   , arrayIndexOf = require('./_array-includes')(false)
@@ -29683,7 +28911,7 @@ module.exports = function(object, names){
   }
   return result;
 };
-},{"./_array-includes":110,"./_has":138,"./_shared-key":192,"./_to-iobject":206}],175:[function(require,module,exports){
+},{"./_array-includes":113,"./_has":141,"./_shared-key":195,"./_to-iobject":209}],178:[function(require,module,exports){
 // 19.1.2.14 / 15.2.3.14 Object.keys(O)
 var $keys       = require('./_object-keys-internal')
   , enumBugKeys = require('./_enum-bug-keys');
@@ -29691,9 +28919,9 @@ var $keys       = require('./_object-keys-internal')
 module.exports = Object.keys || function keys(O){
   return $keys(O, enumBugKeys);
 };
-},{"./_enum-bug-keys":129,"./_object-keys-internal":174}],176:[function(require,module,exports){
+},{"./_enum-bug-keys":132,"./_object-keys-internal":177}],179:[function(require,module,exports){
 exports.f = {}.propertyIsEnumerable;
-},{}],177:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 // most Object methods by ES6 should accept primitives
 var $export = require('./_export')
   , core    = require('./_core')
@@ -29704,7 +28932,7 @@ module.exports = function(KEY, exec){
   exp[KEY] = exec(fn);
   $export($export.S + $export.F * fails(function(){ fn(1); }), 'Object', exp);
 };
-},{"./_core":122,"./_export":131,"./_fails":133}],178:[function(require,module,exports){
+},{"./_core":125,"./_export":134,"./_fails":136}],181:[function(require,module,exports){
 var getKeys   = require('./_object-keys')
   , toIObject = require('./_to-iobject')
   , isEnum    = require('./_object-pie').f;
@@ -29721,7 +28949,7 @@ module.exports = function(isEntries){
     } return result;
   };
 };
-},{"./_object-keys":175,"./_object-pie":176,"./_to-iobject":206}],179:[function(require,module,exports){
+},{"./_object-keys":178,"./_object-pie":179,"./_to-iobject":209}],182:[function(require,module,exports){
 // all object keys, includes non-enumerable and symbols
 var gOPN     = require('./_object-gopn')
   , gOPS     = require('./_object-gops')
@@ -29732,7 +28960,7 @@ module.exports = Reflect && Reflect.ownKeys || function ownKeys(it){
     , getSymbols = gOPS.f;
   return getSymbols ? keys.concat(getSymbols(it)) : keys;
 };
-},{"./_an-object":106,"./_global":137,"./_object-gopn":171,"./_object-gops":172}],180:[function(require,module,exports){
+},{"./_an-object":109,"./_global":140,"./_object-gopn":174,"./_object-gops":175}],183:[function(require,module,exports){
 var $parseFloat = require('./_global').parseFloat
   , $trim       = require('./_string-trim').trim;
 
@@ -29741,7 +28969,7 @@ module.exports = 1 / $parseFloat(require('./_string-ws') + '-0') !== -Infinity ?
     , result = $parseFloat(string);
   return result === 0 && string.charAt(0) == '-' ? -0 : result;
 } : $parseFloat;
-},{"./_global":137,"./_string-trim":201,"./_string-ws":202}],181:[function(require,module,exports){
+},{"./_global":140,"./_string-trim":204,"./_string-ws":205}],184:[function(require,module,exports){
 var $parseInt = require('./_global').parseInt
   , $trim     = require('./_string-trim').trim
   , ws        = require('./_string-ws')
@@ -29751,7 +28979,7 @@ module.exports = $parseInt(ws + '08') !== 8 || $parseInt(ws + '0x16') !== 22 ? f
   var string = $trim(String(str), 3);
   return $parseInt(string, (radix >>> 0) || (hex.test(string) ? 16 : 10));
 } : $parseInt;
-},{"./_global":137,"./_string-trim":201,"./_string-ws":202}],182:[function(require,module,exports){
+},{"./_global":140,"./_string-trim":204,"./_string-ws":205}],185:[function(require,module,exports){
 'use strict';
 var path      = require('./_path')
   , invoke    = require('./_invoke')
@@ -29775,9 +29003,9 @@ module.exports = function(/* ...pargs */){
     return invoke(fn, args, that);
   };
 };
-},{"./_a-function":102,"./_invoke":143,"./_path":183}],183:[function(require,module,exports){
+},{"./_a-function":105,"./_invoke":146,"./_path":186}],186:[function(require,module,exports){
 module.exports = require('./_global');
-},{"./_global":137}],184:[function(require,module,exports){
+},{"./_global":140}],187:[function(require,module,exports){
 module.exports = function(bitmap, value){
   return {
     enumerable  : !(bitmap & 1),
@@ -29786,13 +29014,13 @@ module.exports = function(bitmap, value){
     value       : value
   };
 };
-},{}],185:[function(require,module,exports){
+},{}],188:[function(require,module,exports){
 var redefine = require('./_redefine');
 module.exports = function(target, src, safe){
   for(var key in src)redefine(target, key, src[key], safe);
   return target;
 };
-},{"./_redefine":186}],186:[function(require,module,exports){
+},{"./_redefine":189}],189:[function(require,module,exports){
 var global    = require('./_global')
   , hide      = require('./_hide')
   , has       = require('./_has')
@@ -29825,7 +29053,7 @@ require('./_core').inspectSource = function(it){
 })(Function.prototype, TO_STRING, function toString(){
   return typeof this == 'function' && this[SRC] || $toString.call(this);
 });
-},{"./_core":122,"./_global":137,"./_has":138,"./_hide":139,"./_uid":213}],187:[function(require,module,exports){
+},{"./_core":125,"./_global":140,"./_has":141,"./_hide":142,"./_uid":216}],190:[function(require,module,exports){
 module.exports = function(regExp, replace){
   var replacer = replace === Object(replace) ? function(part){
     return replace[part];
@@ -29834,12 +29062,12 @@ module.exports = function(regExp, replace){
     return String(it).replace(regExp, replacer);
   };
 };
-},{}],188:[function(require,module,exports){
+},{}],191:[function(require,module,exports){
 // 7.2.9 SameValue(x, y)
 module.exports = Object.is || function is(x, y){
   return x === y ? x !== 0 || 1 / x === 1 / y : x != x && y != y;
 };
-},{}],189:[function(require,module,exports){
+},{}],192:[function(require,module,exports){
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
 var isObject = require('./_is-object')
@@ -29865,7 +29093,7 @@ module.exports = {
     }({}, false) : undefined),
   check: check
 };
-},{"./_an-object":106,"./_ctx":124,"./_is-object":148,"./_object-gopd":169}],190:[function(require,module,exports){
+},{"./_an-object":109,"./_ctx":127,"./_is-object":151,"./_object-gopd":172}],193:[function(require,module,exports){
 'use strict';
 var global      = require('./_global')
   , dP          = require('./_object-dp')
@@ -29879,7 +29107,7 @@ module.exports = function(KEY){
     get: function(){ return this; }
   });
 };
-},{"./_descriptors":127,"./_global":137,"./_object-dp":166,"./_wks":216}],191:[function(require,module,exports){
+},{"./_descriptors":130,"./_global":140,"./_object-dp":169,"./_wks":219}],194:[function(require,module,exports){
 var def = require('./_object-dp').f
   , has = require('./_has')
   , TAG = require('./_wks')('toStringTag');
@@ -29887,20 +29115,20 @@ var def = require('./_object-dp').f
 module.exports = function(it, tag, stat){
   if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 };
-},{"./_has":138,"./_object-dp":166,"./_wks":216}],192:[function(require,module,exports){
+},{"./_has":141,"./_object-dp":169,"./_wks":219}],195:[function(require,module,exports){
 var shared = require('./_shared')('keys')
   , uid    = require('./_uid');
 module.exports = function(key){
   return shared[key] || (shared[key] = uid(key));
 };
-},{"./_shared":193,"./_uid":213}],193:[function(require,module,exports){
+},{"./_shared":196,"./_uid":216}],196:[function(require,module,exports){
 var global = require('./_global')
   , SHARED = '__core-js_shared__'
   , store  = global[SHARED] || (global[SHARED] = {});
 module.exports = function(key){
   return store[key] || (store[key] = {});
 };
-},{"./_global":137}],194:[function(require,module,exports){
+},{"./_global":140}],197:[function(require,module,exports){
 // 7.3.20 SpeciesConstructor(O, defaultConstructor)
 var anObject  = require('./_an-object')
   , aFunction = require('./_a-function')
@@ -29909,7 +29137,7 @@ module.exports = function(O, D){
   var C = anObject(O).constructor, S;
   return C === undefined || (S = anObject(C)[SPECIES]) == undefined ? D : aFunction(S);
 };
-},{"./_a-function":102,"./_an-object":106,"./_wks":216}],195:[function(require,module,exports){
+},{"./_a-function":105,"./_an-object":109,"./_wks":219}],198:[function(require,module,exports){
 var fails = require('./_fails');
 
 module.exports = function(method, arg){
@@ -29917,7 +29145,7 @@ module.exports = function(method, arg){
     arg ? method.call(null, function(){}, 1) : method.call(null);
   });
 };
-},{"./_fails":133}],196:[function(require,module,exports){
+},{"./_fails":136}],199:[function(require,module,exports){
 var toInteger = require('./_to-integer')
   , defined   = require('./_defined');
 // true  -> String#at
@@ -29935,7 +29163,7 @@ module.exports = function(TO_STRING){
       : TO_STRING ? s.slice(i, i + 2) : (a - 0xd800 << 10) + (b - 0xdc00) + 0x10000;
   };
 };
-},{"./_defined":126,"./_to-integer":205}],197:[function(require,module,exports){
+},{"./_defined":129,"./_to-integer":208}],200:[function(require,module,exports){
 // helper for String#{startsWith, endsWith, includes}
 var isRegExp = require('./_is-regexp')
   , defined  = require('./_defined');
@@ -29944,7 +29172,7 @@ module.exports = function(that, searchString, NAME){
   if(isRegExp(searchString))throw TypeError('String#' + NAME + " doesn't accept regex!");
   return String(defined(that));
 };
-},{"./_defined":126,"./_is-regexp":149}],198:[function(require,module,exports){
+},{"./_defined":129,"./_is-regexp":152}],201:[function(require,module,exports){
 var $export = require('./_export')
   , fails   = require('./_fails')
   , defined = require('./_defined')
@@ -29964,7 +29192,7 @@ module.exports = function(NAME, exec){
     return test !== test.toLowerCase() || test.split('"').length > 3;
   }), 'String', O);
 };
-},{"./_defined":126,"./_export":131,"./_fails":133}],199:[function(require,module,exports){
+},{"./_defined":129,"./_export":134,"./_fails":136}],202:[function(require,module,exports){
 // https://github.com/tc39/proposal-string-pad-start-end
 var toLength = require('./_to-length')
   , repeat   = require('./_string-repeat')
@@ -29982,7 +29210,7 @@ module.exports = function(that, maxLength, fillString, left){
   return left ? stringFiller + S : S + stringFiller;
 };
 
-},{"./_defined":126,"./_string-repeat":200,"./_to-length":207}],200:[function(require,module,exports){
+},{"./_defined":129,"./_string-repeat":203,"./_to-length":210}],203:[function(require,module,exports){
 'use strict';
 var toInteger = require('./_to-integer')
   , defined   = require('./_defined');
@@ -29995,7 +29223,7 @@ module.exports = function repeat(count){
   for(;n > 0; (n >>>= 1) && (str += str))if(n & 1)res += str;
   return res;
 };
-},{"./_defined":126,"./_to-integer":205}],201:[function(require,module,exports){
+},{"./_defined":129,"./_to-integer":208}],204:[function(require,module,exports){
 var $export = require('./_export')
   , defined = require('./_defined')
   , fails   = require('./_fails')
@@ -30026,10 +29254,10 @@ var trim = exporter.trim = function(string, TYPE){
 };
 
 module.exports = exporter;
-},{"./_defined":126,"./_export":131,"./_fails":133,"./_string-ws":202}],202:[function(require,module,exports){
+},{"./_defined":129,"./_export":134,"./_fails":136,"./_string-ws":205}],205:[function(require,module,exports){
 module.exports = '\x09\x0A\x0B\x0C\x0D\x20\xA0\u1680\u180E\u2000\u2001\u2002\u2003' +
   '\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000\u2028\u2029\uFEFF';
-},{}],203:[function(require,module,exports){
+},{}],206:[function(require,module,exports){
 var ctx                = require('./_ctx')
   , invoke             = require('./_invoke')
   , html               = require('./_html')
@@ -30105,7 +29333,7 @@ module.exports = {
   set:   setTask,
   clear: clearTask
 };
-},{"./_cof":117,"./_ctx":124,"./_dom-create":128,"./_global":137,"./_html":140,"./_invoke":143}],204:[function(require,module,exports){
+},{"./_cof":120,"./_ctx":127,"./_dom-create":131,"./_global":140,"./_html":143,"./_invoke":146}],207:[function(require,module,exports){
 var toInteger = require('./_to-integer')
   , max       = Math.max
   , min       = Math.min;
@@ -30113,34 +29341,34 @@ module.exports = function(index, length){
   index = toInteger(index);
   return index < 0 ? max(index + length, 0) : min(index, length);
 };
-},{"./_to-integer":205}],205:[function(require,module,exports){
+},{"./_to-integer":208}],208:[function(require,module,exports){
 // 7.1.4 ToInteger
 var ceil  = Math.ceil
   , floor = Math.floor;
 module.exports = function(it){
   return isNaN(it = +it) ? 0 : (it > 0 ? floor : ceil)(it);
 };
-},{}],206:[function(require,module,exports){
+},{}],209:[function(require,module,exports){
 // to indexed object, toObject with fallback for non-array-like ES3 strings
 var IObject = require('./_iobject')
   , defined = require('./_defined');
 module.exports = function(it){
   return IObject(defined(it));
 };
-},{"./_defined":126,"./_iobject":144}],207:[function(require,module,exports){
+},{"./_defined":129,"./_iobject":147}],210:[function(require,module,exports){
 // 7.1.15 ToLength
 var toInteger = require('./_to-integer')
   , min       = Math.min;
 module.exports = function(it){
   return it > 0 ? min(toInteger(it), 0x1fffffffffffff) : 0; // pow(2, 53) - 1 == 9007199254740991
 };
-},{"./_to-integer":205}],208:[function(require,module,exports){
+},{"./_to-integer":208}],211:[function(require,module,exports){
 // 7.1.13 ToObject(argument)
 var defined = require('./_defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./_defined":126}],209:[function(require,module,exports){
+},{"./_defined":129}],212:[function(require,module,exports){
 // 7.1.1 ToPrimitive(input [, PreferredType])
 var isObject = require('./_is-object');
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
@@ -30153,7 +29381,7 @@ module.exports = function(it, S){
   if(!S && typeof (fn = it.toString) == 'function' && !isObject(val = fn.call(it)))return val;
   throw TypeError("Can't convert object to primitive value");
 };
-},{"./_is-object":148}],210:[function(require,module,exports){
+},{"./_is-object":151}],213:[function(require,module,exports){
 'use strict';
 if(require('./_descriptors')){
   var LIBRARY             = require('./_library')
@@ -30633,7 +29861,7 @@ if(require('./_descriptors')){
     if(!LIBRARY && !CORRECT_ITER_NAME)hide(TypedArrayPrototype, ITERATOR, $iterator);
   };
 } else module.exports = function(){ /* empty */ };
-},{"./_an-instance":105,"./_array-copy-within":107,"./_array-fill":108,"./_array-includes":110,"./_array-methods":111,"./_classof":116,"./_ctx":124,"./_descriptors":127,"./_export":131,"./_fails":133,"./_global":137,"./_has":138,"./_hide":139,"./_is-array-iter":145,"./_is-object":148,"./_iter-detect":153,"./_iterators":155,"./_library":157,"./_object-create":165,"./_object-dp":166,"./_object-gopd":169,"./_object-gopn":171,"./_object-gpo":173,"./_property-desc":184,"./_redefine-all":185,"./_same-value":188,"./_set-species":190,"./_species-constructor":194,"./_to-index":204,"./_to-integer":205,"./_to-length":207,"./_to-object":208,"./_to-primitive":209,"./_typed":212,"./_typed-buffer":211,"./_uid":213,"./_wks":216,"./core.get-iterator-method":217,"./es6.array.iterator":229}],211:[function(require,module,exports){
+},{"./_an-instance":108,"./_array-copy-within":110,"./_array-fill":111,"./_array-includes":113,"./_array-methods":114,"./_classof":119,"./_ctx":127,"./_descriptors":130,"./_export":134,"./_fails":136,"./_global":140,"./_has":141,"./_hide":142,"./_is-array-iter":148,"./_is-object":151,"./_iter-detect":156,"./_iterators":158,"./_library":160,"./_object-create":168,"./_object-dp":169,"./_object-gopd":172,"./_object-gopn":174,"./_object-gpo":176,"./_property-desc":187,"./_redefine-all":188,"./_same-value":191,"./_set-species":193,"./_species-constructor":197,"./_to-index":207,"./_to-integer":208,"./_to-length":210,"./_to-object":211,"./_to-primitive":212,"./_typed":215,"./_typed-buffer":214,"./_uid":216,"./_wks":219,"./core.get-iterator-method":220,"./es6.array.iterator":232}],214:[function(require,module,exports){
 'use strict';
 var global         = require('./_global')
   , DESCRIPTORS    = require('./_descriptors')
@@ -30907,7 +30135,7 @@ setToStringTag($DataView, DATA_VIEW);
 hide($DataView[PROTOTYPE], $typed.VIEW, true);
 exports[ARRAY_BUFFER] = $ArrayBuffer;
 exports[DATA_VIEW] = $DataView;
-},{"./_an-instance":105,"./_array-fill":108,"./_descriptors":127,"./_fails":133,"./_global":137,"./_hide":139,"./_library":157,"./_object-dp":166,"./_object-gopn":171,"./_redefine-all":185,"./_set-to-string-tag":191,"./_to-integer":205,"./_to-length":207,"./_typed":212}],212:[function(require,module,exports){
+},{"./_an-instance":108,"./_array-fill":111,"./_descriptors":130,"./_fails":136,"./_global":140,"./_hide":142,"./_library":160,"./_object-dp":169,"./_object-gopn":174,"./_redefine-all":188,"./_set-to-string-tag":194,"./_to-integer":208,"./_to-length":210,"./_typed":215}],215:[function(require,module,exports){
 var global = require('./_global')
   , hide   = require('./_hide')
   , uid    = require('./_uid')
@@ -30934,13 +30162,13 @@ module.exports = {
   TYPED:  TYPED,
   VIEW:   VIEW
 };
-},{"./_global":137,"./_hide":139,"./_uid":213}],213:[function(require,module,exports){
+},{"./_global":140,"./_hide":142,"./_uid":216}],216:[function(require,module,exports){
 var id = 0
   , px = Math.random();
 module.exports = function(key){
   return 'Symbol('.concat(key === undefined ? '' : key, ')_', (++id + px).toString(36));
 };
-},{}],214:[function(require,module,exports){
+},{}],217:[function(require,module,exports){
 var global         = require('./_global')
   , core           = require('./_core')
   , LIBRARY        = require('./_library')
@@ -30950,9 +30178,9 @@ module.exports = function(name){
   var $Symbol = core.Symbol || (core.Symbol = LIBRARY ? {} : global.Symbol || {});
   if(name.charAt(0) != '_' && !(name in $Symbol))defineProperty($Symbol, name, {value: wksExt.f(name)});
 };
-},{"./_core":122,"./_global":137,"./_library":157,"./_object-dp":166,"./_wks-ext":215}],215:[function(require,module,exports){
+},{"./_core":125,"./_global":140,"./_library":160,"./_object-dp":169,"./_wks-ext":218}],218:[function(require,module,exports){
 exports.f = require('./_wks');
-},{"./_wks":216}],216:[function(require,module,exports){
+},{"./_wks":219}],219:[function(require,module,exports){
 var store      = require('./_shared')('wks')
   , uid        = require('./_uid')
   , Symbol     = require('./_global').Symbol
@@ -30964,7 +30192,7 @@ var $exports = module.exports = function(name){
 };
 
 $exports.store = store;
-},{"./_global":137,"./_shared":193,"./_uid":213}],217:[function(require,module,exports){
+},{"./_global":140,"./_shared":196,"./_uid":216}],220:[function(require,module,exports){
 var classof   = require('./_classof')
   , ITERATOR  = require('./_wks')('iterator')
   , Iterators = require('./_iterators');
@@ -30973,21 +30201,21 @@ module.exports = require('./_core').getIteratorMethod = function(it){
     || it['@@iterator']
     || Iterators[classof(it)];
 };
-},{"./_classof":116,"./_core":122,"./_iterators":155,"./_wks":216}],218:[function(require,module,exports){
+},{"./_classof":119,"./_core":125,"./_iterators":158,"./_wks":219}],221:[function(require,module,exports){
 // https://github.com/benjamingr/RexExp.escape
 var $export = require('./_export')
   , $re     = require('./_replacer')(/[\\^$*+?.()|[\]{}]/g, '\\$&');
 
 $export($export.S, 'RegExp', {escape: function escape(it){ return $re(it); }});
 
-},{"./_export":131,"./_replacer":187}],219:[function(require,module,exports){
+},{"./_export":134,"./_replacer":190}],222:[function(require,module,exports){
 // 22.1.3.3 Array.prototype.copyWithin(target, start, end = this.length)
 var $export = require('./_export');
 
 $export($export.P, 'Array', {copyWithin: require('./_array-copy-within')});
 
 require('./_add-to-unscopables')('copyWithin');
-},{"./_add-to-unscopables":104,"./_array-copy-within":107,"./_export":131}],220:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_array-copy-within":110,"./_export":134}],223:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $every  = require('./_array-methods')(4);
@@ -30998,14 +30226,14 @@ $export($export.P + $export.F * !require('./_strict-method')([].every, true), 'A
     return $every(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":111,"./_export":131,"./_strict-method":195}],221:[function(require,module,exports){
+},{"./_array-methods":114,"./_export":134,"./_strict-method":198}],224:[function(require,module,exports){
 // 22.1.3.6 Array.prototype.fill(value, start = 0, end = this.length)
 var $export = require('./_export');
 
 $export($export.P, 'Array', {fill: require('./_array-fill')});
 
 require('./_add-to-unscopables')('fill');
-},{"./_add-to-unscopables":104,"./_array-fill":108,"./_export":131}],222:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_array-fill":111,"./_export":134}],225:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $filter = require('./_array-methods')(2);
@@ -31016,7 +30244,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].filter, true), '
     return $filter(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":111,"./_export":131,"./_strict-method":195}],223:[function(require,module,exports){
+},{"./_array-methods":114,"./_export":134,"./_strict-method":198}],226:[function(require,module,exports){
 'use strict';
 // 22.1.3.9 Array.prototype.findIndex(predicate, thisArg = undefined)
 var $export = require('./_export')
@@ -31031,7 +30259,7 @@ $export($export.P + $export.F * forced, 'Array', {
   }
 });
 require('./_add-to-unscopables')(KEY);
-},{"./_add-to-unscopables":104,"./_array-methods":111,"./_export":131}],224:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_array-methods":114,"./_export":134}],227:[function(require,module,exports){
 'use strict';
 // 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
 var $export = require('./_export')
@@ -31046,7 +30274,7 @@ $export($export.P + $export.F * forced, 'Array', {
   }
 });
 require('./_add-to-unscopables')(KEY);
-},{"./_add-to-unscopables":104,"./_array-methods":111,"./_export":131}],225:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_array-methods":114,"./_export":134}],228:[function(require,module,exports){
 'use strict';
 var $export  = require('./_export')
   , $forEach = require('./_array-methods')(0)
@@ -31058,7 +30286,7 @@ $export($export.P + $export.F * !STRICT, 'Array', {
     return $forEach(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":111,"./_export":131,"./_strict-method":195}],226:[function(require,module,exports){
+},{"./_array-methods":114,"./_export":134,"./_strict-method":198}],229:[function(require,module,exports){
 'use strict';
 var ctx            = require('./_ctx')
   , $export        = require('./_export')
@@ -31097,7 +30325,7 @@ $export($export.S + $export.F * !require('./_iter-detect')(function(iter){ Array
   }
 });
 
-},{"./_create-property":123,"./_ctx":124,"./_export":131,"./_is-array-iter":145,"./_iter-call":150,"./_iter-detect":153,"./_to-length":207,"./_to-object":208,"./core.get-iterator-method":217}],227:[function(require,module,exports){
+},{"./_create-property":126,"./_ctx":127,"./_export":134,"./_is-array-iter":148,"./_iter-call":153,"./_iter-detect":156,"./_to-length":210,"./_to-object":211,"./core.get-iterator-method":220}],230:[function(require,module,exports){
 'use strict';
 var $export       = require('./_export')
   , $indexOf      = require('./_array-includes')(false)
@@ -31113,12 +30341,12 @@ $export($export.P + $export.F * (NEGATIVE_ZERO || !require('./_strict-method')($
       : $indexOf(this, searchElement, arguments[1]);
   }
 });
-},{"./_array-includes":110,"./_export":131,"./_strict-method":195}],228:[function(require,module,exports){
+},{"./_array-includes":113,"./_export":134,"./_strict-method":198}],231:[function(require,module,exports){
 // 22.1.2.2 / 15.4.3.2 Array.isArray(arg)
 var $export = require('./_export');
 
 $export($export.S, 'Array', {isArray: require('./_is-array')});
-},{"./_export":131,"./_is-array":146}],229:[function(require,module,exports){
+},{"./_export":134,"./_is-array":149}],232:[function(require,module,exports){
 'use strict';
 var addToUnscopables = require('./_add-to-unscopables')
   , step             = require('./_iter-step')
@@ -31153,7 +30381,7 @@ Iterators.Arguments = Iterators.Array;
 addToUnscopables('keys');
 addToUnscopables('values');
 addToUnscopables('entries');
-},{"./_add-to-unscopables":104,"./_iter-define":152,"./_iter-step":154,"./_iterators":155,"./_to-iobject":206}],230:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_iter-define":155,"./_iter-step":157,"./_iterators":158,"./_to-iobject":209}],233:[function(require,module,exports){
 'use strict';
 // 22.1.3.13 Array.prototype.join(separator)
 var $export   = require('./_export')
@@ -31166,7 +30394,7 @@ $export($export.P + $export.F * (require('./_iobject') != Object || !require('./
     return arrayJoin.call(toIObject(this), separator === undefined ? ',' : separator);
   }
 });
-},{"./_export":131,"./_iobject":144,"./_strict-method":195,"./_to-iobject":206}],231:[function(require,module,exports){
+},{"./_export":134,"./_iobject":147,"./_strict-method":198,"./_to-iobject":209}],234:[function(require,module,exports){
 'use strict';
 var $export       = require('./_export')
   , toIObject     = require('./_to-iobject')
@@ -31189,7 +30417,7 @@ $export($export.P + $export.F * (NEGATIVE_ZERO || !require('./_strict-method')($
     return -1;
   }
 });
-},{"./_export":131,"./_strict-method":195,"./_to-integer":205,"./_to-iobject":206,"./_to-length":207}],232:[function(require,module,exports){
+},{"./_export":134,"./_strict-method":198,"./_to-integer":208,"./_to-iobject":209,"./_to-length":210}],235:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $map    = require('./_array-methods')(1);
@@ -31200,7 +30428,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].map, true), 'Arr
     return $map(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":111,"./_export":131,"./_strict-method":195}],233:[function(require,module,exports){
+},{"./_array-methods":114,"./_export":134,"./_strict-method":198}],236:[function(require,module,exports){
 'use strict';
 var $export        = require('./_export')
   , createProperty = require('./_create-property');
@@ -31220,7 +30448,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     return result;
   }
 });
-},{"./_create-property":123,"./_export":131,"./_fails":133}],234:[function(require,module,exports){
+},{"./_create-property":126,"./_export":134,"./_fails":136}],237:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $reduce = require('./_array-reduce');
@@ -31231,7 +30459,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].reduceRight, tru
     return $reduce(this, callbackfn, arguments.length, arguments[1], true);
   }
 });
-},{"./_array-reduce":112,"./_export":131,"./_strict-method":195}],235:[function(require,module,exports){
+},{"./_array-reduce":115,"./_export":134,"./_strict-method":198}],238:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $reduce = require('./_array-reduce');
@@ -31242,7 +30470,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].reduce, true), '
     return $reduce(this, callbackfn, arguments.length, arguments[1], false);
   }
 });
-},{"./_array-reduce":112,"./_export":131,"./_strict-method":195}],236:[function(require,module,exports){
+},{"./_array-reduce":115,"./_export":134,"./_strict-method":198}],239:[function(require,module,exports){
 'use strict';
 var $export    = require('./_export')
   , html       = require('./_html')
@@ -31271,7 +30499,7 @@ $export($export.P + $export.F * require('./_fails')(function(){
     return cloned;
   }
 });
-},{"./_cof":117,"./_export":131,"./_fails":133,"./_html":140,"./_to-index":204,"./_to-length":207}],237:[function(require,module,exports){
+},{"./_cof":120,"./_export":134,"./_fails":136,"./_html":143,"./_to-index":207,"./_to-length":210}],240:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $some   = require('./_array-methods')(3);
@@ -31282,7 +30510,7 @@ $export($export.P + $export.F * !require('./_strict-method')([].some, true), 'Ar
     return $some(this, callbackfn, arguments[1]);
   }
 });
-},{"./_array-methods":111,"./_export":131,"./_strict-method":195}],238:[function(require,module,exports){
+},{"./_array-methods":114,"./_export":134,"./_strict-method":198}],241:[function(require,module,exports){
 'use strict';
 var $export   = require('./_export')
   , aFunction = require('./_a-function')
@@ -31306,14 +30534,14 @@ $export($export.P + $export.F * (fails(function(){
       : $sort.call(toObject(this), aFunction(comparefn));
   }
 });
-},{"./_a-function":102,"./_export":131,"./_fails":133,"./_strict-method":195,"./_to-object":208}],239:[function(require,module,exports){
+},{"./_a-function":105,"./_export":134,"./_fails":136,"./_strict-method":198,"./_to-object":211}],242:[function(require,module,exports){
 require('./_set-species')('Array');
-},{"./_set-species":190}],240:[function(require,module,exports){
+},{"./_set-species":193}],243:[function(require,module,exports){
 // 20.3.3.1 / 15.9.4.4 Date.now()
 var $export = require('./_export');
 
 $export($export.S, 'Date', {now: function(){ return new Date().getTime(); }});
-},{"./_export":131}],241:[function(require,module,exports){
+},{"./_export":134}],244:[function(require,module,exports){
 'use strict';
 // 20.3.4.36 / 15.9.5.43 Date.prototype.toISOString()
 var $export = require('./_export')
@@ -31342,7 +30570,7 @@ $export($export.P + $export.F * (fails(function(){
       ':' + lz(d.getUTCSeconds()) + '.' + (m > 99 ? m : '0' + lz(m)) + 'Z';
   }
 });
-},{"./_export":131,"./_fails":133}],242:[function(require,module,exports){
+},{"./_export":134,"./_fails":136}],245:[function(require,module,exports){
 'use strict';
 var $export     = require('./_export')
   , toObject    = require('./_to-object')
@@ -31357,12 +30585,12 @@ $export($export.P + $export.F * require('./_fails')(function(){
     return typeof pv == 'number' && !isFinite(pv) ? null : O.toISOString();
   }
 });
-},{"./_export":131,"./_fails":133,"./_to-object":208,"./_to-primitive":209}],243:[function(require,module,exports){
+},{"./_export":134,"./_fails":136,"./_to-object":211,"./_to-primitive":212}],246:[function(require,module,exports){
 var TO_PRIMITIVE = require('./_wks')('toPrimitive')
   , proto        = Date.prototype;
 
 if(!(TO_PRIMITIVE in proto))require('./_hide')(proto, TO_PRIMITIVE, require('./_date-to-primitive'));
-},{"./_date-to-primitive":125,"./_hide":139,"./_wks":216}],244:[function(require,module,exports){
+},{"./_date-to-primitive":128,"./_hide":142,"./_wks":219}],247:[function(require,module,exports){
 var DateProto    = Date.prototype
   , INVALID_DATE = 'Invalid Date'
   , TO_STRING    = 'toString'
@@ -31374,12 +30602,12 @@ if(new Date(NaN) + '' != INVALID_DATE){
     return value === value ? $toString.call(this) : INVALID_DATE;
   });
 }
-},{"./_redefine":186}],245:[function(require,module,exports){
+},{"./_redefine":189}],248:[function(require,module,exports){
 // 19.2.3.2 / 15.3.4.5 Function.prototype.bind(thisArg, args...)
 var $export = require('./_export');
 
 $export($export.P, 'Function', {bind: require('./_bind')});
-},{"./_bind":115,"./_export":131}],246:[function(require,module,exports){
+},{"./_bind":118,"./_export":134}],249:[function(require,module,exports){
 'use strict';
 var isObject       = require('./_is-object')
   , getPrototypeOf = require('./_object-gpo')
@@ -31393,7 +30621,7 @@ if(!(HAS_INSTANCE in FunctionProto))require('./_object-dp').f(FunctionProto, HAS
   while(O = getPrototypeOf(O))if(this.prototype === O)return true;
   return false;
 }});
-},{"./_is-object":148,"./_object-dp":166,"./_object-gpo":173,"./_wks":216}],247:[function(require,module,exports){
+},{"./_is-object":151,"./_object-dp":169,"./_object-gpo":176,"./_wks":219}],250:[function(require,module,exports){
 var dP         = require('./_object-dp').f
   , createDesc = require('./_property-desc')
   , has        = require('./_has')
@@ -31419,7 +30647,7 @@ NAME in FProto || require('./_descriptors') && dP(FProto, NAME, {
     }
   }
 });
-},{"./_descriptors":127,"./_has":138,"./_object-dp":166,"./_property-desc":184}],248:[function(require,module,exports){
+},{"./_descriptors":130,"./_has":141,"./_object-dp":169,"./_property-desc":187}],251:[function(require,module,exports){
 'use strict';
 var strong = require('./_collection-strong');
 
@@ -31437,7 +30665,7 @@ module.exports = require('./_collection')('Map', function(get){
     return strong.def(this, key === 0 ? 0 : key, value);
   }
 }, strong, true);
-},{"./_collection":121,"./_collection-strong":118}],249:[function(require,module,exports){
+},{"./_collection":124,"./_collection-strong":121}],252:[function(require,module,exports){
 // 20.2.2.3 Math.acosh(x)
 var $export = require('./_export')
   , log1p   = require('./_math-log1p')
@@ -31456,7 +30684,7 @@ $export($export.S + $export.F * !($acosh
       : log1p(x - 1 + sqrt(x - 1) * sqrt(x + 1));
   }
 });
-},{"./_export":131,"./_math-log1p":159}],250:[function(require,module,exports){
+},{"./_export":134,"./_math-log1p":162}],253:[function(require,module,exports){
 // 20.2.2.5 Math.asinh(x)
 var $export = require('./_export')
   , $asinh  = Math.asinh;
@@ -31467,7 +30695,7 @@ function asinh(x){
 
 // Tor Browser bug: Math.asinh(0) -> -0 
 $export($export.S + $export.F * !($asinh && 1 / $asinh(0) > 0), 'Math', {asinh: asinh});
-},{"./_export":131}],251:[function(require,module,exports){
+},{"./_export":134}],254:[function(require,module,exports){
 // 20.2.2.7 Math.atanh(x)
 var $export = require('./_export')
   , $atanh  = Math.atanh;
@@ -31478,7 +30706,7 @@ $export($export.S + $export.F * !($atanh && 1 / $atanh(-0) < 0), 'Math', {
     return (x = +x) == 0 ? x : Math.log((1 + x) / (1 - x)) / 2;
   }
 });
-},{"./_export":131}],252:[function(require,module,exports){
+},{"./_export":134}],255:[function(require,module,exports){
 // 20.2.2.9 Math.cbrt(x)
 var $export = require('./_export')
   , sign    = require('./_math-sign');
@@ -31488,7 +30716,7 @@ $export($export.S, 'Math', {
     return sign(x = +x) * Math.pow(Math.abs(x), 1 / 3);
   }
 });
-},{"./_export":131,"./_math-sign":160}],253:[function(require,module,exports){
+},{"./_export":134,"./_math-sign":163}],256:[function(require,module,exports){
 // 20.2.2.11 Math.clz32(x)
 var $export = require('./_export');
 
@@ -31497,7 +30725,7 @@ $export($export.S, 'Math', {
     return (x >>>= 0) ? 31 - Math.floor(Math.log(x + 0.5) * Math.LOG2E) : 32;
   }
 });
-},{"./_export":131}],254:[function(require,module,exports){
+},{"./_export":134}],257:[function(require,module,exports){
 // 20.2.2.12 Math.cosh(x)
 var $export = require('./_export')
   , exp     = Math.exp;
@@ -31507,13 +30735,13 @@ $export($export.S, 'Math', {
     return (exp(x = +x) + exp(-x)) / 2;
   }
 });
-},{"./_export":131}],255:[function(require,module,exports){
+},{"./_export":134}],258:[function(require,module,exports){
 // 20.2.2.14 Math.expm1(x)
 var $export = require('./_export')
   , $expm1  = require('./_math-expm1');
 
 $export($export.S + $export.F * ($expm1 != Math.expm1), 'Math', {expm1: $expm1});
-},{"./_export":131,"./_math-expm1":158}],256:[function(require,module,exports){
+},{"./_export":134,"./_math-expm1":161}],259:[function(require,module,exports){
 // 20.2.2.16 Math.fround(x)
 var $export   = require('./_export')
   , sign      = require('./_math-sign')
@@ -31540,7 +30768,7 @@ $export($export.S, 'Math', {
     return $sign * result;
   }
 });
-},{"./_export":131,"./_math-sign":160}],257:[function(require,module,exports){
+},{"./_export":134,"./_math-sign":163}],260:[function(require,module,exports){
 // 20.2.2.17 Math.hypot([value1[, value2[, … ]]])
 var $export = require('./_export')
   , abs     = Math.abs;
@@ -31566,7 +30794,7 @@ $export($export.S, 'Math', {
     return larg === Infinity ? Infinity : larg * Math.sqrt(sum);
   }
 });
-},{"./_export":131}],258:[function(require,module,exports){
+},{"./_export":134}],261:[function(require,module,exports){
 // 20.2.2.18 Math.imul(x, y)
 var $export = require('./_export')
   , $imul   = Math.imul;
@@ -31584,7 +30812,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     return 0 | xl * yl + ((UINT16 & xn >>> 16) * yl + xl * (UINT16 & yn >>> 16) << 16 >>> 0);
   }
 });
-},{"./_export":131,"./_fails":133}],259:[function(require,module,exports){
+},{"./_export":134,"./_fails":136}],262:[function(require,module,exports){
 // 20.2.2.21 Math.log10(x)
 var $export = require('./_export');
 
@@ -31593,12 +30821,12 @@ $export($export.S, 'Math', {
     return Math.log(x) / Math.LN10;
   }
 });
-},{"./_export":131}],260:[function(require,module,exports){
+},{"./_export":134}],263:[function(require,module,exports){
 // 20.2.2.20 Math.log1p(x)
 var $export = require('./_export');
 
 $export($export.S, 'Math', {log1p: require('./_math-log1p')});
-},{"./_export":131,"./_math-log1p":159}],261:[function(require,module,exports){
+},{"./_export":134,"./_math-log1p":162}],264:[function(require,module,exports){
 // 20.2.2.22 Math.log2(x)
 var $export = require('./_export');
 
@@ -31607,12 +30835,12 @@ $export($export.S, 'Math', {
     return Math.log(x) / Math.LN2;
   }
 });
-},{"./_export":131}],262:[function(require,module,exports){
+},{"./_export":134}],265:[function(require,module,exports){
 // 20.2.2.28 Math.sign(x)
 var $export = require('./_export');
 
 $export($export.S, 'Math', {sign: require('./_math-sign')});
-},{"./_export":131,"./_math-sign":160}],263:[function(require,module,exports){
+},{"./_export":134,"./_math-sign":163}],266:[function(require,module,exports){
 // 20.2.2.30 Math.sinh(x)
 var $export = require('./_export')
   , expm1   = require('./_math-expm1')
@@ -31628,7 +30856,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
       : (exp(x - 1) - exp(-x - 1)) * (Math.E / 2);
   }
 });
-},{"./_export":131,"./_fails":133,"./_math-expm1":158}],264:[function(require,module,exports){
+},{"./_export":134,"./_fails":136,"./_math-expm1":161}],267:[function(require,module,exports){
 // 20.2.2.33 Math.tanh(x)
 var $export = require('./_export')
   , expm1   = require('./_math-expm1')
@@ -31641,7 +30869,7 @@ $export($export.S, 'Math', {
     return a == Infinity ? 1 : b == Infinity ? -1 : (a - b) / (exp(x) + exp(-x));
   }
 });
-},{"./_export":131,"./_math-expm1":158}],265:[function(require,module,exports){
+},{"./_export":134,"./_math-expm1":161}],268:[function(require,module,exports){
 // 20.2.2.34 Math.trunc(x)
 var $export = require('./_export');
 
@@ -31650,7 +30878,7 @@ $export($export.S, 'Math', {
     return (it > 0 ? Math.floor : Math.ceil)(it);
   }
 });
-},{"./_export":131}],266:[function(require,module,exports){
+},{"./_export":134}],269:[function(require,module,exports){
 'use strict';
 var global            = require('./_global')
   , has               = require('./_has')
@@ -31720,12 +30948,12 @@ if(!$Number(' 0o1') || !$Number('0b1') || $Number('+0x1')){
   proto.constructor = $Number;
   require('./_redefine')(global, NUMBER, $Number);
 }
-},{"./_cof":117,"./_descriptors":127,"./_fails":133,"./_global":137,"./_has":138,"./_inherit-if-required":142,"./_object-create":165,"./_object-dp":166,"./_object-gopd":169,"./_object-gopn":171,"./_redefine":186,"./_string-trim":201,"./_to-primitive":209}],267:[function(require,module,exports){
+},{"./_cof":120,"./_descriptors":130,"./_fails":136,"./_global":140,"./_has":141,"./_inherit-if-required":145,"./_object-create":168,"./_object-dp":169,"./_object-gopd":172,"./_object-gopn":174,"./_redefine":189,"./_string-trim":204,"./_to-primitive":212}],270:[function(require,module,exports){
 // 20.1.2.1 Number.EPSILON
 var $export = require('./_export');
 
 $export($export.S, 'Number', {EPSILON: Math.pow(2, -52)});
-},{"./_export":131}],268:[function(require,module,exports){
+},{"./_export":134}],271:[function(require,module,exports){
 // 20.1.2.2 Number.isFinite(number)
 var $export   = require('./_export')
   , _isFinite = require('./_global').isFinite;
@@ -31735,12 +30963,12 @@ $export($export.S, 'Number', {
     return typeof it == 'number' && _isFinite(it);
   }
 });
-},{"./_export":131,"./_global":137}],269:[function(require,module,exports){
+},{"./_export":134,"./_global":140}],272:[function(require,module,exports){
 // 20.1.2.3 Number.isInteger(number)
 var $export = require('./_export');
 
 $export($export.S, 'Number', {isInteger: require('./_is-integer')});
-},{"./_export":131,"./_is-integer":147}],270:[function(require,module,exports){
+},{"./_export":134,"./_is-integer":150}],273:[function(require,module,exports){
 // 20.1.2.4 Number.isNaN(number)
 var $export = require('./_export');
 
@@ -31749,7 +30977,7 @@ $export($export.S, 'Number', {
     return number != number;
   }
 });
-},{"./_export":131}],271:[function(require,module,exports){
+},{"./_export":134}],274:[function(require,module,exports){
 // 20.1.2.5 Number.isSafeInteger(number)
 var $export   = require('./_export')
   , isInteger = require('./_is-integer')
@@ -31760,27 +30988,27 @@ $export($export.S, 'Number', {
     return isInteger(number) && abs(number) <= 0x1fffffffffffff;
   }
 });
-},{"./_export":131,"./_is-integer":147}],272:[function(require,module,exports){
+},{"./_export":134,"./_is-integer":150}],275:[function(require,module,exports){
 // 20.1.2.6 Number.MAX_SAFE_INTEGER
 var $export = require('./_export');
 
 $export($export.S, 'Number', {MAX_SAFE_INTEGER: 0x1fffffffffffff});
-},{"./_export":131}],273:[function(require,module,exports){
+},{"./_export":134}],276:[function(require,module,exports){
 // 20.1.2.10 Number.MIN_SAFE_INTEGER
 var $export = require('./_export');
 
 $export($export.S, 'Number', {MIN_SAFE_INTEGER: -0x1fffffffffffff});
-},{"./_export":131}],274:[function(require,module,exports){
+},{"./_export":134}],277:[function(require,module,exports){
 var $export     = require('./_export')
   , $parseFloat = require('./_parse-float');
 // 20.1.2.12 Number.parseFloat(string)
 $export($export.S + $export.F * (Number.parseFloat != $parseFloat), 'Number', {parseFloat: $parseFloat});
-},{"./_export":131,"./_parse-float":180}],275:[function(require,module,exports){
+},{"./_export":134,"./_parse-float":183}],278:[function(require,module,exports){
 var $export   = require('./_export')
   , $parseInt = require('./_parse-int');
 // 20.1.2.13 Number.parseInt(string, radix)
 $export($export.S + $export.F * (Number.parseInt != $parseInt), 'Number', {parseInt: $parseInt});
-},{"./_export":131,"./_parse-int":181}],276:[function(require,module,exports){
+},{"./_export":134,"./_parse-int":184}],279:[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , toInteger    = require('./_to-integer')
@@ -31894,7 +31122,7 @@ $export($export.P + $export.F * (!!$toFixed && (
     } return m;
   }
 });
-},{"./_a-number-value":103,"./_export":131,"./_fails":133,"./_string-repeat":200,"./_to-integer":205}],277:[function(require,module,exports){
+},{"./_a-number-value":106,"./_export":134,"./_fails":136,"./_string-repeat":203,"./_to-integer":208}],280:[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , $fails       = require('./_fails')
@@ -31913,24 +31141,24 @@ $export($export.P + $export.F * ($fails(function(){
     return precision === undefined ? $toPrecision.call(that) : $toPrecision.call(that, precision); 
   }
 });
-},{"./_a-number-value":103,"./_export":131,"./_fails":133}],278:[function(require,module,exports){
+},{"./_a-number-value":106,"./_export":134,"./_fails":136}],281:[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./_export');
 
 $export($export.S + $export.F, 'Object', {assign: require('./_object-assign')});
-},{"./_export":131,"./_object-assign":164}],279:[function(require,module,exports){
+},{"./_export":134,"./_object-assign":167}],282:[function(require,module,exports){
 var $export = require('./_export')
 // 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 $export($export.S, 'Object', {create: require('./_object-create')});
-},{"./_export":131,"./_object-create":165}],280:[function(require,module,exports){
+},{"./_export":134,"./_object-create":168}],283:[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
 $export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperties: require('./_object-dps')});
-},{"./_descriptors":127,"./_export":131,"./_object-dps":167}],281:[function(require,module,exports){
+},{"./_descriptors":130,"./_export":134,"./_object-dps":170}],284:[function(require,module,exports){
 var $export = require('./_export');
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !require('./_descriptors'), 'Object', {defineProperty: require('./_object-dp').f});
-},{"./_descriptors":127,"./_export":131,"./_object-dp":166}],282:[function(require,module,exports){
+},{"./_descriptors":130,"./_export":134,"./_object-dp":169}],285:[function(require,module,exports){
 // 19.1.2.5 Object.freeze(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -31940,7 +31168,7 @@ require('./_object-sap')('freeze', function($freeze){
     return $freeze && isObject(it) ? $freeze(meta(it)) : it;
   };
 });
-},{"./_is-object":148,"./_meta":161,"./_object-sap":177}],283:[function(require,module,exports){
+},{"./_is-object":151,"./_meta":164,"./_object-sap":180}],286:[function(require,module,exports){
 // 19.1.2.6 Object.getOwnPropertyDescriptor(O, P)
 var toIObject                 = require('./_to-iobject')
   , $getOwnPropertyDescriptor = require('./_object-gopd').f;
@@ -31950,12 +31178,12 @@ require('./_object-sap')('getOwnPropertyDescriptor', function(){
     return $getOwnPropertyDescriptor(toIObject(it), key);
   };
 });
-},{"./_object-gopd":169,"./_object-sap":177,"./_to-iobject":206}],284:[function(require,module,exports){
+},{"./_object-gopd":172,"./_object-sap":180,"./_to-iobject":209}],287:[function(require,module,exports){
 // 19.1.2.7 Object.getOwnPropertyNames(O)
 require('./_object-sap')('getOwnPropertyNames', function(){
   return require('./_object-gopn-ext').f;
 });
-},{"./_object-gopn-ext":170,"./_object-sap":177}],285:[function(require,module,exports){
+},{"./_object-gopn-ext":173,"./_object-sap":180}],288:[function(require,module,exports){
 // 19.1.2.9 Object.getPrototypeOf(O)
 var toObject        = require('./_to-object')
   , $getPrototypeOf = require('./_object-gpo');
@@ -31965,7 +31193,7 @@ require('./_object-sap')('getPrototypeOf', function(){
     return $getPrototypeOf(toObject(it));
   };
 });
-},{"./_object-gpo":173,"./_object-sap":177,"./_to-object":208}],286:[function(require,module,exports){
+},{"./_object-gpo":176,"./_object-sap":180,"./_to-object":211}],289:[function(require,module,exports){
 // 19.1.2.11 Object.isExtensible(O)
 var isObject = require('./_is-object');
 
@@ -31974,7 +31202,7 @@ require('./_object-sap')('isExtensible', function($isExtensible){
     return isObject(it) ? $isExtensible ? $isExtensible(it) : true : false;
   };
 });
-},{"./_is-object":148,"./_object-sap":177}],287:[function(require,module,exports){
+},{"./_is-object":151,"./_object-sap":180}],290:[function(require,module,exports){
 // 19.1.2.12 Object.isFrozen(O)
 var isObject = require('./_is-object');
 
@@ -31983,7 +31211,7 @@ require('./_object-sap')('isFrozen', function($isFrozen){
     return isObject(it) ? $isFrozen ? $isFrozen(it) : false : true;
   };
 });
-},{"./_is-object":148,"./_object-sap":177}],288:[function(require,module,exports){
+},{"./_is-object":151,"./_object-sap":180}],291:[function(require,module,exports){
 // 19.1.2.13 Object.isSealed(O)
 var isObject = require('./_is-object');
 
@@ -31992,11 +31220,11 @@ require('./_object-sap')('isSealed', function($isSealed){
     return isObject(it) ? $isSealed ? $isSealed(it) : false : true;
   };
 });
-},{"./_is-object":148,"./_object-sap":177}],289:[function(require,module,exports){
+},{"./_is-object":151,"./_object-sap":180}],292:[function(require,module,exports){
 // 19.1.3.10 Object.is(value1, value2)
 var $export = require('./_export');
 $export($export.S, 'Object', {is: require('./_same-value')});
-},{"./_export":131,"./_same-value":188}],290:[function(require,module,exports){
+},{"./_export":134,"./_same-value":191}],293:[function(require,module,exports){
 // 19.1.2.14 Object.keys(O)
 var toObject = require('./_to-object')
   , $keys    = require('./_object-keys');
@@ -32006,7 +31234,7 @@ require('./_object-sap')('keys', function(){
     return $keys(toObject(it));
   };
 });
-},{"./_object-keys":175,"./_object-sap":177,"./_to-object":208}],291:[function(require,module,exports){
+},{"./_object-keys":178,"./_object-sap":180,"./_to-object":211}],294:[function(require,module,exports){
 // 19.1.2.15 Object.preventExtensions(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -32016,7 +31244,7 @@ require('./_object-sap')('preventExtensions', function($preventExtensions){
     return $preventExtensions && isObject(it) ? $preventExtensions(meta(it)) : it;
   };
 });
-},{"./_is-object":148,"./_meta":161,"./_object-sap":177}],292:[function(require,module,exports){
+},{"./_is-object":151,"./_meta":164,"./_object-sap":180}],295:[function(require,module,exports){
 // 19.1.2.17 Object.seal(O)
 var isObject = require('./_is-object')
   , meta     = require('./_meta').onFreeze;
@@ -32026,11 +31254,11 @@ require('./_object-sap')('seal', function($seal){
     return $seal && isObject(it) ? $seal(meta(it)) : it;
   };
 });
-},{"./_is-object":148,"./_meta":161,"./_object-sap":177}],293:[function(require,module,exports){
+},{"./_is-object":151,"./_meta":164,"./_object-sap":180}],296:[function(require,module,exports){
 // 19.1.3.19 Object.setPrototypeOf(O, proto)
 var $export = require('./_export');
 $export($export.S, 'Object', {setPrototypeOf: require('./_set-proto').set});
-},{"./_export":131,"./_set-proto":189}],294:[function(require,module,exports){
+},{"./_export":134,"./_set-proto":192}],297:[function(require,module,exports){
 'use strict';
 // 19.1.3.6 Object.prototype.toString()
 var classof = require('./_classof')
@@ -32041,17 +31269,17 @@ if(test + '' != '[object z]'){
     return '[object ' + classof(this) + ']';
   }, true);
 }
-},{"./_classof":116,"./_redefine":186,"./_wks":216}],295:[function(require,module,exports){
+},{"./_classof":119,"./_redefine":189,"./_wks":219}],298:[function(require,module,exports){
 var $export     = require('./_export')
   , $parseFloat = require('./_parse-float');
 // 18.2.4 parseFloat(string)
 $export($export.G + $export.F * (parseFloat != $parseFloat), {parseFloat: $parseFloat});
-},{"./_export":131,"./_parse-float":180}],296:[function(require,module,exports){
+},{"./_export":134,"./_parse-float":183}],299:[function(require,module,exports){
 var $export   = require('./_export')
   , $parseInt = require('./_parse-int');
 // 18.2.5 parseInt(string, radix)
 $export($export.G + $export.F * (parseInt != $parseInt), {parseInt: $parseInt});
-},{"./_export":131,"./_parse-int":181}],297:[function(require,module,exports){
+},{"./_export":134,"./_parse-int":184}],300:[function(require,module,exports){
 'use strict';
 var LIBRARY            = require('./_library')
   , global             = require('./_global')
@@ -32351,7 +31579,7 @@ $export($export.S + $export.F * !(USE_NATIVE && require('./_iter-detect')(functi
     return capability.promise;
   }
 });
-},{"./_a-function":102,"./_an-instance":105,"./_classof":116,"./_core":122,"./_ctx":124,"./_export":131,"./_for-of":136,"./_global":137,"./_is-object":148,"./_iter-detect":153,"./_library":157,"./_microtask":163,"./_redefine-all":185,"./_set-species":190,"./_set-to-string-tag":191,"./_species-constructor":194,"./_task":203,"./_wks":216}],298:[function(require,module,exports){
+},{"./_a-function":105,"./_an-instance":108,"./_classof":119,"./_core":125,"./_ctx":127,"./_export":134,"./_for-of":139,"./_global":140,"./_is-object":151,"./_iter-detect":156,"./_library":160,"./_microtask":166,"./_redefine-all":188,"./_set-species":193,"./_set-to-string-tag":194,"./_species-constructor":197,"./_task":206,"./_wks":219}],301:[function(require,module,exports){
 // 26.1.1 Reflect.apply(target, thisArgument, argumentsList)
 var $export   = require('./_export')
   , aFunction = require('./_a-function')
@@ -32368,7 +31596,7 @@ $export($export.S + $export.F * !require('./_fails')(function(){
     return rApply ? rApply(T, thisArgument, L) : fApply.call(T, thisArgument, L);
   }
 });
-},{"./_a-function":102,"./_an-object":106,"./_export":131,"./_fails":133,"./_global":137}],299:[function(require,module,exports){
+},{"./_a-function":105,"./_an-object":109,"./_export":134,"./_fails":136,"./_global":140}],302:[function(require,module,exports){
 // 26.1.2 Reflect.construct(target, argumentsList [, newTarget])
 var $export    = require('./_export')
   , create     = require('./_object-create')
@@ -32416,7 +31644,7 @@ $export($export.S + $export.F * (NEW_TARGET_BUG || ARGS_BUG), 'Reflect', {
     return isObject(result) ? result : instance;
   }
 });
-},{"./_a-function":102,"./_an-object":106,"./_bind":115,"./_export":131,"./_fails":133,"./_global":137,"./_is-object":148,"./_object-create":165}],300:[function(require,module,exports){
+},{"./_a-function":105,"./_an-object":109,"./_bind":118,"./_export":134,"./_fails":136,"./_global":140,"./_is-object":151,"./_object-create":168}],303:[function(require,module,exports){
 // 26.1.3 Reflect.defineProperty(target, propertyKey, attributes)
 var dP          = require('./_object-dp')
   , $export     = require('./_export')
@@ -32439,7 +31667,7 @@ $export($export.S + $export.F * require('./_fails')(function(){
     }
   }
 });
-},{"./_an-object":106,"./_export":131,"./_fails":133,"./_object-dp":166,"./_to-primitive":209}],301:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_fails":136,"./_object-dp":169,"./_to-primitive":212}],304:[function(require,module,exports){
 // 26.1.4 Reflect.deleteProperty(target, propertyKey)
 var $export  = require('./_export')
   , gOPD     = require('./_object-gopd').f
@@ -32451,7 +31679,7 @@ $export($export.S, 'Reflect', {
     return desc && !desc.configurable ? false : delete target[propertyKey];
   }
 });
-},{"./_an-object":106,"./_export":131,"./_object-gopd":169}],302:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_object-gopd":172}],305:[function(require,module,exports){
 'use strict';
 // 26.1.5 Reflect.enumerate(target)
 var $export  = require('./_export')
@@ -32478,7 +31706,7 @@ $export($export.S, 'Reflect', {
     return new Enumerate(target);
   }
 });
-},{"./_an-object":106,"./_export":131,"./_iter-create":151}],303:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_iter-create":154}],306:[function(require,module,exports){
 // 26.1.7 Reflect.getOwnPropertyDescriptor(target, propertyKey)
 var gOPD     = require('./_object-gopd')
   , $export  = require('./_export')
@@ -32489,7 +31717,7 @@ $export($export.S, 'Reflect', {
     return gOPD.f(anObject(target), propertyKey);
   }
 });
-},{"./_an-object":106,"./_export":131,"./_object-gopd":169}],304:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_object-gopd":172}],307:[function(require,module,exports){
 // 26.1.8 Reflect.getPrototypeOf(target)
 var $export  = require('./_export')
   , getProto = require('./_object-gpo')
@@ -32500,7 +31728,7 @@ $export($export.S, 'Reflect', {
     return getProto(anObject(target));
   }
 });
-},{"./_an-object":106,"./_export":131,"./_object-gpo":173}],305:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_object-gpo":176}],308:[function(require,module,exports){
 // 26.1.6 Reflect.get(target, propertyKey [, receiver])
 var gOPD           = require('./_object-gopd')
   , getPrototypeOf = require('./_object-gpo')
@@ -32522,7 +31750,7 @@ function get(target, propertyKey/*, receiver*/){
 }
 
 $export($export.S, 'Reflect', {get: get});
-},{"./_an-object":106,"./_export":131,"./_has":138,"./_is-object":148,"./_object-gopd":169,"./_object-gpo":173}],306:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_has":141,"./_is-object":151,"./_object-gopd":172,"./_object-gpo":176}],309:[function(require,module,exports){
 // 26.1.9 Reflect.has(target, propertyKey)
 var $export = require('./_export');
 
@@ -32531,7 +31759,7 @@ $export($export.S, 'Reflect', {
     return propertyKey in target;
   }
 });
-},{"./_export":131}],307:[function(require,module,exports){
+},{"./_export":134}],310:[function(require,module,exports){
 // 26.1.10 Reflect.isExtensible(target)
 var $export       = require('./_export')
   , anObject      = require('./_an-object')
@@ -32543,12 +31771,12 @@ $export($export.S, 'Reflect', {
     return $isExtensible ? $isExtensible(target) : true;
   }
 });
-},{"./_an-object":106,"./_export":131}],308:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134}],311:[function(require,module,exports){
 // 26.1.11 Reflect.ownKeys(target)
 var $export = require('./_export');
 
 $export($export.S, 'Reflect', {ownKeys: require('./_own-keys')});
-},{"./_export":131,"./_own-keys":179}],309:[function(require,module,exports){
+},{"./_export":134,"./_own-keys":182}],312:[function(require,module,exports){
 // 26.1.12 Reflect.preventExtensions(target)
 var $export            = require('./_export')
   , anObject           = require('./_an-object')
@@ -32565,7 +31793,7 @@ $export($export.S, 'Reflect', {
     }
   }
 });
-},{"./_an-object":106,"./_export":131}],310:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134}],313:[function(require,module,exports){
 // 26.1.14 Reflect.setPrototypeOf(target, proto)
 var $export  = require('./_export')
   , setProto = require('./_set-proto');
@@ -32581,7 +31809,7 @@ if(setProto)$export($export.S, 'Reflect', {
     }
   }
 });
-},{"./_export":131,"./_set-proto":189}],311:[function(require,module,exports){
+},{"./_export":134,"./_set-proto":192}],314:[function(require,module,exports){
 // 26.1.13 Reflect.set(target, propertyKey, V [, receiver])
 var dP             = require('./_object-dp')
   , gOPD           = require('./_object-gopd')
@@ -32613,7 +31841,7 @@ function set(target, propertyKey, V/*, receiver*/){
 }
 
 $export($export.S, 'Reflect', {set: set});
-},{"./_an-object":106,"./_export":131,"./_has":138,"./_is-object":148,"./_object-dp":166,"./_object-gopd":169,"./_object-gpo":173,"./_property-desc":184}],312:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_has":141,"./_is-object":151,"./_object-dp":169,"./_object-gopd":172,"./_object-gpo":176,"./_property-desc":187}],315:[function(require,module,exports){
 var global            = require('./_global')
   , inheritIfRequired = require('./_inherit-if-required')
   , dP                = require('./_object-dp').f
@@ -32657,13 +31885,13 @@ if(require('./_descriptors') && (!CORRECT_NEW || require('./_fails')(function(){
 }
 
 require('./_set-species')('RegExp');
-},{"./_descriptors":127,"./_fails":133,"./_flags":135,"./_global":137,"./_inherit-if-required":142,"./_is-regexp":149,"./_object-dp":166,"./_object-gopn":171,"./_redefine":186,"./_set-species":190,"./_wks":216}],313:[function(require,module,exports){
+},{"./_descriptors":130,"./_fails":136,"./_flags":138,"./_global":140,"./_inherit-if-required":145,"./_is-regexp":152,"./_object-dp":169,"./_object-gopn":174,"./_redefine":189,"./_set-species":193,"./_wks":219}],316:[function(require,module,exports){
 // 21.2.5.3 get RegExp.prototype.flags()
 if(require('./_descriptors') && /./g.flags != 'g')require('./_object-dp').f(RegExp.prototype, 'flags', {
   configurable: true,
   get: require('./_flags')
 });
-},{"./_descriptors":127,"./_flags":135,"./_object-dp":166}],314:[function(require,module,exports){
+},{"./_descriptors":130,"./_flags":138,"./_object-dp":169}],317:[function(require,module,exports){
 // @@match logic
 require('./_fix-re-wks')('match', 1, function(defined, MATCH, $match){
   // 21.1.3.11 String.prototype.match(regexp)
@@ -32674,7 +31902,7 @@ require('./_fix-re-wks')('match', 1, function(defined, MATCH, $match){
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[MATCH](String(O));
   }, $match];
 });
-},{"./_fix-re-wks":134}],315:[function(require,module,exports){
+},{"./_fix-re-wks":137}],318:[function(require,module,exports){
 // @@replace logic
 require('./_fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
   // 21.1.3.14 String.prototype.replace(searchValue, replaceValue)
@@ -32687,7 +31915,7 @@ require('./_fix-re-wks')('replace', 2, function(defined, REPLACE, $replace){
       : $replace.call(String(O), searchValue, replaceValue);
   }, $replace];
 });
-},{"./_fix-re-wks":134}],316:[function(require,module,exports){
+},{"./_fix-re-wks":137}],319:[function(require,module,exports){
 // @@search logic
 require('./_fix-re-wks')('search', 1, function(defined, SEARCH, $search){
   // 21.1.3.15 String.prototype.search(regexp)
@@ -32698,7 +31926,7 @@ require('./_fix-re-wks')('search', 1, function(defined, SEARCH, $search){
     return fn !== undefined ? fn.call(regexp, O) : new RegExp(regexp)[SEARCH](String(O));
   }, $search];
 });
-},{"./_fix-re-wks":134}],317:[function(require,module,exports){
+},{"./_fix-re-wks":137}],320:[function(require,module,exports){
 // @@split logic
 require('./_fix-re-wks')('split', 2, function(defined, SPLIT, $split){
   'use strict';
@@ -32769,7 +31997,7 @@ require('./_fix-re-wks')('split', 2, function(defined, SPLIT, $split){
     return fn !== undefined ? fn.call(separator, O, limit) : $split.call(String(O), separator, limit);
   }, $split];
 });
-},{"./_fix-re-wks":134,"./_is-regexp":149}],318:[function(require,module,exports){
+},{"./_fix-re-wks":137,"./_is-regexp":152}],321:[function(require,module,exports){
 'use strict';
 require('./es6.regexp.flags');
 var anObject    = require('./_an-object')
@@ -32795,7 +32023,7 @@ if(require('./_fails')(function(){ return $toString.call({source: 'a', flags: 'b
     return $toString.call(this);
   });
 }
-},{"./_an-object":106,"./_descriptors":127,"./_fails":133,"./_flags":135,"./_redefine":186,"./es6.regexp.flags":313}],319:[function(require,module,exports){
+},{"./_an-object":109,"./_descriptors":130,"./_fails":136,"./_flags":138,"./_redefine":189,"./es6.regexp.flags":316}],322:[function(require,module,exports){
 'use strict';
 var strong = require('./_collection-strong');
 
@@ -32808,7 +32036,7 @@ module.exports = require('./_collection')('Set', function(get){
     return strong.def(this, value = value === 0 ? 0 : value, value);
   }
 }, strong);
-},{"./_collection":121,"./_collection-strong":118}],320:[function(require,module,exports){
+},{"./_collection":124,"./_collection-strong":121}],323:[function(require,module,exports){
 'use strict';
 // B.2.3.2 String.prototype.anchor(name)
 require('./_string-html')('anchor', function(createHTML){
@@ -32816,7 +32044,7 @@ require('./_string-html')('anchor', function(createHTML){
     return createHTML(this, 'a', 'name', name);
   }
 });
-},{"./_string-html":198}],321:[function(require,module,exports){
+},{"./_string-html":201}],324:[function(require,module,exports){
 'use strict';
 // B.2.3.3 String.prototype.big()
 require('./_string-html')('big', function(createHTML){
@@ -32824,7 +32052,7 @@ require('./_string-html')('big', function(createHTML){
     return createHTML(this, 'big', '', '');
   }
 });
-},{"./_string-html":198}],322:[function(require,module,exports){
+},{"./_string-html":201}],325:[function(require,module,exports){
 'use strict';
 // B.2.3.4 String.prototype.blink()
 require('./_string-html')('blink', function(createHTML){
@@ -32832,7 +32060,7 @@ require('./_string-html')('blink', function(createHTML){
     return createHTML(this, 'blink', '', '');
   }
 });
-},{"./_string-html":198}],323:[function(require,module,exports){
+},{"./_string-html":201}],326:[function(require,module,exports){
 'use strict';
 // B.2.3.5 String.prototype.bold()
 require('./_string-html')('bold', function(createHTML){
@@ -32840,7 +32068,7 @@ require('./_string-html')('bold', function(createHTML){
     return createHTML(this, 'b', '', '');
   }
 });
-},{"./_string-html":198}],324:[function(require,module,exports){
+},{"./_string-html":201}],327:[function(require,module,exports){
 'use strict';
 var $export = require('./_export')
   , $at     = require('./_string-at')(false);
@@ -32850,7 +32078,7 @@ $export($export.P, 'String', {
     return $at(this, pos);
   }
 });
-},{"./_export":131,"./_string-at":196}],325:[function(require,module,exports){
+},{"./_export":134,"./_string-at":199}],328:[function(require,module,exports){
 // 21.1.3.6 String.prototype.endsWith(searchString [, endPosition])
 'use strict';
 var $export   = require('./_export')
@@ -32871,7 +32099,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(ENDS_WITH), 'Strin
       : that.slice(end - search.length, end) === search;
   }
 });
-},{"./_export":131,"./_fails-is-regexp":132,"./_string-context":197,"./_to-length":207}],326:[function(require,module,exports){
+},{"./_export":134,"./_fails-is-regexp":135,"./_string-context":200,"./_to-length":210}],329:[function(require,module,exports){
 'use strict';
 // B.2.3.6 String.prototype.fixed()
 require('./_string-html')('fixed', function(createHTML){
@@ -32879,7 +32107,7 @@ require('./_string-html')('fixed', function(createHTML){
     return createHTML(this, 'tt', '', '');
   }
 });
-},{"./_string-html":198}],327:[function(require,module,exports){
+},{"./_string-html":201}],330:[function(require,module,exports){
 'use strict';
 // B.2.3.7 String.prototype.fontcolor(color)
 require('./_string-html')('fontcolor', function(createHTML){
@@ -32887,7 +32115,7 @@ require('./_string-html')('fontcolor', function(createHTML){
     return createHTML(this, 'font', 'color', color);
   }
 });
-},{"./_string-html":198}],328:[function(require,module,exports){
+},{"./_string-html":201}],331:[function(require,module,exports){
 'use strict';
 // B.2.3.8 String.prototype.fontsize(size)
 require('./_string-html')('fontsize', function(createHTML){
@@ -32895,7 +32123,7 @@ require('./_string-html')('fontsize', function(createHTML){
     return createHTML(this, 'font', 'size', size);
   }
 });
-},{"./_string-html":198}],329:[function(require,module,exports){
+},{"./_string-html":201}],332:[function(require,module,exports){
 var $export        = require('./_export')
   , toIndex        = require('./_to-index')
   , fromCharCode   = String.fromCharCode
@@ -32919,7 +32147,7 @@ $export($export.S + $export.F * (!!$fromCodePoint && $fromCodePoint.length != 1)
     } return res.join('');
   }
 });
-},{"./_export":131,"./_to-index":204}],330:[function(require,module,exports){
+},{"./_export":134,"./_to-index":207}],333:[function(require,module,exports){
 // 21.1.3.7 String.prototype.includes(searchString, position = 0)
 'use strict';
 var $export  = require('./_export')
@@ -32932,7 +32160,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(INCLUDES), 'String
       .indexOf(searchString, arguments.length > 1 ? arguments[1] : undefined);
   }
 });
-},{"./_export":131,"./_fails-is-regexp":132,"./_string-context":197}],331:[function(require,module,exports){
+},{"./_export":134,"./_fails-is-regexp":135,"./_string-context":200}],334:[function(require,module,exports){
 'use strict';
 // B.2.3.9 String.prototype.italics()
 require('./_string-html')('italics', function(createHTML){
@@ -32940,7 +32168,7 @@ require('./_string-html')('italics', function(createHTML){
     return createHTML(this, 'i', '', '');
   }
 });
-},{"./_string-html":198}],332:[function(require,module,exports){
+},{"./_string-html":201}],335:[function(require,module,exports){
 'use strict';
 var $at  = require('./_string-at')(true);
 
@@ -32958,7 +32186,7 @@ require('./_iter-define')(String, 'String', function(iterated){
   this._i += point.length;
   return {value: point, done: false};
 });
-},{"./_iter-define":152,"./_string-at":196}],333:[function(require,module,exports){
+},{"./_iter-define":155,"./_string-at":199}],336:[function(require,module,exports){
 'use strict';
 // B.2.3.10 String.prototype.link(url)
 require('./_string-html')('link', function(createHTML){
@@ -32966,7 +32194,7 @@ require('./_string-html')('link', function(createHTML){
     return createHTML(this, 'a', 'href', url);
   }
 });
-},{"./_string-html":198}],334:[function(require,module,exports){
+},{"./_string-html":201}],337:[function(require,module,exports){
 var $export   = require('./_export')
   , toIObject = require('./_to-iobject')
   , toLength  = require('./_to-length');
@@ -32985,14 +32213,14 @@ $export($export.S, 'String', {
     } return res.join('');
   }
 });
-},{"./_export":131,"./_to-iobject":206,"./_to-length":207}],335:[function(require,module,exports){
+},{"./_export":134,"./_to-iobject":209,"./_to-length":210}],338:[function(require,module,exports){
 var $export = require('./_export');
 
 $export($export.P, 'String', {
   // 21.1.3.13 String.prototype.repeat(count)
   repeat: require('./_string-repeat')
 });
-},{"./_export":131,"./_string-repeat":200}],336:[function(require,module,exports){
+},{"./_export":134,"./_string-repeat":203}],339:[function(require,module,exports){
 'use strict';
 // B.2.3.11 String.prototype.small()
 require('./_string-html')('small', function(createHTML){
@@ -33000,7 +32228,7 @@ require('./_string-html')('small', function(createHTML){
     return createHTML(this, 'small', '', '');
   }
 });
-},{"./_string-html":198}],337:[function(require,module,exports){
+},{"./_string-html":201}],340:[function(require,module,exports){
 // 21.1.3.18 String.prototype.startsWith(searchString [, position ])
 'use strict';
 var $export     = require('./_export')
@@ -33019,7 +32247,7 @@ $export($export.P + $export.F * require('./_fails-is-regexp')(STARTS_WITH), 'Str
       : that.slice(index, index + search.length) === search;
   }
 });
-},{"./_export":131,"./_fails-is-regexp":132,"./_string-context":197,"./_to-length":207}],338:[function(require,module,exports){
+},{"./_export":134,"./_fails-is-regexp":135,"./_string-context":200,"./_to-length":210}],341:[function(require,module,exports){
 'use strict';
 // B.2.3.12 String.prototype.strike()
 require('./_string-html')('strike', function(createHTML){
@@ -33027,7 +32255,7 @@ require('./_string-html')('strike', function(createHTML){
     return createHTML(this, 'strike', '', '');
   }
 });
-},{"./_string-html":198}],339:[function(require,module,exports){
+},{"./_string-html":201}],342:[function(require,module,exports){
 'use strict';
 // B.2.3.13 String.prototype.sub()
 require('./_string-html')('sub', function(createHTML){
@@ -33035,7 +32263,7 @@ require('./_string-html')('sub', function(createHTML){
     return createHTML(this, 'sub', '', '');
   }
 });
-},{"./_string-html":198}],340:[function(require,module,exports){
+},{"./_string-html":201}],343:[function(require,module,exports){
 'use strict';
 // B.2.3.14 String.prototype.sup()
 require('./_string-html')('sup', function(createHTML){
@@ -33043,7 +32271,7 @@ require('./_string-html')('sup', function(createHTML){
     return createHTML(this, 'sup', '', '');
   }
 });
-},{"./_string-html":198}],341:[function(require,module,exports){
+},{"./_string-html":201}],344:[function(require,module,exports){
 'use strict';
 // 21.1.3.25 String.prototype.trim()
 require('./_string-trim')('trim', function($trim){
@@ -33051,7 +32279,7 @@ require('./_string-trim')('trim', function($trim){
     return $trim(this, 3);
   };
 });
-},{"./_string-trim":201}],342:[function(require,module,exports){
+},{"./_string-trim":204}],345:[function(require,module,exports){
 'use strict';
 // ECMAScript 6 symbols shim
 var global         = require('./_global')
@@ -33287,7 +32515,7 @@ setToStringTag($Symbol, 'Symbol');
 setToStringTag(Math, 'Math', true);
 // 24.3.3 JSON[@@toStringTag]
 setToStringTag(global.JSON, 'JSON', true);
-},{"./_an-object":106,"./_descriptors":127,"./_enum-keys":130,"./_export":131,"./_fails":133,"./_global":137,"./_has":138,"./_hide":139,"./_is-array":146,"./_keyof":156,"./_library":157,"./_meta":161,"./_object-create":165,"./_object-dp":166,"./_object-gopd":169,"./_object-gopn":171,"./_object-gopn-ext":170,"./_object-gops":172,"./_object-keys":175,"./_object-pie":176,"./_property-desc":184,"./_redefine":186,"./_set-to-string-tag":191,"./_shared":193,"./_to-iobject":206,"./_to-primitive":209,"./_uid":213,"./_wks":216,"./_wks-define":214,"./_wks-ext":215}],343:[function(require,module,exports){
+},{"./_an-object":109,"./_descriptors":130,"./_enum-keys":133,"./_export":134,"./_fails":136,"./_global":140,"./_has":141,"./_hide":142,"./_is-array":149,"./_keyof":159,"./_library":160,"./_meta":164,"./_object-create":168,"./_object-dp":169,"./_object-gopd":172,"./_object-gopn":174,"./_object-gopn-ext":173,"./_object-gops":175,"./_object-keys":178,"./_object-pie":179,"./_property-desc":187,"./_redefine":189,"./_set-to-string-tag":194,"./_shared":196,"./_to-iobject":209,"./_to-primitive":212,"./_uid":216,"./_wks":219,"./_wks-define":217,"./_wks-ext":218}],346:[function(require,module,exports){
 'use strict';
 var $export      = require('./_export')
   , $typed       = require('./_typed')
@@ -33334,66 +32562,66 @@ $export($export.P + $export.U + $export.F * require('./_fails')(function(){
 });
 
 require('./_set-species')(ARRAY_BUFFER);
-},{"./_an-object":106,"./_export":131,"./_fails":133,"./_global":137,"./_is-object":148,"./_set-species":190,"./_species-constructor":194,"./_to-index":204,"./_to-length":207,"./_typed":212,"./_typed-buffer":211}],344:[function(require,module,exports){
+},{"./_an-object":109,"./_export":134,"./_fails":136,"./_global":140,"./_is-object":151,"./_set-species":193,"./_species-constructor":197,"./_to-index":207,"./_to-length":210,"./_typed":215,"./_typed-buffer":214}],347:[function(require,module,exports){
 var $export = require('./_export');
 $export($export.G + $export.W + $export.F * !require('./_typed').ABV, {
   DataView: require('./_typed-buffer').DataView
 });
-},{"./_export":131,"./_typed":212,"./_typed-buffer":211}],345:[function(require,module,exports){
+},{"./_export":134,"./_typed":215,"./_typed-buffer":214}],348:[function(require,module,exports){
 require('./_typed-array')('Float32', 4, function(init){
   return function Float32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],346:[function(require,module,exports){
+},{"./_typed-array":213}],349:[function(require,module,exports){
 require('./_typed-array')('Float64', 8, function(init){
   return function Float64Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],347:[function(require,module,exports){
+},{"./_typed-array":213}],350:[function(require,module,exports){
 require('./_typed-array')('Int16', 2, function(init){
   return function Int16Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],348:[function(require,module,exports){
+},{"./_typed-array":213}],351:[function(require,module,exports){
 require('./_typed-array')('Int32', 4, function(init){
   return function Int32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],349:[function(require,module,exports){
+},{"./_typed-array":213}],352:[function(require,module,exports){
 require('./_typed-array')('Int8', 1, function(init){
   return function Int8Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],350:[function(require,module,exports){
+},{"./_typed-array":213}],353:[function(require,module,exports){
 require('./_typed-array')('Uint16', 2, function(init){
   return function Uint16Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],351:[function(require,module,exports){
+},{"./_typed-array":213}],354:[function(require,module,exports){
 require('./_typed-array')('Uint32', 4, function(init){
   return function Uint32Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],352:[function(require,module,exports){
+},{"./_typed-array":213}],355:[function(require,module,exports){
 require('./_typed-array')('Uint8', 1, function(init){
   return function Uint8Array(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 });
-},{"./_typed-array":210}],353:[function(require,module,exports){
+},{"./_typed-array":213}],356:[function(require,module,exports){
 require('./_typed-array')('Uint8', 1, function(init){
   return function Uint8ClampedArray(data, byteOffset, length){
     return init(this, data, byteOffset, length);
   };
 }, true);
-},{"./_typed-array":210}],354:[function(require,module,exports){
+},{"./_typed-array":213}],357:[function(require,module,exports){
 'use strict';
 var each         = require('./_array-methods')(0)
   , redefine     = require('./_redefine')
@@ -33450,7 +32678,7 @@ if(new $WeakMap().set((Object.freeze || Object)(tmp), 7).get(tmp) != 7){
     });
   });
 }
-},{"./_array-methods":111,"./_collection":121,"./_collection-weak":120,"./_is-object":148,"./_meta":161,"./_object-assign":164,"./_redefine":186}],355:[function(require,module,exports){
+},{"./_array-methods":114,"./_collection":124,"./_collection-weak":123,"./_is-object":151,"./_meta":164,"./_object-assign":167,"./_redefine":189}],358:[function(require,module,exports){
 'use strict';
 var weak = require('./_collection-weak');
 
@@ -33463,7 +32691,7 @@ require('./_collection')('WeakSet', function(get){
     return weak.def(this, value, true);
   }
 }, weak, false, true);
-},{"./_collection":121,"./_collection-weak":120}],356:[function(require,module,exports){
+},{"./_collection":124,"./_collection-weak":123}],359:[function(require,module,exports){
 'use strict';
 // https://github.com/tc39/Array.prototype.includes
 var $export   = require('./_export')
@@ -33476,7 +32704,7 @@ $export($export.P, 'Array', {
 });
 
 require('./_add-to-unscopables')('includes');
-},{"./_add-to-unscopables":104,"./_array-includes":110,"./_export":131}],357:[function(require,module,exports){
+},{"./_add-to-unscopables":107,"./_array-includes":113,"./_export":134}],360:[function(require,module,exports){
 // https://github.com/rwaldron/tc39-notes/blob/master/es6/2014-09/sept-25.md#510-globalasap-for-enqueuing-a-microtask
 var $export   = require('./_export')
   , microtask = require('./_microtask')()
@@ -33489,7 +32717,7 @@ $export($export.G, {
     microtask(domain ? domain.bind(fn) : fn);
   }
 });
-},{"./_cof":117,"./_export":131,"./_global":137,"./_microtask":163}],358:[function(require,module,exports){
+},{"./_cof":120,"./_export":134,"./_global":140,"./_microtask":166}],361:[function(require,module,exports){
 // https://github.com/ljharb/proposal-is-error
 var $export = require('./_export')
   , cof     = require('./_cof');
@@ -33499,12 +32727,12 @@ $export($export.S, 'Error', {
     return cof(it) === 'Error';
   }
 });
-},{"./_cof":117,"./_export":131}],359:[function(require,module,exports){
+},{"./_cof":120,"./_export":134}],362:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $export  = require('./_export');
 
 $export($export.P + $export.R, 'Map', {toJSON: require('./_collection-to-json')('Map')});
-},{"./_collection-to-json":119,"./_export":131}],360:[function(require,module,exports){
+},{"./_collection-to-json":122,"./_export":134}],363:[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -33516,7 +32744,7 @@ $export($export.S, 'Math', {
     return $x1 + (y1 >>> 0) + (($x0 & $y0 | ($x0 | $y0) & ~($x0 + $y0 >>> 0)) >>> 31) | 0;
   }
 });
-},{"./_export":131}],361:[function(require,module,exports){
+},{"./_export":134}],364:[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -33533,7 +32761,7 @@ $export($export.S, 'Math', {
     return u1 * v1 + (t >> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >> 16);
   }
 });
-},{"./_export":131}],362:[function(require,module,exports){
+},{"./_export":134}],365:[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -33545,7 +32773,7 @@ $export($export.S, 'Math', {
     return $x1 - (y1 >>> 0) - ((~$x0 & $y0 | ~($x0 ^ $y0) & $x0 - $y0 >>> 0) >>> 31) | 0;
   }
 });
-},{"./_export":131}],363:[function(require,module,exports){
+},{"./_export":134}],366:[function(require,module,exports){
 // https://gist.github.com/BrendanEich/4294d5c212a6d2254703
 var $export = require('./_export');
 
@@ -33562,7 +32790,7 @@ $export($export.S, 'Math', {
     return u1 * v1 + (t >>> 16) + ((u0 * v1 >>> 0) + (t & UINT16) >>> 16);
   }
 });
-},{"./_export":131}],364:[function(require,module,exports){
+},{"./_export":134}],367:[function(require,module,exports){
 'use strict';
 var $export         = require('./_export')
   , toObject        = require('./_to-object')
@@ -33575,7 +32803,7 @@ require('./_descriptors') && $export($export.P + require('./_object-forced-pam')
     $defineProperty.f(toObject(this), P, {get: aFunction(getter), enumerable: true, configurable: true});
   }
 });
-},{"./_a-function":102,"./_descriptors":127,"./_export":131,"./_object-dp":166,"./_object-forced-pam":168,"./_to-object":208}],365:[function(require,module,exports){
+},{"./_a-function":105,"./_descriptors":130,"./_export":134,"./_object-dp":169,"./_object-forced-pam":171,"./_to-object":211}],368:[function(require,module,exports){
 'use strict';
 var $export         = require('./_export')
   , toObject        = require('./_to-object')
@@ -33588,7 +32816,7 @@ require('./_descriptors') && $export($export.P + require('./_object-forced-pam')
     $defineProperty.f(toObject(this), P, {set: aFunction(setter), enumerable: true, configurable: true});
   }
 });
-},{"./_a-function":102,"./_descriptors":127,"./_export":131,"./_object-dp":166,"./_object-forced-pam":168,"./_to-object":208}],366:[function(require,module,exports){
+},{"./_a-function":105,"./_descriptors":130,"./_export":134,"./_object-dp":169,"./_object-forced-pam":171,"./_to-object":211}],369:[function(require,module,exports){
 // https://github.com/tc39/proposal-object-values-entries
 var $export  = require('./_export')
   , $entries = require('./_object-to-array')(true);
@@ -33598,7 +32826,7 @@ $export($export.S, 'Object', {
     return $entries(it);
   }
 });
-},{"./_export":131,"./_object-to-array":178}],367:[function(require,module,exports){
+},{"./_export":134,"./_object-to-array":181}],370:[function(require,module,exports){
 // https://github.com/tc39/proposal-object-getownpropertydescriptors
 var $export        = require('./_export')
   , ownKeys        = require('./_own-keys')
@@ -33618,7 +32846,7 @@ $export($export.S, 'Object', {
     return result;
   }
 });
-},{"./_create-property":123,"./_export":131,"./_object-gopd":169,"./_own-keys":179,"./_to-iobject":206}],368:[function(require,module,exports){
+},{"./_create-property":126,"./_export":134,"./_object-gopd":172,"./_own-keys":182,"./_to-iobject":209}],371:[function(require,module,exports){
 'use strict';
 var $export                  = require('./_export')
   , toObject                 = require('./_to-object')
@@ -33637,7 +32865,7 @@ require('./_descriptors') && $export($export.P + require('./_object-forced-pam')
     } while(O = getPrototypeOf(O));
   }
 });
-},{"./_descriptors":127,"./_export":131,"./_object-forced-pam":168,"./_object-gopd":169,"./_object-gpo":173,"./_to-object":208,"./_to-primitive":209}],369:[function(require,module,exports){
+},{"./_descriptors":130,"./_export":134,"./_object-forced-pam":171,"./_object-gopd":172,"./_object-gpo":176,"./_to-object":211,"./_to-primitive":212}],372:[function(require,module,exports){
 'use strict';
 var $export                  = require('./_export')
   , toObject                 = require('./_to-object')
@@ -33656,7 +32884,7 @@ require('./_descriptors') && $export($export.P + require('./_object-forced-pam')
     } while(O = getPrototypeOf(O));
   }
 });
-},{"./_descriptors":127,"./_export":131,"./_object-forced-pam":168,"./_object-gopd":169,"./_object-gpo":173,"./_to-object":208,"./_to-primitive":209}],370:[function(require,module,exports){
+},{"./_descriptors":130,"./_export":134,"./_object-forced-pam":171,"./_object-gopd":172,"./_object-gpo":176,"./_to-object":211,"./_to-primitive":212}],373:[function(require,module,exports){
 // https://github.com/tc39/proposal-object-values-entries
 var $export = require('./_export')
   , $values = require('./_object-to-array')(false);
@@ -33666,7 +32894,7 @@ $export($export.S, 'Object', {
     return $values(it);
   }
 });
-},{"./_export":131,"./_object-to-array":178}],371:[function(require,module,exports){
+},{"./_export":134,"./_object-to-array":181}],374:[function(require,module,exports){
 'use strict';
 // https://github.com/zenparsing/es-observable
 var $export     = require('./_export')
@@ -33866,7 +33094,7 @@ hide($Observable.prototype, OBSERVABLE, function(){ return this; });
 $export($export.G, {Observable: $Observable});
 
 require('./_set-species')('Observable');
-},{"./_a-function":102,"./_an-instance":105,"./_an-object":106,"./_core":122,"./_export":131,"./_for-of":136,"./_global":137,"./_hide":139,"./_microtask":163,"./_redefine-all":185,"./_set-species":190,"./_wks":216}],372:[function(require,module,exports){
+},{"./_a-function":105,"./_an-instance":108,"./_an-object":109,"./_core":125,"./_export":134,"./_for-of":139,"./_global":140,"./_hide":142,"./_microtask":166,"./_redefine-all":188,"./_set-species":193,"./_wks":219}],375:[function(require,module,exports){
 var metadata                  = require('./_metadata')
   , anObject                  = require('./_an-object')
   , toMetaKey                 = metadata.key
@@ -33875,7 +33103,7 @@ var metadata                  = require('./_metadata')
 metadata.exp({defineMetadata: function defineMetadata(metadataKey, metadataValue, target, targetKey){
   ordinaryDefineOwnMetadata(metadataKey, metadataValue, anObject(target), toMetaKey(targetKey));
 }});
-},{"./_an-object":106,"./_metadata":162}],373:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165}],376:[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , toMetaKey              = metadata.key
@@ -33891,7 +33119,7 @@ metadata.exp({deleteMetadata: function deleteMetadata(metadataKey, target /*, ta
   targetMetadata['delete'](targetKey);
   return !!targetMetadata.size || store['delete'](target);
 }});
-},{"./_an-object":106,"./_metadata":162}],374:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165}],377:[function(require,module,exports){
 var Set                     = require('./es6.set')
   , from                    = require('./_array-from-iterable')
   , metadata                = require('./_metadata')
@@ -33911,7 +33139,7 @@ var ordinaryMetadataKeys = function(O, P){
 metadata.exp({getMetadataKeys: function getMetadataKeys(target /*, targetKey */){
   return ordinaryMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
 }});
-},{"./_an-object":106,"./_array-from-iterable":109,"./_metadata":162,"./_object-gpo":173,"./es6.set":319}],375:[function(require,module,exports){
+},{"./_an-object":109,"./_array-from-iterable":112,"./_metadata":165,"./_object-gpo":176,"./es6.set":322}],378:[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , getPrototypeOf         = require('./_object-gpo')
@@ -33929,7 +33157,7 @@ var ordinaryGetMetadata = function(MetadataKey, O, P){
 metadata.exp({getMetadata: function getMetadata(metadataKey, target /*, targetKey */){
   return ordinaryGetMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":106,"./_metadata":162,"./_object-gpo":173}],376:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165,"./_object-gpo":176}],379:[function(require,module,exports){
 var metadata                = require('./_metadata')
   , anObject                = require('./_an-object')
   , ordinaryOwnMetadataKeys = metadata.keys
@@ -33938,7 +33166,7 @@ var metadata                = require('./_metadata')
 metadata.exp({getOwnMetadataKeys: function getOwnMetadataKeys(target /*, targetKey */){
   return ordinaryOwnMetadataKeys(anObject(target), arguments.length < 2 ? undefined : toMetaKey(arguments[1]));
 }});
-},{"./_an-object":106,"./_metadata":162}],377:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165}],380:[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , ordinaryGetOwnMetadata = metadata.get
@@ -33948,7 +33176,7 @@ metadata.exp({getOwnMetadata: function getOwnMetadata(metadataKey, target /*, ta
   return ordinaryGetOwnMetadata(metadataKey, anObject(target)
     , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":106,"./_metadata":162}],378:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165}],381:[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , getPrototypeOf         = require('./_object-gpo')
@@ -33965,7 +33193,7 @@ var ordinaryHasMetadata = function(MetadataKey, O, P){
 metadata.exp({hasMetadata: function hasMetadata(metadataKey, target /*, targetKey */){
   return ordinaryHasMetadata(metadataKey, anObject(target), arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":106,"./_metadata":162,"./_object-gpo":173}],379:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165,"./_object-gpo":176}],382:[function(require,module,exports){
 var metadata               = require('./_metadata')
   , anObject               = require('./_an-object')
   , ordinaryHasOwnMetadata = metadata.has
@@ -33975,7 +33203,7 @@ metadata.exp({hasOwnMetadata: function hasOwnMetadata(metadataKey, target /*, ta
   return ordinaryHasOwnMetadata(metadataKey, anObject(target)
     , arguments.length < 3 ? undefined : toMetaKey(arguments[2]));
 }});
-},{"./_an-object":106,"./_metadata":162}],380:[function(require,module,exports){
+},{"./_an-object":109,"./_metadata":165}],383:[function(require,module,exports){
 var metadata                  = require('./_metadata')
   , anObject                  = require('./_an-object')
   , aFunction                 = require('./_a-function')
@@ -33991,12 +33219,12 @@ metadata.exp({metadata: function metadata(metadataKey, metadataValue){
     );
   };
 }});
-},{"./_a-function":102,"./_an-object":106,"./_metadata":162}],381:[function(require,module,exports){
+},{"./_a-function":105,"./_an-object":109,"./_metadata":165}],384:[function(require,module,exports){
 // https://github.com/DavidBruant/Map-Set.prototype.toJSON
 var $export  = require('./_export');
 
 $export($export.P + $export.R, 'Set', {toJSON: require('./_collection-to-json')('Set')});
-},{"./_collection-to-json":119,"./_export":131}],382:[function(require,module,exports){
+},{"./_collection-to-json":122,"./_export":134}],385:[function(require,module,exports){
 'use strict';
 // https://github.com/mathiasbynens/String.prototype.at
 var $export = require('./_export')
@@ -34007,7 +33235,7 @@ $export($export.P, 'String', {
     return $at(this, pos);
   }
 });
-},{"./_export":131,"./_string-at":196}],383:[function(require,module,exports){
+},{"./_export":134,"./_string-at":199}],386:[function(require,module,exports){
 'use strict';
 // https://tc39.github.io/String.prototype.matchAll/
 var $export     = require('./_export')
@@ -34038,7 +33266,7 @@ $export($export.P, 'String', {
     return new $RegExpStringIterator(rx, S);
   }
 });
-},{"./_defined":126,"./_export":131,"./_flags":135,"./_is-regexp":149,"./_iter-create":151,"./_to-length":207}],384:[function(require,module,exports){
+},{"./_defined":129,"./_export":134,"./_flags":138,"./_is-regexp":152,"./_iter-create":154,"./_to-length":210}],387:[function(require,module,exports){
 'use strict';
 // https://github.com/tc39/proposal-string-pad-start-end
 var $export = require('./_export')
@@ -34049,7 +33277,7 @@ $export($export.P, 'String', {
     return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, false);
   }
 });
-},{"./_export":131,"./_string-pad":199}],385:[function(require,module,exports){
+},{"./_export":134,"./_string-pad":202}],388:[function(require,module,exports){
 'use strict';
 // https://github.com/tc39/proposal-string-pad-start-end
 var $export = require('./_export')
@@ -34060,7 +33288,7 @@ $export($export.P, 'String', {
     return $pad(this, maxLength, arguments.length > 1 ? arguments[1] : undefined, true);
   }
 });
-},{"./_export":131,"./_string-pad":199}],386:[function(require,module,exports){
+},{"./_export":134,"./_string-pad":202}],389:[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
 require('./_string-trim')('trimLeft', function($trim){
@@ -34068,7 +33296,7 @@ require('./_string-trim')('trimLeft', function($trim){
     return $trim(this, 1);
   };
 }, 'trimStart');
-},{"./_string-trim":201}],387:[function(require,module,exports){
+},{"./_string-trim":204}],390:[function(require,module,exports){
 'use strict';
 // https://github.com/sebmarkbage/ecmascript-string-left-right-trim
 require('./_string-trim')('trimRight', function($trim){
@@ -34076,16 +33304,16 @@ require('./_string-trim')('trimRight', function($trim){
     return $trim(this, 2);
   };
 }, 'trimEnd');
-},{"./_string-trim":201}],388:[function(require,module,exports){
+},{"./_string-trim":204}],391:[function(require,module,exports){
 require('./_wks-define')('asyncIterator');
-},{"./_wks-define":214}],389:[function(require,module,exports){
+},{"./_wks-define":217}],392:[function(require,module,exports){
 require('./_wks-define')('observable');
-},{"./_wks-define":214}],390:[function(require,module,exports){
+},{"./_wks-define":217}],393:[function(require,module,exports){
 // https://github.com/ljharb/proposal-global
 var $export = require('./_export');
 
 $export($export.S, 'System', {global: require('./_global')});
-},{"./_export":131,"./_global":137}],391:[function(require,module,exports){
+},{"./_export":134,"./_global":140}],394:[function(require,module,exports){
 var $iterators    = require('./es6.array.iterator')
   , redefine      = require('./_redefine')
   , global        = require('./_global')
@@ -34108,14 +33336,14 @@ for(var collections = ['NodeList', 'DOMTokenList', 'MediaList', 'StyleSheetList'
     for(key in $iterators)if(!proto[key])redefine(proto, key, $iterators[key], true);
   }
 }
-},{"./_global":137,"./_hide":139,"./_iterators":155,"./_redefine":186,"./_wks":216,"./es6.array.iterator":229}],392:[function(require,module,exports){
+},{"./_global":140,"./_hide":142,"./_iterators":158,"./_redefine":189,"./_wks":219,"./es6.array.iterator":232}],395:[function(require,module,exports){
 var $export = require('./_export')
   , $task   = require('./_task');
 $export($export.G + $export.B, {
   setImmediate:   $task.set,
   clearImmediate: $task.clear
 });
-},{"./_export":131,"./_task":203}],393:[function(require,module,exports){
+},{"./_export":134,"./_task":206}],396:[function(require,module,exports){
 // ie9- setTimeout & setInterval additional parameters fix
 var global     = require('./_global')
   , $export    = require('./_export')
@@ -34136,7 +33364,7 @@ $export($export.G + $export.B + $export.F * MSIE, {
   setTimeout:  wrap(global.setTimeout),
   setInterval: wrap(global.setInterval)
 });
-},{"./_export":131,"./_global":137,"./_invoke":143,"./_partial":182}],394:[function(require,module,exports){
+},{"./_export":134,"./_global":140,"./_invoke":146,"./_partial":185}],397:[function(require,module,exports){
 require('./modules/es6.symbol');
 require('./modules/es6.object.create');
 require('./modules/es6.object.define-property');
@@ -34313,93 +33541,7 @@ require('./modules/web.timers');
 require('./modules/web.immediate');
 require('./modules/web.dom.iterable');
 module.exports = require('./modules/_core');
-},{"./modules/_core":122,"./modules/es6.array.copy-within":219,"./modules/es6.array.every":220,"./modules/es6.array.fill":221,"./modules/es6.array.filter":222,"./modules/es6.array.find":224,"./modules/es6.array.find-index":223,"./modules/es6.array.for-each":225,"./modules/es6.array.from":226,"./modules/es6.array.index-of":227,"./modules/es6.array.is-array":228,"./modules/es6.array.iterator":229,"./modules/es6.array.join":230,"./modules/es6.array.last-index-of":231,"./modules/es6.array.map":232,"./modules/es6.array.of":233,"./modules/es6.array.reduce":235,"./modules/es6.array.reduce-right":234,"./modules/es6.array.slice":236,"./modules/es6.array.some":237,"./modules/es6.array.sort":238,"./modules/es6.array.species":239,"./modules/es6.date.now":240,"./modules/es6.date.to-iso-string":241,"./modules/es6.date.to-json":242,"./modules/es6.date.to-primitive":243,"./modules/es6.date.to-string":244,"./modules/es6.function.bind":245,"./modules/es6.function.has-instance":246,"./modules/es6.function.name":247,"./modules/es6.map":248,"./modules/es6.math.acosh":249,"./modules/es6.math.asinh":250,"./modules/es6.math.atanh":251,"./modules/es6.math.cbrt":252,"./modules/es6.math.clz32":253,"./modules/es6.math.cosh":254,"./modules/es6.math.expm1":255,"./modules/es6.math.fround":256,"./modules/es6.math.hypot":257,"./modules/es6.math.imul":258,"./modules/es6.math.log10":259,"./modules/es6.math.log1p":260,"./modules/es6.math.log2":261,"./modules/es6.math.sign":262,"./modules/es6.math.sinh":263,"./modules/es6.math.tanh":264,"./modules/es6.math.trunc":265,"./modules/es6.number.constructor":266,"./modules/es6.number.epsilon":267,"./modules/es6.number.is-finite":268,"./modules/es6.number.is-integer":269,"./modules/es6.number.is-nan":270,"./modules/es6.number.is-safe-integer":271,"./modules/es6.number.max-safe-integer":272,"./modules/es6.number.min-safe-integer":273,"./modules/es6.number.parse-float":274,"./modules/es6.number.parse-int":275,"./modules/es6.number.to-fixed":276,"./modules/es6.number.to-precision":277,"./modules/es6.object.assign":278,"./modules/es6.object.create":279,"./modules/es6.object.define-properties":280,"./modules/es6.object.define-property":281,"./modules/es6.object.freeze":282,"./modules/es6.object.get-own-property-descriptor":283,"./modules/es6.object.get-own-property-names":284,"./modules/es6.object.get-prototype-of":285,"./modules/es6.object.is":289,"./modules/es6.object.is-extensible":286,"./modules/es6.object.is-frozen":287,"./modules/es6.object.is-sealed":288,"./modules/es6.object.keys":290,"./modules/es6.object.prevent-extensions":291,"./modules/es6.object.seal":292,"./modules/es6.object.set-prototype-of":293,"./modules/es6.object.to-string":294,"./modules/es6.parse-float":295,"./modules/es6.parse-int":296,"./modules/es6.promise":297,"./modules/es6.reflect.apply":298,"./modules/es6.reflect.construct":299,"./modules/es6.reflect.define-property":300,"./modules/es6.reflect.delete-property":301,"./modules/es6.reflect.enumerate":302,"./modules/es6.reflect.get":305,"./modules/es6.reflect.get-own-property-descriptor":303,"./modules/es6.reflect.get-prototype-of":304,"./modules/es6.reflect.has":306,"./modules/es6.reflect.is-extensible":307,"./modules/es6.reflect.own-keys":308,"./modules/es6.reflect.prevent-extensions":309,"./modules/es6.reflect.set":311,"./modules/es6.reflect.set-prototype-of":310,"./modules/es6.regexp.constructor":312,"./modules/es6.regexp.flags":313,"./modules/es6.regexp.match":314,"./modules/es6.regexp.replace":315,"./modules/es6.regexp.search":316,"./modules/es6.regexp.split":317,"./modules/es6.regexp.to-string":318,"./modules/es6.set":319,"./modules/es6.string.anchor":320,"./modules/es6.string.big":321,"./modules/es6.string.blink":322,"./modules/es6.string.bold":323,"./modules/es6.string.code-point-at":324,"./modules/es6.string.ends-with":325,"./modules/es6.string.fixed":326,"./modules/es6.string.fontcolor":327,"./modules/es6.string.fontsize":328,"./modules/es6.string.from-code-point":329,"./modules/es6.string.includes":330,"./modules/es6.string.italics":331,"./modules/es6.string.iterator":332,"./modules/es6.string.link":333,"./modules/es6.string.raw":334,"./modules/es6.string.repeat":335,"./modules/es6.string.small":336,"./modules/es6.string.starts-with":337,"./modules/es6.string.strike":338,"./modules/es6.string.sub":339,"./modules/es6.string.sup":340,"./modules/es6.string.trim":341,"./modules/es6.symbol":342,"./modules/es6.typed.array-buffer":343,"./modules/es6.typed.data-view":344,"./modules/es6.typed.float32-array":345,"./modules/es6.typed.float64-array":346,"./modules/es6.typed.int16-array":347,"./modules/es6.typed.int32-array":348,"./modules/es6.typed.int8-array":349,"./modules/es6.typed.uint16-array":350,"./modules/es6.typed.uint32-array":351,"./modules/es6.typed.uint8-array":352,"./modules/es6.typed.uint8-clamped-array":353,"./modules/es6.weak-map":354,"./modules/es6.weak-set":355,"./modules/es7.array.includes":356,"./modules/es7.asap":357,"./modules/es7.error.is-error":358,"./modules/es7.map.to-json":359,"./modules/es7.math.iaddh":360,"./modules/es7.math.imulh":361,"./modules/es7.math.isubh":362,"./modules/es7.math.umulh":363,"./modules/es7.object.define-getter":364,"./modules/es7.object.define-setter":365,"./modules/es7.object.entries":366,"./modules/es7.object.get-own-property-descriptors":367,"./modules/es7.object.lookup-getter":368,"./modules/es7.object.lookup-setter":369,"./modules/es7.object.values":370,"./modules/es7.observable":371,"./modules/es7.reflect.define-metadata":372,"./modules/es7.reflect.delete-metadata":373,"./modules/es7.reflect.get-metadata":375,"./modules/es7.reflect.get-metadata-keys":374,"./modules/es7.reflect.get-own-metadata":377,"./modules/es7.reflect.get-own-metadata-keys":376,"./modules/es7.reflect.has-metadata":378,"./modules/es7.reflect.has-own-metadata":379,"./modules/es7.reflect.metadata":380,"./modules/es7.set.to-json":381,"./modules/es7.string.at":382,"./modules/es7.string.match-all":383,"./modules/es7.string.pad-end":384,"./modules/es7.string.pad-start":385,"./modules/es7.string.trim-left":386,"./modules/es7.string.trim-right":387,"./modules/es7.symbol.async-iterator":388,"./modules/es7.symbol.observable":389,"./modules/es7.system.global":390,"./modules/web.dom.iterable":391,"./modules/web.immediate":392,"./modules/web.timers":393}],395:[function(require,module,exports){
-exports.read = function (buffer, offset, isLE, mLen, nBytes) {
-  var e, m
-  var eLen = nBytes * 8 - mLen - 1
-  var eMax = (1 << eLen) - 1
-  var eBias = eMax >> 1
-  var nBits = -7
-  var i = isLE ? (nBytes - 1) : 0
-  var d = isLE ? -1 : 1
-  var s = buffer[offset + i]
-
-  i += d
-
-  e = s & ((1 << (-nBits)) - 1)
-  s >>= (-nBits)
-  nBits += eLen
-  for (; nBits > 0; e = e * 256 + buffer[offset + i], i += d, nBits -= 8) {}
-
-  m = e & ((1 << (-nBits)) - 1)
-  e >>= (-nBits)
-  nBits += mLen
-  for (; nBits > 0; m = m * 256 + buffer[offset + i], i += d, nBits -= 8) {}
-
-  if (e === 0) {
-    e = 1 - eBias
-  } else if (e === eMax) {
-    return m ? NaN : ((s ? -1 : 1) * Infinity)
-  } else {
-    m = m + Math.pow(2, mLen)
-    e = e - eBias
-  }
-  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
-}
-
-exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
-  var e, m, c
-  var eLen = nBytes * 8 - mLen - 1
-  var eMax = (1 << eLen) - 1
-  var eBias = eMax >> 1
-  var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
-  var i = isLE ? 0 : (nBytes - 1)
-  var d = isLE ? 1 : -1
-  var s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
-
-  value = Math.abs(value)
-
-  if (isNaN(value) || value === Infinity) {
-    m = isNaN(value) ? 1 : 0
-    e = eMax
-  } else {
-    e = Math.floor(Math.log(value) / Math.LN2)
-    if (value * (c = Math.pow(2, -e)) < 1) {
-      e--
-      c *= 2
-    }
-    if (e + eBias >= 1) {
-      value += rt / c
-    } else {
-      value += rt * Math.pow(2, 1 - eBias)
-    }
-    if (value * c >= 2) {
-      e++
-      c /= 2
-    }
-
-    if (e + eBias >= eMax) {
-      m = 0
-      e = eMax
-    } else if (e + eBias >= 1) {
-      m = (value * c - 1) * Math.pow(2, mLen)
-      e = e + eBias
-    } else {
-      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
-      e = 0
-    }
-  }
-
-  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
-
-  e = (e << mLen) | m
-  eLen += mLen
-  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
-
-  buffer[offset + i - d] |= s * 128
-}
-
-},{}],396:[function(require,module,exports){
+},{"./modules/_core":125,"./modules/es6.array.copy-within":222,"./modules/es6.array.every":223,"./modules/es6.array.fill":224,"./modules/es6.array.filter":225,"./modules/es6.array.find":227,"./modules/es6.array.find-index":226,"./modules/es6.array.for-each":228,"./modules/es6.array.from":229,"./modules/es6.array.index-of":230,"./modules/es6.array.is-array":231,"./modules/es6.array.iterator":232,"./modules/es6.array.join":233,"./modules/es6.array.last-index-of":234,"./modules/es6.array.map":235,"./modules/es6.array.of":236,"./modules/es6.array.reduce":238,"./modules/es6.array.reduce-right":237,"./modules/es6.array.slice":239,"./modules/es6.array.some":240,"./modules/es6.array.sort":241,"./modules/es6.array.species":242,"./modules/es6.date.now":243,"./modules/es6.date.to-iso-string":244,"./modules/es6.date.to-json":245,"./modules/es6.date.to-primitive":246,"./modules/es6.date.to-string":247,"./modules/es6.function.bind":248,"./modules/es6.function.has-instance":249,"./modules/es6.function.name":250,"./modules/es6.map":251,"./modules/es6.math.acosh":252,"./modules/es6.math.asinh":253,"./modules/es6.math.atanh":254,"./modules/es6.math.cbrt":255,"./modules/es6.math.clz32":256,"./modules/es6.math.cosh":257,"./modules/es6.math.expm1":258,"./modules/es6.math.fround":259,"./modules/es6.math.hypot":260,"./modules/es6.math.imul":261,"./modules/es6.math.log10":262,"./modules/es6.math.log1p":263,"./modules/es6.math.log2":264,"./modules/es6.math.sign":265,"./modules/es6.math.sinh":266,"./modules/es6.math.tanh":267,"./modules/es6.math.trunc":268,"./modules/es6.number.constructor":269,"./modules/es6.number.epsilon":270,"./modules/es6.number.is-finite":271,"./modules/es6.number.is-integer":272,"./modules/es6.number.is-nan":273,"./modules/es6.number.is-safe-integer":274,"./modules/es6.number.max-safe-integer":275,"./modules/es6.number.min-safe-integer":276,"./modules/es6.number.parse-float":277,"./modules/es6.number.parse-int":278,"./modules/es6.number.to-fixed":279,"./modules/es6.number.to-precision":280,"./modules/es6.object.assign":281,"./modules/es6.object.create":282,"./modules/es6.object.define-properties":283,"./modules/es6.object.define-property":284,"./modules/es6.object.freeze":285,"./modules/es6.object.get-own-property-descriptor":286,"./modules/es6.object.get-own-property-names":287,"./modules/es6.object.get-prototype-of":288,"./modules/es6.object.is":292,"./modules/es6.object.is-extensible":289,"./modules/es6.object.is-frozen":290,"./modules/es6.object.is-sealed":291,"./modules/es6.object.keys":293,"./modules/es6.object.prevent-extensions":294,"./modules/es6.object.seal":295,"./modules/es6.object.set-prototype-of":296,"./modules/es6.object.to-string":297,"./modules/es6.parse-float":298,"./modules/es6.parse-int":299,"./modules/es6.promise":300,"./modules/es6.reflect.apply":301,"./modules/es6.reflect.construct":302,"./modules/es6.reflect.define-property":303,"./modules/es6.reflect.delete-property":304,"./modules/es6.reflect.enumerate":305,"./modules/es6.reflect.get":308,"./modules/es6.reflect.get-own-property-descriptor":306,"./modules/es6.reflect.get-prototype-of":307,"./modules/es6.reflect.has":309,"./modules/es6.reflect.is-extensible":310,"./modules/es6.reflect.own-keys":311,"./modules/es6.reflect.prevent-extensions":312,"./modules/es6.reflect.set":314,"./modules/es6.reflect.set-prototype-of":313,"./modules/es6.regexp.constructor":315,"./modules/es6.regexp.flags":316,"./modules/es6.regexp.match":317,"./modules/es6.regexp.replace":318,"./modules/es6.regexp.search":319,"./modules/es6.regexp.split":320,"./modules/es6.regexp.to-string":321,"./modules/es6.set":322,"./modules/es6.string.anchor":323,"./modules/es6.string.big":324,"./modules/es6.string.blink":325,"./modules/es6.string.bold":326,"./modules/es6.string.code-point-at":327,"./modules/es6.string.ends-with":328,"./modules/es6.string.fixed":329,"./modules/es6.string.fontcolor":330,"./modules/es6.string.fontsize":331,"./modules/es6.string.from-code-point":332,"./modules/es6.string.includes":333,"./modules/es6.string.italics":334,"./modules/es6.string.iterator":335,"./modules/es6.string.link":336,"./modules/es6.string.raw":337,"./modules/es6.string.repeat":338,"./modules/es6.string.small":339,"./modules/es6.string.starts-with":340,"./modules/es6.string.strike":341,"./modules/es6.string.sub":342,"./modules/es6.string.sup":343,"./modules/es6.string.trim":344,"./modules/es6.symbol":345,"./modules/es6.typed.array-buffer":346,"./modules/es6.typed.data-view":347,"./modules/es6.typed.float32-array":348,"./modules/es6.typed.float64-array":349,"./modules/es6.typed.int16-array":350,"./modules/es6.typed.int32-array":351,"./modules/es6.typed.int8-array":352,"./modules/es6.typed.uint16-array":353,"./modules/es6.typed.uint32-array":354,"./modules/es6.typed.uint8-array":355,"./modules/es6.typed.uint8-clamped-array":356,"./modules/es6.weak-map":357,"./modules/es6.weak-set":358,"./modules/es7.array.includes":359,"./modules/es7.asap":360,"./modules/es7.error.is-error":361,"./modules/es7.map.to-json":362,"./modules/es7.math.iaddh":363,"./modules/es7.math.imulh":364,"./modules/es7.math.isubh":365,"./modules/es7.math.umulh":366,"./modules/es7.object.define-getter":367,"./modules/es7.object.define-setter":368,"./modules/es7.object.entries":369,"./modules/es7.object.get-own-property-descriptors":370,"./modules/es7.object.lookup-getter":371,"./modules/es7.object.lookup-setter":372,"./modules/es7.object.values":373,"./modules/es7.observable":374,"./modules/es7.reflect.define-metadata":375,"./modules/es7.reflect.delete-metadata":376,"./modules/es7.reflect.get-metadata":378,"./modules/es7.reflect.get-metadata-keys":377,"./modules/es7.reflect.get-own-metadata":380,"./modules/es7.reflect.get-own-metadata-keys":379,"./modules/es7.reflect.has-metadata":381,"./modules/es7.reflect.has-own-metadata":382,"./modules/es7.reflect.metadata":383,"./modules/es7.set.to-json":384,"./modules/es7.string.at":385,"./modules/es7.string.match-all":386,"./modules/es7.string.pad-end":387,"./modules/es7.string.pad-start":388,"./modules/es7.string.trim-left":389,"./modules/es7.string.trim-right":390,"./modules/es7.symbol.async-iterator":391,"./modules/es7.symbol.observable":392,"./modules/es7.system.global":393,"./modules/web.dom.iterable":394,"./modules/web.immediate":395,"./modules/web.timers":396}],398:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.1.1
  * https://jquery.com/
@@ -44621,9 +43763,9 @@ if ( !noGlobal ) {
 return jQuery;
 } );
 
-},{}],397:[function(require,module,exports){
+},{}],399:[function(require,module,exports){
 //! moment.js
-//! version : 2.15.2
+//! version : 2.17.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -44632,4231 +43774,4299 @@ return jQuery;
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     global.moment = factory()
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
-    var hookCallback;
+var hookCallback;
 
-    function utils_hooks__hooks () {
-        return hookCallback.apply(null, arguments);
+function hooks () {
+    return hookCallback.apply(null, arguments);
+}
+
+// This is done to register the method called with moment()
+// without creating circular dependencies.
+function setHookCallback (callback) {
+    hookCallback = callback;
+}
+
+function isArray(input) {
+    return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
+}
+
+function isObject(input) {
+    // IE8 will treat undefined and null as object if it wasn't for
+    // input != null
+    return input != null && Object.prototype.toString.call(input) === '[object Object]';
+}
+
+function isObjectEmpty(obj) {
+    var k;
+    for (k in obj) {
+        // even if its not own property I'd still call it non-empty
+        return false;
     }
+    return true;
+}
 
-    // This is done to register the method called with moment()
-    // without creating circular dependencies.
-    function setHookCallback (callback) {
-        hookCallback = callback;
+function isNumber(input) {
+    return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';
+}
+
+function isDate(input) {
+    return input instanceof Date || Object.prototype.toString.call(input) === '[object Date]';
+}
+
+function map(arr, fn) {
+    var res = [], i;
+    for (i = 0; i < arr.length; ++i) {
+        res.push(fn(arr[i], i));
     }
+    return res;
+}
 
-    function isArray(input) {
-        return input instanceof Array || Object.prototype.toString.call(input) === '[object Array]';
-    }
+function hasOwnProp(a, b) {
+    return Object.prototype.hasOwnProperty.call(a, b);
+}
 
-    function isObject(input) {
-        // IE8 will treat undefined and null as object if it wasn't for
-        // input != null
-        return input != null && Object.prototype.toString.call(input) === '[object Object]';
-    }
-
-    function isObjectEmpty(obj) {
-        var k;
-        for (k in obj) {
-            // even if its not own property I'd still call it non-empty
-            return false;
+function extend(a, b) {
+    for (var i in b) {
+        if (hasOwnProp(b, i)) {
+            a[i] = b[i];
         }
-        return true;
     }
 
-    function isDate(input) {
-        return input instanceof Date || Object.prototype.toString.call(input) === '[object Date]';
+    if (hasOwnProp(b, 'toString')) {
+        a.toString = b.toString;
     }
 
-    function map(arr, fn) {
-        var res = [], i;
-        for (i = 0; i < arr.length; ++i) {
-            res.push(fn(arr[i], i));
-        }
-        return res;
+    if (hasOwnProp(b, 'valueOf')) {
+        a.valueOf = b.valueOf;
     }
 
-    function hasOwnProp(a, b) {
-        return Object.prototype.hasOwnProperty.call(a, b);
-    }
+    return a;
+}
 
-    function extend(a, b) {
-        for (var i in b) {
-            if (hasOwnProp(b, i)) {
-                a[i] = b[i];
+function createUTC (input, format, locale, strict) {
+    return createLocalOrUTC(input, format, locale, strict, true).utc();
+}
+
+function defaultParsingFlags() {
+    // We need to deep clone this object.
+    return {
+        empty           : false,
+        unusedTokens    : [],
+        unusedInput     : [],
+        overflow        : -2,
+        charsLeftOver   : 0,
+        nullInput       : false,
+        invalidMonth    : null,
+        invalidFormat   : false,
+        userInvalidated : false,
+        iso             : false,
+        parsedDateParts : [],
+        meridiem        : null
+    };
+}
+
+function getParsingFlags(m) {
+    if (m._pf == null) {
+        m._pf = defaultParsingFlags();
+    }
+    return m._pf;
+}
+
+var some;
+if (Array.prototype.some) {
+    some = Array.prototype.some;
+} else {
+    some = function (fun) {
+        var t = Object(this);
+        var len = t.length >>> 0;
+
+        for (var i = 0; i < len; i++) {
+            if (i in t && fun.call(this, t[i], i, t)) {
+                return true;
             }
         }
 
-        if (hasOwnProp(b, 'toString')) {
-            a.toString = b.toString;
+        return false;
+    };
+}
+
+var some$1 = some;
+
+function isValid(m) {
+    if (m._isValid == null) {
+        var flags = getParsingFlags(m);
+        var parsedParts = some$1.call(flags.parsedDateParts, function (i) {
+            return i != null;
+        });
+        var isNowValid = !isNaN(m._d.getTime()) &&
+            flags.overflow < 0 &&
+            !flags.empty &&
+            !flags.invalidMonth &&
+            !flags.invalidWeekday &&
+            !flags.nullInput &&
+            !flags.invalidFormat &&
+            !flags.userInvalidated &&
+            (!flags.meridiem || (flags.meridiem && parsedParts));
+
+        if (m._strict) {
+            isNowValid = isNowValid &&
+                flags.charsLeftOver === 0 &&
+                flags.unusedTokens.length === 0 &&
+                flags.bigHour === undefined;
         }
 
-        if (hasOwnProp(b, 'valueOf')) {
-            a.valueOf = b.valueOf;
-        }
-
-        return a;
-    }
-
-    function create_utc__createUTC (input, format, locale, strict) {
-        return createLocalOrUTC(input, format, locale, strict, true).utc();
-    }
-
-    function defaultParsingFlags() {
-        // We need to deep clone this object.
-        return {
-            empty           : false,
-            unusedTokens    : [],
-            unusedInput     : [],
-            overflow        : -2,
-            charsLeftOver   : 0,
-            nullInput       : false,
-            invalidMonth    : null,
-            invalidFormat   : false,
-            userInvalidated : false,
-            iso             : false,
-            parsedDateParts : [],
-            meridiem        : null
-        };
-    }
-
-    function getParsingFlags(m) {
-        if (m._pf == null) {
-            m._pf = defaultParsingFlags();
-        }
-        return m._pf;
-    }
-
-    var some;
-    if (Array.prototype.some) {
-        some = Array.prototype.some;
-    } else {
-        some = function (fun) {
-            var t = Object(this);
-            var len = t.length >>> 0;
-
-            for (var i = 0; i < len; i++) {
-                if (i in t && fun.call(this, t[i], i, t)) {
-                    return true;
-                }
-            }
-
-            return false;
-        };
-    }
-
-    function valid__isValid(m) {
-        if (m._isValid == null) {
-            var flags = getParsingFlags(m);
-            var parsedParts = some.call(flags.parsedDateParts, function (i) {
-                return i != null;
-            });
-            var isNowValid = !isNaN(m._d.getTime()) &&
-                flags.overflow < 0 &&
-                !flags.empty &&
-                !flags.invalidMonth &&
-                !flags.invalidWeekday &&
-                !flags.nullInput &&
-                !flags.invalidFormat &&
-                !flags.userInvalidated &&
-                (!flags.meridiem || (flags.meridiem && parsedParts));
-
-            if (m._strict) {
-                isNowValid = isNowValid &&
-                    flags.charsLeftOver === 0 &&
-                    flags.unusedTokens.length === 0 &&
-                    flags.bigHour === undefined;
-            }
-
-            if (Object.isFrozen == null || !Object.isFrozen(m)) {
-                m._isValid = isNowValid;
-            }
-            else {
-                return isNowValid;
-            }
-        }
-        return m._isValid;
-    }
-
-    function valid__createInvalid (flags) {
-        var m = create_utc__createUTC(NaN);
-        if (flags != null) {
-            extend(getParsingFlags(m), flags);
+        if (Object.isFrozen == null || !Object.isFrozen(m)) {
+            m._isValid = isNowValid;
         }
         else {
-            getParsingFlags(m).userInvalidated = true;
+            return isNowValid;
         }
+    }
+    return m._isValid;
+}
 
-        return m;
+function createInvalid (flags) {
+    var m = createUTC(NaN);
+    if (flags != null) {
+        extend(getParsingFlags(m), flags);
+    }
+    else {
+        getParsingFlags(m).userInvalidated = true;
     }
 
-    function isUndefined(input) {
-        return input === void 0;
+    return m;
+}
+
+function isUndefined(input) {
+    return input === void 0;
+}
+
+// Plugins that add properties should also add the key here (null value),
+// so we can properly clone ourselves.
+var momentProperties = hooks.momentProperties = [];
+
+function copyConfig(to, from) {
+    var i, prop, val;
+
+    if (!isUndefined(from._isAMomentObject)) {
+        to._isAMomentObject = from._isAMomentObject;
+    }
+    if (!isUndefined(from._i)) {
+        to._i = from._i;
+    }
+    if (!isUndefined(from._f)) {
+        to._f = from._f;
+    }
+    if (!isUndefined(from._l)) {
+        to._l = from._l;
+    }
+    if (!isUndefined(from._strict)) {
+        to._strict = from._strict;
+    }
+    if (!isUndefined(from._tzm)) {
+        to._tzm = from._tzm;
+    }
+    if (!isUndefined(from._isUTC)) {
+        to._isUTC = from._isUTC;
+    }
+    if (!isUndefined(from._offset)) {
+        to._offset = from._offset;
+    }
+    if (!isUndefined(from._pf)) {
+        to._pf = getParsingFlags(from);
+    }
+    if (!isUndefined(from._locale)) {
+        to._locale = from._locale;
     }
 
-    // Plugins that add properties should also add the key here (null value),
-    // so we can properly clone ourselves.
-    var momentProperties = utils_hooks__hooks.momentProperties = [];
-
-    function copyConfig(to, from) {
-        var i, prop, val;
-
-        if (!isUndefined(from._isAMomentObject)) {
-            to._isAMomentObject = from._isAMomentObject;
-        }
-        if (!isUndefined(from._i)) {
-            to._i = from._i;
-        }
-        if (!isUndefined(from._f)) {
-            to._f = from._f;
-        }
-        if (!isUndefined(from._l)) {
-            to._l = from._l;
-        }
-        if (!isUndefined(from._strict)) {
-            to._strict = from._strict;
-        }
-        if (!isUndefined(from._tzm)) {
-            to._tzm = from._tzm;
-        }
-        if (!isUndefined(from._isUTC)) {
-            to._isUTC = from._isUTC;
-        }
-        if (!isUndefined(from._offset)) {
-            to._offset = from._offset;
-        }
-        if (!isUndefined(from._pf)) {
-            to._pf = getParsingFlags(from);
-        }
-        if (!isUndefined(from._locale)) {
-            to._locale = from._locale;
-        }
-
-        if (momentProperties.length > 0) {
-            for (i in momentProperties) {
-                prop = momentProperties[i];
-                val = from[prop];
-                if (!isUndefined(val)) {
-                    to[prop] = val;
-                }
+    if (momentProperties.length > 0) {
+        for (i in momentProperties) {
+            prop = momentProperties[i];
+            val = from[prop];
+            if (!isUndefined(val)) {
+                to[prop] = val;
             }
         }
-
-        return to;
     }
 
-    var updateInProgress = false;
+    return to;
+}
 
-    // Moment prototype object
-    function Moment(config) {
-        copyConfig(this, config);
-        this._d = new Date(config._d != null ? config._d.getTime() : NaN);
-        // Prevent infinite loop in case updateOffset creates new moment
-        // objects.
-        if (updateInProgress === false) {
-            updateInProgress = true;
-            utils_hooks__hooks.updateOffset(this);
-            updateInProgress = false;
+var updateInProgress = false;
+
+// Moment prototype object
+function Moment(config) {
+    copyConfig(this, config);
+    this._d = new Date(config._d != null ? config._d.getTime() : NaN);
+    if (!this.isValid()) {
+        this._d = new Date(NaN);
+    }
+    // Prevent infinite loop in case updateOffset creates new moment
+    // objects.
+    if (updateInProgress === false) {
+        updateInProgress = true;
+        hooks.updateOffset(this);
+        updateInProgress = false;
+    }
+}
+
+function isMoment (obj) {
+    return obj instanceof Moment || (obj != null && obj._isAMomentObject != null);
+}
+
+function absFloor (number) {
+    if (number < 0) {
+        // -0 -> 0
+        return Math.ceil(number) || 0;
+    } else {
+        return Math.floor(number);
+    }
+}
+
+function toInt(argumentForCoercion) {
+    var coercedNumber = +argumentForCoercion,
+        value = 0;
+
+    if (coercedNumber !== 0 && isFinite(coercedNumber)) {
+        value = absFloor(coercedNumber);
+    }
+
+    return value;
+}
+
+// compare two arrays, return the number of differences
+function compareArrays(array1, array2, dontConvert) {
+    var len = Math.min(array1.length, array2.length),
+        lengthDiff = Math.abs(array1.length - array2.length),
+        diffs = 0,
+        i;
+    for (i = 0; i < len; i++) {
+        if ((dontConvert && array1[i] !== array2[i]) ||
+            (!dontConvert && toInt(array1[i]) !== toInt(array2[i]))) {
+            diffs++;
         }
     }
+    return diffs + lengthDiff;
+}
 
-    function isMoment (obj) {
-        return obj instanceof Moment || (obj != null && obj._isAMomentObject != null);
+function warn(msg) {
+    if (hooks.suppressDeprecationWarnings === false &&
+            (typeof console !==  'undefined') && console.warn) {
+        console.warn('Deprecation warning: ' + msg);
     }
+}
 
-    function absFloor (number) {
-        if (number < 0) {
-            // -0 -> 0
-            return Math.ceil(number) || 0;
-        } else {
-            return Math.floor(number);
+function deprecate(msg, fn) {
+    var firstTime = true;
+
+    return extend(function () {
+        if (hooks.deprecationHandler != null) {
+            hooks.deprecationHandler(null, msg);
         }
-    }
-
-    function toInt(argumentForCoercion) {
-        var coercedNumber = +argumentForCoercion,
-            value = 0;
-
-        if (coercedNumber !== 0 && isFinite(coercedNumber)) {
-            value = absFloor(coercedNumber);
-        }
-
-        return value;
-    }
-
-    // compare two arrays, return the number of differences
-    function compareArrays(array1, array2, dontConvert) {
-        var len = Math.min(array1.length, array2.length),
-            lengthDiff = Math.abs(array1.length - array2.length),
-            diffs = 0,
-            i;
-        for (i = 0; i < len; i++) {
-            if ((dontConvert && array1[i] !== array2[i]) ||
-                (!dontConvert && toInt(array1[i]) !== toInt(array2[i]))) {
-                diffs++;
-            }
-        }
-        return diffs + lengthDiff;
-    }
-
-    function warn(msg) {
-        if (utils_hooks__hooks.suppressDeprecationWarnings === false &&
-                (typeof console !==  'undefined') && console.warn) {
-            console.warn('Deprecation warning: ' + msg);
-        }
-    }
-
-    function deprecate(msg, fn) {
-        var firstTime = true;
-
-        return extend(function () {
-            if (utils_hooks__hooks.deprecationHandler != null) {
-                utils_hooks__hooks.deprecationHandler(null, msg);
-            }
-            if (firstTime) {
-                var args = [];
-                var arg;
-                for (var i = 0; i < arguments.length; i++) {
-                    arg = '';
-                    if (typeof arguments[i] === 'object') {
-                        arg += '\n[' + i + '] ';
-                        for (var key in arguments[0]) {
-                            arg += key + ': ' + arguments[0][key] + ', ';
-                        }
-                        arg = arg.slice(0, -2); // Remove trailing comma and space
-                    } else {
-                        arg = arguments[i];
+        if (firstTime) {
+            var args = [];
+            var arg;
+            for (var i = 0; i < arguments.length; i++) {
+                arg = '';
+                if (typeof arguments[i] === 'object') {
+                    arg += '\n[' + i + '] ';
+                    for (var key in arguments[0]) {
+                        arg += key + ': ' + arguments[0][key] + ', ';
                     }
-                    args.push(arg);
-                }
-                warn(msg + '\nArguments: ' + Array.prototype.slice.call(args).join('') + '\n' + (new Error()).stack);
-                firstTime = false;
-            }
-            return fn.apply(this, arguments);
-        }, fn);
-    }
-
-    var deprecations = {};
-
-    function deprecateSimple(name, msg) {
-        if (utils_hooks__hooks.deprecationHandler != null) {
-            utils_hooks__hooks.deprecationHandler(name, msg);
-        }
-        if (!deprecations[name]) {
-            warn(msg);
-            deprecations[name] = true;
-        }
-    }
-
-    utils_hooks__hooks.suppressDeprecationWarnings = false;
-    utils_hooks__hooks.deprecationHandler = null;
-
-    function isFunction(input) {
-        return input instanceof Function || Object.prototype.toString.call(input) === '[object Function]';
-    }
-
-    function locale_set__set (config) {
-        var prop, i;
-        for (i in config) {
-            prop = config[i];
-            if (isFunction(prop)) {
-                this[i] = prop;
-            } else {
-                this['_' + i] = prop;
-            }
-        }
-        this._config = config;
-        // Lenient ordinal parsing accepts just a number in addition to
-        // number + (possibly) stuff coming from _ordinalParseLenient.
-        this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + (/\d{1,2}/).source);
-    }
-
-    function mergeConfigs(parentConfig, childConfig) {
-        var res = extend({}, parentConfig), prop;
-        for (prop in childConfig) {
-            if (hasOwnProp(childConfig, prop)) {
-                if (isObject(parentConfig[prop]) && isObject(childConfig[prop])) {
-                    res[prop] = {};
-                    extend(res[prop], parentConfig[prop]);
-                    extend(res[prop], childConfig[prop]);
-                } else if (childConfig[prop] != null) {
-                    res[prop] = childConfig[prop];
+                    arg = arg.slice(0, -2); // Remove trailing comma and space
                 } else {
-                    delete res[prop];
+                    arg = arguments[i];
                 }
+                args.push(arg);
+            }
+            warn(msg + '\nArguments: ' + Array.prototype.slice.call(args).join('') + '\n' + (new Error()).stack);
+            firstTime = false;
+        }
+        return fn.apply(this, arguments);
+    }, fn);
+}
+
+var deprecations = {};
+
+function deprecateSimple(name, msg) {
+    if (hooks.deprecationHandler != null) {
+        hooks.deprecationHandler(name, msg);
+    }
+    if (!deprecations[name]) {
+        warn(msg);
+        deprecations[name] = true;
+    }
+}
+
+hooks.suppressDeprecationWarnings = false;
+hooks.deprecationHandler = null;
+
+function isFunction(input) {
+    return input instanceof Function || Object.prototype.toString.call(input) === '[object Function]';
+}
+
+function set (config) {
+    var prop, i;
+    for (i in config) {
+        prop = config[i];
+        if (isFunction(prop)) {
+            this[i] = prop;
+        } else {
+            this['_' + i] = prop;
+        }
+    }
+    this._config = config;
+    // Lenient ordinal parsing accepts just a number in addition to
+    // number + (possibly) stuff coming from _ordinalParseLenient.
+    this._ordinalParseLenient = new RegExp(this._ordinalParse.source + '|' + (/\d{1,2}/).source);
+}
+
+function mergeConfigs(parentConfig, childConfig) {
+    var res = extend({}, parentConfig), prop;
+    for (prop in childConfig) {
+        if (hasOwnProp(childConfig, prop)) {
+            if (isObject(parentConfig[prop]) && isObject(childConfig[prop])) {
+                res[prop] = {};
+                extend(res[prop], parentConfig[prop]);
+                extend(res[prop], childConfig[prop]);
+            } else if (childConfig[prop] != null) {
+                res[prop] = childConfig[prop];
+            } else {
+                delete res[prop];
             }
         }
-        for (prop in parentConfig) {
-            if (hasOwnProp(parentConfig, prop) &&
-                    !hasOwnProp(childConfig, prop) &&
-                    isObject(parentConfig[prop])) {
-                // make sure changes to properties don't modify parent config
-                res[prop] = extend({}, res[prop]);
+    }
+    for (prop in parentConfig) {
+        if (hasOwnProp(parentConfig, prop) &&
+                !hasOwnProp(childConfig, prop) &&
+                isObject(parentConfig[prop])) {
+            // make sure changes to properties don't modify parent config
+            res[prop] = extend({}, res[prop]);
+        }
+    }
+    return res;
+}
+
+function Locale(config) {
+    if (config != null) {
+        this.set(config);
+    }
+}
+
+var keys;
+
+if (Object.keys) {
+    keys = Object.keys;
+} else {
+    keys = function (obj) {
+        var i, res = [];
+        for (i in obj) {
+            if (hasOwnProp(obj, i)) {
+                res.push(i);
             }
         }
         return res;
-    }
-
-    function Locale(config) {
-        if (config != null) {
-            this.set(config);
-        }
-    }
-
-    var keys;
-
-    if (Object.keys) {
-        keys = Object.keys;
-    } else {
-        keys = function (obj) {
-            var i, res = [];
-            for (i in obj) {
-                if (hasOwnProp(obj, i)) {
-                    res.push(i);
-                }
-            }
-            return res;
-        };
-    }
-
-    var defaultCalendar = {
-        sameDay : '[Today at] LT',
-        nextDay : '[Tomorrow at] LT',
-        nextWeek : 'dddd [at] LT',
-        lastDay : '[Yesterday at] LT',
-        lastWeek : '[Last] dddd [at] LT',
-        sameElse : 'L'
     };
+}
 
-    function locale_calendar__calendar (key, mom, now) {
-        var output = this._calendar[key] || this._calendar['sameElse'];
-        return isFunction(output) ? output.call(mom, now) : output;
-    }
+var keys$1 = keys;
 
-    var defaultLongDateFormat = {
-        LTS  : 'h:mm:ss A',
-        LT   : 'h:mm A',
-        L    : 'MM/DD/YYYY',
-        LL   : 'MMMM D, YYYY',
-        LLL  : 'MMMM D, YYYY h:mm A',
-        LLLL : 'dddd, MMMM D, YYYY h:mm A'
-    };
+var defaultCalendar = {
+    sameDay : '[Today at] LT',
+    nextDay : '[Tomorrow at] LT',
+    nextWeek : 'dddd [at] LT',
+    lastDay : '[Yesterday at] LT',
+    lastWeek : '[Last] dddd [at] LT',
+    sameElse : 'L'
+};
 
-    function longDateFormat (key) {
-        var format = this._longDateFormat[key],
-            formatUpper = this._longDateFormat[key.toUpperCase()];
+function calendar (key, mom, now) {
+    var output = this._calendar[key] || this._calendar['sameElse'];
+    return isFunction(output) ? output.call(mom, now) : output;
+}
 
-        if (format || !formatUpper) {
-            return format;
-        }
+var defaultLongDateFormat = {
+    LTS  : 'h:mm:ss A',
+    LT   : 'h:mm A',
+    L    : 'MM/DD/YYYY',
+    LL   : 'MMMM D, YYYY',
+    LLL  : 'MMMM D, YYYY h:mm A',
+    LLLL : 'dddd, MMMM D, YYYY h:mm A'
+};
 
-        this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
-            return val.slice(1);
-        });
+function longDateFormat (key) {
+    var format = this._longDateFormat[key],
+        formatUpper = this._longDateFormat[key.toUpperCase()];
 
-        return this._longDateFormat[key];
-    }
-
-    var defaultInvalidDate = 'Invalid date';
-
-    function invalidDate () {
-        return this._invalidDate;
-    }
-
-    var defaultOrdinal = '%d';
-    var defaultOrdinalParse = /\d{1,2}/;
-
-    function ordinal (number) {
-        return this._ordinal.replace('%d', number);
-    }
-
-    var defaultRelativeTime = {
-        future : 'in %s',
-        past   : '%s ago',
-        s  : 'a few seconds',
-        m  : 'a minute',
-        mm : '%d minutes',
-        h  : 'an hour',
-        hh : '%d hours',
-        d  : 'a day',
-        dd : '%d days',
-        M  : 'a month',
-        MM : '%d months',
-        y  : 'a year',
-        yy : '%d years'
-    };
-
-    function relative__relativeTime (number, withoutSuffix, string, isFuture) {
-        var output = this._relativeTime[string];
-        return (isFunction(output)) ?
-            output(number, withoutSuffix, string, isFuture) :
-            output.replace(/%d/i, number);
-    }
-
-    function pastFuture (diff, output) {
-        var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
-        return isFunction(format) ? format(output) : format.replace(/%s/i, output);
-    }
-
-    var aliases = {};
-
-    function addUnitAlias (unit, shorthand) {
-        var lowerCase = unit.toLowerCase();
-        aliases[lowerCase] = aliases[lowerCase + 's'] = aliases[shorthand] = unit;
-    }
-
-    function normalizeUnits(units) {
-        return typeof units === 'string' ? aliases[units] || aliases[units.toLowerCase()] : undefined;
-    }
-
-    function normalizeObjectUnits(inputObject) {
-        var normalizedInput = {},
-            normalizedProp,
-            prop;
-
-        for (prop in inputObject) {
-            if (hasOwnProp(inputObject, prop)) {
-                normalizedProp = normalizeUnits(prop);
-                if (normalizedProp) {
-                    normalizedInput[normalizedProp] = inputObject[prop];
-                }
-            }
-        }
-
-        return normalizedInput;
-    }
-
-    var priorities = {};
-
-    function addUnitPriority(unit, priority) {
-        priorities[unit] = priority;
-    }
-
-    function getPrioritizedUnits(unitsObj) {
-        var units = [];
-        for (var u in unitsObj) {
-            units.push({unit: u, priority: priorities[u]});
-        }
-        units.sort(function (a, b) {
-            return a.priority - b.priority;
-        });
-        return units;
-    }
-
-    function makeGetSet (unit, keepTime) {
-        return function (value) {
-            if (value != null) {
-                get_set__set(this, unit, value);
-                utils_hooks__hooks.updateOffset(this, keepTime);
-                return this;
-            } else {
-                return get_set__get(this, unit);
-            }
-        };
-    }
-
-    function get_set__get (mom, unit) {
-        return mom.isValid() ?
-            mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]() : NaN;
-    }
-
-    function get_set__set (mom, unit, value) {
-        if (mom.isValid()) {
-            mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
-        }
-    }
-
-    // MOMENTS
-
-    function stringGet (units) {
-        units = normalizeUnits(units);
-        if (isFunction(this[units])) {
-            return this[units]();
-        }
-        return this;
-    }
-
-
-    function stringSet (units, value) {
-        if (typeof units === 'object') {
-            units = normalizeObjectUnits(units);
-            var prioritized = getPrioritizedUnits(units);
-            for (var i = 0; i < prioritized.length; i++) {
-                this[prioritized[i].unit](units[prioritized[i].unit]);
-            }
-        } else {
-            units = normalizeUnits(units);
-            if (isFunction(this[units])) {
-                return this[units](value);
-            }
-        }
-        return this;
-    }
-
-    function zeroFill(number, targetLength, forceSign) {
-        var absNumber = '' + Math.abs(number),
-            zerosToFill = targetLength - absNumber.length,
-            sign = number >= 0;
-        return (sign ? (forceSign ? '+' : '') : '-') +
-            Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
-    }
-
-    var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
-
-    var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
-
-    var formatFunctions = {};
-
-    var formatTokenFunctions = {};
-
-    // token:    'M'
-    // padded:   ['MM', 2]
-    // ordinal:  'Mo'
-    // callback: function () { this.month() + 1 }
-    function addFormatToken (token, padded, ordinal, callback) {
-        var func = callback;
-        if (typeof callback === 'string') {
-            func = function () {
-                return this[callback]();
-            };
-        }
-        if (token) {
-            formatTokenFunctions[token] = func;
-        }
-        if (padded) {
-            formatTokenFunctions[padded[0]] = function () {
-                return zeroFill(func.apply(this, arguments), padded[1], padded[2]);
-            };
-        }
-        if (ordinal) {
-            formatTokenFunctions[ordinal] = function () {
-                return this.localeData().ordinal(func.apply(this, arguments), token);
-            };
-        }
-    }
-
-    function removeFormattingTokens(input) {
-        if (input.match(/\[[\s\S]/)) {
-            return input.replace(/^\[|\]$/g, '');
-        }
-        return input.replace(/\\/g, '');
-    }
-
-    function makeFormatFunction(format) {
-        var array = format.match(formattingTokens), i, length;
-
-        for (i = 0, length = array.length; i < length; i++) {
-            if (formatTokenFunctions[array[i]]) {
-                array[i] = formatTokenFunctions[array[i]];
-            } else {
-                array[i] = removeFormattingTokens(array[i]);
-            }
-        }
-
-        return function (mom) {
-            var output = '', i;
-            for (i = 0; i < length; i++) {
-                output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
-            }
-            return output;
-        };
-    }
-
-    // format date using native date object
-    function formatMoment(m, format) {
-        if (!m.isValid()) {
-            return m.localeData().invalidDate();
-        }
-
-        format = expandFormat(format, m.localeData());
-        formatFunctions[format] = formatFunctions[format] || makeFormatFunction(format);
-
-        return formatFunctions[format](m);
-    }
-
-    function expandFormat(format, locale) {
-        var i = 5;
-
-        function replaceLongDateFormatTokens(input) {
-            return locale.longDateFormat(input) || input;
-        }
-
-        localFormattingTokens.lastIndex = 0;
-        while (i >= 0 && localFormattingTokens.test(format)) {
-            format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
-            localFormattingTokens.lastIndex = 0;
-            i -= 1;
-        }
-
+    if (format || !formatUpper) {
         return format;
     }
 
-    var match1         = /\d/;            //       0 - 9
-    var match2         = /\d\d/;          //      00 - 99
-    var match3         = /\d{3}/;         //     000 - 999
-    var match4         = /\d{4}/;         //    0000 - 9999
-    var match6         = /[+-]?\d{6}/;    // -999999 - 999999
-    var match1to2      = /\d\d?/;         //       0 - 99
-    var match3to4      = /\d\d\d\d?/;     //     999 - 9999
-    var match5to6      = /\d\d\d\d\d\d?/; //   99999 - 999999
-    var match1to3      = /\d{1,3}/;       //       0 - 999
-    var match1to4      = /\d{1,4}/;       //       0 - 9999
-    var match1to6      = /[+-]?\d{1,6}/;  // -999999 - 999999
+    this._longDateFormat[key] = formatUpper.replace(/MMMM|MM|DD|dddd/g, function (val) {
+        return val.slice(1);
+    });
 
-    var matchUnsigned  = /\d+/;           //       0 - inf
-    var matchSigned    = /[+-]?\d+/;      //    -inf - inf
+    return this._longDateFormat[key];
+}
 
-    var matchOffset    = /Z|[+-]\d\d:?\d\d/gi; // +00:00 -00:00 +0000 -0000 or Z
-    var matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi; // +00 -00 +00:00 -00:00 +0000 -0000 or Z
+var defaultInvalidDate = 'Invalid date';
 
-    var matchTimestamp = /[+-]?\d+(\.\d{1,3})?/; // 123456789 123456789.123
+function invalidDate () {
+    return this._invalidDate;
+}
 
-    // any word (or two) characters or numbers including two/three word month in arabic.
-    // includes scottish gaelic two word and hyphenated months
-    var matchWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i;
+var defaultOrdinal = '%d';
+var defaultOrdinalParse = /\d{1,2}/;
 
+function ordinal (number) {
+    return this._ordinal.replace('%d', number);
+}
 
-    var regexes = {};
+var defaultRelativeTime = {
+    future : 'in %s',
+    past   : '%s ago',
+    s  : 'a few seconds',
+    m  : 'a minute',
+    mm : '%d minutes',
+    h  : 'an hour',
+    hh : '%d hours',
+    d  : 'a day',
+    dd : '%d days',
+    M  : 'a month',
+    MM : '%d months',
+    y  : 'a year',
+    yy : '%d years'
+};
 
-    function addRegexToken (token, regex, strictRegex) {
-        regexes[token] = isFunction(regex) ? regex : function (isStrict, localeData) {
-            return (isStrict && strictRegex) ? strictRegex : regex;
-        };
-    }
+function relativeTime (number, withoutSuffix, string, isFuture) {
+    var output = this._relativeTime[string];
+    return (isFunction(output)) ?
+        output(number, withoutSuffix, string, isFuture) :
+        output.replace(/%d/i, number);
+}
 
-    function getParseRegexForToken (token, config) {
-        if (!hasOwnProp(regexes, token)) {
-            return new RegExp(unescapeFormat(token));
-        }
+function pastFuture (diff, output) {
+    var format = this._relativeTime[diff > 0 ? 'future' : 'past'];
+    return isFunction(format) ? format(output) : format.replace(/%s/i, output);
+}
 
-        return regexes[token](config._strict, config._locale);
-    }
+var aliases = {};
 
-    // Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
-    function unescapeFormat(s) {
-        return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
-            return p1 || p2 || p3 || p4;
-        }));
-    }
+function addUnitAlias (unit, shorthand) {
+    var lowerCase = unit.toLowerCase();
+    aliases[lowerCase] = aliases[lowerCase + 's'] = aliases[shorthand] = unit;
+}
 
-    function regexEscape(s) {
-        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-    }
+function normalizeUnits(units) {
+    return typeof units === 'string' ? aliases[units] || aliases[units.toLowerCase()] : undefined;
+}
 
-    var tokens = {};
+function normalizeObjectUnits(inputObject) {
+    var normalizedInput = {},
+        normalizedProp,
+        prop;
 
-    function addParseToken (token, callback) {
-        var i, func = callback;
-        if (typeof token === 'string') {
-            token = [token];
-        }
-        if (typeof callback === 'number') {
-            func = function (input, array) {
-                array[callback] = toInt(input);
-            };
-        }
-        for (i = 0; i < token.length; i++) {
-            tokens[token[i]] = func;
-        }
-    }
-
-    function addWeekParseToken (token, callback) {
-        addParseToken(token, function (input, array, config, token) {
-            config._w = config._w || {};
-            callback(input, config._w, config, token);
-        });
-    }
-
-    function addTimeToArrayFromToken(token, input, config) {
-        if (input != null && hasOwnProp(tokens, token)) {
-            tokens[token](input, config._a, config, token);
+    for (prop in inputObject) {
+        if (hasOwnProp(inputObject, prop)) {
+            normalizedProp = normalizeUnits(prop);
+            if (normalizedProp) {
+                normalizedInput[normalizedProp] = inputObject[prop];
+            }
         }
     }
 
-    var YEAR = 0;
-    var MONTH = 1;
-    var DATE = 2;
-    var HOUR = 3;
-    var MINUTE = 4;
-    var SECOND = 5;
-    var MILLISECOND = 6;
-    var WEEK = 7;
-    var WEEKDAY = 8;
+    return normalizedInput;
+}
 
-    var indexOf;
+var priorities = {};
 
-    if (Array.prototype.indexOf) {
-        indexOf = Array.prototype.indexOf;
+function addUnitPriority(unit, priority) {
+    priorities[unit] = priority;
+}
+
+function getPrioritizedUnits(unitsObj) {
+    var units = [];
+    for (var u in unitsObj) {
+        units.push({unit: u, priority: priorities[u]});
+    }
+    units.sort(function (a, b) {
+        return a.priority - b.priority;
+    });
+    return units;
+}
+
+function makeGetSet (unit, keepTime) {
+    return function (value) {
+        if (value != null) {
+            set$1(this, unit, value);
+            hooks.updateOffset(this, keepTime);
+            return this;
+        } else {
+            return get(this, unit);
+        }
+    };
+}
+
+function get (mom, unit) {
+    return mom.isValid() ?
+        mom._d['get' + (mom._isUTC ? 'UTC' : '') + unit]() : NaN;
+}
+
+function set$1 (mom, unit, value) {
+    if (mom.isValid()) {
+        mom._d['set' + (mom._isUTC ? 'UTC' : '') + unit](value);
+    }
+}
+
+// MOMENTS
+
+function stringGet (units) {
+    units = normalizeUnits(units);
+    if (isFunction(this[units])) {
+        return this[units]();
+    }
+    return this;
+}
+
+
+function stringSet (units, value) {
+    if (typeof units === 'object') {
+        units = normalizeObjectUnits(units);
+        var prioritized = getPrioritizedUnits(units);
+        for (var i = 0; i < prioritized.length; i++) {
+            this[prioritized[i].unit](units[prioritized[i].unit]);
+        }
     } else {
-        indexOf = function (o) {
-            // I know
-            var i;
-            for (i = 0; i < this.length; ++i) {
-                if (this[i] === o) {
-                    return i;
-                }
-            }
-            return -1;
+        units = normalizeUnits(units);
+        if (isFunction(this[units])) {
+            return this[units](value);
+        }
+    }
+    return this;
+}
+
+function zeroFill(number, targetLength, forceSign) {
+    var absNumber = '' + Math.abs(number),
+        zerosToFill = targetLength - absNumber.length,
+        sign = number >= 0;
+    return (sign ? (forceSign ? '+' : '') : '-') +
+        Math.pow(10, Math.max(0, zerosToFill)).toString().substr(1) + absNumber;
+}
+
+var formattingTokens = /(\[[^\[]*\])|(\\)?([Hh]mm(ss)?|Mo|MM?M?M?|Do|DDDo|DD?D?D?|ddd?d?|do?|w[o|w]?|W[o|W]?|Qo?|YYYYYY|YYYYY|YYYY|YY|gg(ggg?)?|GG(GGG?)?|e|E|a|A|hh?|HH?|kk?|mm?|ss?|S{1,9}|x|X|zz?|ZZ?|.)/g;
+
+var localFormattingTokens = /(\[[^\[]*\])|(\\)?(LTS|LT|LL?L?L?|l{1,4})/g;
+
+var formatFunctions = {};
+
+var formatTokenFunctions = {};
+
+// token:    'M'
+// padded:   ['MM', 2]
+// ordinal:  'Mo'
+// callback: function () { this.month() + 1 }
+function addFormatToken (token, padded, ordinal, callback) {
+    var func = callback;
+    if (typeof callback === 'string') {
+        func = function () {
+            return this[callback]();
         };
     }
-
-    function daysInMonth(year, month) {
-        return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+    if (token) {
+        formatTokenFunctions[token] = func;
     }
+    if (padded) {
+        formatTokenFunctions[padded[0]] = function () {
+            return zeroFill(func.apply(this, arguments), padded[1], padded[2]);
+        };
+    }
+    if (ordinal) {
+        formatTokenFunctions[ordinal] = function () {
+            return this.localeData().ordinal(func.apply(this, arguments), token);
+        };
+    }
+}
 
-    // FORMATTING
+function removeFormattingTokens(input) {
+    if (input.match(/\[[\s\S]/)) {
+        return input.replace(/^\[|\]$/g, '');
+    }
+    return input.replace(/\\/g, '');
+}
 
-    addFormatToken('M', ['MM', 2], 'Mo', function () {
-        return this.month() + 1;
-    });
+function makeFormatFunction(format) {
+    var array = format.match(formattingTokens), i, length;
 
-    addFormatToken('MMM', 0, 0, function (format) {
-        return this.localeData().monthsShort(this, format);
-    });
-
-    addFormatToken('MMMM', 0, 0, function (format) {
-        return this.localeData().months(this, format);
-    });
-
-    // ALIASES
-
-    addUnitAlias('month', 'M');
-
-    // PRIORITY
-
-    addUnitPriority('month', 8);
-
-    // PARSING
-
-    addRegexToken('M',    match1to2);
-    addRegexToken('MM',   match1to2, match2);
-    addRegexToken('MMM',  function (isStrict, locale) {
-        return locale.monthsShortRegex(isStrict);
-    });
-    addRegexToken('MMMM', function (isStrict, locale) {
-        return locale.monthsRegex(isStrict);
-    });
-
-    addParseToken(['M', 'MM'], function (input, array) {
-        array[MONTH] = toInt(input) - 1;
-    });
-
-    addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
-        var month = config._locale.monthsParse(input, token, config._strict);
-        // if we didn't find a month name, mark the date as invalid.
-        if (month != null) {
-            array[MONTH] = month;
+    for (i = 0, length = array.length; i < length; i++) {
+        if (formatTokenFunctions[array[i]]) {
+            array[i] = formatTokenFunctions[array[i]];
         } else {
-            getParsingFlags(config).invalidMonth = input;
+            array[i] = removeFormattingTokens(array[i]);
         }
+    }
+
+    return function (mom) {
+        var output = '', i;
+        for (i = 0; i < length; i++) {
+            output += array[i] instanceof Function ? array[i].call(mom, format) : array[i];
+        }
+        return output;
+    };
+}
+
+// format date using native date object
+function formatMoment(m, format) {
+    if (!m.isValid()) {
+        return m.localeData().invalidDate();
+    }
+
+    format = expandFormat(format, m.localeData());
+    formatFunctions[format] = formatFunctions[format] || makeFormatFunction(format);
+
+    return formatFunctions[format](m);
+}
+
+function expandFormat(format, locale) {
+    var i = 5;
+
+    function replaceLongDateFormatTokens(input) {
+        return locale.longDateFormat(input) || input;
+    }
+
+    localFormattingTokens.lastIndex = 0;
+    while (i >= 0 && localFormattingTokens.test(format)) {
+        format = format.replace(localFormattingTokens, replaceLongDateFormatTokens);
+        localFormattingTokens.lastIndex = 0;
+        i -= 1;
+    }
+
+    return format;
+}
+
+var match1         = /\d/;            //       0 - 9
+var match2         = /\d\d/;          //      00 - 99
+var match3         = /\d{3}/;         //     000 - 999
+var match4         = /\d{4}/;         //    0000 - 9999
+var match6         = /[+-]?\d{6}/;    // -999999 - 999999
+var match1to2      = /\d\d?/;         //       0 - 99
+var match3to4      = /\d\d\d\d?/;     //     999 - 9999
+var match5to6      = /\d\d\d\d\d\d?/; //   99999 - 999999
+var match1to3      = /\d{1,3}/;       //       0 - 999
+var match1to4      = /\d{1,4}/;       //       0 - 9999
+var match1to6      = /[+-]?\d{1,6}/;  // -999999 - 999999
+
+var matchUnsigned  = /\d+/;           //       0 - inf
+var matchSigned    = /[+-]?\d+/;      //    -inf - inf
+
+var matchOffset    = /Z|[+-]\d\d:?\d\d/gi; // +00:00 -00:00 +0000 -0000 or Z
+var matchShortOffset = /Z|[+-]\d\d(?::?\d\d)?/gi; // +00 -00 +00:00 -00:00 +0000 -0000 or Z
+
+var matchTimestamp = /[+-]?\d+(\.\d{1,3})?/; // 123456789 123456789.123
+
+// any word (or two) characters or numbers including two/three word month in arabic.
+// includes scottish gaelic two word and hyphenated months
+var matchWord = /[0-9]*['a-z\u00A0-\u05FF\u0700-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+|[\u0600-\u06FF\/]+(\s*?[\u0600-\u06FF]+){1,2}/i;
+
+
+var regexes = {};
+
+function addRegexToken (token, regex, strictRegex) {
+    regexes[token] = isFunction(regex) ? regex : function (isStrict, localeData) {
+        return (isStrict && strictRegex) ? strictRegex : regex;
+    };
+}
+
+function getParseRegexForToken (token, config) {
+    if (!hasOwnProp(regexes, token)) {
+        return new RegExp(unescapeFormat(token));
+    }
+
+    return regexes[token](config._strict, config._locale);
+}
+
+// Code from http://stackoverflow.com/questions/3561493/is-there-a-regexp-escape-function-in-javascript
+function unescapeFormat(s) {
+    return regexEscape(s.replace('\\', '').replace(/\\(\[)|\\(\])|\[([^\]\[]*)\]|\\(.)/g, function (matched, p1, p2, p3, p4) {
+        return p1 || p2 || p3 || p4;
+    }));
+}
+
+function regexEscape(s) {
+    return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+}
+
+var tokens = {};
+
+function addParseToken (token, callback) {
+    var i, func = callback;
+    if (typeof token === 'string') {
+        token = [token];
+    }
+    if (isNumber(callback)) {
+        func = function (input, array) {
+            array[callback] = toInt(input);
+        };
+    }
+    for (i = 0; i < token.length; i++) {
+        tokens[token[i]] = func;
+    }
+}
+
+function addWeekParseToken (token, callback) {
+    addParseToken(token, function (input, array, config, token) {
+        config._w = config._w || {};
+        callback(input, config._w, config, token);
     });
+}
 
-    // LOCALES
-
-    var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
-    var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
-    function localeMonths (m, format) {
-        if (!m) {
-            return this._months;
-        }
-        return isArray(this._months) ? this._months[m.month()] :
-            this._months[(this._months.isFormat || MONTHS_IN_FORMAT).test(format) ? 'format' : 'standalone'][m.month()];
+function addTimeToArrayFromToken(token, input, config) {
+    if (input != null && hasOwnProp(tokens, token)) {
+        tokens[token](input, config._a, config, token);
     }
+}
 
-    var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
-    function localeMonthsShort (m, format) {
-        if (!m) {
-            return this._monthsShort;
-        }
-        return isArray(this._monthsShort) ? this._monthsShort[m.month()] :
-            this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
-    }
+var YEAR = 0;
+var MONTH = 1;
+var DATE = 2;
+var HOUR = 3;
+var MINUTE = 4;
+var SECOND = 5;
+var MILLISECOND = 6;
+var WEEK = 7;
+var WEEKDAY = 8;
 
-    function units_month__handleStrictParse(monthName, format, strict) {
-        var i, ii, mom, llc = monthName.toLocaleLowerCase();
-        if (!this._monthsParse) {
-            // this is not used
-            this._monthsParse = [];
-            this._longMonthsParse = [];
-            this._shortMonthsParse = [];
-            for (i = 0; i < 12; ++i) {
-                mom = create_utc__createUTC([2000, i]);
-                this._shortMonthsParse[i] = this.monthsShort(mom, '').toLocaleLowerCase();
-                this._longMonthsParse[i] = this.months(mom, '').toLocaleLowerCase();
+var indexOf;
+
+if (Array.prototype.indexOf) {
+    indexOf = Array.prototype.indexOf;
+} else {
+    indexOf = function (o) {
+        // I know
+        var i;
+        for (i = 0; i < this.length; ++i) {
+            if (this[i] === o) {
+                return i;
             }
         }
+        return -1;
+    };
+}
 
-        if (strict) {
-            if (format === 'MMM') {
-                ii = indexOf.call(this._shortMonthsParse, llc);
-                return ii !== -1 ? ii : null;
-            } else {
-                ii = indexOf.call(this._longMonthsParse, llc);
-                return ii !== -1 ? ii : null;
-            }
+var indexOf$1 = indexOf;
+
+function daysInMonth(year, month) {
+    return new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+}
+
+// FORMATTING
+
+addFormatToken('M', ['MM', 2], 'Mo', function () {
+    return this.month() + 1;
+});
+
+addFormatToken('MMM', 0, 0, function (format) {
+    return this.localeData().monthsShort(this, format);
+});
+
+addFormatToken('MMMM', 0, 0, function (format) {
+    return this.localeData().months(this, format);
+});
+
+// ALIASES
+
+addUnitAlias('month', 'M');
+
+// PRIORITY
+
+addUnitPriority('month', 8);
+
+// PARSING
+
+addRegexToken('M',    match1to2);
+addRegexToken('MM',   match1to2, match2);
+addRegexToken('MMM',  function (isStrict, locale) {
+    return locale.monthsShortRegex(isStrict);
+});
+addRegexToken('MMMM', function (isStrict, locale) {
+    return locale.monthsRegex(isStrict);
+});
+
+addParseToken(['M', 'MM'], function (input, array) {
+    array[MONTH] = toInt(input) - 1;
+});
+
+addParseToken(['MMM', 'MMMM'], function (input, array, config, token) {
+    var month = config._locale.monthsParse(input, token, config._strict);
+    // if we didn't find a month name, mark the date as invalid.
+    if (month != null) {
+        array[MONTH] = month;
+    } else {
+        getParsingFlags(config).invalidMonth = input;
+    }
+});
+
+// LOCALES
+
+var MONTHS_IN_FORMAT = /D[oD]?(\[[^\[\]]*\]|\s)+MMMM?/;
+var defaultLocaleMonths = 'January_February_March_April_May_June_July_August_September_October_November_December'.split('_');
+function localeMonths (m, format) {
+    if (!m) {
+        return this._months;
+    }
+    return isArray(this._months) ? this._months[m.month()] :
+        this._months[(this._months.isFormat || MONTHS_IN_FORMAT).test(format) ? 'format' : 'standalone'][m.month()];
+}
+
+var defaultLocaleMonthsShort = 'Jan_Feb_Mar_Apr_May_Jun_Jul_Aug_Sep_Oct_Nov_Dec'.split('_');
+function localeMonthsShort (m, format) {
+    if (!m) {
+        return this._monthsShort;
+    }
+    return isArray(this._monthsShort) ? this._monthsShort[m.month()] :
+        this._monthsShort[MONTHS_IN_FORMAT.test(format) ? 'format' : 'standalone'][m.month()];
+}
+
+function handleStrictParse(monthName, format, strict) {
+    var i, ii, mom, llc = monthName.toLocaleLowerCase();
+    if (!this._monthsParse) {
+        // this is not used
+        this._monthsParse = [];
+        this._longMonthsParse = [];
+        this._shortMonthsParse = [];
+        for (i = 0; i < 12; ++i) {
+            mom = createUTC([2000, i]);
+            this._shortMonthsParse[i] = this.monthsShort(mom, '').toLocaleLowerCase();
+            this._longMonthsParse[i] = this.months(mom, '').toLocaleLowerCase();
+        }
+    }
+
+    if (strict) {
+        if (format === 'MMM') {
+            ii = indexOf$1.call(this._shortMonthsParse, llc);
+            return ii !== -1 ? ii : null;
         } else {
-            if (format === 'MMM') {
-                ii = indexOf.call(this._shortMonthsParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._longMonthsParse, llc);
-                return ii !== -1 ? ii : null;
-            } else {
-                ii = indexOf.call(this._longMonthsParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._shortMonthsParse, llc);
-                return ii !== -1 ? ii : null;
+            ii = indexOf$1.call(this._longMonthsParse, llc);
+            return ii !== -1 ? ii : null;
+        }
+    } else {
+        if (format === 'MMM') {
+            ii = indexOf$1.call(this._shortMonthsParse, llc);
+            if (ii !== -1) {
+                return ii;
             }
+            ii = indexOf$1.call(this._longMonthsParse, llc);
+            return ii !== -1 ? ii : null;
+        } else {
+            ii = indexOf$1.call(this._longMonthsParse, llc);
+            if (ii !== -1) {
+                return ii;
+            }
+            ii = indexOf$1.call(this._shortMonthsParse, llc);
+            return ii !== -1 ? ii : null;
         }
     }
+}
 
-    function localeMonthsParse (monthName, format, strict) {
-        var i, mom, regex;
+function localeMonthsParse (monthName, format, strict) {
+    var i, mom, regex;
 
-        if (this._monthsParseExact) {
-            return units_month__handleStrictParse.call(this, monthName, format, strict);
-        }
-
-        if (!this._monthsParse) {
-            this._monthsParse = [];
-            this._longMonthsParse = [];
-            this._shortMonthsParse = [];
-        }
-
-        // TODO: add sorting
-        // Sorting makes sure if one month (or abbr) is a prefix of another
-        // see sorting in computeMonthsParse
-        for (i = 0; i < 12; i++) {
-            // make the regex if we don't have it already
-            mom = create_utc__createUTC([2000, i]);
-            if (strict && !this._longMonthsParse[i]) {
-                this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
-                this._shortMonthsParse[i] = new RegExp('^' + this.monthsShort(mom, '').replace('.', '') + '$', 'i');
-            }
-            if (!strict && !this._monthsParse[i]) {
-                regex = '^' + this.months(mom, '') + '|^' + this.monthsShort(mom, '');
-                this._monthsParse[i] = new RegExp(regex.replace('.', ''), 'i');
-            }
-            // test the regex
-            if (strict && format === 'MMMM' && this._longMonthsParse[i].test(monthName)) {
-                return i;
-            } else if (strict && format === 'MMM' && this._shortMonthsParse[i].test(monthName)) {
-                return i;
-            } else if (!strict && this._monthsParse[i].test(monthName)) {
-                return i;
-            }
-        }
+    if (this._monthsParseExact) {
+        return handleStrictParse.call(this, monthName, format, strict);
     }
 
-    // MOMENTS
+    if (!this._monthsParse) {
+        this._monthsParse = [];
+        this._longMonthsParse = [];
+        this._shortMonthsParse = [];
+    }
 
-    function setMonth (mom, value) {
-        var dayOfMonth;
-
-        if (!mom.isValid()) {
-            // No op
-            return mom;
+    // TODO: add sorting
+    // Sorting makes sure if one month (or abbr) is a prefix of another
+    // see sorting in computeMonthsParse
+    for (i = 0; i < 12; i++) {
+        // make the regex if we don't have it already
+        mom = createUTC([2000, i]);
+        if (strict && !this._longMonthsParse[i]) {
+            this._longMonthsParse[i] = new RegExp('^' + this.months(mom, '').replace('.', '') + '$', 'i');
+            this._shortMonthsParse[i] = new RegExp('^' + this.monthsShort(mom, '').replace('.', '') + '$', 'i');
         }
-
-        if (typeof value === 'string') {
-            if (/^\d+$/.test(value)) {
-                value = toInt(value);
-            } else {
-                value = mom.localeData().monthsParse(value);
-                // TODO: Another silent failure?
-                if (typeof value !== 'number') {
-                    return mom;
-                }
-            }
+        if (!strict && !this._monthsParse[i]) {
+            regex = '^' + this.months(mom, '') + '|^' + this.monthsShort(mom, '');
+            this._monthsParse[i] = new RegExp(regex.replace('.', ''), 'i');
         }
+        // test the regex
+        if (strict && format === 'MMMM' && this._longMonthsParse[i].test(monthName)) {
+            return i;
+        } else if (strict && format === 'MMM' && this._shortMonthsParse[i].test(monthName)) {
+            return i;
+        } else if (!strict && this._monthsParse[i].test(monthName)) {
+            return i;
+        }
+    }
+}
 
-        dayOfMonth = Math.min(mom.date(), daysInMonth(mom.year(), value));
-        mom._d['set' + (mom._isUTC ? 'UTC' : '') + 'Month'](value, dayOfMonth);
+// MOMENTS
+
+function setMonth (mom, value) {
+    var dayOfMonth;
+
+    if (!mom.isValid()) {
+        // No op
         return mom;
     }
 
-    function getSetMonth (value) {
-        if (value != null) {
-            setMonth(this, value);
-            utils_hooks__hooks.updateOffset(this, true);
-            return this;
+    if (typeof value === 'string') {
+        if (/^\d+$/.test(value)) {
+            value = toInt(value);
         } else {
-            return get_set__get(this, 'Month');
+            value = mom.localeData().monthsParse(value);
+            // TODO: Another silent failure?
+            if (!isNumber(value)) {
+                return mom;
+            }
         }
     }
 
-    function getDaysInMonth () {
-        return daysInMonth(this.year(), this.month());
-    }
+    dayOfMonth = Math.min(mom.date(), daysInMonth(mom.year(), value));
+    mom._d['set' + (mom._isUTC ? 'UTC' : '') + 'Month'](value, dayOfMonth);
+    return mom;
+}
 
-    var defaultMonthsShortRegex = matchWord;
-    function monthsShortRegex (isStrict) {
-        if (this._monthsParseExact) {
-            if (!hasOwnProp(this, '_monthsRegex')) {
-                computeMonthsParse.call(this);
-            }
-            if (isStrict) {
-                return this._monthsShortStrictRegex;
-            } else {
-                return this._monthsShortRegex;
-            }
+function getSetMonth (value) {
+    if (value != null) {
+        setMonth(this, value);
+        hooks.updateOffset(this, true);
+        return this;
+    } else {
+        return get(this, 'Month');
+    }
+}
+
+function getDaysInMonth () {
+    return daysInMonth(this.year(), this.month());
+}
+
+var defaultMonthsShortRegex = matchWord;
+function monthsShortRegex (isStrict) {
+    if (this._monthsParseExact) {
+        if (!hasOwnProp(this, '_monthsRegex')) {
+            computeMonthsParse.call(this);
+        }
+        if (isStrict) {
+            return this._monthsShortStrictRegex;
         } else {
-            if (!hasOwnProp(this, '_monthsShortRegex')) {
-                this._monthsShortRegex = defaultMonthsShortRegex;
-            }
-            return this._monthsShortStrictRegex && isStrict ?
-                this._monthsShortStrictRegex : this._monthsShortRegex;
+            return this._monthsShortRegex;
         }
+    } else {
+        if (!hasOwnProp(this, '_monthsShortRegex')) {
+            this._monthsShortRegex = defaultMonthsShortRegex;
+        }
+        return this._monthsShortStrictRegex && isStrict ?
+            this._monthsShortStrictRegex : this._monthsShortRegex;
     }
+}
 
-    var defaultMonthsRegex = matchWord;
-    function monthsRegex (isStrict) {
-        if (this._monthsParseExact) {
-            if (!hasOwnProp(this, '_monthsRegex')) {
-                computeMonthsParse.call(this);
-            }
-            if (isStrict) {
-                return this._monthsStrictRegex;
-            } else {
-                return this._monthsRegex;
-            }
+var defaultMonthsRegex = matchWord;
+function monthsRegex (isStrict) {
+    if (this._monthsParseExact) {
+        if (!hasOwnProp(this, '_monthsRegex')) {
+            computeMonthsParse.call(this);
+        }
+        if (isStrict) {
+            return this._monthsStrictRegex;
         } else {
-            if (!hasOwnProp(this, '_monthsRegex')) {
-                this._monthsRegex = defaultMonthsRegex;
-            }
-            return this._monthsStrictRegex && isStrict ?
-                this._monthsStrictRegex : this._monthsRegex;
+            return this._monthsRegex;
         }
+    } else {
+        if (!hasOwnProp(this, '_monthsRegex')) {
+            this._monthsRegex = defaultMonthsRegex;
+        }
+        return this._monthsStrictRegex && isStrict ?
+            this._monthsStrictRegex : this._monthsRegex;
+    }
+}
+
+function computeMonthsParse () {
+    function cmpLenRev(a, b) {
+        return b.length - a.length;
     }
 
-    function computeMonthsParse () {
-        function cmpLenRev(a, b) {
-            return b.length - a.length;
-        }
-
-        var shortPieces = [], longPieces = [], mixedPieces = [],
-            i, mom;
-        for (i = 0; i < 12; i++) {
-            // make the regex if we don't have it already
-            mom = create_utc__createUTC([2000, i]);
-            shortPieces.push(this.monthsShort(mom, ''));
-            longPieces.push(this.months(mom, ''));
-            mixedPieces.push(this.months(mom, ''));
-            mixedPieces.push(this.monthsShort(mom, ''));
-        }
-        // Sorting makes sure if one month (or abbr) is a prefix of another it
-        // will match the longer piece.
-        shortPieces.sort(cmpLenRev);
-        longPieces.sort(cmpLenRev);
-        mixedPieces.sort(cmpLenRev);
-        for (i = 0; i < 12; i++) {
-            shortPieces[i] = regexEscape(shortPieces[i]);
-            longPieces[i] = regexEscape(longPieces[i]);
-        }
-        for (i = 0; i < 24; i++) {
-            mixedPieces[i] = regexEscape(mixedPieces[i]);
-        }
-
-        this._monthsRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
-        this._monthsShortRegex = this._monthsRegex;
-        this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
-        this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
+    var shortPieces = [], longPieces = [], mixedPieces = [],
+        i, mom;
+    for (i = 0; i < 12; i++) {
+        // make the regex if we don't have it already
+        mom = createUTC([2000, i]);
+        shortPieces.push(this.monthsShort(mom, ''));
+        longPieces.push(this.months(mom, ''));
+        mixedPieces.push(this.months(mom, ''));
+        mixedPieces.push(this.monthsShort(mom, ''));
+    }
+    // Sorting makes sure if one month (or abbr) is a prefix of another it
+    // will match the longer piece.
+    shortPieces.sort(cmpLenRev);
+    longPieces.sort(cmpLenRev);
+    mixedPieces.sort(cmpLenRev);
+    for (i = 0; i < 12; i++) {
+        shortPieces[i] = regexEscape(shortPieces[i]);
+        longPieces[i] = regexEscape(longPieces[i]);
+    }
+    for (i = 0; i < 24; i++) {
+        mixedPieces[i] = regexEscape(mixedPieces[i]);
     }
 
-    // FORMATTING
+    this._monthsRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
+    this._monthsShortRegex = this._monthsRegex;
+    this._monthsStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
+    this._monthsShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
+}
 
-    addFormatToken('Y', 0, 0, function () {
-        var y = this.year();
-        return y <= 9999 ? '' + y : '+' + y;
-    });
+// FORMATTING
 
-    addFormatToken(0, ['YY', 2], 0, function () {
-        return this.year() % 100;
-    });
+addFormatToken('Y', 0, 0, function () {
+    var y = this.year();
+    return y <= 9999 ? '' + y : '+' + y;
+});
 
-    addFormatToken(0, ['YYYY',   4],       0, 'year');
-    addFormatToken(0, ['YYYYY',  5],       0, 'year');
-    addFormatToken(0, ['YYYYYY', 6, true], 0, 'year');
+addFormatToken(0, ['YY', 2], 0, function () {
+    return this.year() % 100;
+});
 
-    // ALIASES
+addFormatToken(0, ['YYYY',   4],       0, 'year');
+addFormatToken(0, ['YYYYY',  5],       0, 'year');
+addFormatToken(0, ['YYYYYY', 6, true], 0, 'year');
 
-    addUnitAlias('year', 'y');
+// ALIASES
 
-    // PRIORITIES
+addUnitAlias('year', 'y');
 
-    addUnitPriority('year', 1);
+// PRIORITIES
 
-    // PARSING
+addUnitPriority('year', 1);
 
-    addRegexToken('Y',      matchSigned);
-    addRegexToken('YY',     match1to2, match2);
-    addRegexToken('YYYY',   match1to4, match4);
-    addRegexToken('YYYYY',  match1to6, match6);
-    addRegexToken('YYYYYY', match1to6, match6);
+// PARSING
 
-    addParseToken(['YYYYY', 'YYYYYY'], YEAR);
-    addParseToken('YYYY', function (input, array) {
-        array[YEAR] = input.length === 2 ? utils_hooks__hooks.parseTwoDigitYear(input) : toInt(input);
-    });
-    addParseToken('YY', function (input, array) {
-        array[YEAR] = utils_hooks__hooks.parseTwoDigitYear(input);
-    });
-    addParseToken('Y', function (input, array) {
-        array[YEAR] = parseInt(input, 10);
-    });
+addRegexToken('Y',      matchSigned);
+addRegexToken('YY',     match1to2, match2);
+addRegexToken('YYYY',   match1to4, match4);
+addRegexToken('YYYYY',  match1to6, match6);
+addRegexToken('YYYYYY', match1to6, match6);
 
-    // HELPERS
+addParseToken(['YYYYY', 'YYYYYY'], YEAR);
+addParseToken('YYYY', function (input, array) {
+    array[YEAR] = input.length === 2 ? hooks.parseTwoDigitYear(input) : toInt(input);
+});
+addParseToken('YY', function (input, array) {
+    array[YEAR] = hooks.parseTwoDigitYear(input);
+});
+addParseToken('Y', function (input, array) {
+    array[YEAR] = parseInt(input, 10);
+});
 
-    function daysInYear(year) {
-        return isLeapYear(year) ? 366 : 365;
+// HELPERS
+
+function daysInYear(year) {
+    return isLeapYear(year) ? 366 : 365;
+}
+
+function isLeapYear(year) {
+    return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+// HOOKS
+
+hooks.parseTwoDigitYear = function (input) {
+    return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
+};
+
+// MOMENTS
+
+var getSetYear = makeGetSet('FullYear', true);
+
+function getIsLeapYear () {
+    return isLeapYear(this.year());
+}
+
+function createDate (y, m, d, h, M, s, ms) {
+    //can't just apply() to create a date:
+    //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
+    var date = new Date(y, m, d, h, M, s, ms);
+
+    //the date constructor remaps years 0-99 to 1900-1999
+    if (y < 100 && y >= 0 && isFinite(date.getFullYear())) {
+        date.setFullYear(y);
+    }
+    return date;
+}
+
+function createUTCDate (y) {
+    var date = new Date(Date.UTC.apply(null, arguments));
+
+    //the Date.UTC function remaps years 0-99 to 1900-1999
+    if (y < 100 && y >= 0 && isFinite(date.getUTCFullYear())) {
+        date.setUTCFullYear(y);
+    }
+    return date;
+}
+
+// start-of-first-week - start-of-year
+function firstWeekOffset(year, dow, doy) {
+    var // first-week day -- which january is always in the first week (4 for iso, 1 for other)
+        fwd = 7 + dow - doy,
+        // first-week day local weekday -- which local weekday is fwd
+        fwdlw = (7 + createUTCDate(year, 0, fwd).getUTCDay() - dow) % 7;
+
+    return -fwdlw + fwd - 1;
+}
+
+//http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
+function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
+    var localWeekday = (7 + weekday - dow) % 7,
+        weekOffset = firstWeekOffset(year, dow, doy),
+        dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset,
+        resYear, resDayOfYear;
+
+    if (dayOfYear <= 0) {
+        resYear = year - 1;
+        resDayOfYear = daysInYear(resYear) + dayOfYear;
+    } else if (dayOfYear > daysInYear(year)) {
+        resYear = year + 1;
+        resDayOfYear = dayOfYear - daysInYear(year);
+    } else {
+        resYear = year;
+        resDayOfYear = dayOfYear;
     }
 
-    function isLeapYear(year) {
-        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-    }
-
-    // HOOKS
-
-    utils_hooks__hooks.parseTwoDigitYear = function (input) {
-        return toInt(input) + (toInt(input) > 68 ? 1900 : 2000);
+    return {
+        year: resYear,
+        dayOfYear: resDayOfYear
     };
+}
 
-    // MOMENTS
+function weekOfYear(mom, dow, doy) {
+    var weekOffset = firstWeekOffset(mom.year(), dow, doy),
+        week = Math.floor((mom.dayOfYear() - weekOffset - 1) / 7) + 1,
+        resWeek, resYear;
 
-    var getSetYear = makeGetSet('FullYear', true);
-
-    function getIsLeapYear () {
-        return isLeapYear(this.year());
+    if (week < 1) {
+        resYear = mom.year() - 1;
+        resWeek = week + weeksInYear(resYear, dow, doy);
+    } else if (week > weeksInYear(mom.year(), dow, doy)) {
+        resWeek = week - weeksInYear(mom.year(), dow, doy);
+        resYear = mom.year() + 1;
+    } else {
+        resYear = mom.year();
+        resWeek = week;
     }
 
-    function createDate (y, m, d, h, M, s, ms) {
-        //can't just apply() to create a date:
-        //http://stackoverflow.com/questions/181348/instantiating-a-javascript-object-by-calling-prototype-constructor-apply
-        var date = new Date(y, m, d, h, M, s, ms);
-
-        //the date constructor remaps years 0-99 to 1900-1999
-        if (y < 100 && y >= 0 && isFinite(date.getFullYear())) {
-            date.setFullYear(y);
-        }
-        return date;
-    }
-
-    function createUTCDate (y) {
-        var date = new Date(Date.UTC.apply(null, arguments));
-
-        //the Date.UTC function remaps years 0-99 to 1900-1999
-        if (y < 100 && y >= 0 && isFinite(date.getUTCFullYear())) {
-            date.setUTCFullYear(y);
-        }
-        return date;
-    }
-
-    // start-of-first-week - start-of-year
-    function firstWeekOffset(year, dow, doy) {
-        var // first-week day -- which january is always in the first week (4 for iso, 1 for other)
-            fwd = 7 + dow - doy,
-            // first-week day local weekday -- which local weekday is fwd
-            fwdlw = (7 + createUTCDate(year, 0, fwd).getUTCDay() - dow) % 7;
-
-        return -fwdlw + fwd - 1;
-    }
-
-    //http://en.wikipedia.org/wiki/ISO_week_date#Calculating_a_date_given_the_year.2C_week_number_and_weekday
-    function dayOfYearFromWeeks(year, week, weekday, dow, doy) {
-        var localWeekday = (7 + weekday - dow) % 7,
-            weekOffset = firstWeekOffset(year, dow, doy),
-            dayOfYear = 1 + 7 * (week - 1) + localWeekday + weekOffset,
-            resYear, resDayOfYear;
-
-        if (dayOfYear <= 0) {
-            resYear = year - 1;
-            resDayOfYear = daysInYear(resYear) + dayOfYear;
-        } else if (dayOfYear > daysInYear(year)) {
-            resYear = year + 1;
-            resDayOfYear = dayOfYear - daysInYear(year);
-        } else {
-            resYear = year;
-            resDayOfYear = dayOfYear;
-        }
-
-        return {
-            year: resYear,
-            dayOfYear: resDayOfYear
-        };
-    }
-
-    function weekOfYear(mom, dow, doy) {
-        var weekOffset = firstWeekOffset(mom.year(), dow, doy),
-            week = Math.floor((mom.dayOfYear() - weekOffset - 1) / 7) + 1,
-            resWeek, resYear;
-
-        if (week < 1) {
-            resYear = mom.year() - 1;
-            resWeek = week + weeksInYear(resYear, dow, doy);
-        } else if (week > weeksInYear(mom.year(), dow, doy)) {
-            resWeek = week - weeksInYear(mom.year(), dow, doy);
-            resYear = mom.year() + 1;
-        } else {
-            resYear = mom.year();
-            resWeek = week;
-        }
-
-        return {
-            week: resWeek,
-            year: resYear
-        };
-    }
-
-    function weeksInYear(year, dow, doy) {
-        var weekOffset = firstWeekOffset(year, dow, doy),
-            weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
-        return (daysInYear(year) - weekOffset + weekOffsetNext) / 7;
-    }
-
-    // FORMATTING
-
-    addFormatToken('w', ['ww', 2], 'wo', 'week');
-    addFormatToken('W', ['WW', 2], 'Wo', 'isoWeek');
-
-    // ALIASES
-
-    addUnitAlias('week', 'w');
-    addUnitAlias('isoWeek', 'W');
-
-    // PRIORITIES
-
-    addUnitPriority('week', 5);
-    addUnitPriority('isoWeek', 5);
-
-    // PARSING
-
-    addRegexToken('w',  match1to2);
-    addRegexToken('ww', match1to2, match2);
-    addRegexToken('W',  match1to2);
-    addRegexToken('WW', match1to2, match2);
-
-    addWeekParseToken(['w', 'ww', 'W', 'WW'], function (input, week, config, token) {
-        week[token.substr(0, 1)] = toInt(input);
-    });
-
-    // HELPERS
-
-    // LOCALES
-
-    function localeWeek (mom) {
-        return weekOfYear(mom, this._week.dow, this._week.doy).week;
-    }
-
-    var defaultLocaleWeek = {
-        dow : 0, // Sunday is the first day of the week.
-        doy : 6  // The week that contains Jan 1st is the first week of the year.
+    return {
+        week: resWeek,
+        year: resYear
     };
+}
 
-    function localeFirstDayOfWeek () {
-        return this._week.dow;
+function weeksInYear(year, dow, doy) {
+    var weekOffset = firstWeekOffset(year, dow, doy),
+        weekOffsetNext = firstWeekOffset(year + 1, dow, doy);
+    return (daysInYear(year) - weekOffset + weekOffsetNext) / 7;
+}
+
+// FORMATTING
+
+addFormatToken('w', ['ww', 2], 'wo', 'week');
+addFormatToken('W', ['WW', 2], 'Wo', 'isoWeek');
+
+// ALIASES
+
+addUnitAlias('week', 'w');
+addUnitAlias('isoWeek', 'W');
+
+// PRIORITIES
+
+addUnitPriority('week', 5);
+addUnitPriority('isoWeek', 5);
+
+// PARSING
+
+addRegexToken('w',  match1to2);
+addRegexToken('ww', match1to2, match2);
+addRegexToken('W',  match1to2);
+addRegexToken('WW', match1to2, match2);
+
+addWeekParseToken(['w', 'ww', 'W', 'WW'], function (input, week, config, token) {
+    week[token.substr(0, 1)] = toInt(input);
+});
+
+// HELPERS
+
+// LOCALES
+
+function localeWeek (mom) {
+    return weekOfYear(mom, this._week.dow, this._week.doy).week;
+}
+
+var defaultLocaleWeek = {
+    dow : 0, // Sunday is the first day of the week.
+    doy : 6  // The week that contains Jan 1st is the first week of the year.
+};
+
+function localeFirstDayOfWeek () {
+    return this._week.dow;
+}
+
+function localeFirstDayOfYear () {
+    return this._week.doy;
+}
+
+// MOMENTS
+
+function getSetWeek (input) {
+    var week = this.localeData().week(this);
+    return input == null ? week : this.add((input - week) * 7, 'd');
+}
+
+function getSetISOWeek (input) {
+    var week = weekOfYear(this, 1, 4).week;
+    return input == null ? week : this.add((input - week) * 7, 'd');
+}
+
+// FORMATTING
+
+addFormatToken('d', 0, 'do', 'day');
+
+addFormatToken('dd', 0, 0, function (format) {
+    return this.localeData().weekdaysMin(this, format);
+});
+
+addFormatToken('ddd', 0, 0, function (format) {
+    return this.localeData().weekdaysShort(this, format);
+});
+
+addFormatToken('dddd', 0, 0, function (format) {
+    return this.localeData().weekdays(this, format);
+});
+
+addFormatToken('e', 0, 0, 'weekday');
+addFormatToken('E', 0, 0, 'isoWeekday');
+
+// ALIASES
+
+addUnitAlias('day', 'd');
+addUnitAlias('weekday', 'e');
+addUnitAlias('isoWeekday', 'E');
+
+// PRIORITY
+addUnitPriority('day', 11);
+addUnitPriority('weekday', 11);
+addUnitPriority('isoWeekday', 11);
+
+// PARSING
+
+addRegexToken('d',    match1to2);
+addRegexToken('e',    match1to2);
+addRegexToken('E',    match1to2);
+addRegexToken('dd',   function (isStrict, locale) {
+    return locale.weekdaysMinRegex(isStrict);
+});
+addRegexToken('ddd',   function (isStrict, locale) {
+    return locale.weekdaysShortRegex(isStrict);
+});
+addRegexToken('dddd',   function (isStrict, locale) {
+    return locale.weekdaysRegex(isStrict);
+});
+
+addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config, token) {
+    var weekday = config._locale.weekdaysParse(input, token, config._strict);
+    // if we didn't get a weekday name, mark the date as invalid
+    if (weekday != null) {
+        week.d = weekday;
+    } else {
+        getParsingFlags(config).invalidWeekday = input;
+    }
+});
+
+addWeekParseToken(['d', 'e', 'E'], function (input, week, config, token) {
+    week[token] = toInt(input);
+});
+
+// HELPERS
+
+function parseWeekday(input, locale) {
+    if (typeof input !== 'string') {
+        return input;
     }
 
-    function localeFirstDayOfYear () {
-        return this._week.doy;
+    if (!isNaN(input)) {
+        return parseInt(input, 10);
     }
 
-    // MOMENTS
-
-    function getSetWeek (input) {
-        var week = this.localeData().week(this);
-        return input == null ? week : this.add((input - week) * 7, 'd');
+    input = locale.weekdaysParse(input);
+    if (typeof input === 'number') {
+        return input;
     }
 
-    function getSetISOWeek (input) {
-        var week = weekOfYear(this, 1, 4).week;
-        return input == null ? week : this.add((input - week) * 7, 'd');
+    return null;
+}
+
+function parseIsoWeekday(input, locale) {
+    if (typeof input === 'string') {
+        return locale.weekdaysParse(input) % 7 || 7;
+    }
+    return isNaN(input) ? null : input;
+}
+
+// LOCALES
+
+var defaultLocaleWeekdays = 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_');
+function localeWeekdays (m, format) {
+    if (!m) {
+        return this._weekdays;
+    }
+    return isArray(this._weekdays) ? this._weekdays[m.day()] :
+        this._weekdays[this._weekdays.isFormat.test(format) ? 'format' : 'standalone'][m.day()];
+}
+
+var defaultLocaleWeekdaysShort = 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_');
+function localeWeekdaysShort (m) {
+    return (m) ? this._weekdaysShort[m.day()] : this._weekdaysShort;
+}
+
+var defaultLocaleWeekdaysMin = 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_');
+function localeWeekdaysMin (m) {
+    return (m) ? this._weekdaysMin[m.day()] : this._weekdaysMin;
+}
+
+function handleStrictParse$1(weekdayName, format, strict) {
+    var i, ii, mom, llc = weekdayName.toLocaleLowerCase();
+    if (!this._weekdaysParse) {
+        this._weekdaysParse = [];
+        this._shortWeekdaysParse = [];
+        this._minWeekdaysParse = [];
+
+        for (i = 0; i < 7; ++i) {
+            mom = createUTC([2000, 1]).day(i);
+            this._minWeekdaysParse[i] = this.weekdaysMin(mom, '').toLocaleLowerCase();
+            this._shortWeekdaysParse[i] = this.weekdaysShort(mom, '').toLocaleLowerCase();
+            this._weekdaysParse[i] = this.weekdays(mom, '').toLocaleLowerCase();
+        }
     }
 
-    // FORMATTING
-
-    addFormatToken('d', 0, 'do', 'day');
-
-    addFormatToken('dd', 0, 0, function (format) {
-        return this.localeData().weekdaysMin(this, format);
-    });
-
-    addFormatToken('ddd', 0, 0, function (format) {
-        return this.localeData().weekdaysShort(this, format);
-    });
-
-    addFormatToken('dddd', 0, 0, function (format) {
-        return this.localeData().weekdays(this, format);
-    });
-
-    addFormatToken('e', 0, 0, 'weekday');
-    addFormatToken('E', 0, 0, 'isoWeekday');
-
-    // ALIASES
-
-    addUnitAlias('day', 'd');
-    addUnitAlias('weekday', 'e');
-    addUnitAlias('isoWeekday', 'E');
-
-    // PRIORITY
-    addUnitPriority('day', 11);
-    addUnitPriority('weekday', 11);
-    addUnitPriority('isoWeekday', 11);
-
-    // PARSING
-
-    addRegexToken('d',    match1to2);
-    addRegexToken('e',    match1to2);
-    addRegexToken('E',    match1to2);
-    addRegexToken('dd',   function (isStrict, locale) {
-        return locale.weekdaysMinRegex(isStrict);
-    });
-    addRegexToken('ddd',   function (isStrict, locale) {
-        return locale.weekdaysShortRegex(isStrict);
-    });
-    addRegexToken('dddd',   function (isStrict, locale) {
-        return locale.weekdaysRegex(isStrict);
-    });
-
-    addWeekParseToken(['dd', 'ddd', 'dddd'], function (input, week, config, token) {
-        var weekday = config._locale.weekdaysParse(input, token, config._strict);
-        // if we didn't get a weekday name, mark the date as invalid
-        if (weekday != null) {
-            week.d = weekday;
+    if (strict) {
+        if (format === 'dddd') {
+            ii = indexOf$1.call(this._weekdaysParse, llc);
+            return ii !== -1 ? ii : null;
+        } else if (format === 'ddd') {
+            ii = indexOf$1.call(this._shortWeekdaysParse, llc);
+            return ii !== -1 ? ii : null;
         } else {
-            getParsingFlags(config).invalidWeekday = input;
+            ii = indexOf$1.call(this._minWeekdaysParse, llc);
+            return ii !== -1 ? ii : null;
         }
-    });
-
-    addWeekParseToken(['d', 'e', 'E'], function (input, week, config, token) {
-        week[token] = toInt(input);
-    });
-
-    // HELPERS
-
-    function parseWeekday(input, locale) {
-        if (typeof input !== 'string') {
-            return input;
-        }
-
-        if (!isNaN(input)) {
-            return parseInt(input, 10);
-        }
-
-        input = locale.weekdaysParse(input);
-        if (typeof input === 'number') {
-            return input;
-        }
-
-        return null;
-    }
-
-    function parseIsoWeekday(input, locale) {
-        if (typeof input === 'string') {
-            return locale.weekdaysParse(input) % 7 || 7;
-        }
-        return isNaN(input) ? null : input;
-    }
-
-    // LOCALES
-
-    var defaultLocaleWeekdays = 'Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday'.split('_');
-    function localeWeekdays (m, format) {
-        if (!m) {
-            return this._weekdays;
-        }
-        return isArray(this._weekdays) ? this._weekdays[m.day()] :
-            this._weekdays[this._weekdays.isFormat.test(format) ? 'format' : 'standalone'][m.day()];
-    }
-
-    var defaultLocaleWeekdaysShort = 'Sun_Mon_Tue_Wed_Thu_Fri_Sat'.split('_');
-    function localeWeekdaysShort (m) {
-        return (m) ? this._weekdaysShort[m.day()] : this._weekdaysShort;
-    }
-
-    var defaultLocaleWeekdaysMin = 'Su_Mo_Tu_We_Th_Fr_Sa'.split('_');
-    function localeWeekdaysMin (m) {
-        return (m) ? this._weekdaysMin[m.day()] : this._weekdaysMin;
-    }
-
-    function day_of_week__handleStrictParse(weekdayName, format, strict) {
-        var i, ii, mom, llc = weekdayName.toLocaleLowerCase();
-        if (!this._weekdaysParse) {
-            this._weekdaysParse = [];
-            this._shortWeekdaysParse = [];
-            this._minWeekdaysParse = [];
-
-            for (i = 0; i < 7; ++i) {
-                mom = create_utc__createUTC([2000, 1]).day(i);
-                this._minWeekdaysParse[i] = this.weekdaysMin(mom, '').toLocaleLowerCase();
-                this._shortWeekdaysParse[i] = this.weekdaysShort(mom, '').toLocaleLowerCase();
-                this._weekdaysParse[i] = this.weekdays(mom, '').toLocaleLowerCase();
+    } else {
+        if (format === 'dddd') {
+            ii = indexOf$1.call(this._weekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
             }
-        }
-
-        if (strict) {
-            if (format === 'dddd') {
-                ii = indexOf.call(this._weekdaysParse, llc);
-                return ii !== -1 ? ii : null;
-            } else if (format === 'ddd') {
-                ii = indexOf.call(this._shortWeekdaysParse, llc);
-                return ii !== -1 ? ii : null;
-            } else {
-                ii = indexOf.call(this._minWeekdaysParse, llc);
-                return ii !== -1 ? ii : null;
+            ii = indexOf$1.call(this._shortWeekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
             }
+            ii = indexOf$1.call(this._minWeekdaysParse, llc);
+            return ii !== -1 ? ii : null;
+        } else if (format === 'ddd') {
+            ii = indexOf$1.call(this._shortWeekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
+            }
+            ii = indexOf$1.call(this._weekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
+            }
+            ii = indexOf$1.call(this._minWeekdaysParse, llc);
+            return ii !== -1 ? ii : null;
         } else {
-            if (format === 'dddd') {
-                ii = indexOf.call(this._weekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._shortWeekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._minWeekdaysParse, llc);
-                return ii !== -1 ? ii : null;
-            } else if (format === 'ddd') {
-                ii = indexOf.call(this._shortWeekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._weekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._minWeekdaysParse, llc);
-                return ii !== -1 ? ii : null;
-            } else {
-                ii = indexOf.call(this._minWeekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._weekdaysParse, llc);
-                if (ii !== -1) {
-                    return ii;
-                }
-                ii = indexOf.call(this._shortWeekdaysParse, llc);
-                return ii !== -1 ? ii : null;
+            ii = indexOf$1.call(this._minWeekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
             }
+            ii = indexOf$1.call(this._weekdaysParse, llc);
+            if (ii !== -1) {
+                return ii;
+            }
+            ii = indexOf$1.call(this._shortWeekdaysParse, llc);
+            return ii !== -1 ? ii : null;
         }
     }
+}
 
-    function localeWeekdaysParse (weekdayName, format, strict) {
-        var i, mom, regex;
+function localeWeekdaysParse (weekdayName, format, strict) {
+    var i, mom, regex;
 
-        if (this._weekdaysParseExact) {
-            return day_of_week__handleStrictParse.call(this, weekdayName, format, strict);
-        }
-
-        if (!this._weekdaysParse) {
-            this._weekdaysParse = [];
-            this._minWeekdaysParse = [];
-            this._shortWeekdaysParse = [];
-            this._fullWeekdaysParse = [];
-        }
-
-        for (i = 0; i < 7; i++) {
-            // make the regex if we don't have it already
-
-            mom = create_utc__createUTC([2000, 1]).day(i);
-            if (strict && !this._fullWeekdaysParse[i]) {
-                this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
-                this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
-                this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
-            }
-            if (!this._weekdaysParse[i]) {
-                regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
-                this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
-            }
-            // test the regex
-            if (strict && format === 'dddd' && this._fullWeekdaysParse[i].test(weekdayName)) {
-                return i;
-            } else if (strict && format === 'ddd' && this._shortWeekdaysParse[i].test(weekdayName)) {
-                return i;
-            } else if (strict && format === 'dd' && this._minWeekdaysParse[i].test(weekdayName)) {
-                return i;
-            } else if (!strict && this._weekdaysParse[i].test(weekdayName)) {
-                return i;
-            }
-        }
+    if (this._weekdaysParseExact) {
+        return handleStrictParse$1.call(this, weekdayName, format, strict);
     }
 
-    // MOMENTS
+    if (!this._weekdaysParse) {
+        this._weekdaysParse = [];
+        this._minWeekdaysParse = [];
+        this._shortWeekdaysParse = [];
+        this._fullWeekdaysParse = [];
+    }
 
-    function getSetDayOfWeek (input) {
-        if (!this.isValid()) {
-            return input != null ? this : NaN;
+    for (i = 0; i < 7; i++) {
+        // make the regex if we don't have it already
+
+        mom = createUTC([2000, 1]).day(i);
+        if (strict && !this._fullWeekdaysParse[i]) {
+            this._fullWeekdaysParse[i] = new RegExp('^' + this.weekdays(mom, '').replace('.', '\.?') + '$', 'i');
+            this._shortWeekdaysParse[i] = new RegExp('^' + this.weekdaysShort(mom, '').replace('.', '\.?') + '$', 'i');
+            this._minWeekdaysParse[i] = new RegExp('^' + this.weekdaysMin(mom, '').replace('.', '\.?') + '$', 'i');
         }
-        var day = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
-        if (input != null) {
-            input = parseWeekday(input, this.localeData());
-            return this.add(input - day, 'd');
+        if (!this._weekdaysParse[i]) {
+            regex = '^' + this.weekdays(mom, '') + '|^' + this.weekdaysShort(mom, '') + '|^' + this.weekdaysMin(mom, '');
+            this._weekdaysParse[i] = new RegExp(regex.replace('.', ''), 'i');
+        }
+        // test the regex
+        if (strict && format === 'dddd' && this._fullWeekdaysParse[i].test(weekdayName)) {
+            return i;
+        } else if (strict && format === 'ddd' && this._shortWeekdaysParse[i].test(weekdayName)) {
+            return i;
+        } else if (strict && format === 'dd' && this._minWeekdaysParse[i].test(weekdayName)) {
+            return i;
+        } else if (!strict && this._weekdaysParse[i].test(weekdayName)) {
+            return i;
+        }
+    }
+}
+
+// MOMENTS
+
+function getSetDayOfWeek (input) {
+    if (!this.isValid()) {
+        return input != null ? this : NaN;
+    }
+    var day = this._isUTC ? this._d.getUTCDay() : this._d.getDay();
+    if (input != null) {
+        input = parseWeekday(input, this.localeData());
+        return this.add(input - day, 'd');
+    } else {
+        return day;
+    }
+}
+
+function getSetLocaleDayOfWeek (input) {
+    if (!this.isValid()) {
+        return input != null ? this : NaN;
+    }
+    var weekday = (this.day() + 7 - this.localeData()._week.dow) % 7;
+    return input == null ? weekday : this.add(input - weekday, 'd');
+}
+
+function getSetISODayOfWeek (input) {
+    if (!this.isValid()) {
+        return input != null ? this : NaN;
+    }
+
+    // behaves the same as moment#day except
+    // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
+    // as a setter, sunday should belong to the previous week.
+
+    if (input != null) {
+        var weekday = parseIsoWeekday(input, this.localeData());
+        return this.day(this.day() % 7 ? weekday : weekday - 7);
+    } else {
+        return this.day() || 7;
+    }
+}
+
+var defaultWeekdaysRegex = matchWord;
+function weekdaysRegex (isStrict) {
+    if (this._weekdaysParseExact) {
+        if (!hasOwnProp(this, '_weekdaysRegex')) {
+            computeWeekdaysParse.call(this);
+        }
+        if (isStrict) {
+            return this._weekdaysStrictRegex;
         } else {
-            return day;
+            return this._weekdaysRegex;
         }
+    } else {
+        if (!hasOwnProp(this, '_weekdaysRegex')) {
+            this._weekdaysRegex = defaultWeekdaysRegex;
+        }
+        return this._weekdaysStrictRegex && isStrict ?
+            this._weekdaysStrictRegex : this._weekdaysRegex;
     }
+}
 
-    function getSetLocaleDayOfWeek (input) {
-        if (!this.isValid()) {
-            return input != null ? this : NaN;
+var defaultWeekdaysShortRegex = matchWord;
+function weekdaysShortRegex (isStrict) {
+    if (this._weekdaysParseExact) {
+        if (!hasOwnProp(this, '_weekdaysRegex')) {
+            computeWeekdaysParse.call(this);
         }
-        var weekday = (this.day() + 7 - this.localeData()._week.dow) % 7;
-        return input == null ? weekday : this.add(input - weekday, 'd');
-    }
-
-    function getSetISODayOfWeek (input) {
-        if (!this.isValid()) {
-            return input != null ? this : NaN;
-        }
-
-        // behaves the same as moment#day except
-        // as a getter, returns 7 instead of 0 (1-7 range instead of 0-6)
-        // as a setter, sunday should belong to the previous week.
-
-        if (input != null) {
-            var weekday = parseIsoWeekday(input, this.localeData());
-            return this.day(this.day() % 7 ? weekday : weekday - 7);
+        if (isStrict) {
+            return this._weekdaysShortStrictRegex;
         } else {
-            return this.day() || 7;
+            return this._weekdaysShortRegex;
         }
+    } else {
+        if (!hasOwnProp(this, '_weekdaysShortRegex')) {
+            this._weekdaysShortRegex = defaultWeekdaysShortRegex;
+        }
+        return this._weekdaysShortStrictRegex && isStrict ?
+            this._weekdaysShortStrictRegex : this._weekdaysShortRegex;
     }
+}
 
-    var defaultWeekdaysRegex = matchWord;
-    function weekdaysRegex (isStrict) {
-        if (this._weekdaysParseExact) {
-            if (!hasOwnProp(this, '_weekdaysRegex')) {
-                computeWeekdaysParse.call(this);
-            }
-            if (isStrict) {
-                return this._weekdaysStrictRegex;
-            } else {
-                return this._weekdaysRegex;
-            }
+var defaultWeekdaysMinRegex = matchWord;
+function weekdaysMinRegex (isStrict) {
+    if (this._weekdaysParseExact) {
+        if (!hasOwnProp(this, '_weekdaysRegex')) {
+            computeWeekdaysParse.call(this);
+        }
+        if (isStrict) {
+            return this._weekdaysMinStrictRegex;
         } else {
-            if (!hasOwnProp(this, '_weekdaysRegex')) {
-                this._weekdaysRegex = defaultWeekdaysRegex;
-            }
-            return this._weekdaysStrictRegex && isStrict ?
-                this._weekdaysStrictRegex : this._weekdaysRegex;
+            return this._weekdaysMinRegex;
         }
+    } else {
+        if (!hasOwnProp(this, '_weekdaysMinRegex')) {
+            this._weekdaysMinRegex = defaultWeekdaysMinRegex;
+        }
+        return this._weekdaysMinStrictRegex && isStrict ?
+            this._weekdaysMinStrictRegex : this._weekdaysMinRegex;
+    }
+}
+
+
+function computeWeekdaysParse () {
+    function cmpLenRev(a, b) {
+        return b.length - a.length;
     }
 
-    var defaultWeekdaysShortRegex = matchWord;
-    function weekdaysShortRegex (isStrict) {
-        if (this._weekdaysParseExact) {
-            if (!hasOwnProp(this, '_weekdaysRegex')) {
-                computeWeekdaysParse.call(this);
-            }
-            if (isStrict) {
-                return this._weekdaysShortStrictRegex;
-            } else {
-                return this._weekdaysShortRegex;
-            }
-        } else {
-            if (!hasOwnProp(this, '_weekdaysShortRegex')) {
-                this._weekdaysShortRegex = defaultWeekdaysShortRegex;
-            }
-            return this._weekdaysShortStrictRegex && isStrict ?
-                this._weekdaysShortStrictRegex : this._weekdaysShortRegex;
-        }
+    var minPieces = [], shortPieces = [], longPieces = [], mixedPieces = [],
+        i, mom, minp, shortp, longp;
+    for (i = 0; i < 7; i++) {
+        // make the regex if we don't have it already
+        mom = createUTC([2000, 1]).day(i);
+        minp = this.weekdaysMin(mom, '');
+        shortp = this.weekdaysShort(mom, '');
+        longp = this.weekdays(mom, '');
+        minPieces.push(minp);
+        shortPieces.push(shortp);
+        longPieces.push(longp);
+        mixedPieces.push(minp);
+        mixedPieces.push(shortp);
+        mixedPieces.push(longp);
+    }
+    // Sorting makes sure if one weekday (or abbr) is a prefix of another it
+    // will match the longer piece.
+    minPieces.sort(cmpLenRev);
+    shortPieces.sort(cmpLenRev);
+    longPieces.sort(cmpLenRev);
+    mixedPieces.sort(cmpLenRev);
+    for (i = 0; i < 7; i++) {
+        shortPieces[i] = regexEscape(shortPieces[i]);
+        longPieces[i] = regexEscape(longPieces[i]);
+        mixedPieces[i] = regexEscape(mixedPieces[i]);
     }
 
-    var defaultWeekdaysMinRegex = matchWord;
-    function weekdaysMinRegex (isStrict) {
-        if (this._weekdaysParseExact) {
-            if (!hasOwnProp(this, '_weekdaysRegex')) {
-                computeWeekdaysParse.call(this);
-            }
-            if (isStrict) {
-                return this._weekdaysMinStrictRegex;
-            } else {
-                return this._weekdaysMinRegex;
-            }
-        } else {
-            if (!hasOwnProp(this, '_weekdaysMinRegex')) {
-                this._weekdaysMinRegex = defaultWeekdaysMinRegex;
-            }
-            return this._weekdaysMinStrictRegex && isStrict ?
-                this._weekdaysMinStrictRegex : this._weekdaysMinRegex;
-        }
-    }
+    this._weekdaysRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
+    this._weekdaysShortRegex = this._weekdaysRegex;
+    this._weekdaysMinRegex = this._weekdaysRegex;
 
+    this._weekdaysStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
+    this._weekdaysShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
+    this._weekdaysMinStrictRegex = new RegExp('^(' + minPieces.join('|') + ')', 'i');
+}
 
-    function computeWeekdaysParse () {
-        function cmpLenRev(a, b) {
-            return b.length - a.length;
-        }
+// FORMATTING
 
-        var minPieces = [], shortPieces = [], longPieces = [], mixedPieces = [],
-            i, mom, minp, shortp, longp;
-        for (i = 0; i < 7; i++) {
-            // make the regex if we don't have it already
-            mom = create_utc__createUTC([2000, 1]).day(i);
-            minp = this.weekdaysMin(mom, '');
-            shortp = this.weekdaysShort(mom, '');
-            longp = this.weekdays(mom, '');
-            minPieces.push(minp);
-            shortPieces.push(shortp);
-            longPieces.push(longp);
-            mixedPieces.push(minp);
-            mixedPieces.push(shortp);
-            mixedPieces.push(longp);
-        }
-        // Sorting makes sure if one weekday (or abbr) is a prefix of another it
-        // will match the longer piece.
-        minPieces.sort(cmpLenRev);
-        shortPieces.sort(cmpLenRev);
-        longPieces.sort(cmpLenRev);
-        mixedPieces.sort(cmpLenRev);
-        for (i = 0; i < 7; i++) {
-            shortPieces[i] = regexEscape(shortPieces[i]);
-            longPieces[i] = regexEscape(longPieces[i]);
-            mixedPieces[i] = regexEscape(mixedPieces[i]);
-        }
+function hFormat() {
+    return this.hours() % 12 || 12;
+}
 
-        this._weekdaysRegex = new RegExp('^(' + mixedPieces.join('|') + ')', 'i');
-        this._weekdaysShortRegex = this._weekdaysRegex;
-        this._weekdaysMinRegex = this._weekdaysRegex;
+function kFormat() {
+    return this.hours() || 24;
+}
 
-        this._weekdaysStrictRegex = new RegExp('^(' + longPieces.join('|') + ')', 'i');
-        this._weekdaysShortStrictRegex = new RegExp('^(' + shortPieces.join('|') + ')', 'i');
-        this._weekdaysMinStrictRegex = new RegExp('^(' + minPieces.join('|') + ')', 'i');
-    }
+addFormatToken('H', ['HH', 2], 0, 'hour');
+addFormatToken('h', ['hh', 2], 0, hFormat);
+addFormatToken('k', ['kk', 2], 0, kFormat);
 
-    // FORMATTING
+addFormatToken('hmm', 0, 0, function () {
+    return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2);
+});
 
-    function hFormat() {
-        return this.hours() % 12 || 12;
-    }
+addFormatToken('hmmss', 0, 0, function () {
+    return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2) +
+        zeroFill(this.seconds(), 2);
+});
 
-    function kFormat() {
-        return this.hours() || 24;
-    }
+addFormatToken('Hmm', 0, 0, function () {
+    return '' + this.hours() + zeroFill(this.minutes(), 2);
+});
 
-    addFormatToken('H', ['HH', 2], 0, 'hour');
-    addFormatToken('h', ['hh', 2], 0, hFormat);
-    addFormatToken('k', ['kk', 2], 0, kFormat);
+addFormatToken('Hmmss', 0, 0, function () {
+    return '' + this.hours() + zeroFill(this.minutes(), 2) +
+        zeroFill(this.seconds(), 2);
+});
 
-    addFormatToken('hmm', 0, 0, function () {
-        return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2);
+function meridiem (token, lowercase) {
+    addFormatToken(token, 0, 0, function () {
+        return this.localeData().meridiem(this.hours(), this.minutes(), lowercase);
     });
+}
 
-    addFormatToken('hmmss', 0, 0, function () {
-        return '' + hFormat.apply(this) + zeroFill(this.minutes(), 2) +
-            zeroFill(this.seconds(), 2);
-    });
+meridiem('a', true);
+meridiem('A', false);
 
-    addFormatToken('Hmm', 0, 0, function () {
-        return '' + this.hours() + zeroFill(this.minutes(), 2);
-    });
+// ALIASES
 
-    addFormatToken('Hmmss', 0, 0, function () {
-        return '' + this.hours() + zeroFill(this.minutes(), 2) +
-            zeroFill(this.seconds(), 2);
-    });
+addUnitAlias('hour', 'h');
 
-    function meridiem (token, lowercase) {
-        addFormatToken(token, 0, 0, function () {
-            return this.localeData().meridiem(this.hours(), this.minutes(), lowercase);
-        });
+// PRIORITY
+addUnitPriority('hour', 13);
+
+// PARSING
+
+function matchMeridiem (isStrict, locale) {
+    return locale._meridiemParse;
+}
+
+addRegexToken('a',  matchMeridiem);
+addRegexToken('A',  matchMeridiem);
+addRegexToken('H',  match1to2);
+addRegexToken('h',  match1to2);
+addRegexToken('HH', match1to2, match2);
+addRegexToken('hh', match1to2, match2);
+
+addRegexToken('hmm', match3to4);
+addRegexToken('hmmss', match5to6);
+addRegexToken('Hmm', match3to4);
+addRegexToken('Hmmss', match5to6);
+
+addParseToken(['H', 'HH'], HOUR);
+addParseToken(['a', 'A'], function (input, array, config) {
+    config._isPm = config._locale.isPM(input);
+    config._meridiem = input;
+});
+addParseToken(['h', 'hh'], function (input, array, config) {
+    array[HOUR] = toInt(input);
+    getParsingFlags(config).bigHour = true;
+});
+addParseToken('hmm', function (input, array, config) {
+    var pos = input.length - 2;
+    array[HOUR] = toInt(input.substr(0, pos));
+    array[MINUTE] = toInt(input.substr(pos));
+    getParsingFlags(config).bigHour = true;
+});
+addParseToken('hmmss', function (input, array, config) {
+    var pos1 = input.length - 4;
+    var pos2 = input.length - 2;
+    array[HOUR] = toInt(input.substr(0, pos1));
+    array[MINUTE] = toInt(input.substr(pos1, 2));
+    array[SECOND] = toInt(input.substr(pos2));
+    getParsingFlags(config).bigHour = true;
+});
+addParseToken('Hmm', function (input, array, config) {
+    var pos = input.length - 2;
+    array[HOUR] = toInt(input.substr(0, pos));
+    array[MINUTE] = toInt(input.substr(pos));
+});
+addParseToken('Hmmss', function (input, array, config) {
+    var pos1 = input.length - 4;
+    var pos2 = input.length - 2;
+    array[HOUR] = toInt(input.substr(0, pos1));
+    array[MINUTE] = toInt(input.substr(pos1, 2));
+    array[SECOND] = toInt(input.substr(pos2));
+});
+
+// LOCALES
+
+function localeIsPM (input) {
+    // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
+    // Using charAt should be more compatible.
+    return ((input + '').toLowerCase().charAt(0) === 'p');
+}
+
+var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i;
+function localeMeridiem (hours, minutes, isLower) {
+    if (hours > 11) {
+        return isLower ? 'pm' : 'PM';
+    } else {
+        return isLower ? 'am' : 'AM';
     }
-
-    meridiem('a', true);
-    meridiem('A', false);
-
-    // ALIASES
-
-    addUnitAlias('hour', 'h');
-
-    // PRIORITY
-    addUnitPriority('hour', 13);
-
-    // PARSING
-
-    function matchMeridiem (isStrict, locale) {
-        return locale._meridiemParse;
-    }
-
-    addRegexToken('a',  matchMeridiem);
-    addRegexToken('A',  matchMeridiem);
-    addRegexToken('H',  match1to2);
-    addRegexToken('h',  match1to2);
-    addRegexToken('HH', match1to2, match2);
-    addRegexToken('hh', match1to2, match2);
-
-    addRegexToken('hmm', match3to4);
-    addRegexToken('hmmss', match5to6);
-    addRegexToken('Hmm', match3to4);
-    addRegexToken('Hmmss', match5to6);
-
-    addParseToken(['H', 'HH'], HOUR);
-    addParseToken(['a', 'A'], function (input, array, config) {
-        config._isPm = config._locale.isPM(input);
-        config._meridiem = input;
-    });
-    addParseToken(['h', 'hh'], function (input, array, config) {
-        array[HOUR] = toInt(input);
-        getParsingFlags(config).bigHour = true;
-    });
-    addParseToken('hmm', function (input, array, config) {
-        var pos = input.length - 2;
-        array[HOUR] = toInt(input.substr(0, pos));
-        array[MINUTE] = toInt(input.substr(pos));
-        getParsingFlags(config).bigHour = true;
-    });
-    addParseToken('hmmss', function (input, array, config) {
-        var pos1 = input.length - 4;
-        var pos2 = input.length - 2;
-        array[HOUR] = toInt(input.substr(0, pos1));
-        array[MINUTE] = toInt(input.substr(pos1, 2));
-        array[SECOND] = toInt(input.substr(pos2));
-        getParsingFlags(config).bigHour = true;
-    });
-    addParseToken('Hmm', function (input, array, config) {
-        var pos = input.length - 2;
-        array[HOUR] = toInt(input.substr(0, pos));
-        array[MINUTE] = toInt(input.substr(pos));
-    });
-    addParseToken('Hmmss', function (input, array, config) {
-        var pos1 = input.length - 4;
-        var pos2 = input.length - 2;
-        array[HOUR] = toInt(input.substr(0, pos1));
-        array[MINUTE] = toInt(input.substr(pos1, 2));
-        array[SECOND] = toInt(input.substr(pos2));
-    });
-
-    // LOCALES
-
-    function localeIsPM (input) {
-        // IE8 Quirks Mode & IE7 Standards Mode do not allow accessing strings like arrays
-        // Using charAt should be more compatible.
-        return ((input + '').toLowerCase().charAt(0) === 'p');
-    }
-
-    var defaultLocaleMeridiemParse = /[ap]\.?m?\.?/i;
-    function localeMeridiem (hours, minutes, isLower) {
-        if (hours > 11) {
-            return isLower ? 'pm' : 'PM';
-        } else {
-            return isLower ? 'am' : 'AM';
-        }
-    }
+}
 
 
-    // MOMENTS
+// MOMENTS
 
-    // Setting the hour should keep the time, because the user explicitly
-    // specified which hour he wants. So trying to maintain the same hour (in
-    // a new timezone) makes sense. Adding/subtracting hours does not follow
-    // this rule.
-    var getSetHour = makeGetSet('Hours', true);
+// Setting the hour should keep the time, because the user explicitly
+// specified which hour he wants. So trying to maintain the same hour (in
+// a new timezone) makes sense. Adding/subtracting hours does not follow
+// this rule.
+var getSetHour = makeGetSet('Hours', true);
 
-    var baseConfig = {
-        calendar: defaultCalendar,
-        longDateFormat: defaultLongDateFormat,
-        invalidDate: defaultInvalidDate,
-        ordinal: defaultOrdinal,
-        ordinalParse: defaultOrdinalParse,
-        relativeTime: defaultRelativeTime,
+// months
+// week
+// weekdays
+// meridiem
+var baseConfig = {
+    calendar: defaultCalendar,
+    longDateFormat: defaultLongDateFormat,
+    invalidDate: defaultInvalidDate,
+    ordinal: defaultOrdinal,
+    ordinalParse: defaultOrdinalParse,
+    relativeTime: defaultRelativeTime,
 
-        months: defaultLocaleMonths,
-        monthsShort: defaultLocaleMonthsShort,
+    months: defaultLocaleMonths,
+    monthsShort: defaultLocaleMonthsShort,
 
-        week: defaultLocaleWeek,
+    week: defaultLocaleWeek,
 
-        weekdays: defaultLocaleWeekdays,
-        weekdaysMin: defaultLocaleWeekdaysMin,
-        weekdaysShort: defaultLocaleWeekdaysShort,
+    weekdays: defaultLocaleWeekdays,
+    weekdaysMin: defaultLocaleWeekdaysMin,
+    weekdaysShort: defaultLocaleWeekdaysShort,
 
-        meridiemParse: defaultLocaleMeridiemParse
-    };
+    meridiemParse: defaultLocaleMeridiemParse
+};
 
-    // internal storage for locale config files
-    var locales = {};
-    var globalLocale;
+// internal storage for locale config files
+var locales = {};
+var localeFamilies = {};
+var globalLocale;
 
-    function normalizeLocale(key) {
-        return key ? key.toLowerCase().replace('_', '-') : key;
-    }
+function normalizeLocale(key) {
+    return key ? key.toLowerCase().replace('_', '-') : key;
+}
 
-    // pick the locale from the array
-    // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
-    // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
-    function chooseLocale(names) {
-        var i = 0, j, next, locale, split;
+// pick the locale from the array
+// try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
+// substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
+function chooseLocale(names) {
+    var i = 0, j, next, locale, split;
 
-        while (i < names.length) {
-            split = normalizeLocale(names[i]).split('-');
-            j = split.length;
-            next = normalizeLocale(names[i + 1]);
-            next = next ? next.split('-') : null;
-            while (j > 0) {
-                locale = loadLocale(split.slice(0, j).join('-'));
-                if (locale) {
-                    return locale;
-                }
-                if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
-                    //the next array item is better than a shallower substring of this one
-                    break;
-                }
-                j--;
-            }
-            i++;
-        }
-        return null;
-    }
-
-    function loadLocale(name) {
-        var oldLocale = null;
-        // TODO: Find a better way to register and load all the locales in Node
-        if (!locales[name] && (typeof module !== 'undefined') &&
-                module && module.exports) {
-            try {
-                oldLocale = globalLocale._abbr;
-                require('./locale/' + name);
-                // because defineLocale currently also sets the global locale, we
-                // want to undo that for lazy loaded locales
-                locale_locales__getSetGlobalLocale(oldLocale);
-            } catch (e) { }
-        }
-        return locales[name];
-    }
-
-    // This function will load locale and then set the global locale.  If
-    // no arguments are passed in, it will simply return the current global
-    // locale key.
-    function locale_locales__getSetGlobalLocale (key, values) {
-        var data;
-        if (key) {
-            if (isUndefined(values)) {
-                data = locale_locales__getLocale(key);
-            }
-            else {
-                data = defineLocale(key, values);
-            }
-
-            if (data) {
-                // moment.duration._locale = moment._locale = data;
-                globalLocale = data;
-            }
-        }
-
-        return globalLocale._abbr;
-    }
-
-    function defineLocale (name, config) {
-        if (config !== null) {
-            var parentConfig = baseConfig;
-            config.abbr = name;
-            if (locales[name] != null) {
-                deprecateSimple('defineLocaleOverride',
-                        'use moment.updateLocale(localeName, config) to change ' +
-                        'an existing locale. moment.defineLocale(localeName, ' +
-                        'config) should only be used for creating a new locale ' +
-                        'See http://momentjs.com/guides/#/warnings/define-locale/ for more info.');
-                parentConfig = locales[name]._config;
-            } else if (config.parentLocale != null) {
-                if (locales[config.parentLocale] != null) {
-                    parentConfig = locales[config.parentLocale]._config;
-                } else {
-                    // treat as if there is no base config
-                    deprecateSimple('parentLocaleUndefined',
-                            'specified parentLocale is not defined yet. See http://momentjs.com/guides/#/warnings/parent-locale/');
-                }
-            }
-            locales[name] = new Locale(mergeConfigs(parentConfig, config));
-
-            // backwards compat for now: also set the locale
-            locale_locales__getSetGlobalLocale(name);
-
-            return locales[name];
-        } else {
-            // useful for testing
-            delete locales[name];
-            return null;
-        }
-    }
-
-    function updateLocale(name, config) {
-        if (config != null) {
-            var locale, parentConfig = baseConfig;
-            // MERGE
-            if (locales[name] != null) {
-                parentConfig = locales[name]._config;
-            }
-            config = mergeConfigs(parentConfig, config);
-            locale = new Locale(config);
-            locale.parentLocale = locales[name];
-            locales[name] = locale;
-
-            // backwards compat for now: also set the locale
-            locale_locales__getSetGlobalLocale(name);
-        } else {
-            // pass null for config to unupdate, useful for tests
-            if (locales[name] != null) {
-                if (locales[name].parentLocale != null) {
-                    locales[name] = locales[name].parentLocale;
-                } else if (locales[name] != null) {
-                    delete locales[name];
-                }
-            }
-        }
-        return locales[name];
-    }
-
-    // returns locale data
-    function locale_locales__getLocale (key) {
-        var locale;
-
-        if (key && key._locale && key._locale._abbr) {
-            key = key._locale._abbr;
-        }
-
-        if (!key) {
-            return globalLocale;
-        }
-
-        if (!isArray(key)) {
-            //short-circuit everything else
-            locale = loadLocale(key);
+    while (i < names.length) {
+        split = normalizeLocale(names[i]).split('-');
+        j = split.length;
+        next = normalizeLocale(names[i + 1]);
+        next = next ? next.split('-') : null;
+        while (j > 0) {
+            locale = loadLocale(split.slice(0, j).join('-'));
             if (locale) {
                 return locale;
             }
-            key = [key];
+            if (next && next.length >= j && compareArrays(split, next, true) >= j - 1) {
+                //the next array item is better than a shallower substring of this one
+                break;
+            }
+            j--;
+        }
+        i++;
+    }
+    return null;
+}
+
+function loadLocale(name) {
+    var oldLocale = null;
+    // TODO: Find a better way to register and load all the locales in Node
+    if (!locales[name] && (typeof module !== 'undefined') &&
+            module && module.exports) {
+        try {
+            oldLocale = globalLocale._abbr;
+            require('./locale/' + name);
+            // because defineLocale currently also sets the global locale, we
+            // want to undo that for lazy loaded locales
+            getSetGlobalLocale(oldLocale);
+        } catch (e) { }
+    }
+    return locales[name];
+}
+
+// This function will load locale and then set the global locale.  If
+// no arguments are passed in, it will simply return the current global
+// locale key.
+function getSetGlobalLocale (key, values) {
+    var data;
+    if (key) {
+        if (isUndefined(values)) {
+            data = getLocale(key);
+        }
+        else {
+            data = defineLocale(key, values);
         }
 
-        return chooseLocale(key);
+        if (data) {
+            // moment.duration._locale = moment._locale = data;
+            globalLocale = data;
+        }
     }
 
-    function locale_locales__listLocales() {
-        return keys(locales);
-    }
+    return globalLocale._abbr;
+}
 
-    function checkOverflow (m) {
-        var overflow;
-        var a = m._a;
-
-        if (a && getParsingFlags(m).overflow === -2) {
-            overflow =
-                a[MONTH]       < 0 || a[MONTH]       > 11  ? MONTH :
-                a[DATE]        < 1 || a[DATE]        > daysInMonth(a[YEAR], a[MONTH]) ? DATE :
-                a[HOUR]        < 0 || a[HOUR]        > 24 || (a[HOUR] === 24 && (a[MINUTE] !== 0 || a[SECOND] !== 0 || a[MILLISECOND] !== 0)) ? HOUR :
-                a[MINUTE]      < 0 || a[MINUTE]      > 59  ? MINUTE :
-                a[SECOND]      < 0 || a[SECOND]      > 59  ? SECOND :
-                a[MILLISECOND] < 0 || a[MILLISECOND] > 999 ? MILLISECOND :
-                -1;
-
-            if (getParsingFlags(m)._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
-                overflow = DATE;
+function defineLocale (name, config) {
+    if (config !== null) {
+        var parentConfig = baseConfig;
+        config.abbr = name;
+        if (locales[name] != null) {
+            deprecateSimple('defineLocaleOverride',
+                    'use moment.updateLocale(localeName, config) to change ' +
+                    'an existing locale. moment.defineLocale(localeName, ' +
+                    'config) should only be used for creating a new locale ' +
+                    'See http://momentjs.com/guides/#/warnings/define-locale/ for more info.');
+            parentConfig = locales[name]._config;
+        } else if (config.parentLocale != null) {
+            if (locales[config.parentLocale] != null) {
+                parentConfig = locales[config.parentLocale]._config;
+            } else {
+                if (!localeFamilies[config.parentLocale]) {
+                    localeFamilies[config.parentLocale] = [];
+                }
+                localeFamilies[config.parentLocale].push({
+                    name: name,
+                    config: config
+                });
+                return null;
             }
-            if (getParsingFlags(m)._overflowWeeks && overflow === -1) {
-                overflow = WEEK;
-            }
-            if (getParsingFlags(m)._overflowWeekday && overflow === -1) {
-                overflow = WEEKDAY;
-            }
+        }
+        locales[name] = new Locale(mergeConfigs(parentConfig, config));
 
-            getParsingFlags(m).overflow = overflow;
+        if (localeFamilies[name]) {
+            localeFamilies[name].forEach(function (x) {
+                defineLocale(x.name, x.config);
+            });
         }
 
-        return m;
+        // backwards compat for now: also set the locale
+        // make sure we set the locale AFTER all child locales have been
+        // created, so we won't end up with the child locale set.
+        getSetGlobalLocale(name);
+
+
+        return locales[name];
+    } else {
+        // useful for testing
+        delete locales[name];
+        return null;
+    }
+}
+
+function updateLocale(name, config) {
+    if (config != null) {
+        var locale, parentConfig = baseConfig;
+        // MERGE
+        if (locales[name] != null) {
+            parentConfig = locales[name]._config;
+        }
+        config = mergeConfigs(parentConfig, config);
+        locale = new Locale(config);
+        locale.parentLocale = locales[name];
+        locales[name] = locale;
+
+        // backwards compat for now: also set the locale
+        getSetGlobalLocale(name);
+    } else {
+        // pass null for config to unupdate, useful for tests
+        if (locales[name] != null) {
+            if (locales[name].parentLocale != null) {
+                locales[name] = locales[name].parentLocale;
+            } else if (locales[name] != null) {
+                delete locales[name];
+            }
+        }
+    }
+    return locales[name];
+}
+
+// returns locale data
+function getLocale (key) {
+    var locale;
+
+    if (key && key._locale && key._locale._abbr) {
+        key = key._locale._abbr;
     }
 
-    // iso 8601 regex
-    // 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
-    var extendedIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?/;
-    var basicIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?/;
+    if (!key) {
+        return globalLocale;
+    }
 
-    var tzRegex = /Z|[+-]\d\d(?::?\d\d)?/;
+    if (!isArray(key)) {
+        //short-circuit everything else
+        locale = loadLocale(key);
+        if (locale) {
+            return locale;
+        }
+        key = [key];
+    }
 
-    var isoDates = [
-        ['YYYYYY-MM-DD', /[+-]\d{6}-\d\d-\d\d/],
-        ['YYYY-MM-DD', /\d{4}-\d\d-\d\d/],
-        ['GGGG-[W]WW-E', /\d{4}-W\d\d-\d/],
-        ['GGGG-[W]WW', /\d{4}-W\d\d/, false],
-        ['YYYY-DDD', /\d{4}-\d{3}/],
-        ['YYYY-MM', /\d{4}-\d\d/, false],
-        ['YYYYYYMMDD', /[+-]\d{10}/],
-        ['YYYYMMDD', /\d{8}/],
-        // YYYYMM is NOT allowed by the standard
-        ['GGGG[W]WWE', /\d{4}W\d{3}/],
-        ['GGGG[W]WW', /\d{4}W\d{2}/, false],
-        ['YYYYDDD', /\d{7}/]
-    ];
+    return chooseLocale(key);
+}
 
-    // iso time formats and regexes
-    var isoTimes = [
-        ['HH:mm:ss.SSSS', /\d\d:\d\d:\d\d\.\d+/],
-        ['HH:mm:ss,SSSS', /\d\d:\d\d:\d\d,\d+/],
-        ['HH:mm:ss', /\d\d:\d\d:\d\d/],
-        ['HH:mm', /\d\d:\d\d/],
-        ['HHmmss.SSSS', /\d\d\d\d\d\d\.\d+/],
-        ['HHmmss,SSSS', /\d\d\d\d\d\d,\d+/],
-        ['HHmmss', /\d\d\d\d\d\d/],
-        ['HHmm', /\d\d\d\d/],
-        ['HH', /\d\d/]
-    ];
+function listLocales() {
+    return keys$1(locales);
+}
 
-    var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
+function checkOverflow (m) {
+    var overflow;
+    var a = m._a;
 
-    // date from iso format
-    function configFromISO(config) {
-        var i, l,
-            string = config._i,
-            match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
-            allowTime, dateFormat, timeFormat, tzFormat;
+    if (a && getParsingFlags(m).overflow === -2) {
+        overflow =
+            a[MONTH]       < 0 || a[MONTH]       > 11  ? MONTH :
+            a[DATE]        < 1 || a[DATE]        > daysInMonth(a[YEAR], a[MONTH]) ? DATE :
+            a[HOUR]        < 0 || a[HOUR]        > 24 || (a[HOUR] === 24 && (a[MINUTE] !== 0 || a[SECOND] !== 0 || a[MILLISECOND] !== 0)) ? HOUR :
+            a[MINUTE]      < 0 || a[MINUTE]      > 59  ? MINUTE :
+            a[SECOND]      < 0 || a[SECOND]      > 59  ? SECOND :
+            a[MILLISECOND] < 0 || a[MILLISECOND] > 999 ? MILLISECOND :
+            -1;
 
-        if (match) {
-            getParsingFlags(config).iso = true;
+        if (getParsingFlags(m)._overflowDayOfYear && (overflow < YEAR || overflow > DATE)) {
+            overflow = DATE;
+        }
+        if (getParsingFlags(m)._overflowWeeks && overflow === -1) {
+            overflow = WEEK;
+        }
+        if (getParsingFlags(m)._overflowWeekday && overflow === -1) {
+            overflow = WEEKDAY;
+        }
 
-            for (i = 0, l = isoDates.length; i < l; i++) {
-                if (isoDates[i][1].exec(match[1])) {
-                    dateFormat = isoDates[i][0];
-                    allowTime = isoDates[i][2] !== false;
+        getParsingFlags(m).overflow = overflow;
+    }
+
+    return m;
+}
+
+// iso 8601 regex
+// 0000-00-00 0000-W00 or 0000-W00-0 + T + 00 or 00:00 or 00:00:00 or 00:00:00.000 + +00:00 or +0000 or +00)
+var extendedIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})-(?:\d\d-\d\d|W\d\d-\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?::\d\d(?::\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/;
+var basicIsoRegex = /^\s*((?:[+-]\d{6}|\d{4})(?:\d\d\d\d|W\d\d\d|W\d\d|\d\d\d|\d\d))(?:(T| )(\d\d(?:\d\d(?:\d\d(?:[.,]\d+)?)?)?)([\+\-]\d\d(?::?\d\d)?|\s*Z)?)?$/;
+
+var tzRegex = /Z|[+-]\d\d(?::?\d\d)?/;
+
+var isoDates = [
+    ['YYYYYY-MM-DD', /[+-]\d{6}-\d\d-\d\d/],
+    ['YYYY-MM-DD', /\d{4}-\d\d-\d\d/],
+    ['GGGG-[W]WW-E', /\d{4}-W\d\d-\d/],
+    ['GGGG-[W]WW', /\d{4}-W\d\d/, false],
+    ['YYYY-DDD', /\d{4}-\d{3}/],
+    ['YYYY-MM', /\d{4}-\d\d/, false],
+    ['YYYYYYMMDD', /[+-]\d{10}/],
+    ['YYYYMMDD', /\d{8}/],
+    // YYYYMM is NOT allowed by the standard
+    ['GGGG[W]WWE', /\d{4}W\d{3}/],
+    ['GGGG[W]WW', /\d{4}W\d{2}/, false],
+    ['YYYYDDD', /\d{7}/]
+];
+
+// iso time formats and regexes
+var isoTimes = [
+    ['HH:mm:ss.SSSS', /\d\d:\d\d:\d\d\.\d+/],
+    ['HH:mm:ss,SSSS', /\d\d:\d\d:\d\d,\d+/],
+    ['HH:mm:ss', /\d\d:\d\d:\d\d/],
+    ['HH:mm', /\d\d:\d\d/],
+    ['HHmmss.SSSS', /\d\d\d\d\d\d\.\d+/],
+    ['HHmmss,SSSS', /\d\d\d\d\d\d,\d+/],
+    ['HHmmss', /\d\d\d\d\d\d/],
+    ['HHmm', /\d\d\d\d/],
+    ['HH', /\d\d/]
+];
+
+var aspNetJsonRegex = /^\/?Date\((\-?\d+)/i;
+
+// date from iso format
+function configFromISO(config) {
+    var i, l,
+        string = config._i,
+        match = extendedIsoRegex.exec(string) || basicIsoRegex.exec(string),
+        allowTime, dateFormat, timeFormat, tzFormat;
+
+    if (match) {
+        getParsingFlags(config).iso = true;
+
+        for (i = 0, l = isoDates.length; i < l; i++) {
+            if (isoDates[i][1].exec(match[1])) {
+                dateFormat = isoDates[i][0];
+                allowTime = isoDates[i][2] !== false;
+                break;
+            }
+        }
+        if (dateFormat == null) {
+            config._isValid = false;
+            return;
+        }
+        if (match[3]) {
+            for (i = 0, l = isoTimes.length; i < l; i++) {
+                if (isoTimes[i][1].exec(match[3])) {
+                    // match[2] should be 'T' or space
+                    timeFormat = (match[2] || ' ') + isoTimes[i][0];
                     break;
                 }
             }
-            if (dateFormat == null) {
+            if (timeFormat == null) {
                 config._isValid = false;
                 return;
             }
-            if (match[3]) {
-                for (i = 0, l = isoTimes.length; i < l; i++) {
-                    if (isoTimes[i][1].exec(match[3])) {
-                        // match[2] should be 'T' or space
-                        timeFormat = (match[2] || ' ') + isoTimes[i][0];
-                        break;
-                    }
-                }
-                if (timeFormat == null) {
-                    config._isValid = false;
-                    return;
-                }
-            }
-            if (!allowTime && timeFormat != null) {
-                config._isValid = false;
-                return;
-            }
-            if (match[4]) {
-                if (tzRegex.exec(match[4])) {
-                    tzFormat = 'Z';
-                } else {
-                    config._isValid = false;
-                    return;
-                }
-            }
-            config._f = dateFormat + (timeFormat || '') + (tzFormat || '');
-            configFromStringAndFormat(config);
-        } else {
+        }
+        if (!allowTime && timeFormat != null) {
             config._isValid = false;
-        }
-    }
-
-    // date from iso format or fallback
-    function configFromString(config) {
-        var matched = aspNetJsonRegex.exec(config._i);
-
-        if (matched !== null) {
-            config._d = new Date(+matched[1]);
             return;
         }
-
-        configFromISO(config);
-        if (config._isValid === false) {
-            delete config._isValid;
-            utils_hooks__hooks.createFromInputFallback(config);
-        }
-    }
-
-    utils_hooks__hooks.createFromInputFallback = deprecate(
-        'value provided is not in a recognized ISO format. moment construction falls back to js Date(), ' +
-        'which is not reliable across all browsers and versions. Non ISO date formats are ' +
-        'discouraged and will be removed in an upcoming major release. Please refer to ' +
-        'http://momentjs.com/guides/#/warnings/js-date/ for more info.',
-        function (config) {
-            config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
-        }
-    );
-
-    // Pick the first defined of two or three arguments.
-    function defaults(a, b, c) {
-        if (a != null) {
-            return a;
-        }
-        if (b != null) {
-            return b;
-        }
-        return c;
-    }
-
-    function currentDateArray(config) {
-        // hooks is actually the exported moment object
-        var nowValue = new Date(utils_hooks__hooks.now());
-        if (config._useUTC) {
-            return [nowValue.getUTCFullYear(), nowValue.getUTCMonth(), nowValue.getUTCDate()];
-        }
-        return [nowValue.getFullYear(), nowValue.getMonth(), nowValue.getDate()];
-    }
-
-    // convert an array to a date.
-    // the array should mirror the parameters below
-    // note: all values past the year are optional and will default to the lowest possible value.
-    // [year, month, day , hour, minute, second, millisecond]
-    function configFromArray (config) {
-        var i, date, input = [], currentDate, yearToUse;
-
-        if (config._d) {
-            return;
-        }
-
-        currentDate = currentDateArray(config);
-
-        //compute day of the year from weeks and weekdays
-        if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
-            dayOfYearFromWeekInfo(config);
-        }
-
-        //if the day of the year is set, figure out what it is
-        if (config._dayOfYear) {
-            yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
-
-            if (config._dayOfYear > daysInYear(yearToUse)) {
-                getParsingFlags(config)._overflowDayOfYear = true;
+        if (match[4]) {
+            if (tzRegex.exec(match[4])) {
+                tzFormat = 'Z';
+            } else {
+                config._isValid = false;
+                return;
             }
-
-            date = createUTCDate(yearToUse, 0, config._dayOfYear);
-            config._a[MONTH] = date.getUTCMonth();
-            config._a[DATE] = date.getUTCDate();
         }
+        config._f = dateFormat + (timeFormat || '') + (tzFormat || '');
+        configFromStringAndFormat(config);
+    } else {
+        config._isValid = false;
+    }
+}
 
-        // Default to current date.
-        // * if no year, month, day of month are given, default to today
-        // * if day of month is given, default month and year
-        // * if month is given, default only year
-        // * if year is given, don't default anything
-        for (i = 0; i < 3 && config._a[i] == null; ++i) {
-            config._a[i] = input[i] = currentDate[i];
-        }
+// date from iso format or fallback
+function configFromString(config) {
+    var matched = aspNetJsonRegex.exec(config._i);
 
-        // Zero out whatever was not defaulted, including time
-        for (; i < 7; i++) {
-            config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
-        }
-
-        // Check for 24:00:00.000
-        if (config._a[HOUR] === 24 &&
-                config._a[MINUTE] === 0 &&
-                config._a[SECOND] === 0 &&
-                config._a[MILLISECOND] === 0) {
-            config._nextDay = true;
-            config._a[HOUR] = 0;
-        }
-
-        config._d = (config._useUTC ? createUTCDate : createDate).apply(null, input);
-        // Apply timezone offset from input. The actual utcOffset can be changed
-        // with parseZone.
-        if (config._tzm != null) {
-            config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
-        }
-
-        if (config._nextDay) {
-            config._a[HOUR] = 24;
-        }
+    if (matched !== null) {
+        config._d = new Date(+matched[1]);
+        return;
     }
 
-    function dayOfYearFromWeekInfo(config) {
-        var w, weekYear, week, weekday, dow, doy, temp, weekdayOverflow;
+    configFromISO(config);
+    if (config._isValid === false) {
+        delete config._isValid;
+        hooks.createFromInputFallback(config);
+    }
+}
 
-        w = config._w;
-        if (w.GG != null || w.W != null || w.E != null) {
-            dow = 1;
-            doy = 4;
+hooks.createFromInputFallback = deprecate(
+    'value provided is not in a recognized ISO format. moment construction falls back to js Date(), ' +
+    'which is not reliable across all browsers and versions. Non ISO date formats are ' +
+    'discouraged and will be removed in an upcoming major release. Please refer to ' +
+    'http://momentjs.com/guides/#/warnings/js-date/ for more info.',
+    function (config) {
+        config._d = new Date(config._i + (config._useUTC ? ' UTC' : ''));
+    }
+);
 
-            // TODO: We need to take the current isoWeekYear, but that depends on
-            // how we interpret now (local, utc, fixed offset). So create
-            // a now version of current config (take local/utc/offset flags, and
-            // create now).
-            weekYear = defaults(w.GG, config._a[YEAR], weekOfYear(local__createLocal(), 1, 4).year);
-            week = defaults(w.W, 1);
-            weekday = defaults(w.E, 1);
-            if (weekday < 1 || weekday > 7) {
+// Pick the first defined of two or three arguments.
+function defaults(a, b, c) {
+    if (a != null) {
+        return a;
+    }
+    if (b != null) {
+        return b;
+    }
+    return c;
+}
+
+function currentDateArray(config) {
+    // hooks is actually the exported moment object
+    var nowValue = new Date(hooks.now());
+    if (config._useUTC) {
+        return [nowValue.getUTCFullYear(), nowValue.getUTCMonth(), nowValue.getUTCDate()];
+    }
+    return [nowValue.getFullYear(), nowValue.getMonth(), nowValue.getDate()];
+}
+
+// convert an array to a date.
+// the array should mirror the parameters below
+// note: all values past the year are optional and will default to the lowest possible value.
+// [year, month, day , hour, minute, second, millisecond]
+function configFromArray (config) {
+    var i, date, input = [], currentDate, yearToUse;
+
+    if (config._d) {
+        return;
+    }
+
+    currentDate = currentDateArray(config);
+
+    //compute day of the year from weeks and weekdays
+    if (config._w && config._a[DATE] == null && config._a[MONTH] == null) {
+        dayOfYearFromWeekInfo(config);
+    }
+
+    //if the day of the year is set, figure out what it is
+    if (config._dayOfYear) {
+        yearToUse = defaults(config._a[YEAR], currentDate[YEAR]);
+
+        if (config._dayOfYear > daysInYear(yearToUse)) {
+            getParsingFlags(config)._overflowDayOfYear = true;
+        }
+
+        date = createUTCDate(yearToUse, 0, config._dayOfYear);
+        config._a[MONTH] = date.getUTCMonth();
+        config._a[DATE] = date.getUTCDate();
+    }
+
+    // Default to current date.
+    // * if no year, month, day of month are given, default to today
+    // * if day of month is given, default month and year
+    // * if month is given, default only year
+    // * if year is given, don't default anything
+    for (i = 0; i < 3 && config._a[i] == null; ++i) {
+        config._a[i] = input[i] = currentDate[i];
+    }
+
+    // Zero out whatever was not defaulted, including time
+    for (; i < 7; i++) {
+        config._a[i] = input[i] = (config._a[i] == null) ? (i === 2 ? 1 : 0) : config._a[i];
+    }
+
+    // Check for 24:00:00.000
+    if (config._a[HOUR] === 24 &&
+            config._a[MINUTE] === 0 &&
+            config._a[SECOND] === 0 &&
+            config._a[MILLISECOND] === 0) {
+        config._nextDay = true;
+        config._a[HOUR] = 0;
+    }
+
+    config._d = (config._useUTC ? createUTCDate : createDate).apply(null, input);
+    // Apply timezone offset from input. The actual utcOffset can be changed
+    // with parseZone.
+    if (config._tzm != null) {
+        config._d.setUTCMinutes(config._d.getUTCMinutes() - config._tzm);
+    }
+
+    if (config._nextDay) {
+        config._a[HOUR] = 24;
+    }
+}
+
+function dayOfYearFromWeekInfo(config) {
+    var w, weekYear, week, weekday, dow, doy, temp, weekdayOverflow;
+
+    w = config._w;
+    if (w.GG != null || w.W != null || w.E != null) {
+        dow = 1;
+        doy = 4;
+
+        // TODO: We need to take the current isoWeekYear, but that depends on
+        // how we interpret now (local, utc, fixed offset). So create
+        // a now version of current config (take local/utc/offset flags, and
+        // create now).
+        weekYear = defaults(w.GG, config._a[YEAR], weekOfYear(createLocal(), 1, 4).year);
+        week = defaults(w.W, 1);
+        weekday = defaults(w.E, 1);
+        if (weekday < 1 || weekday > 7) {
+            weekdayOverflow = true;
+        }
+    } else {
+        dow = config._locale._week.dow;
+        doy = config._locale._week.doy;
+
+        var curWeek = weekOfYear(createLocal(), dow, doy);
+
+        weekYear = defaults(w.gg, config._a[YEAR], curWeek.year);
+
+        // Default to current week.
+        week = defaults(w.w, curWeek.week);
+
+        if (w.d != null) {
+            // weekday -- low day numbers are considered next week
+            weekday = w.d;
+            if (weekday < 0 || weekday > 6) {
+                weekdayOverflow = true;
+            }
+        } else if (w.e != null) {
+            // local weekday -- counting starts from begining of week
+            weekday = w.e + dow;
+            if (w.e < 0 || w.e > 6) {
                 weekdayOverflow = true;
             }
         } else {
-            dow = config._locale._week.dow;
-            doy = config._locale._week.doy;
-
-            weekYear = defaults(w.gg, config._a[YEAR], weekOfYear(local__createLocal(), dow, doy).year);
-            week = defaults(w.w, 1);
-
-            if (w.d != null) {
-                // weekday -- low day numbers are considered next week
-                weekday = w.d;
-                if (weekday < 0 || weekday > 6) {
-                    weekdayOverflow = true;
-                }
-            } else if (w.e != null) {
-                // local weekday -- counting starts from begining of week
-                weekday = w.e + dow;
-                if (w.e < 0 || w.e > 6) {
-                    weekdayOverflow = true;
-                }
-            } else {
-                // default to begining of week
-                weekday = dow;
-            }
-        }
-        if (week < 1 || week > weeksInYear(weekYear, dow, doy)) {
-            getParsingFlags(config)._overflowWeeks = true;
-        } else if (weekdayOverflow != null) {
-            getParsingFlags(config)._overflowWeekday = true;
-        } else {
-            temp = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy);
-            config._a[YEAR] = temp.year;
-            config._dayOfYear = temp.dayOfYear;
+            // default to begining of week
+            weekday = dow;
         }
     }
+    if (week < 1 || week > weeksInYear(weekYear, dow, doy)) {
+        getParsingFlags(config)._overflowWeeks = true;
+    } else if (weekdayOverflow != null) {
+        getParsingFlags(config)._overflowWeekday = true;
+    } else {
+        temp = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy);
+        config._a[YEAR] = temp.year;
+        config._dayOfYear = temp.dayOfYear;
+    }
+}
 
-    // constant that refers to the ISO standard
-    utils_hooks__hooks.ISO_8601 = function () {};
+// constant that refers to the ISO standard
+hooks.ISO_8601 = function () {};
 
-    // date from string and format string
-    function configFromStringAndFormat(config) {
-        // TODO: Move this to another part of the creation flow to prevent circular deps
-        if (config._f === utils_hooks__hooks.ISO_8601) {
-            configFromISO(config);
-            return;
+// date from string and format string
+function configFromStringAndFormat(config) {
+    // TODO: Move this to another part of the creation flow to prevent circular deps
+    if (config._f === hooks.ISO_8601) {
+        configFromISO(config);
+        return;
+    }
+
+    config._a = [];
+    getParsingFlags(config).empty = true;
+
+    // This array is used to make a Date, either with `new Date` or `Date.UTC`
+    var string = '' + config._i,
+        i, parsedInput, tokens, token, skipped,
+        stringLength = string.length,
+        totalParsedInputLength = 0;
+
+    tokens = expandFormat(config._f, config._locale).match(formattingTokens) || [];
+
+    for (i = 0; i < tokens.length; i++) {
+        token = tokens[i];
+        parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
+        // console.log('token', token, 'parsedInput', parsedInput,
+        //         'regex', getParseRegexForToken(token, config));
+        if (parsedInput) {
+            skipped = string.substr(0, string.indexOf(parsedInput));
+            if (skipped.length > 0) {
+                getParsingFlags(config).unusedInput.push(skipped);
+            }
+            string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
+            totalParsedInputLength += parsedInput.length;
         }
-
-        config._a = [];
-        getParsingFlags(config).empty = true;
-
-        // This array is used to make a Date, either with `new Date` or `Date.UTC`
-        var string = '' + config._i,
-            i, parsedInput, tokens, token, skipped,
-            stringLength = string.length,
-            totalParsedInputLength = 0;
-
-        tokens = expandFormat(config._f, config._locale).match(formattingTokens) || [];
-
-        for (i = 0; i < tokens.length; i++) {
-            token = tokens[i];
-            parsedInput = (string.match(getParseRegexForToken(token, config)) || [])[0];
-            // console.log('token', token, 'parsedInput', parsedInput,
-            //         'regex', getParseRegexForToken(token, config));
+        // don't parse if it's not a known token
+        if (formatTokenFunctions[token]) {
             if (parsedInput) {
-                skipped = string.substr(0, string.indexOf(parsedInput));
-                if (skipped.length > 0) {
-                    getParsingFlags(config).unusedInput.push(skipped);
-                }
-                string = string.slice(string.indexOf(parsedInput) + parsedInput.length);
-                totalParsedInputLength += parsedInput.length;
+                getParsingFlags(config).empty = false;
             }
-            // don't parse if it's not a known token
-            if (formatTokenFunctions[token]) {
-                if (parsedInput) {
-                    getParsingFlags(config).empty = false;
-                }
-                else {
-                    getParsingFlags(config).unusedTokens.push(token);
-                }
-                addTimeToArrayFromToken(token, parsedInput, config);
-            }
-            else if (config._strict && !parsedInput) {
+            else {
                 getParsingFlags(config).unusedTokens.push(token);
             }
+            addTimeToArrayFromToken(token, parsedInput, config);
         }
-
-        // add remaining unparsed input length to the string
-        getParsingFlags(config).charsLeftOver = stringLength - totalParsedInputLength;
-        if (string.length > 0) {
-            getParsingFlags(config).unusedInput.push(string);
-        }
-
-        // clear _12h flag if hour is <= 12
-        if (config._a[HOUR] <= 12 &&
-            getParsingFlags(config).bigHour === true &&
-            config._a[HOUR] > 0) {
-            getParsingFlags(config).bigHour = undefined;
-        }
-
-        getParsingFlags(config).parsedDateParts = config._a.slice(0);
-        getParsingFlags(config).meridiem = config._meridiem;
-        // handle meridiem
-        config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
-
-        configFromArray(config);
-        checkOverflow(config);
-    }
-
-
-    function meridiemFixWrap (locale, hour, meridiem) {
-        var isPm;
-
-        if (meridiem == null) {
-            // nothing to do
-            return hour;
-        }
-        if (locale.meridiemHour != null) {
-            return locale.meridiemHour(hour, meridiem);
-        } else if (locale.isPM != null) {
-            // Fallback
-            isPm = locale.isPM(meridiem);
-            if (isPm && hour < 12) {
-                hour += 12;
-            }
-            if (!isPm && hour === 12) {
-                hour = 0;
-            }
-            return hour;
-        } else {
-            // this is not supposed to happen
-            return hour;
+        else if (config._strict && !parsedInput) {
+            getParsingFlags(config).unusedTokens.push(token);
         }
     }
 
-    // date from string and array of format strings
-    function configFromStringAndArray(config) {
-        var tempConfig,
-            bestMoment,
-
-            scoreToBeat,
-            i,
-            currentScore;
-
-        if (config._f.length === 0) {
-            getParsingFlags(config).invalidFormat = true;
-            config._d = new Date(NaN);
-            return;
-        }
-
-        for (i = 0; i < config._f.length; i++) {
-            currentScore = 0;
-            tempConfig = copyConfig({}, config);
-            if (config._useUTC != null) {
-                tempConfig._useUTC = config._useUTC;
-            }
-            tempConfig._f = config._f[i];
-            configFromStringAndFormat(tempConfig);
-
-            if (!valid__isValid(tempConfig)) {
-                continue;
-            }
-
-            // if there is any input that was not parsed add a penalty for that format
-            currentScore += getParsingFlags(tempConfig).charsLeftOver;
-
-            //or tokens
-            currentScore += getParsingFlags(tempConfig).unusedTokens.length * 10;
-
-            getParsingFlags(tempConfig).score = currentScore;
-
-            if (scoreToBeat == null || currentScore < scoreToBeat) {
-                scoreToBeat = currentScore;
-                bestMoment = tempConfig;
-            }
-        }
-
-        extend(config, bestMoment || tempConfig);
+    // add remaining unparsed input length to the string
+    getParsingFlags(config).charsLeftOver = stringLength - totalParsedInputLength;
+    if (string.length > 0) {
+        getParsingFlags(config).unusedInput.push(string);
     }
 
-    function configFromObject(config) {
-        if (config._d) {
-            return;
-        }
-
-        var i = normalizeObjectUnits(config._i);
-        config._a = map([i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond], function (obj) {
-            return obj && parseInt(obj, 10);
-        });
-
-        configFromArray(config);
+    // clear _12h flag if hour is <= 12
+    if (config._a[HOUR] <= 12 &&
+        getParsingFlags(config).bigHour === true &&
+        config._a[HOUR] > 0) {
+        getParsingFlags(config).bigHour = undefined;
     }
 
-    function createFromConfig (config) {
-        var res = new Moment(checkOverflow(prepareConfig(config)));
-        if (res._nextDay) {
-            // Adding is smart enough around DST
-            res.add(1, 'd');
-            res._nextDay = undefined;
-        }
+    getParsingFlags(config).parsedDateParts = config._a.slice(0);
+    getParsingFlags(config).meridiem = config._meridiem;
+    // handle meridiem
+    config._a[HOUR] = meridiemFixWrap(config._locale, config._a[HOUR], config._meridiem);
 
-        return res;
+    configFromArray(config);
+    checkOverflow(config);
+}
+
+
+function meridiemFixWrap (locale, hour, meridiem) {
+    var isPm;
+
+    if (meridiem == null) {
+        // nothing to do
+        return hour;
+    }
+    if (locale.meridiemHour != null) {
+        return locale.meridiemHour(hour, meridiem);
+    } else if (locale.isPM != null) {
+        // Fallback
+        isPm = locale.isPM(meridiem);
+        if (isPm && hour < 12) {
+            hour += 12;
+        }
+        if (!isPm && hour === 12) {
+            hour = 0;
+        }
+        return hour;
+    } else {
+        // this is not supposed to happen
+        return hour;
+    }
+}
+
+// date from string and array of format strings
+function configFromStringAndArray(config) {
+    var tempConfig,
+        bestMoment,
+
+        scoreToBeat,
+        i,
+        currentScore;
+
+    if (config._f.length === 0) {
+        getParsingFlags(config).invalidFormat = true;
+        config._d = new Date(NaN);
+        return;
     }
 
-    function prepareConfig (config) {
-        var input = config._i,
-            format = config._f;
+    for (i = 0; i < config._f.length; i++) {
+        currentScore = 0;
+        tempConfig = copyConfig({}, config);
+        if (config._useUTC != null) {
+            tempConfig._useUTC = config._useUTC;
+        }
+        tempConfig._f = config._f[i];
+        configFromStringAndFormat(tempConfig);
 
-        config._locale = config._locale || locale_locales__getLocale(config._l);
-
-        if (input === null || (format === undefined && input === '')) {
-            return valid__createInvalid({nullInput: true});
+        if (!isValid(tempConfig)) {
+            continue;
         }
 
-        if (typeof input === 'string') {
-            config._i = input = config._locale.preparse(input);
-        }
+        // if there is any input that was not parsed add a penalty for that format
+        currentScore += getParsingFlags(tempConfig).charsLeftOver;
 
-        if (isMoment(input)) {
-            return new Moment(checkOverflow(input));
-        } else if (isArray(format)) {
-            configFromStringAndArray(config);
-        } else if (isDate(input)) {
-            config._d = input;
-        } else if (format) {
-            configFromStringAndFormat(config);
-        }  else {
-            configFromInput(config);
-        }
+        //or tokens
+        currentScore += getParsingFlags(tempConfig).unusedTokens.length * 10;
 
-        if (!valid__isValid(config)) {
-            config._d = null;
-        }
+        getParsingFlags(tempConfig).score = currentScore;
 
-        return config;
-    }
-
-    function configFromInput(config) {
-        var input = config._i;
-        if (input === undefined) {
-            config._d = new Date(utils_hooks__hooks.now());
-        } else if (isDate(input)) {
-            config._d = new Date(input.valueOf());
-        } else if (typeof input === 'string') {
-            configFromString(config);
-        } else if (isArray(input)) {
-            config._a = map(input.slice(0), function (obj) {
-                return parseInt(obj, 10);
-            });
-            configFromArray(config);
-        } else if (typeof(input) === 'object') {
-            configFromObject(config);
-        } else if (typeof(input) === 'number') {
-            // from milliseconds
-            config._d = new Date(input);
-        } else {
-            utils_hooks__hooks.createFromInputFallback(config);
+        if (scoreToBeat == null || currentScore < scoreToBeat) {
+            scoreToBeat = currentScore;
+            bestMoment = tempConfig;
         }
     }
 
-    function createLocalOrUTC (input, format, locale, strict, isUTC) {
-        var c = {};
+    extend(config, bestMoment || tempConfig);
+}
 
-        if (typeof(locale) === 'boolean') {
-            strict = locale;
-            locale = undefined;
-        }
-
-        if ((isObject(input) && isObjectEmpty(input)) ||
-                (isArray(input) && input.length === 0)) {
-            input = undefined;
-        }
-        // object construction must be done this way.
-        // https://github.com/moment/moment/issues/1423
-        c._isAMomentObject = true;
-        c._useUTC = c._isUTC = isUTC;
-        c._l = locale;
-        c._i = input;
-        c._f = format;
-        c._strict = strict;
-
-        return createFromConfig(c);
+function configFromObject(config) {
+    if (config._d) {
+        return;
     }
 
-    function local__createLocal (input, format, locale, strict) {
-        return createLocalOrUTC(input, format, locale, strict, false);
-    }
-
-    var prototypeMin = deprecate(
-        'moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/',
-        function () {
-            var other = local__createLocal.apply(null, arguments);
-            if (this.isValid() && other.isValid()) {
-                return other < this ? this : other;
-            } else {
-                return valid__createInvalid();
-            }
-        }
-    );
-
-    var prototypeMax = deprecate(
-        'moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/',
-        function () {
-            var other = local__createLocal.apply(null, arguments);
-            if (this.isValid() && other.isValid()) {
-                return other > this ? this : other;
-            } else {
-                return valid__createInvalid();
-            }
-        }
-    );
-
-    // Pick a moment m from moments so that m[fn](other) is true for all
-    // other. This relies on the function fn to be transitive.
-    //
-    // moments should either be an array of moment objects or an array, whose
-    // first element is an array of moment objects.
-    function pickBy(fn, moments) {
-        var res, i;
-        if (moments.length === 1 && isArray(moments[0])) {
-            moments = moments[0];
-        }
-        if (!moments.length) {
-            return local__createLocal();
-        }
-        res = moments[0];
-        for (i = 1; i < moments.length; ++i) {
-            if (!moments[i].isValid() || moments[i][fn](res)) {
-                res = moments[i];
-            }
-        }
-        return res;
-    }
-
-    // TODO: Use [].sort instead?
-    function min () {
-        var args = [].slice.call(arguments, 0);
-
-        return pickBy('isBefore', args);
-    }
-
-    function max () {
-        var args = [].slice.call(arguments, 0);
-
-        return pickBy('isAfter', args);
-    }
-
-    var now = function () {
-        return Date.now ? Date.now() : +(new Date());
-    };
-
-    function Duration (duration) {
-        var normalizedInput = normalizeObjectUnits(duration),
-            years = normalizedInput.year || 0,
-            quarters = normalizedInput.quarter || 0,
-            months = normalizedInput.month || 0,
-            weeks = normalizedInput.week || 0,
-            days = normalizedInput.day || 0,
-            hours = normalizedInput.hour || 0,
-            minutes = normalizedInput.minute || 0,
-            seconds = normalizedInput.second || 0,
-            milliseconds = normalizedInput.millisecond || 0;
-
-        // representation for dateAddRemove
-        this._milliseconds = +milliseconds +
-            seconds * 1e3 + // 1000
-            minutes * 6e4 + // 1000 * 60
-            hours * 1000 * 60 * 60; //using 1000 * 60 * 60 instead of 36e5 to avoid floating point rounding errors https://github.com/moment/moment/issues/2978
-        // Because of dateAddRemove treats 24 hours as different from a
-        // day when working around DST, we need to store them separately
-        this._days = +days +
-            weeks * 7;
-        // It is impossible translate months into days without knowing
-        // which months you are are talking about, so we have to store
-        // it separately.
-        this._months = +months +
-            quarters * 3 +
-            years * 12;
-
-        this._data = {};
-
-        this._locale = locale_locales__getLocale();
-
-        this._bubble();
-    }
-
-    function isDuration (obj) {
-        return obj instanceof Duration;
-    }
-
-    function absRound (number) {
-        if (number < 0) {
-            return Math.round(-1 * number) * -1;
-        } else {
-            return Math.round(number);
-        }
-    }
-
-    // FORMATTING
-
-    function offset (token, separator) {
-        addFormatToken(token, 0, 0, function () {
-            var offset = this.utcOffset();
-            var sign = '+';
-            if (offset < 0) {
-                offset = -offset;
-                sign = '-';
-            }
-            return sign + zeroFill(~~(offset / 60), 2) + separator + zeroFill(~~(offset) % 60, 2);
-        });
-    }
-
-    offset('Z', ':');
-    offset('ZZ', '');
-
-    // PARSING
-
-    addRegexToken('Z',  matchShortOffset);
-    addRegexToken('ZZ', matchShortOffset);
-    addParseToken(['Z', 'ZZ'], function (input, array, config) {
-        config._useUTC = true;
-        config._tzm = offsetFromString(matchShortOffset, input);
+    var i = normalizeObjectUnits(config._i);
+    config._a = map([i.year, i.month, i.day || i.date, i.hour, i.minute, i.second, i.millisecond], function (obj) {
+        return obj && parseInt(obj, 10);
     });
 
-    // HELPERS
+    configFromArray(config);
+}
 
-    // timezone chunker
-    // '+10:00' > ['10',  '00']
-    // '-1530'  > ['-15', '30']
-    var chunkOffset = /([\+\-]|\d\d)/gi;
-
-    function offsetFromString(matcher, string) {
-        var matches = ((string || '').match(matcher) || []);
-        var chunk   = matches[matches.length - 1] || [];
-        var parts   = (chunk + '').match(chunkOffset) || ['-', 0, 0];
-        var minutes = +(parts[1] * 60) + toInt(parts[2]);
-
-        return parts[0] === '+' ? minutes : -minutes;
+function createFromConfig (config) {
+    var res = new Moment(checkOverflow(prepareConfig(config)));
+    if (res._nextDay) {
+        // Adding is smart enough around DST
+        res.add(1, 'd');
+        res._nextDay = undefined;
     }
 
-    // Return a moment from input, that is local/utc/zone equivalent to model.
-    function cloneWithOffset(input, model) {
-        var res, diff;
-        if (model._isUTC) {
-            res = model.clone();
-            diff = (isMoment(input) || isDate(input) ? input.valueOf() : local__createLocal(input).valueOf()) - res.valueOf();
-            // Use low-level api, because this fn is low-level api.
-            res._d.setTime(res._d.valueOf() + diff);
-            utils_hooks__hooks.updateOffset(res, false);
-            return res;
+    return res;
+}
+
+function prepareConfig (config) {
+    var input = config._i,
+        format = config._f;
+
+    config._locale = config._locale || getLocale(config._l);
+
+    if (input === null || (format === undefined && input === '')) {
+        return createInvalid({nullInput: true});
+    }
+
+    if (typeof input === 'string') {
+        config._i = input = config._locale.preparse(input);
+    }
+
+    if (isMoment(input)) {
+        return new Moment(checkOverflow(input));
+    } else if (isDate(input)) {
+        config._d = input;
+    } else if (isArray(format)) {
+        configFromStringAndArray(config);
+    } else if (format) {
+        configFromStringAndFormat(config);
+    }  else {
+        configFromInput(config);
+    }
+
+    if (!isValid(config)) {
+        config._d = null;
+    }
+
+    return config;
+}
+
+function configFromInput(config) {
+    var input = config._i;
+    if (input === undefined) {
+        config._d = new Date(hooks.now());
+    } else if (isDate(input)) {
+        config._d = new Date(input.valueOf());
+    } else if (typeof input === 'string') {
+        configFromString(config);
+    } else if (isArray(input)) {
+        config._a = map(input.slice(0), function (obj) {
+            return parseInt(obj, 10);
+        });
+        configFromArray(config);
+    } else if (typeof(input) === 'object') {
+        configFromObject(config);
+    } else if (isNumber(input)) {
+        // from milliseconds
+        config._d = new Date(input);
+    } else {
+        hooks.createFromInputFallback(config);
+    }
+}
+
+function createLocalOrUTC (input, format, locale, strict, isUTC) {
+    var c = {};
+
+    if (locale === true || locale === false) {
+        strict = locale;
+        locale = undefined;
+    }
+
+    if ((isObject(input) && isObjectEmpty(input)) ||
+            (isArray(input) && input.length === 0)) {
+        input = undefined;
+    }
+    // object construction must be done this way.
+    // https://github.com/moment/moment/issues/1423
+    c._isAMomentObject = true;
+    c._useUTC = c._isUTC = isUTC;
+    c._l = locale;
+    c._i = input;
+    c._f = format;
+    c._strict = strict;
+
+    return createFromConfig(c);
+}
+
+function createLocal (input, format, locale, strict) {
+    return createLocalOrUTC(input, format, locale, strict, false);
+}
+
+var prototypeMin = deprecate(
+    'moment().min is deprecated, use moment.max instead. http://momentjs.com/guides/#/warnings/min-max/',
+    function () {
+        var other = createLocal.apply(null, arguments);
+        if (this.isValid() && other.isValid()) {
+            return other < this ? this : other;
         } else {
-            return local__createLocal(input).local();
+            return createInvalid();
         }
     }
+);
 
-    function getDateOffset (m) {
-        // On Firefox.24 Date#getTimezoneOffset returns a floating point.
-        // https://github.com/moment/moment/pull/1871
-        return -Math.round(m._d.getTimezoneOffset() / 15) * 15;
-    }
-
-    // HOOKS
-
-    // This function will be called whenever a moment is mutated.
-    // It is intended to keep the offset in sync with the timezone.
-    utils_hooks__hooks.updateOffset = function () {};
-
-    // MOMENTS
-
-    // keepLocalTime = true means only change the timezone, without
-    // affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
-    // 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
-    // +0200, so we adjust the time as needed, to be valid.
-    //
-    // Keeping the time actually adds/subtracts (one hour)
-    // from the actual represented time. That is why we call updateOffset
-    // a second time. In case it wants us to change the offset again
-    // _changeInProgress == true case, then we have to adjust, because
-    // there is no such time in the given timezone.
-    function getSetOffset (input, keepLocalTime) {
-        var offset = this._offset || 0,
-            localAdjust;
-        if (!this.isValid()) {
-            return input != null ? this : NaN;
-        }
-        if (input != null) {
-            if (typeof input === 'string') {
-                input = offsetFromString(matchShortOffset, input);
-            } else if (Math.abs(input) < 16) {
-                input = input * 60;
-            }
-            if (!this._isUTC && keepLocalTime) {
-                localAdjust = getDateOffset(this);
-            }
-            this._offset = input;
-            this._isUTC = true;
-            if (localAdjust != null) {
-                this.add(localAdjust, 'm');
-            }
-            if (offset !== input) {
-                if (!keepLocalTime || this._changeInProgress) {
-                    add_subtract__addSubtract(this, create__createDuration(input - offset, 'm'), 1, false);
-                } else if (!this._changeInProgress) {
-                    this._changeInProgress = true;
-                    utils_hooks__hooks.updateOffset(this, true);
-                    this._changeInProgress = null;
-                }
-            }
-            return this;
+var prototypeMax = deprecate(
+    'moment().max is deprecated, use moment.min instead. http://momentjs.com/guides/#/warnings/min-max/',
+    function () {
+        var other = createLocal.apply(null, arguments);
+        if (this.isValid() && other.isValid()) {
+            return other > this ? this : other;
         } else {
-            return this._isUTC ? offset : getDateOffset(this);
+            return createInvalid();
         }
     }
+);
 
-    function getSetZone (input, keepLocalTime) {
-        if (input != null) {
-            if (typeof input !== 'string') {
-                input = -input;
+// Pick a moment m from moments so that m[fn](other) is true for all
+// other. This relies on the function fn to be transitive.
+//
+// moments should either be an array of moment objects or an array, whose
+// first element is an array of moment objects.
+function pickBy(fn, moments) {
+    var res, i;
+    if (moments.length === 1 && isArray(moments[0])) {
+        moments = moments[0];
+    }
+    if (!moments.length) {
+        return createLocal();
+    }
+    res = moments[0];
+    for (i = 1; i < moments.length; ++i) {
+        if (!moments[i].isValid() || moments[i][fn](res)) {
+            res = moments[i];
+        }
+    }
+    return res;
+}
+
+// TODO: Use [].sort instead?
+function min () {
+    var args = [].slice.call(arguments, 0);
+
+    return pickBy('isBefore', args);
+}
+
+function max () {
+    var args = [].slice.call(arguments, 0);
+
+    return pickBy('isAfter', args);
+}
+
+var now = function () {
+    return Date.now ? Date.now() : +(new Date());
+};
+
+function Duration (duration) {
+    var normalizedInput = normalizeObjectUnits(duration),
+        years = normalizedInput.year || 0,
+        quarters = normalizedInput.quarter || 0,
+        months = normalizedInput.month || 0,
+        weeks = normalizedInput.week || 0,
+        days = normalizedInput.day || 0,
+        hours = normalizedInput.hour || 0,
+        minutes = normalizedInput.minute || 0,
+        seconds = normalizedInput.second || 0,
+        milliseconds = normalizedInput.millisecond || 0;
+
+    // representation for dateAddRemove
+    this._milliseconds = +milliseconds +
+        seconds * 1e3 + // 1000
+        minutes * 6e4 + // 1000 * 60
+        hours * 1000 * 60 * 60; //using 1000 * 60 * 60 instead of 36e5 to avoid floating point rounding errors https://github.com/moment/moment/issues/2978
+    // Because of dateAddRemove treats 24 hours as different from a
+    // day when working around DST, we need to store them separately
+    this._days = +days +
+        weeks * 7;
+    // It is impossible translate months into days without knowing
+    // which months you are are talking about, so we have to store
+    // it separately.
+    this._months = +months +
+        quarters * 3 +
+        years * 12;
+
+    this._data = {};
+
+    this._locale = getLocale();
+
+    this._bubble();
+}
+
+function isDuration (obj) {
+    return obj instanceof Duration;
+}
+
+function absRound (number) {
+    if (number < 0) {
+        return Math.round(-1 * number) * -1;
+    } else {
+        return Math.round(number);
+    }
+}
+
+// FORMATTING
+
+function offset (token, separator) {
+    addFormatToken(token, 0, 0, function () {
+        var offset = this.utcOffset();
+        var sign = '+';
+        if (offset < 0) {
+            offset = -offset;
+            sign = '-';
+        }
+        return sign + zeroFill(~~(offset / 60), 2) + separator + zeroFill(~~(offset) % 60, 2);
+    });
+}
+
+offset('Z', ':');
+offset('ZZ', '');
+
+// PARSING
+
+addRegexToken('Z',  matchShortOffset);
+addRegexToken('ZZ', matchShortOffset);
+addParseToken(['Z', 'ZZ'], function (input, array, config) {
+    config._useUTC = true;
+    config._tzm = offsetFromString(matchShortOffset, input);
+});
+
+// HELPERS
+
+// timezone chunker
+// '+10:00' > ['10',  '00']
+// '-1530'  > ['-15', '30']
+var chunkOffset = /([\+\-]|\d\d)/gi;
+
+function offsetFromString(matcher, string) {
+    var matches = (string || '').match(matcher);
+
+    if (matches === null) {
+        return null;
+    }
+
+    var chunk   = matches[matches.length - 1] || [];
+    var parts   = (chunk + '').match(chunkOffset) || ['-', 0, 0];
+    var minutes = +(parts[1] * 60) + toInt(parts[2]);
+
+    return minutes === 0 ?
+      0 :
+      parts[0] === '+' ? minutes : -minutes;
+}
+
+// Return a moment from input, that is local/utc/zone equivalent to model.
+function cloneWithOffset(input, model) {
+    var res, diff;
+    if (model._isUTC) {
+        res = model.clone();
+        diff = (isMoment(input) || isDate(input) ? input.valueOf() : createLocal(input).valueOf()) - res.valueOf();
+        // Use low-level api, because this fn is low-level api.
+        res._d.setTime(res._d.valueOf() + diff);
+        hooks.updateOffset(res, false);
+        return res;
+    } else {
+        return createLocal(input).local();
+    }
+}
+
+function getDateOffset (m) {
+    // On Firefox.24 Date#getTimezoneOffset returns a floating point.
+    // https://github.com/moment/moment/pull/1871
+    return -Math.round(m._d.getTimezoneOffset() / 15) * 15;
+}
+
+// HOOKS
+
+// This function will be called whenever a moment is mutated.
+// It is intended to keep the offset in sync with the timezone.
+hooks.updateOffset = function () {};
+
+// MOMENTS
+
+// keepLocalTime = true means only change the timezone, without
+// affecting the local hour. So 5:31:26 +0300 --[utcOffset(2, true)]-->
+// 5:31:26 +0200 It is possible that 5:31:26 doesn't exist with offset
+// +0200, so we adjust the time as needed, to be valid.
+//
+// Keeping the time actually adds/subtracts (one hour)
+// from the actual represented time. That is why we call updateOffset
+// a second time. In case it wants us to change the offset again
+// _changeInProgress == true case, then we have to adjust, because
+// there is no such time in the given timezone.
+function getSetOffset (input, keepLocalTime) {
+    var offset = this._offset || 0,
+        localAdjust;
+    if (!this.isValid()) {
+        return input != null ? this : NaN;
+    }
+    if (input != null) {
+        if (typeof input === 'string') {
+            input = offsetFromString(matchShortOffset, input);
+            if (input === null) {
+                return this;
             }
-
-            this.utcOffset(input, keepLocalTime);
-
-            return this;
-        } else {
-            return -this.utcOffset();
+        } else if (Math.abs(input) < 16) {
+            input = input * 60;
         }
-    }
-
-    function setOffsetToUTC (keepLocalTime) {
-        return this.utcOffset(0, keepLocalTime);
-    }
-
-    function setOffsetToLocal (keepLocalTime) {
-        if (this._isUTC) {
-            this.utcOffset(0, keepLocalTime);
-            this._isUTC = false;
-
-            if (keepLocalTime) {
-                this.subtract(getDateOffset(this), 'm');
+        if (!this._isUTC && keepLocalTime) {
+            localAdjust = getDateOffset(this);
+        }
+        this._offset = input;
+        this._isUTC = true;
+        if (localAdjust != null) {
+            this.add(localAdjust, 'm');
+        }
+        if (offset !== input) {
+            if (!keepLocalTime || this._changeInProgress) {
+                addSubtract(this, createDuration(input - offset, 'm'), 1, false);
+            } else if (!this._changeInProgress) {
+                this._changeInProgress = true;
+                hooks.updateOffset(this, true);
+                this._changeInProgress = null;
             }
         }
         return this;
+    } else {
+        return this._isUTC ? offset : getDateOffset(this);
     }
+}
 
-    function setOffsetToParsedOffset () {
-        if (this._tzm) {
-            this.utcOffset(this._tzm);
-        } else if (typeof this._i === 'string') {
-            var tZone = offsetFromString(matchOffset, this._i);
-
-            if (tZone === 0) {
-                this.utcOffset(0, true);
-            } else {
-                this.utcOffset(offsetFromString(matchOffset, this._i));
-            }
+function getSetZone (input, keepLocalTime) {
+    if (input != null) {
+        if (typeof input !== 'string') {
+            input = -input;
         }
+
+        this.utcOffset(input, keepLocalTime);
+
         return this;
+    } else {
+        return -this.utcOffset();
     }
+}
 
-    function hasAlignedHourOffset (input) {
-        if (!this.isValid()) {
-            return false;
+function setOffsetToUTC (keepLocalTime) {
+    return this.utcOffset(0, keepLocalTime);
+}
+
+function setOffsetToLocal (keepLocalTime) {
+    if (this._isUTC) {
+        this.utcOffset(0, keepLocalTime);
+        this._isUTC = false;
+
+        if (keepLocalTime) {
+            this.subtract(getDateOffset(this), 'm');
         }
-        input = input ? local__createLocal(input).utcOffset() : 0;
-
-        return (this.utcOffset() - input) % 60 === 0;
     }
+    return this;
+}
 
-    function isDaylightSavingTime () {
-        return (
-            this.utcOffset() > this.clone().month(0).utcOffset() ||
-            this.utcOffset() > this.clone().month(5).utcOffset()
-        );
+function setOffsetToParsedOffset () {
+    if (this._tzm != null) {
+        this.utcOffset(this._tzm);
+    } else if (typeof this._i === 'string') {
+        var tZone = offsetFromString(matchOffset, this._i);
+        if (tZone != null) {
+            this.utcOffset(tZone);
+        }
+        else {
+            this.utcOffset(0, true);
+        }
     }
+    return this;
+}
 
-    function isDaylightSavingTimeShifted () {
-        if (!isUndefined(this._isDSTShifted)) {
-            return this._isDSTShifted;
-        }
+function hasAlignedHourOffset (input) {
+    if (!this.isValid()) {
+        return false;
+    }
+    input = input ? createLocal(input).utcOffset() : 0;
 
-        var c = {};
+    return (this.utcOffset() - input) % 60 === 0;
+}
 
-        copyConfig(c, this);
-        c = prepareConfig(c);
+function isDaylightSavingTime () {
+    return (
+        this.utcOffset() > this.clone().month(0).utcOffset() ||
+        this.utcOffset() > this.clone().month(5).utcOffset()
+    );
+}
 
-        if (c._a) {
-            var other = c._isUTC ? create_utc__createUTC(c._a) : local__createLocal(c._a);
-            this._isDSTShifted = this.isValid() &&
-                compareArrays(c._a, other.toArray()) > 0;
-        } else {
-            this._isDSTShifted = false;
-        }
-
+function isDaylightSavingTimeShifted () {
+    if (!isUndefined(this._isDSTShifted)) {
         return this._isDSTShifted;
     }
 
-    function isLocal () {
-        return this.isValid() ? !this._isUTC : false;
+    var c = {};
+
+    copyConfig(c, this);
+    c = prepareConfig(c);
+
+    if (c._a) {
+        var other = c._isUTC ? createUTC(c._a) : createLocal(c._a);
+        this._isDSTShifted = this.isValid() &&
+            compareArrays(c._a, other.toArray()) > 0;
+    } else {
+        this._isDSTShifted = false;
     }
 
-    function isUtcOffset () {
-        return this.isValid() ? this._isUTC : false;
-    }
+    return this._isDSTShifted;
+}
 
-    function isUtc () {
-        return this.isValid() ? this._isUTC && this._offset === 0 : false;
-    }
+function isLocal () {
+    return this.isValid() ? !this._isUTC : false;
+}
 
-    // ASP.NET json date format regex
-    var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/;
+function isUtcOffset () {
+    return this.isValid() ? this._isUTC : false;
+}
 
-    // from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
-    // somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
-    // and further modified to allow for strings containing both week and day
-    var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
+function isUtc () {
+    return this.isValid() ? this._isUTC && this._offset === 0 : false;
+}
 
-    function create__createDuration (input, key) {
-        var duration = input,
-            // matching against regexp is expensive, do it on demand
-            match = null,
-            sign,
-            ret,
-            diffRes;
+// ASP.NET json date format regex
+var aspNetRegex = /^(\-)?(?:(\d*)[. ])?(\d+)\:(\d+)(?:\:(\d+)(\.\d*)?)?$/;
 
-        if (isDuration(input)) {
-            duration = {
-                ms : input._milliseconds,
-                d  : input._days,
-                M  : input._months
-            };
-        } else if (typeof input === 'number') {
-            duration = {};
-            if (key) {
-                duration[key] = input;
-            } else {
-                duration.milliseconds = input;
-            }
-        } else if (!!(match = aspNetRegex.exec(input))) {
-            sign = (match[1] === '-') ? -1 : 1;
-            duration = {
-                y  : 0,
-                d  : toInt(match[DATE])                         * sign,
-                h  : toInt(match[HOUR])                         * sign,
-                m  : toInt(match[MINUTE])                       * sign,
-                s  : toInt(match[SECOND])                       * sign,
-                ms : toInt(absRound(match[MILLISECOND] * 1000)) * sign // the millisecond decimal point is included in the match
-            };
-        } else if (!!(match = isoRegex.exec(input))) {
-            sign = (match[1] === '-') ? -1 : 1;
-            duration = {
-                y : parseIso(match[2], sign),
-                M : parseIso(match[3], sign),
-                w : parseIso(match[4], sign),
-                d : parseIso(match[5], sign),
-                h : parseIso(match[6], sign),
-                m : parseIso(match[7], sign),
-                s : parseIso(match[8], sign)
-            };
-        } else if (duration == null) {// checks for null or undefined
-            duration = {};
-        } else if (typeof duration === 'object' && ('from' in duration || 'to' in duration)) {
-            diffRes = momentsDifference(local__createLocal(duration.from), local__createLocal(duration.to));
+// from http://docs.closure-library.googlecode.com/git/closure_goog_date_date.js.source.html
+// somewhat more in line with 4.4.3.2 2004 spec, but allows decimal anywhere
+// and further modified to allow for strings containing both week and day
+var isoRegex = /^(-)?P(?:(-?[0-9,.]*)Y)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)W)?(?:(-?[0-9,.]*)D)?(?:T(?:(-?[0-9,.]*)H)?(?:(-?[0-9,.]*)M)?(?:(-?[0-9,.]*)S)?)?$/;
 
-            duration = {};
-            duration.ms = diffRes.milliseconds;
-            duration.M = diffRes.months;
-        }
+function createDuration (input, key) {
+    var duration = input,
+        // matching against regexp is expensive, do it on demand
+        match = null,
+        sign,
+        ret,
+        diffRes;
 
-        ret = new Duration(duration);
-
-        if (isDuration(input) && hasOwnProp(input, '_locale')) {
-            ret._locale = input._locale;
-        }
-
-        return ret;
-    }
-
-    create__createDuration.fn = Duration.prototype;
-
-    function parseIso (inp, sign) {
-        // We'd normally use ~~inp for this, but unfortunately it also
-        // converts floats to ints.
-        // inp may be undefined, so careful calling replace on it.
-        var res = inp && parseFloat(inp.replace(',', '.'));
-        // apply sign while we're at it
-        return (isNaN(res) ? 0 : res) * sign;
-    }
-
-    function positiveMomentsDifference(base, other) {
-        var res = {milliseconds: 0, months: 0};
-
-        res.months = other.month() - base.month() +
-            (other.year() - base.year()) * 12;
-        if (base.clone().add(res.months, 'M').isAfter(other)) {
-            --res.months;
-        }
-
-        res.milliseconds = +other - +(base.clone().add(res.months, 'M'));
-
-        return res;
-    }
-
-    function momentsDifference(base, other) {
-        var res;
-        if (!(base.isValid() && other.isValid())) {
-            return {milliseconds: 0, months: 0};
-        }
-
-        other = cloneWithOffset(other, base);
-        if (base.isBefore(other)) {
-            res = positiveMomentsDifference(base, other);
-        } else {
-            res = positiveMomentsDifference(other, base);
-            res.milliseconds = -res.milliseconds;
-            res.months = -res.months;
-        }
-
-        return res;
-    }
-
-    // TODO: remove 'name' arg after deprecation is removed
-    function createAdder(direction, name) {
-        return function (val, period) {
-            var dur, tmp;
-            //invert the arguments, but complain about it
-            if (period !== null && !isNaN(+period)) {
-                deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period). ' +
-                'See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.');
-                tmp = val; val = period; period = tmp;
-            }
-
-            val = typeof val === 'string' ? +val : val;
-            dur = create__createDuration(val, period);
-            add_subtract__addSubtract(this, dur, direction);
-            return this;
+    if (isDuration(input)) {
+        duration = {
+            ms : input._milliseconds,
+            d  : input._days,
+            M  : input._months
         };
-    }
-
-    function add_subtract__addSubtract (mom, duration, isAdding, updateOffset) {
-        var milliseconds = duration._milliseconds,
-            days = absRound(duration._days),
-            months = absRound(duration._months);
-
-        if (!mom.isValid()) {
-            // No op
-            return;
-        }
-
-        updateOffset = updateOffset == null ? true : updateOffset;
-
-        if (milliseconds) {
-            mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
-        }
-        if (days) {
-            get_set__set(mom, 'Date', get_set__get(mom, 'Date') + days * isAdding);
-        }
-        if (months) {
-            setMonth(mom, get_set__get(mom, 'Month') + months * isAdding);
-        }
-        if (updateOffset) {
-            utils_hooks__hooks.updateOffset(mom, days || months);
-        }
-    }
-
-    var add_subtract__add      = createAdder(1, 'add');
-    var add_subtract__subtract = createAdder(-1, 'subtract');
-
-    function getCalendarFormat(myMoment, now) {
-        var diff = myMoment.diff(now, 'days', true);
-        return diff < -6 ? 'sameElse' :
-                diff < -1 ? 'lastWeek' :
-                diff < 0 ? 'lastDay' :
-                diff < 1 ? 'sameDay' :
-                diff < 2 ? 'nextDay' :
-                diff < 7 ? 'nextWeek' : 'sameElse';
-    }
-
-    function moment_calendar__calendar (time, formats) {
-        // We want to compare the start of today, vs this.
-        // Getting start-of-today depends on whether we're local/utc/offset or not.
-        var now = time || local__createLocal(),
-            sod = cloneWithOffset(now, this).startOf('day'),
-            format = utils_hooks__hooks.calendarFormat(this, sod) || 'sameElse';
-
-        var output = formats && (isFunction(formats[format]) ? formats[format].call(this, now) : formats[format]);
-
-        return this.format(output || this.localeData().calendar(format, this, local__createLocal(now)));
-    }
-
-    function clone () {
-        return new Moment(this);
-    }
-
-    function isAfter (input, units) {
-        var localInput = isMoment(input) ? input : local__createLocal(input);
-        if (!(this.isValid() && localInput.isValid())) {
-            return false;
-        }
-        units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
-        if (units === 'millisecond') {
-            return this.valueOf() > localInput.valueOf();
+    } else if (isNumber(input)) {
+        duration = {};
+        if (key) {
+            duration[key] = input;
         } else {
-            return localInput.valueOf() < this.clone().startOf(units).valueOf();
+            duration.milliseconds = input;
         }
+    } else if (!!(match = aspNetRegex.exec(input))) {
+        sign = (match[1] === '-') ? -1 : 1;
+        duration = {
+            y  : 0,
+            d  : toInt(match[DATE])                         * sign,
+            h  : toInt(match[HOUR])                         * sign,
+            m  : toInt(match[MINUTE])                       * sign,
+            s  : toInt(match[SECOND])                       * sign,
+            ms : toInt(absRound(match[MILLISECOND] * 1000)) * sign // the millisecond decimal point is included in the match
+        };
+    } else if (!!(match = isoRegex.exec(input))) {
+        sign = (match[1] === '-') ? -1 : 1;
+        duration = {
+            y : parseIso(match[2], sign),
+            M : parseIso(match[3], sign),
+            w : parseIso(match[4], sign),
+            d : parseIso(match[5], sign),
+            h : parseIso(match[6], sign),
+            m : parseIso(match[7], sign),
+            s : parseIso(match[8], sign)
+        };
+    } else if (duration == null) {// checks for null or undefined
+        duration = {};
+    } else if (typeof duration === 'object' && ('from' in duration || 'to' in duration)) {
+        diffRes = momentsDifference(createLocal(duration.from), createLocal(duration.to));
+
+        duration = {};
+        duration.ms = diffRes.milliseconds;
+        duration.M = diffRes.months;
     }
 
-    function isBefore (input, units) {
-        var localInput = isMoment(input) ? input : local__createLocal(input);
-        if (!(this.isValid() && localInput.isValid())) {
-            return false;
-        }
-        units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
-        if (units === 'millisecond') {
-            return this.valueOf() < localInput.valueOf();
-        } else {
-            return this.clone().endOf(units).valueOf() < localInput.valueOf();
-        }
+    ret = new Duration(duration);
+
+    if (isDuration(input) && hasOwnProp(input, '_locale')) {
+        ret._locale = input._locale;
     }
 
-    function isBetween (from, to, units, inclusivity) {
-        inclusivity = inclusivity || '()';
-        return (inclusivity[0] === '(' ? this.isAfter(from, units) : !this.isBefore(from, units)) &&
-            (inclusivity[1] === ')' ? this.isBefore(to, units) : !this.isAfter(to, units));
+    return ret;
+}
+
+createDuration.fn = Duration.prototype;
+
+function parseIso (inp, sign) {
+    // We'd normally use ~~inp for this, but unfortunately it also
+    // converts floats to ints.
+    // inp may be undefined, so careful calling replace on it.
+    var res = inp && parseFloat(inp.replace(',', '.'));
+    // apply sign while we're at it
+    return (isNaN(res) ? 0 : res) * sign;
+}
+
+function positiveMomentsDifference(base, other) {
+    var res = {milliseconds: 0, months: 0};
+
+    res.months = other.month() - base.month() +
+        (other.year() - base.year()) * 12;
+    if (base.clone().add(res.months, 'M').isAfter(other)) {
+        --res.months;
     }
 
-    function isSame (input, units) {
-        var localInput = isMoment(input) ? input : local__createLocal(input),
-            inputMs;
-        if (!(this.isValid() && localInput.isValid())) {
-            return false;
-        }
-        units = normalizeUnits(units || 'millisecond');
-        if (units === 'millisecond') {
-            return this.valueOf() === localInput.valueOf();
-        } else {
-            inputMs = localInput.valueOf();
-            return this.clone().startOf(units).valueOf() <= inputMs && inputMs <= this.clone().endOf(units).valueOf();
-        }
+    res.milliseconds = +other - +(base.clone().add(res.months, 'M'));
+
+    return res;
+}
+
+function momentsDifference(base, other) {
+    var res;
+    if (!(base.isValid() && other.isValid())) {
+        return {milliseconds: 0, months: 0};
     }
 
-    function isSameOrAfter (input, units) {
-        return this.isSame(input, units) || this.isAfter(input,units);
+    other = cloneWithOffset(other, base);
+    if (base.isBefore(other)) {
+        res = positiveMomentsDifference(base, other);
+    } else {
+        res = positiveMomentsDifference(other, base);
+        res.milliseconds = -res.milliseconds;
+        res.months = -res.months;
     }
 
-    function isSameOrBefore (input, units) {
-        return this.isSame(input, units) || this.isBefore(input,units);
+    return res;
+}
+
+// TODO: remove 'name' arg after deprecation is removed
+function createAdder(direction, name) {
+    return function (val, period) {
+        var dur, tmp;
+        //invert the arguments, but complain about it
+        if (period !== null && !isNaN(+period)) {
+            deprecateSimple(name, 'moment().' + name  + '(period, number) is deprecated. Please use moment().' + name + '(number, period). ' +
+            'See http://momentjs.com/guides/#/warnings/add-inverted-param/ for more info.');
+            tmp = val; val = period; period = tmp;
+        }
+
+        val = typeof val === 'string' ? +val : val;
+        dur = createDuration(val, period);
+        addSubtract(this, dur, direction);
+        return this;
+    };
+}
+
+function addSubtract (mom, duration, isAdding, updateOffset) {
+    var milliseconds = duration._milliseconds,
+        days = absRound(duration._days),
+        months = absRound(duration._months);
+
+    if (!mom.isValid()) {
+        // No op
+        return;
     }
 
-    function diff (input, units, asFloat) {
-        var that,
-            zoneDelta,
-            delta, output;
+    updateOffset = updateOffset == null ? true : updateOffset;
 
-        if (!this.isValid()) {
-            return NaN;
-        }
+    if (milliseconds) {
+        mom._d.setTime(mom._d.valueOf() + milliseconds * isAdding);
+    }
+    if (days) {
+        set$1(mom, 'Date', get(mom, 'Date') + days * isAdding);
+    }
+    if (months) {
+        setMonth(mom, get(mom, 'Month') + months * isAdding);
+    }
+    if (updateOffset) {
+        hooks.updateOffset(mom, days || months);
+    }
+}
 
-        that = cloneWithOffset(input, this);
+var add      = createAdder(1, 'add');
+var subtract = createAdder(-1, 'subtract');
 
-        if (!that.isValid()) {
-            return NaN;
-        }
+function getCalendarFormat(myMoment, now) {
+    var diff = myMoment.diff(now, 'days', true);
+    return diff < -6 ? 'sameElse' :
+            diff < -1 ? 'lastWeek' :
+            diff < 0 ? 'lastDay' :
+            diff < 1 ? 'sameDay' :
+            diff < 2 ? 'nextDay' :
+            diff < 7 ? 'nextWeek' : 'sameElse';
+}
 
-        zoneDelta = (that.utcOffset() - this.utcOffset()) * 6e4;
+function calendar$1 (time, formats) {
+    // We want to compare the start of today, vs this.
+    // Getting start-of-today depends on whether we're local/utc/offset or not.
+    var now = time || createLocal(),
+        sod = cloneWithOffset(now, this).startOf('day'),
+        format = hooks.calendarFormat(this, sod) || 'sameElse';
 
-        units = normalizeUnits(units);
+    var output = formats && (isFunction(formats[format]) ? formats[format].call(this, now) : formats[format]);
 
-        if (units === 'year' || units === 'month' || units === 'quarter') {
-            output = monthDiff(this, that);
-            if (units === 'quarter') {
-                output = output / 3;
-            } else if (units === 'year') {
-                output = output / 12;
-            }
-        } else {
-            delta = this - that;
-            output = units === 'second' ? delta / 1e3 : // 1000
-                units === 'minute' ? delta / 6e4 : // 1000 * 60
-                units === 'hour' ? delta / 36e5 : // 1000 * 60 * 60
-                units === 'day' ? (delta - zoneDelta) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
-                units === 'week' ? (delta - zoneDelta) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
-                delta;
-        }
-        return asFloat ? output : absFloor(output);
+    return this.format(output || this.localeData().calendar(format, this, createLocal(now)));
+}
+
+function clone () {
+    return new Moment(this);
+}
+
+function isAfter (input, units) {
+    var localInput = isMoment(input) ? input : createLocal(input);
+    if (!(this.isValid() && localInput.isValid())) {
+        return false;
+    }
+    units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
+    if (units === 'millisecond') {
+        return this.valueOf() > localInput.valueOf();
+    } else {
+        return localInput.valueOf() < this.clone().startOf(units).valueOf();
+    }
+}
+
+function isBefore (input, units) {
+    var localInput = isMoment(input) ? input : createLocal(input);
+    if (!(this.isValid() && localInput.isValid())) {
+        return false;
+    }
+    units = normalizeUnits(!isUndefined(units) ? units : 'millisecond');
+    if (units === 'millisecond') {
+        return this.valueOf() < localInput.valueOf();
+    } else {
+        return this.clone().endOf(units).valueOf() < localInput.valueOf();
+    }
+}
+
+function isBetween (from, to, units, inclusivity) {
+    inclusivity = inclusivity || '()';
+    return (inclusivity[0] === '(' ? this.isAfter(from, units) : !this.isBefore(from, units)) &&
+        (inclusivity[1] === ')' ? this.isBefore(to, units) : !this.isAfter(to, units));
+}
+
+function isSame (input, units) {
+    var localInput = isMoment(input) ? input : createLocal(input),
+        inputMs;
+    if (!(this.isValid() && localInput.isValid())) {
+        return false;
+    }
+    units = normalizeUnits(units || 'millisecond');
+    if (units === 'millisecond') {
+        return this.valueOf() === localInput.valueOf();
+    } else {
+        inputMs = localInput.valueOf();
+        return this.clone().startOf(units).valueOf() <= inputMs && inputMs <= this.clone().endOf(units).valueOf();
+    }
+}
+
+function isSameOrAfter (input, units) {
+    return this.isSame(input, units) || this.isAfter(input,units);
+}
+
+function isSameOrBefore (input, units) {
+    return this.isSame(input, units) || this.isBefore(input,units);
+}
+
+function diff (input, units, asFloat) {
+    var that,
+        zoneDelta,
+        delta, output;
+
+    if (!this.isValid()) {
+        return NaN;
     }
 
-    function monthDiff (a, b) {
-        // difference in months
-        var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
-            // b is in (anchor - 1 month, anchor + 1 month)
-            anchor = a.clone().add(wholeMonthDiff, 'months'),
-            anchor2, adjust;
+    that = cloneWithOffset(input, this);
 
-        if (b - anchor < 0) {
-            anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
-            // linear across the month
-            adjust = (b - anchor) / (anchor - anchor2);
-        } else {
-            anchor2 = a.clone().add(wholeMonthDiff + 1, 'months');
-            // linear across the month
-            adjust = (b - anchor) / (anchor2 - anchor);
-        }
-
-        //check for negative zero, return zero if negative zero
-        return -(wholeMonthDiff + adjust) || 0;
+    if (!that.isValid()) {
+        return NaN;
     }
 
-    utils_hooks__hooks.defaultFormat = 'YYYY-MM-DDTHH:mm:ssZ';
-    utils_hooks__hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
+    zoneDelta = (that.utcOffset() - this.utcOffset()) * 6e4;
 
-    function toString () {
-        return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
-    }
+    units = normalizeUnits(units);
 
-    function moment_format__toISOString () {
-        var m = this.clone().utc();
-        if (0 < m.year() && m.year() <= 9999) {
-            if (isFunction(Date.prototype.toISOString)) {
-                // native implementation is ~50x faster, use it when we can
-                return this.toDate().toISOString();
-            } else {
-                return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
-            }
-        } else {
-            return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
-        }
-    }
-
-    function format (inputString) {
-        if (!inputString) {
-            inputString = this.isUtc() ? utils_hooks__hooks.defaultFormatUtc : utils_hooks__hooks.defaultFormat;
-        }
-        var output = formatMoment(this, inputString);
-        return this.localeData().postformat(output);
-    }
-
-    function from (time, withoutSuffix) {
-        if (this.isValid() &&
-                ((isMoment(time) && time.isValid()) ||
-                 local__createLocal(time).isValid())) {
-            return create__createDuration({to: this, from: time}).locale(this.locale()).humanize(!withoutSuffix);
-        } else {
-            return this.localeData().invalidDate();
-        }
-    }
-
-    function fromNow (withoutSuffix) {
-        return this.from(local__createLocal(), withoutSuffix);
-    }
-
-    function to (time, withoutSuffix) {
-        if (this.isValid() &&
-                ((isMoment(time) && time.isValid()) ||
-                 local__createLocal(time).isValid())) {
-            return create__createDuration({from: this, to: time}).locale(this.locale()).humanize(!withoutSuffix);
-        } else {
-            return this.localeData().invalidDate();
-        }
-    }
-
-    function toNow (withoutSuffix) {
-        return this.to(local__createLocal(), withoutSuffix);
-    }
-
-    // If passed a locale key, it will set the locale for this
-    // instance.  Otherwise, it will return the locale configuration
-    // variables for this instance.
-    function locale (key) {
-        var newLocaleData;
-
-        if (key === undefined) {
-            return this._locale._abbr;
-        } else {
-            newLocaleData = locale_locales__getLocale(key);
-            if (newLocaleData != null) {
-                this._locale = newLocaleData;
-            }
-            return this;
-        }
-    }
-
-    var lang = deprecate(
-        'moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.',
-        function (key) {
-            if (key === undefined) {
-                return this.localeData();
-            } else {
-                return this.locale(key);
-            }
-        }
-    );
-
-    function localeData () {
-        return this._locale;
-    }
-
-    function startOf (units) {
-        units = normalizeUnits(units);
-        // the following switch intentionally omits break keywords
-        // to utilize falling through the cases.
-        switch (units) {
-            case 'year':
-                this.month(0);
-                /* falls through */
-            case 'quarter':
-            case 'month':
-                this.date(1);
-                /* falls through */
-            case 'week':
-            case 'isoWeek':
-            case 'day':
-            case 'date':
-                this.hours(0);
-                /* falls through */
-            case 'hour':
-                this.minutes(0);
-                /* falls through */
-            case 'minute':
-                this.seconds(0);
-                /* falls through */
-            case 'second':
-                this.milliseconds(0);
-        }
-
-        // weeks are a special case
-        if (units === 'week') {
-            this.weekday(0);
-        }
-        if (units === 'isoWeek') {
-            this.isoWeekday(1);
-        }
-
-        // quarters are also special
+    if (units === 'year' || units === 'month' || units === 'quarter') {
+        output = monthDiff(this, that);
         if (units === 'quarter') {
-            this.month(Math.floor(this.month() / 3) * 3);
+            output = output / 3;
+        } else if (units === 'year') {
+            output = output / 12;
         }
+    } else {
+        delta = this - that;
+        output = units === 'second' ? delta / 1e3 : // 1000
+            units === 'minute' ? delta / 6e4 : // 1000 * 60
+            units === 'hour' ? delta / 36e5 : // 1000 * 60 * 60
+            units === 'day' ? (delta - zoneDelta) / 864e5 : // 1000 * 60 * 60 * 24, negate dst
+            units === 'week' ? (delta - zoneDelta) / 6048e5 : // 1000 * 60 * 60 * 24 * 7, negate dst
+            delta;
+    }
+    return asFloat ? output : absFloor(output);
+}
 
-        return this;
+function monthDiff (a, b) {
+    // difference in months
+    var wholeMonthDiff = ((b.year() - a.year()) * 12) + (b.month() - a.month()),
+        // b is in (anchor - 1 month, anchor + 1 month)
+        anchor = a.clone().add(wholeMonthDiff, 'months'),
+        anchor2, adjust;
+
+    if (b - anchor < 0) {
+        anchor2 = a.clone().add(wholeMonthDiff - 1, 'months');
+        // linear across the month
+        adjust = (b - anchor) / (anchor - anchor2);
+    } else {
+        anchor2 = a.clone().add(wholeMonthDiff + 1, 'months');
+        // linear across the month
+        adjust = (b - anchor) / (anchor2 - anchor);
     }
 
-    function endOf (units) {
-        units = normalizeUnits(units);
-        if (units === undefined || units === 'millisecond') {
-            return this;
-        }
+    //check for negative zero, return zero if negative zero
+    return -(wholeMonthDiff + adjust) || 0;
+}
 
-        // 'date' is an alias for 'day', so it should be considered as such.
-        if (units === 'date') {
-            units = 'day';
-        }
+hooks.defaultFormat = 'YYYY-MM-DDTHH:mm:ssZ';
+hooks.defaultFormatUtc = 'YYYY-MM-DDTHH:mm:ss[Z]';
 
-        return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
-    }
+function toString () {
+    return this.clone().locale('en').format('ddd MMM DD YYYY HH:mm:ss [GMT]ZZ');
+}
 
-    function to_type__valueOf () {
-        return this._d.valueOf() - ((this._offset || 0) * 60000);
-    }
-
-    function unix () {
-        return Math.floor(this.valueOf() / 1000);
-    }
-
-    function toDate () {
-        return new Date(this.valueOf());
-    }
-
-    function toArray () {
-        var m = this;
-        return [m.year(), m.month(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
-    }
-
-    function toObject () {
-        var m = this;
-        return {
-            years: m.year(),
-            months: m.month(),
-            date: m.date(),
-            hours: m.hours(),
-            minutes: m.minutes(),
-            seconds: m.seconds(),
-            milliseconds: m.milliseconds()
-        };
-    }
-
-    function toJSON () {
-        // new Date(NaN).toJSON() === null
-        return this.isValid() ? this.toISOString() : null;
-    }
-
-    function moment_valid__isValid () {
-        return valid__isValid(this);
-    }
-
-    function parsingFlags () {
-        return extend({}, getParsingFlags(this));
-    }
-
-    function invalidAt () {
-        return getParsingFlags(this).overflow;
-    }
-
-    function creationData() {
-        return {
-            input: this._i,
-            format: this._f,
-            locale: this._locale,
-            isUTC: this._isUTC,
-            strict: this._strict
-        };
-    }
-
-    // FORMATTING
-
-    addFormatToken(0, ['gg', 2], 0, function () {
-        return this.weekYear() % 100;
-    });
-
-    addFormatToken(0, ['GG', 2], 0, function () {
-        return this.isoWeekYear() % 100;
-    });
-
-    function addWeekYearFormatToken (token, getter) {
-        addFormatToken(0, [token, token.length], 0, getter);
-    }
-
-    addWeekYearFormatToken('gggg',     'weekYear');
-    addWeekYearFormatToken('ggggg',    'weekYear');
-    addWeekYearFormatToken('GGGG',  'isoWeekYear');
-    addWeekYearFormatToken('GGGGG', 'isoWeekYear');
-
-    // ALIASES
-
-    addUnitAlias('weekYear', 'gg');
-    addUnitAlias('isoWeekYear', 'GG');
-
-    // PRIORITY
-
-    addUnitPriority('weekYear', 1);
-    addUnitPriority('isoWeekYear', 1);
-
-
-    // PARSING
-
-    addRegexToken('G',      matchSigned);
-    addRegexToken('g',      matchSigned);
-    addRegexToken('GG',     match1to2, match2);
-    addRegexToken('gg',     match1to2, match2);
-    addRegexToken('GGGG',   match1to4, match4);
-    addRegexToken('gggg',   match1to4, match4);
-    addRegexToken('GGGGG',  match1to6, match6);
-    addRegexToken('ggggg',  match1to6, match6);
-
-    addWeekParseToken(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (input, week, config, token) {
-        week[token.substr(0, 2)] = toInt(input);
-    });
-
-    addWeekParseToken(['gg', 'GG'], function (input, week, config, token) {
-        week[token] = utils_hooks__hooks.parseTwoDigitYear(input);
-    });
-
-    // MOMENTS
-
-    function getSetWeekYear (input) {
-        return getSetWeekYearHelper.call(this,
-                input,
-                this.week(),
-                this.weekday(),
-                this.localeData()._week.dow,
-                this.localeData()._week.doy);
-    }
-
-    function getSetISOWeekYear (input) {
-        return getSetWeekYearHelper.call(this,
-                input, this.isoWeek(), this.isoWeekday(), 1, 4);
-    }
-
-    function getISOWeeksInYear () {
-        return weeksInYear(this.year(), 1, 4);
-    }
-
-    function getWeeksInYear () {
-        var weekInfo = this.localeData()._week;
-        return weeksInYear(this.year(), weekInfo.dow, weekInfo.doy);
-    }
-
-    function getSetWeekYearHelper(input, week, weekday, dow, doy) {
-        var weeksTarget;
-        if (input == null) {
-            return weekOfYear(this, dow, doy).year;
+function toISOString () {
+    var m = this.clone().utc();
+    if (0 < m.year() && m.year() <= 9999) {
+        if (isFunction(Date.prototype.toISOString)) {
+            // native implementation is ~50x faster, use it when we can
+            return this.toDate().toISOString();
         } else {
-            weeksTarget = weeksInYear(input, dow, doy);
-            if (week > weeksTarget) {
-                week = weeksTarget;
-            }
-            return setWeekAll.call(this, input, week, weekday, dow, doy);
+            return formatMoment(m, 'YYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+        }
+    } else {
+        return formatMoment(m, 'YYYYYY-MM-DD[T]HH:mm:ss.SSS[Z]');
+    }
+}
+
+/**
+ * Return a human readable representation of a moment that can
+ * also be evaluated to get a new moment which is the same
+ *
+ * @link https://nodejs.org/dist/latest/docs/api/util.html#util_custom_inspect_function_on_objects
+ */
+function inspect () {
+    if (!this.isValid()) {
+        return 'moment.invalid(/* ' + this._i + ' */)';
+    }
+    var func = 'moment';
+    var zone = '';
+    if (!this.isLocal()) {
+        func = this.utcOffset() === 0 ? 'moment.utc' : 'moment.parseZone';
+        zone = 'Z';
+    }
+    var prefix = '[' + func + '("]';
+    var year = (0 < this.year() && this.year() <= 9999) ? 'YYYY' : 'YYYYYY';
+    var datetime = '-MM-DD[T]HH:mm:ss.SSS';
+    var suffix = zone + '[")]';
+
+    return this.format(prefix + year + datetime + suffix);
+}
+
+function format (inputString) {
+    if (!inputString) {
+        inputString = this.isUtc() ? hooks.defaultFormatUtc : hooks.defaultFormat;
+    }
+    var output = formatMoment(this, inputString);
+    return this.localeData().postformat(output);
+}
+
+function from (time, withoutSuffix) {
+    if (this.isValid() &&
+            ((isMoment(time) && time.isValid()) ||
+             createLocal(time).isValid())) {
+        return createDuration({to: this, from: time}).locale(this.locale()).humanize(!withoutSuffix);
+    } else {
+        return this.localeData().invalidDate();
+    }
+}
+
+function fromNow (withoutSuffix) {
+    return this.from(createLocal(), withoutSuffix);
+}
+
+function to (time, withoutSuffix) {
+    if (this.isValid() &&
+            ((isMoment(time) && time.isValid()) ||
+             createLocal(time).isValid())) {
+        return createDuration({from: this, to: time}).locale(this.locale()).humanize(!withoutSuffix);
+    } else {
+        return this.localeData().invalidDate();
+    }
+}
+
+function toNow (withoutSuffix) {
+    return this.to(createLocal(), withoutSuffix);
+}
+
+// If passed a locale key, it will set the locale for this
+// instance.  Otherwise, it will return the locale configuration
+// variables for this instance.
+function locale (key) {
+    var newLocaleData;
+
+    if (key === undefined) {
+        return this._locale._abbr;
+    } else {
+        newLocaleData = getLocale(key);
+        if (newLocaleData != null) {
+            this._locale = newLocaleData;
+        }
+        return this;
+    }
+}
+
+var lang = deprecate(
+    'moment().lang() is deprecated. Instead, use moment().localeData() to get the language configuration. Use moment().locale() to change languages.',
+    function (key) {
+        if (key === undefined) {
+            return this.localeData();
+        } else {
+            return this.locale(key);
         }
     }
+);
 
-    function setWeekAll(weekYear, week, weekday, dow, doy) {
-        var dayOfYearData = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy),
-            date = createUTCDate(dayOfYearData.year, 0, dayOfYearData.dayOfYear);
+function localeData () {
+    return this._locale;
+}
 
-        this.year(date.getUTCFullYear());
-        this.month(date.getUTCMonth());
-        this.date(date.getUTCDate());
+function startOf (units) {
+    units = normalizeUnits(units);
+    // the following switch intentionally omits break keywords
+    // to utilize falling through the cases.
+    switch (units) {
+        case 'year':
+            this.month(0);
+            /* falls through */
+        case 'quarter':
+        case 'month':
+            this.date(1);
+            /* falls through */
+        case 'week':
+        case 'isoWeek':
+        case 'day':
+        case 'date':
+            this.hours(0);
+            /* falls through */
+        case 'hour':
+            this.minutes(0);
+            /* falls through */
+        case 'minute':
+            this.seconds(0);
+            /* falls through */
+        case 'second':
+            this.milliseconds(0);
+    }
+
+    // weeks are a special case
+    if (units === 'week') {
+        this.weekday(0);
+    }
+    if (units === 'isoWeek') {
+        this.isoWeekday(1);
+    }
+
+    // quarters are also special
+    if (units === 'quarter') {
+        this.month(Math.floor(this.month() / 3) * 3);
+    }
+
+    return this;
+}
+
+function endOf (units) {
+    units = normalizeUnits(units);
+    if (units === undefined || units === 'millisecond') {
         return this;
     }
 
-    // FORMATTING
-
-    addFormatToken('Q', 0, 'Qo', 'quarter');
-
-    // ALIASES
-
-    addUnitAlias('quarter', 'Q');
-
-    // PRIORITY
-
-    addUnitPriority('quarter', 7);
-
-    // PARSING
-
-    addRegexToken('Q', match1);
-    addParseToken('Q', function (input, array) {
-        array[MONTH] = (toInt(input) - 1) * 3;
-    });
-
-    // MOMENTS
-
-    function getSetQuarter (input) {
-        return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
+    // 'date' is an alias for 'day', so it should be considered as such.
+    if (units === 'date') {
+        units = 'day';
     }
 
-    // FORMATTING
+    return this.startOf(units).add(1, (units === 'isoWeek' ? 'week' : units)).subtract(1, 'ms');
+}
 
-    addFormatToken('D', ['DD', 2], 'Do', 'date');
+function valueOf () {
+    return this._d.valueOf() - ((this._offset || 0) * 60000);
+}
 
-    // ALIASES
+function unix () {
+    return Math.floor(this.valueOf() / 1000);
+}
 
-    addUnitAlias('date', 'D');
+function toDate () {
+    return new Date(this.valueOf());
+}
 
-    // PRIOROITY
-    addUnitPriority('date', 9);
+function toArray () {
+    var m = this;
+    return [m.year(), m.month(), m.date(), m.hour(), m.minute(), m.second(), m.millisecond()];
+}
 
-    // PARSING
+function toObject () {
+    var m = this;
+    return {
+        years: m.year(),
+        months: m.month(),
+        date: m.date(),
+        hours: m.hours(),
+        minutes: m.minutes(),
+        seconds: m.seconds(),
+        milliseconds: m.milliseconds()
+    };
+}
 
-    addRegexToken('D',  match1to2);
-    addRegexToken('DD', match1to2, match2);
-    addRegexToken('Do', function (isStrict, locale) {
-        return isStrict ? locale._ordinalParse : locale._ordinalParseLenient;
-    });
+function toJSON () {
+    // new Date(NaN).toJSON() === null
+    return this.isValid() ? this.toISOString() : null;
+}
 
-    addParseToken(['D', 'DD'], DATE);
-    addParseToken('Do', function (input, array) {
-        array[DATE] = toInt(input.match(match1to2)[0], 10);
-    });
+function isValid$1 () {
+    return isValid(this);
+}
 
-    // MOMENTS
+function parsingFlags () {
+    return extend({}, getParsingFlags(this));
+}
 
-    var getSetDayOfMonth = makeGetSet('Date', true);
+function invalidAt () {
+    return getParsingFlags(this).overflow;
+}
 
-    // FORMATTING
+function creationData() {
+    return {
+        input: this._i,
+        format: this._f,
+        locale: this._locale,
+        isUTC: this._isUTC,
+        strict: this._strict
+    };
+}
 
-    addFormatToken('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear');
+// FORMATTING
 
-    // ALIASES
+addFormatToken(0, ['gg', 2], 0, function () {
+    return this.weekYear() % 100;
+});
 
-    addUnitAlias('dayOfYear', 'DDD');
+addFormatToken(0, ['GG', 2], 0, function () {
+    return this.isoWeekYear() % 100;
+});
 
-    // PRIORITY
-    addUnitPriority('dayOfYear', 4);
+function addWeekYearFormatToken (token, getter) {
+    addFormatToken(0, [token, token.length], 0, getter);
+}
 
-    // PARSING
+addWeekYearFormatToken('gggg',     'weekYear');
+addWeekYearFormatToken('ggggg',    'weekYear');
+addWeekYearFormatToken('GGGG',  'isoWeekYear');
+addWeekYearFormatToken('GGGGG', 'isoWeekYear');
 
-    addRegexToken('DDD',  match1to3);
-    addRegexToken('DDDD', match3);
-    addParseToken(['DDD', 'DDDD'], function (input, array, config) {
-        config._dayOfYear = toInt(input);
-    });
+// ALIASES
 
-    // HELPERS
+addUnitAlias('weekYear', 'gg');
+addUnitAlias('isoWeekYear', 'GG');
 
-    // MOMENTS
+// PRIORITY
 
-    function getSetDayOfYear (input) {
-        var dayOfYear = Math.round((this.clone().startOf('day') - this.clone().startOf('year')) / 864e5) + 1;
-        return input == null ? dayOfYear : this.add((input - dayOfYear), 'd');
+addUnitPriority('weekYear', 1);
+addUnitPriority('isoWeekYear', 1);
+
+
+// PARSING
+
+addRegexToken('G',      matchSigned);
+addRegexToken('g',      matchSigned);
+addRegexToken('GG',     match1to2, match2);
+addRegexToken('gg',     match1to2, match2);
+addRegexToken('GGGG',   match1to4, match4);
+addRegexToken('gggg',   match1to4, match4);
+addRegexToken('GGGGG',  match1to6, match6);
+addRegexToken('ggggg',  match1to6, match6);
+
+addWeekParseToken(['gggg', 'ggggg', 'GGGG', 'GGGGG'], function (input, week, config, token) {
+    week[token.substr(0, 2)] = toInt(input);
+});
+
+addWeekParseToken(['gg', 'GG'], function (input, week, config, token) {
+    week[token] = hooks.parseTwoDigitYear(input);
+});
+
+// MOMENTS
+
+function getSetWeekYear (input) {
+    return getSetWeekYearHelper.call(this,
+            input,
+            this.week(),
+            this.weekday(),
+            this.localeData()._week.dow,
+            this.localeData()._week.doy);
+}
+
+function getSetISOWeekYear (input) {
+    return getSetWeekYearHelper.call(this,
+            input, this.isoWeek(), this.isoWeekday(), 1, 4);
+}
+
+function getISOWeeksInYear () {
+    return weeksInYear(this.year(), 1, 4);
+}
+
+function getWeeksInYear () {
+    var weekInfo = this.localeData()._week;
+    return weeksInYear(this.year(), weekInfo.dow, weekInfo.doy);
+}
+
+function getSetWeekYearHelper(input, week, weekday, dow, doy) {
+    var weeksTarget;
+    if (input == null) {
+        return weekOfYear(this, dow, doy).year;
+    } else {
+        weeksTarget = weeksInYear(input, dow, doy);
+        if (week > weeksTarget) {
+            week = weeksTarget;
+        }
+        return setWeekAll.call(this, input, week, weekday, dow, doy);
+    }
+}
+
+function setWeekAll(weekYear, week, weekday, dow, doy) {
+    var dayOfYearData = dayOfYearFromWeeks(weekYear, week, weekday, dow, doy),
+        date = createUTCDate(dayOfYearData.year, 0, dayOfYearData.dayOfYear);
+
+    this.year(date.getUTCFullYear());
+    this.month(date.getUTCMonth());
+    this.date(date.getUTCDate());
+    return this;
+}
+
+// FORMATTING
+
+addFormatToken('Q', 0, 'Qo', 'quarter');
+
+// ALIASES
+
+addUnitAlias('quarter', 'Q');
+
+// PRIORITY
+
+addUnitPriority('quarter', 7);
+
+// PARSING
+
+addRegexToken('Q', match1);
+addParseToken('Q', function (input, array) {
+    array[MONTH] = (toInt(input) - 1) * 3;
+});
+
+// MOMENTS
+
+function getSetQuarter (input) {
+    return input == null ? Math.ceil((this.month() + 1) / 3) : this.month((input - 1) * 3 + this.month() % 3);
+}
+
+// FORMATTING
+
+addFormatToken('D', ['DD', 2], 'Do', 'date');
+
+// ALIASES
+
+addUnitAlias('date', 'D');
+
+// PRIOROITY
+addUnitPriority('date', 9);
+
+// PARSING
+
+addRegexToken('D',  match1to2);
+addRegexToken('DD', match1to2, match2);
+addRegexToken('Do', function (isStrict, locale) {
+    return isStrict ? locale._ordinalParse : locale._ordinalParseLenient;
+});
+
+addParseToken(['D', 'DD'], DATE);
+addParseToken('Do', function (input, array) {
+    array[DATE] = toInt(input.match(match1to2)[0], 10);
+});
+
+// MOMENTS
+
+var getSetDayOfMonth = makeGetSet('Date', true);
+
+// FORMATTING
+
+addFormatToken('DDD', ['DDDD', 3], 'DDDo', 'dayOfYear');
+
+// ALIASES
+
+addUnitAlias('dayOfYear', 'DDD');
+
+// PRIORITY
+addUnitPriority('dayOfYear', 4);
+
+// PARSING
+
+addRegexToken('DDD',  match1to3);
+addRegexToken('DDDD', match3);
+addParseToken(['DDD', 'DDDD'], function (input, array, config) {
+    config._dayOfYear = toInt(input);
+});
+
+// HELPERS
+
+// MOMENTS
+
+function getSetDayOfYear (input) {
+    var dayOfYear = Math.round((this.clone().startOf('day') - this.clone().startOf('year')) / 864e5) + 1;
+    return input == null ? dayOfYear : this.add((input - dayOfYear), 'd');
+}
+
+// FORMATTING
+
+addFormatToken('m', ['mm', 2], 0, 'minute');
+
+// ALIASES
+
+addUnitAlias('minute', 'm');
+
+// PRIORITY
+
+addUnitPriority('minute', 14);
+
+// PARSING
+
+addRegexToken('m',  match1to2);
+addRegexToken('mm', match1to2, match2);
+addParseToken(['m', 'mm'], MINUTE);
+
+// MOMENTS
+
+var getSetMinute = makeGetSet('Minutes', false);
+
+// FORMATTING
+
+addFormatToken('s', ['ss', 2], 0, 'second');
+
+// ALIASES
+
+addUnitAlias('second', 's');
+
+// PRIORITY
+
+addUnitPriority('second', 15);
+
+// PARSING
+
+addRegexToken('s',  match1to2);
+addRegexToken('ss', match1to2, match2);
+addParseToken(['s', 'ss'], SECOND);
+
+// MOMENTS
+
+var getSetSecond = makeGetSet('Seconds', false);
+
+// FORMATTING
+
+addFormatToken('S', 0, 0, function () {
+    return ~~(this.millisecond() / 100);
+});
+
+addFormatToken(0, ['SS', 2], 0, function () {
+    return ~~(this.millisecond() / 10);
+});
+
+addFormatToken(0, ['SSS', 3], 0, 'millisecond');
+addFormatToken(0, ['SSSS', 4], 0, function () {
+    return this.millisecond() * 10;
+});
+addFormatToken(0, ['SSSSS', 5], 0, function () {
+    return this.millisecond() * 100;
+});
+addFormatToken(0, ['SSSSSS', 6], 0, function () {
+    return this.millisecond() * 1000;
+});
+addFormatToken(0, ['SSSSSSS', 7], 0, function () {
+    return this.millisecond() * 10000;
+});
+addFormatToken(0, ['SSSSSSSS', 8], 0, function () {
+    return this.millisecond() * 100000;
+});
+addFormatToken(0, ['SSSSSSSSS', 9], 0, function () {
+    return this.millisecond() * 1000000;
+});
+
+
+// ALIASES
+
+addUnitAlias('millisecond', 'ms');
+
+// PRIORITY
+
+addUnitPriority('millisecond', 16);
+
+// PARSING
+
+addRegexToken('S',    match1to3, match1);
+addRegexToken('SS',   match1to3, match2);
+addRegexToken('SSS',  match1to3, match3);
+
+var token;
+for (token = 'SSSS'; token.length <= 9; token += 'S') {
+    addRegexToken(token, matchUnsigned);
+}
+
+function parseMs(input, array) {
+    array[MILLISECOND] = toInt(('0.' + input) * 1000);
+}
+
+for (token = 'S'; token.length <= 9; token += 'S') {
+    addParseToken(token, parseMs);
+}
+// MOMENTS
+
+var getSetMillisecond = makeGetSet('Milliseconds', false);
+
+// FORMATTING
+
+addFormatToken('z',  0, 0, 'zoneAbbr');
+addFormatToken('zz', 0, 0, 'zoneName');
+
+// MOMENTS
+
+function getZoneAbbr () {
+    return this._isUTC ? 'UTC' : '';
+}
+
+function getZoneName () {
+    return this._isUTC ? 'Coordinated Universal Time' : '';
+}
+
+var proto = Moment.prototype;
+
+proto.add               = add;
+proto.calendar          = calendar$1;
+proto.clone             = clone;
+proto.diff              = diff;
+proto.endOf             = endOf;
+proto.format            = format;
+proto.from              = from;
+proto.fromNow           = fromNow;
+proto.to                = to;
+proto.toNow             = toNow;
+proto.get               = stringGet;
+proto.invalidAt         = invalidAt;
+proto.isAfter           = isAfter;
+proto.isBefore          = isBefore;
+proto.isBetween         = isBetween;
+proto.isSame            = isSame;
+proto.isSameOrAfter     = isSameOrAfter;
+proto.isSameOrBefore    = isSameOrBefore;
+proto.isValid           = isValid$1;
+proto.lang              = lang;
+proto.locale            = locale;
+proto.localeData        = localeData;
+proto.max               = prototypeMax;
+proto.min               = prototypeMin;
+proto.parsingFlags      = parsingFlags;
+proto.set               = stringSet;
+proto.startOf           = startOf;
+proto.subtract          = subtract;
+proto.toArray           = toArray;
+proto.toObject          = toObject;
+proto.toDate            = toDate;
+proto.toISOString       = toISOString;
+proto.inspect           = inspect;
+proto.toJSON            = toJSON;
+proto.toString          = toString;
+proto.unix              = unix;
+proto.valueOf           = valueOf;
+proto.creationData      = creationData;
+
+// Year
+proto.year       = getSetYear;
+proto.isLeapYear = getIsLeapYear;
+
+// Week Year
+proto.weekYear    = getSetWeekYear;
+proto.isoWeekYear = getSetISOWeekYear;
+
+// Quarter
+proto.quarter = proto.quarters = getSetQuarter;
+
+// Month
+proto.month       = getSetMonth;
+proto.daysInMonth = getDaysInMonth;
+
+// Week
+proto.week           = proto.weeks        = getSetWeek;
+proto.isoWeek        = proto.isoWeeks     = getSetISOWeek;
+proto.weeksInYear    = getWeeksInYear;
+proto.isoWeeksInYear = getISOWeeksInYear;
+
+// Day
+proto.date       = getSetDayOfMonth;
+proto.day        = proto.days             = getSetDayOfWeek;
+proto.weekday    = getSetLocaleDayOfWeek;
+proto.isoWeekday = getSetISODayOfWeek;
+proto.dayOfYear  = getSetDayOfYear;
+
+// Hour
+proto.hour = proto.hours = getSetHour;
+
+// Minute
+proto.minute = proto.minutes = getSetMinute;
+
+// Second
+proto.second = proto.seconds = getSetSecond;
+
+// Millisecond
+proto.millisecond = proto.milliseconds = getSetMillisecond;
+
+// Offset
+proto.utcOffset            = getSetOffset;
+proto.utc                  = setOffsetToUTC;
+proto.local                = setOffsetToLocal;
+proto.parseZone            = setOffsetToParsedOffset;
+proto.hasAlignedHourOffset = hasAlignedHourOffset;
+proto.isDST                = isDaylightSavingTime;
+proto.isLocal              = isLocal;
+proto.isUtcOffset          = isUtcOffset;
+proto.isUtc                = isUtc;
+proto.isUTC                = isUtc;
+
+// Timezone
+proto.zoneAbbr = getZoneAbbr;
+proto.zoneName = getZoneName;
+
+// Deprecations
+proto.dates  = deprecate('dates accessor is deprecated. Use date instead.', getSetDayOfMonth);
+proto.months = deprecate('months accessor is deprecated. Use month instead', getSetMonth);
+proto.years  = deprecate('years accessor is deprecated. Use year instead', getSetYear);
+proto.zone   = deprecate('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', getSetZone);
+proto.isDSTShifted = deprecate('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', isDaylightSavingTimeShifted);
+
+function createUnix (input) {
+    return createLocal(input * 1000);
+}
+
+function createInZone () {
+    return createLocal.apply(null, arguments).parseZone();
+}
+
+function preParsePostFormat (string) {
+    return string;
+}
+
+var proto$1 = Locale.prototype;
+
+proto$1.calendar        = calendar;
+proto$1.longDateFormat  = longDateFormat;
+proto$1.invalidDate     = invalidDate;
+proto$1.ordinal         = ordinal;
+proto$1.preparse        = preParsePostFormat;
+proto$1.postformat      = preParsePostFormat;
+proto$1.relativeTime    = relativeTime;
+proto$1.pastFuture      = pastFuture;
+proto$1.set             = set;
+
+// Month
+proto$1.months            =        localeMonths;
+proto$1.monthsShort       =        localeMonthsShort;
+proto$1.monthsParse       =        localeMonthsParse;
+proto$1.monthsRegex       = monthsRegex;
+proto$1.monthsShortRegex  = monthsShortRegex;
+
+// Week
+proto$1.week = localeWeek;
+proto$1.firstDayOfYear = localeFirstDayOfYear;
+proto$1.firstDayOfWeek = localeFirstDayOfWeek;
+
+// Day of Week
+proto$1.weekdays       =        localeWeekdays;
+proto$1.weekdaysMin    =        localeWeekdaysMin;
+proto$1.weekdaysShort  =        localeWeekdaysShort;
+proto$1.weekdaysParse  =        localeWeekdaysParse;
+
+proto$1.weekdaysRegex       =        weekdaysRegex;
+proto$1.weekdaysShortRegex  =        weekdaysShortRegex;
+proto$1.weekdaysMinRegex    =        weekdaysMinRegex;
+
+// Hours
+proto$1.isPM = localeIsPM;
+proto$1.meridiem = localeMeridiem;
+
+function get$1 (format, index, field, setter) {
+    var locale = getLocale();
+    var utc = createUTC().set(setter, index);
+    return locale[field](utc, format);
+}
+
+function listMonthsImpl (format, index, field) {
+    if (isNumber(format)) {
+        index = format;
+        format = undefined;
     }
 
-    // FORMATTING
+    format = format || '';
 
-    addFormatToken('m', ['mm', 2], 0, 'minute');
-
-    // ALIASES
-
-    addUnitAlias('minute', 'm');
-
-    // PRIORITY
-
-    addUnitPriority('minute', 14);
-
-    // PARSING
-
-    addRegexToken('m',  match1to2);
-    addRegexToken('mm', match1to2, match2);
-    addParseToken(['m', 'mm'], MINUTE);
-
-    // MOMENTS
-
-    var getSetMinute = makeGetSet('Minutes', false);
-
-    // FORMATTING
-
-    addFormatToken('s', ['ss', 2], 0, 'second');
-
-    // ALIASES
-
-    addUnitAlias('second', 's');
-
-    // PRIORITY
-
-    addUnitPriority('second', 15);
-
-    // PARSING
-
-    addRegexToken('s',  match1to2);
-    addRegexToken('ss', match1to2, match2);
-    addParseToken(['s', 'ss'], SECOND);
-
-    // MOMENTS
-
-    var getSetSecond = makeGetSet('Seconds', false);
-
-    // FORMATTING
-
-    addFormatToken('S', 0, 0, function () {
-        return ~~(this.millisecond() / 100);
-    });
-
-    addFormatToken(0, ['SS', 2], 0, function () {
-        return ~~(this.millisecond() / 10);
-    });
-
-    addFormatToken(0, ['SSS', 3], 0, 'millisecond');
-    addFormatToken(0, ['SSSS', 4], 0, function () {
-        return this.millisecond() * 10;
-    });
-    addFormatToken(0, ['SSSSS', 5], 0, function () {
-        return this.millisecond() * 100;
-    });
-    addFormatToken(0, ['SSSSSS', 6], 0, function () {
-        return this.millisecond() * 1000;
-    });
-    addFormatToken(0, ['SSSSSSS', 7], 0, function () {
-        return this.millisecond() * 10000;
-    });
-    addFormatToken(0, ['SSSSSSSS', 8], 0, function () {
-        return this.millisecond() * 100000;
-    });
-    addFormatToken(0, ['SSSSSSSSS', 9], 0, function () {
-        return this.millisecond() * 1000000;
-    });
-
-
-    // ALIASES
-
-    addUnitAlias('millisecond', 'ms');
-
-    // PRIORITY
-
-    addUnitPriority('millisecond', 16);
-
-    // PARSING
-
-    addRegexToken('S',    match1to3, match1);
-    addRegexToken('SS',   match1to3, match2);
-    addRegexToken('SSS',  match1to3, match3);
-
-    var token;
-    for (token = 'SSSS'; token.length <= 9; token += 'S') {
-        addRegexToken(token, matchUnsigned);
+    if (index != null) {
+        return get$1(format, index, field, 'month');
     }
 
-    function parseMs(input, array) {
-        array[MILLISECOND] = toInt(('0.' + input) * 1000);
+    var i;
+    var out = [];
+    for (i = 0; i < 12; i++) {
+        out[i] = get$1(format, i, field, 'month');
     }
+    return out;
+}
 
-    for (token = 'S'; token.length <= 9; token += 'S') {
-        addParseToken(token, parseMs);
-    }
-    // MOMENTS
-
-    var getSetMillisecond = makeGetSet('Milliseconds', false);
-
-    // FORMATTING
-
-    addFormatToken('z',  0, 0, 'zoneAbbr');
-    addFormatToken('zz', 0, 0, 'zoneName');
-
-    // MOMENTS
-
-    function getZoneAbbr () {
-        return this._isUTC ? 'UTC' : '';
-    }
-
-    function getZoneName () {
-        return this._isUTC ? 'Coordinated Universal Time' : '';
-    }
-
-    var momentPrototype__proto = Moment.prototype;
-
-    momentPrototype__proto.add               = add_subtract__add;
-    momentPrototype__proto.calendar          = moment_calendar__calendar;
-    momentPrototype__proto.clone             = clone;
-    momentPrototype__proto.diff              = diff;
-    momentPrototype__proto.endOf             = endOf;
-    momentPrototype__proto.format            = format;
-    momentPrototype__proto.from              = from;
-    momentPrototype__proto.fromNow           = fromNow;
-    momentPrototype__proto.to                = to;
-    momentPrototype__proto.toNow             = toNow;
-    momentPrototype__proto.get               = stringGet;
-    momentPrototype__proto.invalidAt         = invalidAt;
-    momentPrototype__proto.isAfter           = isAfter;
-    momentPrototype__proto.isBefore          = isBefore;
-    momentPrototype__proto.isBetween         = isBetween;
-    momentPrototype__proto.isSame            = isSame;
-    momentPrototype__proto.isSameOrAfter     = isSameOrAfter;
-    momentPrototype__proto.isSameOrBefore    = isSameOrBefore;
-    momentPrototype__proto.isValid           = moment_valid__isValid;
-    momentPrototype__proto.lang              = lang;
-    momentPrototype__proto.locale            = locale;
-    momentPrototype__proto.localeData        = localeData;
-    momentPrototype__proto.max               = prototypeMax;
-    momentPrototype__proto.min               = prototypeMin;
-    momentPrototype__proto.parsingFlags      = parsingFlags;
-    momentPrototype__proto.set               = stringSet;
-    momentPrototype__proto.startOf           = startOf;
-    momentPrototype__proto.subtract          = add_subtract__subtract;
-    momentPrototype__proto.toArray           = toArray;
-    momentPrototype__proto.toObject          = toObject;
-    momentPrototype__proto.toDate            = toDate;
-    momentPrototype__proto.toISOString       = moment_format__toISOString;
-    momentPrototype__proto.toJSON            = toJSON;
-    momentPrototype__proto.toString          = toString;
-    momentPrototype__proto.unix              = unix;
-    momentPrototype__proto.valueOf           = to_type__valueOf;
-    momentPrototype__proto.creationData      = creationData;
-
-    // Year
-    momentPrototype__proto.year       = getSetYear;
-    momentPrototype__proto.isLeapYear = getIsLeapYear;
-
-    // Week Year
-    momentPrototype__proto.weekYear    = getSetWeekYear;
-    momentPrototype__proto.isoWeekYear = getSetISOWeekYear;
-
-    // Quarter
-    momentPrototype__proto.quarter = momentPrototype__proto.quarters = getSetQuarter;
-
-    // Month
-    momentPrototype__proto.month       = getSetMonth;
-    momentPrototype__proto.daysInMonth = getDaysInMonth;
-
-    // Week
-    momentPrototype__proto.week           = momentPrototype__proto.weeks        = getSetWeek;
-    momentPrototype__proto.isoWeek        = momentPrototype__proto.isoWeeks     = getSetISOWeek;
-    momentPrototype__proto.weeksInYear    = getWeeksInYear;
-    momentPrototype__proto.isoWeeksInYear = getISOWeeksInYear;
-
-    // Day
-    momentPrototype__proto.date       = getSetDayOfMonth;
-    momentPrototype__proto.day        = momentPrototype__proto.days             = getSetDayOfWeek;
-    momentPrototype__proto.weekday    = getSetLocaleDayOfWeek;
-    momentPrototype__proto.isoWeekday = getSetISODayOfWeek;
-    momentPrototype__proto.dayOfYear  = getSetDayOfYear;
-
-    // Hour
-    momentPrototype__proto.hour = momentPrototype__proto.hours = getSetHour;
-
-    // Minute
-    momentPrototype__proto.minute = momentPrototype__proto.minutes = getSetMinute;
-
-    // Second
-    momentPrototype__proto.second = momentPrototype__proto.seconds = getSetSecond;
-
-    // Millisecond
-    momentPrototype__proto.millisecond = momentPrototype__proto.milliseconds = getSetMillisecond;
-
-    // Offset
-    momentPrototype__proto.utcOffset            = getSetOffset;
-    momentPrototype__proto.utc                  = setOffsetToUTC;
-    momentPrototype__proto.local                = setOffsetToLocal;
-    momentPrototype__proto.parseZone            = setOffsetToParsedOffset;
-    momentPrototype__proto.hasAlignedHourOffset = hasAlignedHourOffset;
-    momentPrototype__proto.isDST                = isDaylightSavingTime;
-    momentPrototype__proto.isLocal              = isLocal;
-    momentPrototype__proto.isUtcOffset          = isUtcOffset;
-    momentPrototype__proto.isUtc                = isUtc;
-    momentPrototype__proto.isUTC                = isUtc;
-
-    // Timezone
-    momentPrototype__proto.zoneAbbr = getZoneAbbr;
-    momentPrototype__proto.zoneName = getZoneName;
-
-    // Deprecations
-    momentPrototype__proto.dates  = deprecate('dates accessor is deprecated. Use date instead.', getSetDayOfMonth);
-    momentPrototype__proto.months = deprecate('months accessor is deprecated. Use month instead', getSetMonth);
-    momentPrototype__proto.years  = deprecate('years accessor is deprecated. Use year instead', getSetYear);
-    momentPrototype__proto.zone   = deprecate('moment().zone is deprecated, use moment().utcOffset instead. http://momentjs.com/guides/#/warnings/zone/', getSetZone);
-    momentPrototype__proto.isDSTShifted = deprecate('isDSTShifted is deprecated. See http://momentjs.com/guides/#/warnings/dst-shifted/ for more information', isDaylightSavingTimeShifted);
-
-    var momentPrototype = momentPrototype__proto;
-
-    function moment__createUnix (input) {
-        return local__createLocal(input * 1000);
-    }
-
-    function moment__createInZone () {
-        return local__createLocal.apply(null, arguments).parseZone();
-    }
-
-    function preParsePostFormat (string) {
-        return string;
-    }
-
-    var prototype__proto = Locale.prototype;
-
-    prototype__proto.calendar        = locale_calendar__calendar;
-    prototype__proto.longDateFormat  = longDateFormat;
-    prototype__proto.invalidDate     = invalidDate;
-    prototype__proto.ordinal         = ordinal;
-    prototype__proto.preparse        = preParsePostFormat;
-    prototype__proto.postformat      = preParsePostFormat;
-    prototype__proto.relativeTime    = relative__relativeTime;
-    prototype__proto.pastFuture      = pastFuture;
-    prototype__proto.set             = locale_set__set;
-
-    // Month
-    prototype__proto.months            =        localeMonths;
-    prototype__proto.monthsShort       =        localeMonthsShort;
-    prototype__proto.monthsParse       =        localeMonthsParse;
-    prototype__proto.monthsRegex       = monthsRegex;
-    prototype__proto.monthsShortRegex  = monthsShortRegex;
-
-    // Week
-    prototype__proto.week = localeWeek;
-    prototype__proto.firstDayOfYear = localeFirstDayOfYear;
-    prototype__proto.firstDayOfWeek = localeFirstDayOfWeek;
-
-    // Day of Week
-    prototype__proto.weekdays       =        localeWeekdays;
-    prototype__proto.weekdaysMin    =        localeWeekdaysMin;
-    prototype__proto.weekdaysShort  =        localeWeekdaysShort;
-    prototype__proto.weekdaysParse  =        localeWeekdaysParse;
-
-    prototype__proto.weekdaysRegex       =        weekdaysRegex;
-    prototype__proto.weekdaysShortRegex  =        weekdaysShortRegex;
-    prototype__proto.weekdaysMinRegex    =        weekdaysMinRegex;
-
-    // Hours
-    prototype__proto.isPM = localeIsPM;
-    prototype__proto.meridiem = localeMeridiem;
-
-    function lists__get (format, index, field, setter) {
-        var locale = locale_locales__getLocale();
-        var utc = create_utc__createUTC().set(setter, index);
-        return locale[field](utc, format);
-    }
-
-    function listMonthsImpl (format, index, field) {
-        if (typeof format === 'number') {
+// ()
+// (5)
+// (fmt, 5)
+// (fmt)
+// (true)
+// (true, 5)
+// (true, fmt, 5)
+// (true, fmt)
+function listWeekdaysImpl (localeSorted, format, index, field) {
+    if (typeof localeSorted === 'boolean') {
+        if (isNumber(format)) {
             index = format;
             format = undefined;
         }
 
         format = format || '';
+    } else {
+        format = localeSorted;
+        index = format;
+        localeSorted = false;
 
-        if (index != null) {
-            return lists__get(format, index, field, 'month');
-        }
-
-        var i;
-        var out = [];
-        for (i = 0; i < 12; i++) {
-            out[i] = lists__get(format, i, field, 'month');
-        }
-        return out;
-    }
-
-    // ()
-    // (5)
-    // (fmt, 5)
-    // (fmt)
-    // (true)
-    // (true, 5)
-    // (true, fmt, 5)
-    // (true, fmt)
-    function listWeekdaysImpl (localeSorted, format, index, field) {
-        if (typeof localeSorted === 'boolean') {
-            if (typeof format === 'number') {
-                index = format;
-                format = undefined;
-            }
-
-            format = format || '';
-        } else {
-            format = localeSorted;
+        if (isNumber(format)) {
             index = format;
-            localeSorted = false;
-
-            if (typeof format === 'number') {
-                index = format;
-                format = undefined;
-            }
-
-            format = format || '';
+            format = undefined;
         }
 
-        var locale = locale_locales__getLocale(),
-            shift = localeSorted ? locale._week.dow : 0;
+        format = format || '';
+    }
 
-        if (index != null) {
-            return lists__get(format, (index + shift) % 7, field, 'day');
+    var locale = getLocale(),
+        shift = localeSorted ? locale._week.dow : 0;
+
+    if (index != null) {
+        return get$1(format, (index + shift) % 7, field, 'day');
+    }
+
+    var i;
+    var out = [];
+    for (i = 0; i < 7; i++) {
+        out[i] = get$1(format, (i + shift) % 7, field, 'day');
+    }
+    return out;
+}
+
+function listMonths (format, index) {
+    return listMonthsImpl(format, index, 'months');
+}
+
+function listMonthsShort (format, index) {
+    return listMonthsImpl(format, index, 'monthsShort');
+}
+
+function listWeekdays (localeSorted, format, index) {
+    return listWeekdaysImpl(localeSorted, format, index, 'weekdays');
+}
+
+function listWeekdaysShort (localeSorted, format, index) {
+    return listWeekdaysImpl(localeSorted, format, index, 'weekdaysShort');
+}
+
+function listWeekdaysMin (localeSorted, format, index) {
+    return listWeekdaysImpl(localeSorted, format, index, 'weekdaysMin');
+}
+
+getSetGlobalLocale('en', {
+    ordinalParse: /\d{1,2}(th|st|nd|rd)/,
+    ordinal : function (number) {
+        var b = number % 10,
+            output = (toInt(number % 100 / 10) === 1) ? 'th' :
+            (b === 1) ? 'st' :
+            (b === 2) ? 'nd' :
+            (b === 3) ? 'rd' : 'th';
+        return number + output;
+    }
+});
+
+// Side effect imports
+hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', getSetGlobalLocale);
+hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', getLocale);
+
+var mathAbs = Math.abs;
+
+function abs () {
+    var data           = this._data;
+
+    this._milliseconds = mathAbs(this._milliseconds);
+    this._days         = mathAbs(this._days);
+    this._months       = mathAbs(this._months);
+
+    data.milliseconds  = mathAbs(data.milliseconds);
+    data.seconds       = mathAbs(data.seconds);
+    data.minutes       = mathAbs(data.minutes);
+    data.hours         = mathAbs(data.hours);
+    data.months        = mathAbs(data.months);
+    data.years         = mathAbs(data.years);
+
+    return this;
+}
+
+function addSubtract$1 (duration, input, value, direction) {
+    var other = createDuration(input, value);
+
+    duration._milliseconds += direction * other._milliseconds;
+    duration._days         += direction * other._days;
+    duration._months       += direction * other._months;
+
+    return duration._bubble();
+}
+
+// supports only 2.0-style add(1, 's') or add(duration)
+function add$1 (input, value) {
+    return addSubtract$1(this, input, value, 1);
+}
+
+// supports only 2.0-style subtract(1, 's') or subtract(duration)
+function subtract$1 (input, value) {
+    return addSubtract$1(this, input, value, -1);
+}
+
+function absCeil (number) {
+    if (number < 0) {
+        return Math.floor(number);
+    } else {
+        return Math.ceil(number);
+    }
+}
+
+function bubble () {
+    var milliseconds = this._milliseconds;
+    var days         = this._days;
+    var months       = this._months;
+    var data         = this._data;
+    var seconds, minutes, hours, years, monthsFromDays;
+
+    // if we have a mix of positive and negative values, bubble down first
+    // check: https://github.com/moment/moment/issues/2166
+    if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
+            (milliseconds <= 0 && days <= 0 && months <= 0))) {
+        milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
+        days = 0;
+        months = 0;
+    }
+
+    // The following code bubbles up values, see the tests for
+    // examples of what that means.
+    data.milliseconds = milliseconds % 1000;
+
+    seconds           = absFloor(milliseconds / 1000);
+    data.seconds      = seconds % 60;
+
+    minutes           = absFloor(seconds / 60);
+    data.minutes      = minutes % 60;
+
+    hours             = absFloor(minutes / 60);
+    data.hours        = hours % 24;
+
+    days += absFloor(hours / 24);
+
+    // convert days to months
+    monthsFromDays = absFloor(daysToMonths(days));
+    months += monthsFromDays;
+    days -= absCeil(monthsToDays(monthsFromDays));
+
+    // 12 months -> 1 year
+    years = absFloor(months / 12);
+    months %= 12;
+
+    data.days   = days;
+    data.months = months;
+    data.years  = years;
+
+    return this;
+}
+
+function daysToMonths (days) {
+    // 400 years have 146097 days (taking into account leap year rules)
+    // 400 years have 12 months === 4800
+    return days * 4800 / 146097;
+}
+
+function monthsToDays (months) {
+    // the reverse of daysToMonths
+    return months * 146097 / 4800;
+}
+
+function as (units) {
+    var days;
+    var months;
+    var milliseconds = this._milliseconds;
+
+    units = normalizeUnits(units);
+
+    if (units === 'month' || units === 'year') {
+        days   = this._days   + milliseconds / 864e5;
+        months = this._months + daysToMonths(days);
+        return units === 'month' ? months : months / 12;
+    } else {
+        // handle milliseconds separately because of floating point math errors (issue #1867)
+        days = this._days + Math.round(monthsToDays(this._months));
+        switch (units) {
+            case 'week'   : return days / 7     + milliseconds / 6048e5;
+            case 'day'    : return days         + milliseconds / 864e5;
+            case 'hour'   : return days * 24    + milliseconds / 36e5;
+            case 'minute' : return days * 1440  + milliseconds / 6e4;
+            case 'second' : return days * 86400 + milliseconds / 1000;
+            // Math.floor prevents floating point math errors here
+            case 'millisecond': return Math.floor(days * 864e5) + milliseconds;
+            default: throw new Error('Unknown unit ' + units);
         }
-
-        var i;
-        var out = [];
-        for (i = 0; i < 7; i++) {
-            out[i] = lists__get(format, (i + shift) % 7, field, 'day');
-        }
-        return out;
     }
+}
 
-    function lists__listMonths (format, index) {
-        return listMonthsImpl(format, index, 'months');
-    }
+// TODO: Use this.as('ms')?
+function valueOf$1 () {
+    return (
+        this._milliseconds +
+        this._days * 864e5 +
+        (this._months % 12) * 2592e6 +
+        toInt(this._months / 12) * 31536e6
+    );
+}
 
-    function lists__listMonthsShort (format, index) {
-        return listMonthsImpl(format, index, 'monthsShort');
-    }
-
-    function lists__listWeekdays (localeSorted, format, index) {
-        return listWeekdaysImpl(localeSorted, format, index, 'weekdays');
-    }
-
-    function lists__listWeekdaysShort (localeSorted, format, index) {
-        return listWeekdaysImpl(localeSorted, format, index, 'weekdaysShort');
-    }
-
-    function lists__listWeekdaysMin (localeSorted, format, index) {
-        return listWeekdaysImpl(localeSorted, format, index, 'weekdaysMin');
-    }
-
-    locale_locales__getSetGlobalLocale('en', {
-        ordinalParse: /\d{1,2}(th|st|nd|rd)/,
-        ordinal : function (number) {
-            var b = number % 10,
-                output = (toInt(number % 100 / 10) === 1) ? 'th' :
-                (b === 1) ? 'st' :
-                (b === 2) ? 'nd' :
-                (b === 3) ? 'rd' : 'th';
-            return number + output;
-        }
-    });
-
-    // Side effect imports
-    utils_hooks__hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', locale_locales__getSetGlobalLocale);
-    utils_hooks__hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', locale_locales__getLocale);
-
-    var mathAbs = Math.abs;
-
-    function duration_abs__abs () {
-        var data           = this._data;
-
-        this._milliseconds = mathAbs(this._milliseconds);
-        this._days         = mathAbs(this._days);
-        this._months       = mathAbs(this._months);
-
-        data.milliseconds  = mathAbs(data.milliseconds);
-        data.seconds       = mathAbs(data.seconds);
-        data.minutes       = mathAbs(data.minutes);
-        data.hours         = mathAbs(data.hours);
-        data.months        = mathAbs(data.months);
-        data.years         = mathAbs(data.years);
-
-        return this;
-    }
-
-    function duration_add_subtract__addSubtract (duration, input, value, direction) {
-        var other = create__createDuration(input, value);
-
-        duration._milliseconds += direction * other._milliseconds;
-        duration._days         += direction * other._days;
-        duration._months       += direction * other._months;
-
-        return duration._bubble();
-    }
-
-    // supports only 2.0-style add(1, 's') or add(duration)
-    function duration_add_subtract__add (input, value) {
-        return duration_add_subtract__addSubtract(this, input, value, 1);
-    }
-
-    // supports only 2.0-style subtract(1, 's') or subtract(duration)
-    function duration_add_subtract__subtract (input, value) {
-        return duration_add_subtract__addSubtract(this, input, value, -1);
-    }
-
-    function absCeil (number) {
-        if (number < 0) {
-            return Math.floor(number);
-        } else {
-            return Math.ceil(number);
-        }
-    }
-
-    function bubble () {
-        var milliseconds = this._milliseconds;
-        var days         = this._days;
-        var months       = this._months;
-        var data         = this._data;
-        var seconds, minutes, hours, years, monthsFromDays;
-
-        // if we have a mix of positive and negative values, bubble down first
-        // check: https://github.com/moment/moment/issues/2166
-        if (!((milliseconds >= 0 && days >= 0 && months >= 0) ||
-                (milliseconds <= 0 && days <= 0 && months <= 0))) {
-            milliseconds += absCeil(monthsToDays(months) + days) * 864e5;
-            days = 0;
-            months = 0;
-        }
-
-        // The following code bubbles up values, see the tests for
-        // examples of what that means.
-        data.milliseconds = milliseconds % 1000;
-
-        seconds           = absFloor(milliseconds / 1000);
-        data.seconds      = seconds % 60;
-
-        minutes           = absFloor(seconds / 60);
-        data.minutes      = minutes % 60;
-
-        hours             = absFloor(minutes / 60);
-        data.hours        = hours % 24;
-
-        days += absFloor(hours / 24);
-
-        // convert days to months
-        monthsFromDays = absFloor(daysToMonths(days));
-        months += monthsFromDays;
-        days -= absCeil(monthsToDays(monthsFromDays));
-
-        // 12 months -> 1 year
-        years = absFloor(months / 12);
-        months %= 12;
-
-        data.days   = days;
-        data.months = months;
-        data.years  = years;
-
-        return this;
-    }
-
-    function daysToMonths (days) {
-        // 400 years have 146097 days (taking into account leap year rules)
-        // 400 years have 12 months === 4800
-        return days * 4800 / 146097;
-    }
-
-    function monthsToDays (months) {
-        // the reverse of daysToMonths
-        return months * 146097 / 4800;
-    }
-
-    function as (units) {
-        var days;
-        var months;
-        var milliseconds = this._milliseconds;
-
-        units = normalizeUnits(units);
-
-        if (units === 'month' || units === 'year') {
-            days   = this._days   + milliseconds / 864e5;
-            months = this._months + daysToMonths(days);
-            return units === 'month' ? months : months / 12;
-        } else {
-            // handle milliseconds separately because of floating point math errors (issue #1867)
-            days = this._days + Math.round(monthsToDays(this._months));
-            switch (units) {
-                case 'week'   : return days / 7     + milliseconds / 6048e5;
-                case 'day'    : return days         + milliseconds / 864e5;
-                case 'hour'   : return days * 24    + milliseconds / 36e5;
-                case 'minute' : return days * 1440  + milliseconds / 6e4;
-                case 'second' : return days * 86400 + milliseconds / 1000;
-                // Math.floor prevents floating point math errors here
-                case 'millisecond': return Math.floor(days * 864e5) + milliseconds;
-                default: throw new Error('Unknown unit ' + units);
-            }
-        }
-    }
-
-    // TODO: Use this.as('ms')?
-    function duration_as__valueOf () {
-        return (
-            this._milliseconds +
-            this._days * 864e5 +
-            (this._months % 12) * 2592e6 +
-            toInt(this._months / 12) * 31536e6
-        );
-    }
-
-    function makeAs (alias) {
-        return function () {
-            return this.as(alias);
-        };
-    }
-
-    var asMilliseconds = makeAs('ms');
-    var asSeconds      = makeAs('s');
-    var asMinutes      = makeAs('m');
-    var asHours        = makeAs('h');
-    var asDays         = makeAs('d');
-    var asWeeks        = makeAs('w');
-    var asMonths       = makeAs('M');
-    var asYears        = makeAs('y');
-
-    function duration_get__get (units) {
-        units = normalizeUnits(units);
-        return this[units + 's']();
-    }
-
-    function makeGetter(name) {
-        return function () {
-            return this._data[name];
-        };
-    }
-
-    var milliseconds = makeGetter('milliseconds');
-    var seconds      = makeGetter('seconds');
-    var minutes      = makeGetter('minutes');
-    var hours        = makeGetter('hours');
-    var days         = makeGetter('days');
-    var months       = makeGetter('months');
-    var years        = makeGetter('years');
-
-    function weeks () {
-        return absFloor(this.days() / 7);
-    }
-
-    var round = Math.round;
-    var thresholds = {
-        s: 45,  // seconds to minute
-        m: 45,  // minutes to hour
-        h: 22,  // hours to day
-        d: 26,  // days to month
-        M: 11   // months to year
+function makeAs (alias) {
+    return function () {
+        return this.as(alias);
     };
+}
 
-    // helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
-    function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale) {
-        return locale.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
+var asMilliseconds = makeAs('ms');
+var asSeconds      = makeAs('s');
+var asMinutes      = makeAs('m');
+var asHours        = makeAs('h');
+var asDays         = makeAs('d');
+var asWeeks        = makeAs('w');
+var asMonths       = makeAs('M');
+var asYears        = makeAs('y');
+
+function get$2 (units) {
+    units = normalizeUnits(units);
+    return this[units + 's']();
+}
+
+function makeGetter(name) {
+    return function () {
+        return this._data[name];
+    };
+}
+
+var milliseconds = makeGetter('milliseconds');
+var seconds      = makeGetter('seconds');
+var minutes      = makeGetter('minutes');
+var hours        = makeGetter('hours');
+var days         = makeGetter('days');
+var months       = makeGetter('months');
+var years        = makeGetter('years');
+
+function weeks () {
+    return absFloor(this.days() / 7);
+}
+
+var round = Math.round;
+var thresholds = {
+    s: 45,  // seconds to minute
+    m: 45,  // minutes to hour
+    h: 22,  // hours to day
+    d: 26,  // days to month
+    M: 11   // months to year
+};
+
+// helper function for moment.fn.from, moment.fn.fromNow, and moment.duration.fn.humanize
+function substituteTimeAgo(string, number, withoutSuffix, isFuture, locale) {
+    return locale.relativeTime(number || 1, !!withoutSuffix, string, isFuture);
+}
+
+function relativeTime$1 (posNegDuration, withoutSuffix, locale) {
+    var duration = createDuration(posNegDuration).abs();
+    var seconds  = round(duration.as('s'));
+    var minutes  = round(duration.as('m'));
+    var hours    = round(duration.as('h'));
+    var days     = round(duration.as('d'));
+    var months   = round(duration.as('M'));
+    var years    = round(duration.as('y'));
+
+    var a = seconds < thresholds.s && ['s', seconds]  ||
+            minutes <= 1           && ['m']           ||
+            minutes < thresholds.m && ['mm', minutes] ||
+            hours   <= 1           && ['h']           ||
+            hours   < thresholds.h && ['hh', hours]   ||
+            days    <= 1           && ['d']           ||
+            days    < thresholds.d && ['dd', days]    ||
+            months  <= 1           && ['M']           ||
+            months  < thresholds.M && ['MM', months]  ||
+            years   <= 1           && ['y']           || ['yy', years];
+
+    a[2] = withoutSuffix;
+    a[3] = +posNegDuration > 0;
+    a[4] = locale;
+    return substituteTimeAgo.apply(null, a);
+}
+
+// This function allows you to set the rounding function for relative time strings
+function getSetRelativeTimeRounding (roundingFunction) {
+    if (roundingFunction === undefined) {
+        return round;
     }
-
-    function duration_humanize__relativeTime (posNegDuration, withoutSuffix, locale) {
-        var duration = create__createDuration(posNegDuration).abs();
-        var seconds  = round(duration.as('s'));
-        var minutes  = round(duration.as('m'));
-        var hours    = round(duration.as('h'));
-        var days     = round(duration.as('d'));
-        var months   = round(duration.as('M'));
-        var years    = round(duration.as('y'));
-
-        var a = seconds < thresholds.s && ['s', seconds]  ||
-                minutes <= 1           && ['m']           ||
-                minutes < thresholds.m && ['mm', minutes] ||
-                hours   <= 1           && ['h']           ||
-                hours   < thresholds.h && ['hh', hours]   ||
-                days    <= 1           && ['d']           ||
-                days    < thresholds.d && ['dd', days]    ||
-                months  <= 1           && ['M']           ||
-                months  < thresholds.M && ['MM', months]  ||
-                years   <= 1           && ['y']           || ['yy', years];
-
-        a[2] = withoutSuffix;
-        a[3] = +posNegDuration > 0;
-        a[4] = locale;
-        return substituteTimeAgo.apply(null, a);
-    }
-
-    // This function allows you to set the rounding function for relative time strings
-    function duration_humanize__getSetRelativeTimeRounding (roundingFunction) {
-        if (roundingFunction === undefined) {
-            return round;
-        }
-        if (typeof(roundingFunction) === 'function') {
-            round = roundingFunction;
-            return true;
-        }
-        return false;
-    }
-
-    // This function allows you to set a threshold for relative time strings
-    function duration_humanize__getSetRelativeTimeThreshold (threshold, limit) {
-        if (thresholds[threshold] === undefined) {
-            return false;
-        }
-        if (limit === undefined) {
-            return thresholds[threshold];
-        }
-        thresholds[threshold] = limit;
+    if (typeof(roundingFunction) === 'function') {
+        round = roundingFunction;
         return true;
     }
+    return false;
+}
 
-    function humanize (withSuffix) {
-        var locale = this.localeData();
-        var output = duration_humanize__relativeTime(this, !withSuffix, locale);
+// This function allows you to set a threshold for relative time strings
+function getSetRelativeTimeThreshold (threshold, limit) {
+    if (thresholds[threshold] === undefined) {
+        return false;
+    }
+    if (limit === undefined) {
+        return thresholds[threshold];
+    }
+    thresholds[threshold] = limit;
+    return true;
+}
 
-        if (withSuffix) {
-            output = locale.pastFuture(+this, output);
-        }
+function humanize (withSuffix) {
+    var locale = this.localeData();
+    var output = relativeTime$1(this, !withSuffix, locale);
 
-        return locale.postformat(output);
+    if (withSuffix) {
+        output = locale.pastFuture(+this, output);
     }
 
-    var iso_string__abs = Math.abs;
+    return locale.postformat(output);
+}
 
-    function iso_string__toISOString() {
-        // for ISO strings we do not use the normal bubbling rules:
-        //  * milliseconds bubble up until they become hours
-        //  * days do not bubble at all
-        //  * months bubble up until they become years
-        // This is because there is no context-free conversion between hours and days
-        // (think of clock changes)
-        // and also not between days and months (28-31 days per month)
-        var seconds = iso_string__abs(this._milliseconds) / 1000;
-        var days         = iso_string__abs(this._days);
-        var months       = iso_string__abs(this._months);
-        var minutes, hours, years;
+var abs$1 = Math.abs;
 
-        // 3600 seconds -> 60 minutes -> 1 hour
-        minutes           = absFloor(seconds / 60);
-        hours             = absFloor(minutes / 60);
-        seconds %= 60;
-        minutes %= 60;
+function toISOString$1() {
+    // for ISO strings we do not use the normal bubbling rules:
+    //  * milliseconds bubble up until they become hours
+    //  * days do not bubble at all
+    //  * months bubble up until they become years
+    // This is because there is no context-free conversion between hours and days
+    // (think of clock changes)
+    // and also not between days and months (28-31 days per month)
+    var seconds = abs$1(this._milliseconds) / 1000;
+    var days         = abs$1(this._days);
+    var months       = abs$1(this._months);
+    var minutes, hours, years;
 
-        // 12 months -> 1 year
-        years  = absFloor(months / 12);
-        months %= 12;
+    // 3600 seconds -> 60 minutes -> 1 hour
+    minutes           = absFloor(seconds / 60);
+    hours             = absFloor(minutes / 60);
+    seconds %= 60;
+    minutes %= 60;
+
+    // 12 months -> 1 year
+    years  = absFloor(months / 12);
+    months %= 12;
 
 
-        // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
-        var Y = years;
-        var M = months;
-        var D = days;
-        var h = hours;
-        var m = minutes;
-        var s = seconds;
-        var total = this.asSeconds();
+    // inspired by https://github.com/dordille/moment-isoduration/blob/master/moment.isoduration.js
+    var Y = years;
+    var M = months;
+    var D = days;
+    var h = hours;
+    var m = minutes;
+    var s = seconds;
+    var total = this.asSeconds();
 
-        if (!total) {
-            // this is the same as C#'s (Noda) and python (isodate)...
-            // but not other JS (goog.date)
-            return 'P0D';
-        }
-
-        return (total < 0 ? '-' : '') +
-            'P' +
-            (Y ? Y + 'Y' : '') +
-            (M ? M + 'M' : '') +
-            (D ? D + 'D' : '') +
-            ((h || m || s) ? 'T' : '') +
-            (h ? h + 'H' : '') +
-            (m ? m + 'M' : '') +
-            (s ? s + 'S' : '');
+    if (!total) {
+        // this is the same as C#'s (Noda) and python (isodate)...
+        // but not other JS (goog.date)
+        return 'P0D';
     }
 
-    var duration_prototype__proto = Duration.prototype;
+    return (total < 0 ? '-' : '') +
+        'P' +
+        (Y ? Y + 'Y' : '') +
+        (M ? M + 'M' : '') +
+        (D ? D + 'D' : '') +
+        ((h || m || s) ? 'T' : '') +
+        (h ? h + 'H' : '') +
+        (m ? m + 'M' : '') +
+        (s ? s + 'S' : '');
+}
 
-    duration_prototype__proto.abs            = duration_abs__abs;
-    duration_prototype__proto.add            = duration_add_subtract__add;
-    duration_prototype__proto.subtract       = duration_add_subtract__subtract;
-    duration_prototype__proto.as             = as;
-    duration_prototype__proto.asMilliseconds = asMilliseconds;
-    duration_prototype__proto.asSeconds      = asSeconds;
-    duration_prototype__proto.asMinutes      = asMinutes;
-    duration_prototype__proto.asHours        = asHours;
-    duration_prototype__proto.asDays         = asDays;
-    duration_prototype__proto.asWeeks        = asWeeks;
-    duration_prototype__proto.asMonths       = asMonths;
-    duration_prototype__proto.asYears        = asYears;
-    duration_prototype__proto.valueOf        = duration_as__valueOf;
-    duration_prototype__proto._bubble        = bubble;
-    duration_prototype__proto.get            = duration_get__get;
-    duration_prototype__proto.milliseconds   = milliseconds;
-    duration_prototype__proto.seconds        = seconds;
-    duration_prototype__proto.minutes        = minutes;
-    duration_prototype__proto.hours          = hours;
-    duration_prototype__proto.days           = days;
-    duration_prototype__proto.weeks          = weeks;
-    duration_prototype__proto.months         = months;
-    duration_prototype__proto.years          = years;
-    duration_prototype__proto.humanize       = humanize;
-    duration_prototype__proto.toISOString    = iso_string__toISOString;
-    duration_prototype__proto.toString       = iso_string__toISOString;
-    duration_prototype__proto.toJSON         = iso_string__toISOString;
-    duration_prototype__proto.locale         = locale;
-    duration_prototype__proto.localeData     = localeData;
+var proto$2 = Duration.prototype;
 
-    // Deprecations
-    duration_prototype__proto.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', iso_string__toISOString);
-    duration_prototype__proto.lang = lang;
+proto$2.abs            = abs;
+proto$2.add            = add$1;
+proto$2.subtract       = subtract$1;
+proto$2.as             = as;
+proto$2.asMilliseconds = asMilliseconds;
+proto$2.asSeconds      = asSeconds;
+proto$2.asMinutes      = asMinutes;
+proto$2.asHours        = asHours;
+proto$2.asDays         = asDays;
+proto$2.asWeeks        = asWeeks;
+proto$2.asMonths       = asMonths;
+proto$2.asYears        = asYears;
+proto$2.valueOf        = valueOf$1;
+proto$2._bubble        = bubble;
+proto$2.get            = get$2;
+proto$2.milliseconds   = milliseconds;
+proto$2.seconds        = seconds;
+proto$2.minutes        = minutes;
+proto$2.hours          = hours;
+proto$2.days           = days;
+proto$2.weeks          = weeks;
+proto$2.months         = months;
+proto$2.years          = years;
+proto$2.humanize       = humanize;
+proto$2.toISOString    = toISOString$1;
+proto$2.toString       = toISOString$1;
+proto$2.toJSON         = toISOString$1;
+proto$2.locale         = locale;
+proto$2.localeData     = localeData;
 
-    // Side effect imports
+// Deprecations
+proto$2.toIsoString = deprecate('toIsoString() is deprecated. Please use toISOString() instead (notice the capitals)', toISOString$1);
+proto$2.lang = lang;
 
-    // FORMATTING
+// Side effect imports
 
-    addFormatToken('X', 0, 0, 'unix');
-    addFormatToken('x', 0, 0, 'valueOf');
+// FORMATTING
 
-    // PARSING
+addFormatToken('X', 0, 0, 'unix');
+addFormatToken('x', 0, 0, 'valueOf');
 
-    addRegexToken('x', matchSigned);
-    addRegexToken('X', matchTimestamp);
-    addParseToken('X', function (input, array, config) {
-        config._d = new Date(parseFloat(input, 10) * 1000);
-    });
-    addParseToken('x', function (input, array, config) {
-        config._d = new Date(toInt(input));
-    });
+// PARSING
 
-    // Side effect imports
+addRegexToken('x', matchSigned);
+addRegexToken('X', matchTimestamp);
+addParseToken('X', function (input, array, config) {
+    config._d = new Date(parseFloat(input, 10) * 1000);
+});
+addParseToken('x', function (input, array, config) {
+    config._d = new Date(toInt(input));
+});
+
+// Side effect imports
 
 
-    utils_hooks__hooks.version = '2.15.2';
+hooks.version = '2.17.1';
 
-    setHookCallback(local__createLocal);
+setHookCallback(createLocal);
 
-    utils_hooks__hooks.fn                    = momentPrototype;
-    utils_hooks__hooks.min                   = min;
-    utils_hooks__hooks.max                   = max;
-    utils_hooks__hooks.now                   = now;
-    utils_hooks__hooks.utc                   = create_utc__createUTC;
-    utils_hooks__hooks.unix                  = moment__createUnix;
-    utils_hooks__hooks.months                = lists__listMonths;
-    utils_hooks__hooks.isDate                = isDate;
-    utils_hooks__hooks.locale                = locale_locales__getSetGlobalLocale;
-    utils_hooks__hooks.invalid               = valid__createInvalid;
-    utils_hooks__hooks.duration              = create__createDuration;
-    utils_hooks__hooks.isMoment              = isMoment;
-    utils_hooks__hooks.weekdays              = lists__listWeekdays;
-    utils_hooks__hooks.parseZone             = moment__createInZone;
-    utils_hooks__hooks.localeData            = locale_locales__getLocale;
-    utils_hooks__hooks.isDuration            = isDuration;
-    utils_hooks__hooks.monthsShort           = lists__listMonthsShort;
-    utils_hooks__hooks.weekdaysMin           = lists__listWeekdaysMin;
-    utils_hooks__hooks.defineLocale          = defineLocale;
-    utils_hooks__hooks.updateLocale          = updateLocale;
-    utils_hooks__hooks.locales               = locale_locales__listLocales;
-    utils_hooks__hooks.weekdaysShort         = lists__listWeekdaysShort;
-    utils_hooks__hooks.normalizeUnits        = normalizeUnits;
-    utils_hooks__hooks.relativeTimeRounding = duration_humanize__getSetRelativeTimeRounding;
-    utils_hooks__hooks.relativeTimeThreshold = duration_humanize__getSetRelativeTimeThreshold;
-    utils_hooks__hooks.calendarFormat        = getCalendarFormat;
-    utils_hooks__hooks.prototype             = momentPrototype;
+hooks.fn                    = proto;
+hooks.min                   = min;
+hooks.max                   = max;
+hooks.now                   = now;
+hooks.utc                   = createUTC;
+hooks.unix                  = createUnix;
+hooks.months                = listMonths;
+hooks.isDate                = isDate;
+hooks.locale                = getSetGlobalLocale;
+hooks.invalid               = createInvalid;
+hooks.duration              = createDuration;
+hooks.isMoment              = isMoment;
+hooks.weekdays              = listWeekdays;
+hooks.parseZone             = createInZone;
+hooks.localeData            = getLocale;
+hooks.isDuration            = isDuration;
+hooks.monthsShort           = listMonthsShort;
+hooks.weekdaysMin           = listWeekdaysMin;
+hooks.defineLocale          = defineLocale;
+hooks.updateLocale          = updateLocale;
+hooks.locales               = listLocales;
+hooks.weekdaysShort         = listWeekdaysShort;
+hooks.normalizeUnits        = normalizeUnits;
+hooks.relativeTimeRounding = getSetRelativeTimeRounding;
+hooks.relativeTimeThreshold = getSetRelativeTimeThreshold;
+hooks.calendarFormat        = getCalendarFormat;
+hooks.prototype             = proto;
 
-    var _moment = utils_hooks__hooks;
+return hooks;
 
-    return _moment;
+})));
 
-}));
-},{}],398:[function(require,module,exports){
+},{}],400:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -49038,7 +48248,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],399:[function(require,module,exports){
+},{}],401:[function(require,module,exports){
 (function (process,global){
 /**
  * Copyright (c) 2014, Facebook, Inc.
@@ -49053,7 +48263,8 @@ process.umask = function() { return 0; };
 !(function(global) {
   "use strict";
 
-  var hasOwn = Object.prototype.hasOwnProperty;
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
   var undefined; // More compressible than void 0.
   var $Symbol = typeof Symbol === "function" ? Symbol : {};
   var iteratorSymbol = $Symbol.iterator || "@@iterator";
@@ -49125,10 +48336,29 @@ process.umask = function() { return 0; };
   function GeneratorFunction() {}
   function GeneratorFunctionPrototype() {}
 
-  var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype;
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  IteratorPrototype[iteratorSymbol] = function () {
+    return this;
+  };
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
   GeneratorFunction.prototype = Gp.constructor = GeneratorFunctionPrototype;
   GeneratorFunctionPrototype.constructor = GeneratorFunction;
-  GeneratorFunctionPrototype[toStringTagSymbol] = GeneratorFunction.displayName = "GeneratorFunction";
+  GeneratorFunctionPrototype[toStringTagSymbol] =
+    GeneratorFunction.displayName = "GeneratorFunction";
 
   // Helper for defining the .next, .throw, and .return methods of the
   // Iterator interface in terms of a single ._invoke method.
@@ -49165,16 +48395,11 @@ process.umask = function() { return 0; };
 
   // Within the body of any async function, `await x` is transformed to
   // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
-  // `value instanceof AwaitArgument` to determine if the yielded value is
-  // meant to be awaited. Some may consider the name of this method too
-  // cutesy, but they are curmudgeons.
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
   runtime.awrap = function(arg) {
-    return new AwaitArgument(arg);
+    return { __await: arg };
   };
-
-  function AwaitArgument(arg) {
-    this.arg = arg;
-  }
 
   function AsyncIterator(generator) {
     function invoke(method, arg, resolve, reject) {
@@ -49184,8 +48409,10 @@ process.umask = function() { return 0; };
       } else {
         var result = record.arg;
         var value = result.value;
-        if (value instanceof AwaitArgument) {
-          return Promise.resolve(value.arg).then(function(value) {
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return Promise.resolve(value.__await).then(function(value) {
             invoke("next", value, resolve, reject);
           }, function(err) {
             invoke("throw", err, resolve, reject);
@@ -49254,6 +48481,7 @@ process.umask = function() { return 0; };
   }
 
   defineIteratorMethods(AsyncIterator.prototype);
+  runtime.AsyncIterator = AsyncIterator;
 
   // Note that simple async functions are implemented on top of
   // AsyncIterator objects; they just return a Promise for the value of
@@ -49413,10 +48641,6 @@ process.umask = function() { return 0; };
   // Define Generator.prototype.{next,throw,return} in terms of the
   // unified ._invoke helper method.
   defineIteratorMethods(Gp);
-
-  Gp[iteratorSymbol] = function() {
-    return this;
-  };
 
   Gp[toStringTagSymbol] = "Generator";
 
@@ -49712,7 +48936,7 @@ process.umask = function() { return 0; };
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 
-},{"_process":398}],400:[function(require,module,exports){
+},{"_process":400}],402:[function(require,module,exports){
 /***
    Copyright 2013 Teun Duynstee
 
@@ -49767,7 +48991,7 @@ module.exports = (function() {
     return tb;
 })();
 
-},{}],401:[function(require,module,exports){
+},{}],403:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -51317,7386 +50541,6 @@ module.exports = (function() {
   }
 }.call(this));
 
-},{}],402:[function(require,module,exports){
-(function (Buffer){
-"use strict";
-
-(function(root) {
-
-    var createBuffer = null, copyBuffer = null, convertBytesToString, convertStringToBytes = null;
-
-    var slowCreateBuffer = function(arg) {
-
-        // Passed in a single number, the length to pre-allocate
-        if (typeof arg === 'number') {
-            var result = [];
-            for (var i = 0; i < arg; i++) {
-                result.push(0);
-            }
-            return result;
-
-        } else  {
-            // Make sure they are passing sensible data
-            for (var i = 0; i < arg.length; i++) {
-                if (arg[i] < 0 || arg[i] >= 256 || typeof arg[i] !== 'number') {
-                    throw new Error('invalid byte (' + arg[i] + ':' + i + ')');
-                }
-            }
-
-            // Most array-like things should support this
-            if (arg.slice) {
-                return arg.slice(0);
-            }
-
-            // Something *weird*; copy it into an array (see PR#2)
-            var result = [];
-            for (var i = 0; i < arg.length; i++) {
-                result.push(arg[i]);
-            }
-            return result;
-        }
-    }
-
-    if (typeof(Buffer) === 'undefined') {
-        createBuffer = slowCreateBuffer;
-
-        copyBuffer = function(sourceBuffer, targetBuffer, targetStart, sourceStart, sourceEnd) {
-            if (targetStart == null) { targetStart = 0; }
-            if (sourceStart == null) { sourceStart = 0; }
-            if (sourceEnd == null) { sourceEnd = sourceBuffer.length; }
-            for (var i = sourceStart; i < sourceEnd; i++) {
-                targetBuffer[targetStart++] = sourceBuffer[i];
-            }
-        }
-
-        convertStringToBytes = function(text, encoding) {
-
-            // "utf8", "utf-8", "utf 8", etc
-            if (encoding == null || encoding.toLowerCase().replace(/ |-/g, "") == 'utf8') {
-                var result = [], i = 0;
-                text = encodeURI(text);
-                while (i < text.length) {
-                    var c = text.charCodeAt(i++);
-
-                    // if it is a % sign, encode the following 2 bytes as a hex value
-                    if (c === 37) {
-                        result.push(parseInt(text.substr(i, 2), 16))
-                        i += 2;
-
-                    // otherwise, just the actual byte
-                    } else {
-                        result.push(c)
-                    }
-                }
-
-                return result;
-
-            // "hex"
-            } else if (encoding.toLowerCase() == 'hex') {
-                var result = [];
-                for (var i = 0; i < text.length; i += 2) {
-                    result.push(parseInt(text.substr(i, 2), 16));
-                }
-
-                return result;
-            }
-
-            // @TODO: Base64...
-
-            return null;
-        }
-
-        // http://ixti.net/development/javascript/2011/11/11/base64-encodedecode-of-utf8-in-browser-with-js.html
-        var Hex = '0123456789abcdef';
-        convertBytesToString = function(bytes, encoding) {
-
-            // "utf8", "utf-8", "utf 8", etc
-            if (encoding == null || encoding.toLowerCase().replace(/ |-/g, "") == 'utf8') {
-                var result = [], i = 0;
-
-                while (i < bytes.length) {
-                    var c = bytes[i];
-
-                    if (c < 128) {
-                        result.push(String.fromCharCode(c));
-                        i++;
-                    } else if (c > 191 && c < 224) {
-                        result.push(String.fromCharCode(((c & 0x1f) << 6) | (bytes[i + 1] & 0x3f)));
-                        i += 2;
-                    } else {
-                        result.push(String.fromCharCode(((c & 0x0f) << 12) | ((bytes[i + 1] & 0x3f) << 6) | (bytes[i + 2] & 0x3f)));
-                        i += 3;
-                    }
-                }
-
-                return result.join('');
-
-            // "hex"
-            } else if (encoding.toLowerCase() == 'hex') {
-                var result = [];
-                for (var i = 0; i < bytes.length; i++) {
-                    var v = bytes[i];
-                    result.push(Hex[(v & 0xf0) >> 4] + Hex[v & 0x0f]);
-                }
-                return result.join('');
-            }
-
-            return result
-        }
-
-    } else {
-        createBuffer = function(arg) { return new Buffer(arg); }
-
-        copyBuffer = function(sourceBuffer, targetBuffer, targetStart, sourceStart, sourceEnd) {
-            sourceBuffer.copy(targetBuffer, targetStart, sourceStart, sourceEnd);
-        }
-
-        convertStringToBytes = function(text, encoding) {
-            return new Buffer(text, encoding);
-        }
-
-        convertBytesToString = function(bytes, encoding) {
-            return (new Buffer(bytes)).toString(encoding);
-        }
-    }
-
-
-    // Number of rounds by keysize
-    var numberOfRounds = {16: 10, 24: 12, 32: 14}
-
-    // Round constant words
-    var rcon = [0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36, 0x6c, 0xd8, 0xab, 0x4d, 0x9a, 0x2f, 0x5e, 0xbc, 0x63, 0xc6, 0x97, 0x35, 0x6a, 0xd4, 0xb3, 0x7d, 0xfa, 0xef, 0xc5, 0x91];
-
-    // S-box and Inverse S-box (S is for Substitution)
-    var S = [0x63, 0x7c, 0x77, 0x7b, 0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76, 0xca, 0x82, 0xc9, 0x7d, 0xfa, 0x59, 0x47, 0xf0, 0xad, 0xd4, 0xa2, 0xaf, 0x9c, 0xa4, 0x72, 0xc0, 0xb7, 0xfd, 0x93, 0x26, 0x36, 0x3f, 0xf7, 0xcc, 0x34, 0xa5, 0xe5, 0xf1, 0x71, 0xd8, 0x31, 0x15, 0x04, 0xc7, 0x23, 0xc3, 0x18, 0x96, 0x05, 0x9a, 0x07, 0x12, 0x80, 0xe2, 0xeb, 0x27, 0xb2, 0x75, 0x09, 0x83, 0x2c, 0x1a, 0x1b, 0x6e, 0x5a, 0xa0, 0x52, 0x3b, 0xd6, 0xb3, 0x29, 0xe3, 0x2f, 0x84, 0x53, 0xd1, 0x00, 0xed, 0x20, 0xfc, 0xb1, 0x5b, 0x6a, 0xcb, 0xbe, 0x39, 0x4a, 0x4c, 0x58, 0xcf, 0xd0, 0xef, 0xaa, 0xfb, 0x43, 0x4d, 0x33, 0x85, 0x45, 0xf9, 0x02, 0x7f, 0x50, 0x3c, 0x9f, 0xa8, 0x51, 0xa3, 0x40, 0x8f, 0x92, 0x9d, 0x38, 0xf5, 0xbc, 0xb6, 0xda, 0x21, 0x10, 0xff, 0xf3, 0xd2, 0xcd, 0x0c, 0x13, 0xec, 0x5f, 0x97, 0x44, 0x17, 0xc4, 0xa7, 0x7e, 0x3d, 0x64, 0x5d, 0x19, 0x73, 0x60, 0x81, 0x4f, 0xdc, 0x22, 0x2a, 0x90, 0x88, 0x46, 0xee, 0xb8, 0x14, 0xde, 0x5e, 0x0b, 0xdb, 0xe0, 0x32, 0x3a, 0x0a, 0x49, 0x06, 0x24, 0x5c, 0xc2, 0xd3, 0xac, 0x62, 0x91, 0x95, 0xe4, 0x79, 0xe7, 0xc8, 0x37, 0x6d, 0x8d, 0xd5, 0x4e, 0xa9, 0x6c, 0x56, 0xf4, 0xea, 0x65, 0x7a, 0xae, 0x08, 0xba, 0x78, 0x25, 0x2e, 0x1c, 0xa6, 0xb4, 0xc6, 0xe8, 0xdd, 0x74, 0x1f, 0x4b, 0xbd, 0x8b, 0x8a, 0x70, 0x3e, 0xb5, 0x66, 0x48, 0x03, 0xf6, 0x0e, 0x61, 0x35, 0x57, 0xb9, 0x86, 0xc1, 0x1d, 0x9e, 0xe1, 0xf8, 0x98, 0x11, 0x69, 0xd9, 0x8e, 0x94, 0x9b, 0x1e, 0x87, 0xe9, 0xce, 0x55, 0x28, 0xdf, 0x8c, 0xa1, 0x89, 0x0d, 0xbf, 0xe6, 0x42, 0x68, 0x41, 0x99, 0x2d, 0x0f, 0xb0, 0x54, 0xbb, 0x16];
-    var Si =[0x52, 0x09, 0x6a, 0xd5, 0x30, 0x36, 0xa5, 0x38, 0xbf, 0x40, 0xa3, 0x9e, 0x81, 0xf3, 0xd7, 0xfb, 0x7c, 0xe3, 0x39, 0x82, 0x9b, 0x2f, 0xff, 0x87, 0x34, 0x8e, 0x43, 0x44, 0xc4, 0xde, 0xe9, 0xcb, 0x54, 0x7b, 0x94, 0x32, 0xa6, 0xc2, 0x23, 0x3d, 0xee, 0x4c, 0x95, 0x0b, 0x42, 0xfa, 0xc3, 0x4e, 0x08, 0x2e, 0xa1, 0x66, 0x28, 0xd9, 0x24, 0xb2, 0x76, 0x5b, 0xa2, 0x49, 0x6d, 0x8b, 0xd1, 0x25, 0x72, 0xf8, 0xf6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xd4, 0xa4, 0x5c, 0xcc, 0x5d, 0x65, 0xb6, 0x92, 0x6c, 0x70, 0x48, 0x50, 0xfd, 0xed, 0xb9, 0xda, 0x5e, 0x15, 0x46, 0x57, 0xa7, 0x8d, 0x9d, 0x84, 0x90, 0xd8, 0xab, 0x00, 0x8c, 0xbc, 0xd3, 0x0a, 0xf7, 0xe4, 0x58, 0x05, 0xb8, 0xb3, 0x45, 0x06, 0xd0, 0x2c, 0x1e, 0x8f, 0xca, 0x3f, 0x0f, 0x02, 0xc1, 0xaf, 0xbd, 0x03, 0x01, 0x13, 0x8a, 0x6b, 0x3a, 0x91, 0x11, 0x41, 0x4f, 0x67, 0xdc, 0xea, 0x97, 0xf2, 0xcf, 0xce, 0xf0, 0xb4, 0xe6, 0x73, 0x96, 0xac, 0x74, 0x22, 0xe7, 0xad, 0x35, 0x85, 0xe2, 0xf9, 0x37, 0xe8, 0x1c, 0x75, 0xdf, 0x6e, 0x47, 0xf1, 0x1a, 0x71, 0x1d, 0x29, 0xc5, 0x89, 0x6f, 0xb7, 0x62, 0x0e, 0xaa, 0x18, 0xbe, 0x1b, 0xfc, 0x56, 0x3e, 0x4b, 0xc6, 0xd2, 0x79, 0x20, 0x9a, 0xdb, 0xc0, 0xfe, 0x78, 0xcd, 0x5a, 0xf4, 0x1f, 0xdd, 0xa8, 0x33, 0x88, 0x07, 0xc7, 0x31, 0xb1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xec, 0x5f, 0x60, 0x51, 0x7f, 0xa9, 0x19, 0xb5, 0x4a, 0x0d, 0x2d, 0xe5, 0x7a, 0x9f, 0x93, 0xc9, 0x9c, 0xef, 0xa0, 0xe0, 0x3b, 0x4d, 0xae, 0x2a, 0xf5, 0xb0, 0xc8, 0xeb, 0xbb, 0x3c, 0x83, 0x53, 0x99, 0x61, 0x17, 0x2b, 0x04, 0x7e, 0xba, 0x77, 0xd6, 0x26, 0xe1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0c, 0x7d];
-
-    // Transformations for encryption
-    var T1 = [0xc66363a5, 0xf87c7c84, 0xee777799, 0xf67b7b8d, 0xfff2f20d, 0xd66b6bbd, 0xde6f6fb1, 0x91c5c554, 0x60303050, 0x02010103, 0xce6767a9, 0x562b2b7d, 0xe7fefe19, 0xb5d7d762, 0x4dababe6, 0xec76769a, 0x8fcaca45, 0x1f82829d, 0x89c9c940, 0xfa7d7d87, 0xeffafa15, 0xb25959eb, 0x8e4747c9, 0xfbf0f00b, 0x41adadec, 0xb3d4d467, 0x5fa2a2fd, 0x45afafea, 0x239c9cbf, 0x53a4a4f7, 0xe4727296, 0x9bc0c05b, 0x75b7b7c2, 0xe1fdfd1c, 0x3d9393ae, 0x4c26266a, 0x6c36365a, 0x7e3f3f41, 0xf5f7f702, 0x83cccc4f, 0x6834345c, 0x51a5a5f4, 0xd1e5e534, 0xf9f1f108, 0xe2717193, 0xabd8d873, 0x62313153, 0x2a15153f, 0x0804040c, 0x95c7c752, 0x46232365, 0x9dc3c35e, 0x30181828, 0x379696a1, 0x0a05050f, 0x2f9a9ab5, 0x0e070709, 0x24121236, 0x1b80809b, 0xdfe2e23d, 0xcdebeb26, 0x4e272769, 0x7fb2b2cd, 0xea75759f, 0x1209091b, 0x1d83839e, 0x582c2c74, 0x341a1a2e, 0x361b1b2d, 0xdc6e6eb2, 0xb45a5aee, 0x5ba0a0fb, 0xa45252f6, 0x763b3b4d, 0xb7d6d661, 0x7db3b3ce, 0x5229297b, 0xdde3e33e, 0x5e2f2f71, 0x13848497, 0xa65353f5, 0xb9d1d168, 0x00000000, 0xc1eded2c, 0x40202060, 0xe3fcfc1f, 0x79b1b1c8, 0xb65b5bed, 0xd46a6abe, 0x8dcbcb46, 0x67bebed9, 0x7239394b, 0x944a4ade, 0x984c4cd4, 0xb05858e8, 0x85cfcf4a, 0xbbd0d06b, 0xc5efef2a, 0x4faaaae5, 0xedfbfb16, 0x864343c5, 0x9a4d4dd7, 0x66333355, 0x11858594, 0x8a4545cf, 0xe9f9f910, 0x04020206, 0xfe7f7f81, 0xa05050f0, 0x783c3c44, 0x259f9fba, 0x4ba8a8e3, 0xa25151f3, 0x5da3a3fe, 0x804040c0, 0x058f8f8a, 0x3f9292ad, 0x219d9dbc, 0x70383848, 0xf1f5f504, 0x63bcbcdf, 0x77b6b6c1, 0xafdada75, 0x42212163, 0x20101030, 0xe5ffff1a, 0xfdf3f30e, 0xbfd2d26d, 0x81cdcd4c, 0x180c0c14, 0x26131335, 0xc3ecec2f, 0xbe5f5fe1, 0x359797a2, 0x884444cc, 0x2e171739, 0x93c4c457, 0x55a7a7f2, 0xfc7e7e82, 0x7a3d3d47, 0xc86464ac, 0xba5d5de7, 0x3219192b, 0xe6737395, 0xc06060a0, 0x19818198, 0x9e4f4fd1, 0xa3dcdc7f, 0x44222266, 0x542a2a7e, 0x3b9090ab, 0x0b888883, 0x8c4646ca, 0xc7eeee29, 0x6bb8b8d3, 0x2814143c, 0xa7dede79, 0xbc5e5ee2, 0x160b0b1d, 0xaddbdb76, 0xdbe0e03b, 0x64323256, 0x743a3a4e, 0x140a0a1e, 0x924949db, 0x0c06060a, 0x4824246c, 0xb85c5ce4, 0x9fc2c25d, 0xbdd3d36e, 0x43acacef, 0xc46262a6, 0x399191a8, 0x319595a4, 0xd3e4e437, 0xf279798b, 0xd5e7e732, 0x8bc8c843, 0x6e373759, 0xda6d6db7, 0x018d8d8c, 0xb1d5d564, 0x9c4e4ed2, 0x49a9a9e0, 0xd86c6cb4, 0xac5656fa, 0xf3f4f407, 0xcfeaea25, 0xca6565af, 0xf47a7a8e, 0x47aeaee9, 0x10080818, 0x6fbabad5, 0xf0787888, 0x4a25256f, 0x5c2e2e72, 0x381c1c24, 0x57a6a6f1, 0x73b4b4c7, 0x97c6c651, 0xcbe8e823, 0xa1dddd7c, 0xe874749c, 0x3e1f1f21, 0x964b4bdd, 0x61bdbddc, 0x0d8b8b86, 0x0f8a8a85, 0xe0707090, 0x7c3e3e42, 0x71b5b5c4, 0xcc6666aa, 0x904848d8, 0x06030305, 0xf7f6f601, 0x1c0e0e12, 0xc26161a3, 0x6a35355f, 0xae5757f9, 0x69b9b9d0, 0x17868691, 0x99c1c158, 0x3a1d1d27, 0x279e9eb9, 0xd9e1e138, 0xebf8f813, 0x2b9898b3, 0x22111133, 0xd26969bb, 0xa9d9d970, 0x078e8e89, 0x339494a7, 0x2d9b9bb6, 0x3c1e1e22, 0x15878792, 0xc9e9e920, 0x87cece49, 0xaa5555ff, 0x50282878, 0xa5dfdf7a, 0x038c8c8f, 0x59a1a1f8, 0x09898980, 0x1a0d0d17, 0x65bfbfda, 0xd7e6e631, 0x844242c6, 0xd06868b8, 0x824141c3, 0x299999b0, 0x5a2d2d77, 0x1e0f0f11, 0x7bb0b0cb, 0xa85454fc, 0x6dbbbbd6, 0x2c16163a];
-    var T2 = [0xa5c66363, 0x84f87c7c, 0x99ee7777, 0x8df67b7b, 0x0dfff2f2, 0xbdd66b6b, 0xb1de6f6f, 0x5491c5c5, 0x50603030, 0x03020101, 0xa9ce6767, 0x7d562b2b, 0x19e7fefe, 0x62b5d7d7, 0xe64dabab, 0x9aec7676, 0x458fcaca, 0x9d1f8282, 0x4089c9c9, 0x87fa7d7d, 0x15effafa, 0xebb25959, 0xc98e4747, 0x0bfbf0f0, 0xec41adad, 0x67b3d4d4, 0xfd5fa2a2, 0xea45afaf, 0xbf239c9c, 0xf753a4a4, 0x96e47272, 0x5b9bc0c0, 0xc275b7b7, 0x1ce1fdfd, 0xae3d9393, 0x6a4c2626, 0x5a6c3636, 0x417e3f3f, 0x02f5f7f7, 0x4f83cccc, 0x5c683434, 0xf451a5a5, 0x34d1e5e5, 0x08f9f1f1, 0x93e27171, 0x73abd8d8, 0x53623131, 0x3f2a1515, 0x0c080404, 0x5295c7c7, 0x65462323, 0x5e9dc3c3, 0x28301818, 0xa1379696, 0x0f0a0505, 0xb52f9a9a, 0x090e0707, 0x36241212, 0x9b1b8080, 0x3ddfe2e2, 0x26cdebeb, 0x694e2727, 0xcd7fb2b2, 0x9fea7575, 0x1b120909, 0x9e1d8383, 0x74582c2c, 0x2e341a1a, 0x2d361b1b, 0xb2dc6e6e, 0xeeb45a5a, 0xfb5ba0a0, 0xf6a45252, 0x4d763b3b, 0x61b7d6d6, 0xce7db3b3, 0x7b522929, 0x3edde3e3, 0x715e2f2f, 0x97138484, 0xf5a65353, 0x68b9d1d1, 0x00000000, 0x2cc1eded, 0x60402020, 0x1fe3fcfc, 0xc879b1b1, 0xedb65b5b, 0xbed46a6a, 0x468dcbcb, 0xd967bebe, 0x4b723939, 0xde944a4a, 0xd4984c4c, 0xe8b05858, 0x4a85cfcf, 0x6bbbd0d0, 0x2ac5efef, 0xe54faaaa, 0x16edfbfb, 0xc5864343, 0xd79a4d4d, 0x55663333, 0x94118585, 0xcf8a4545, 0x10e9f9f9, 0x06040202, 0x81fe7f7f, 0xf0a05050, 0x44783c3c, 0xba259f9f, 0xe34ba8a8, 0xf3a25151, 0xfe5da3a3, 0xc0804040, 0x8a058f8f, 0xad3f9292, 0xbc219d9d, 0x48703838, 0x04f1f5f5, 0xdf63bcbc, 0xc177b6b6, 0x75afdada, 0x63422121, 0x30201010, 0x1ae5ffff, 0x0efdf3f3, 0x6dbfd2d2, 0x4c81cdcd, 0x14180c0c, 0x35261313, 0x2fc3ecec, 0xe1be5f5f, 0xa2359797, 0xcc884444, 0x392e1717, 0x5793c4c4, 0xf255a7a7, 0x82fc7e7e, 0x477a3d3d, 0xacc86464, 0xe7ba5d5d, 0x2b321919, 0x95e67373, 0xa0c06060, 0x98198181, 0xd19e4f4f, 0x7fa3dcdc, 0x66442222, 0x7e542a2a, 0xab3b9090, 0x830b8888, 0xca8c4646, 0x29c7eeee, 0xd36bb8b8, 0x3c281414, 0x79a7dede, 0xe2bc5e5e, 0x1d160b0b, 0x76addbdb, 0x3bdbe0e0, 0x56643232, 0x4e743a3a, 0x1e140a0a, 0xdb924949, 0x0a0c0606, 0x6c482424, 0xe4b85c5c, 0x5d9fc2c2, 0x6ebdd3d3, 0xef43acac, 0xa6c46262, 0xa8399191, 0xa4319595, 0x37d3e4e4, 0x8bf27979, 0x32d5e7e7, 0x438bc8c8, 0x596e3737, 0xb7da6d6d, 0x8c018d8d, 0x64b1d5d5, 0xd29c4e4e, 0xe049a9a9, 0xb4d86c6c, 0xfaac5656, 0x07f3f4f4, 0x25cfeaea, 0xafca6565, 0x8ef47a7a, 0xe947aeae, 0x18100808, 0xd56fbaba, 0x88f07878, 0x6f4a2525, 0x725c2e2e, 0x24381c1c, 0xf157a6a6, 0xc773b4b4, 0x5197c6c6, 0x23cbe8e8, 0x7ca1dddd, 0x9ce87474, 0x213e1f1f, 0xdd964b4b, 0xdc61bdbd, 0x860d8b8b, 0x850f8a8a, 0x90e07070, 0x427c3e3e, 0xc471b5b5, 0xaacc6666, 0xd8904848, 0x05060303, 0x01f7f6f6, 0x121c0e0e, 0xa3c26161, 0x5f6a3535, 0xf9ae5757, 0xd069b9b9, 0x91178686, 0x5899c1c1, 0x273a1d1d, 0xb9279e9e, 0x38d9e1e1, 0x13ebf8f8, 0xb32b9898, 0x33221111, 0xbbd26969, 0x70a9d9d9, 0x89078e8e, 0xa7339494, 0xb62d9b9b, 0x223c1e1e, 0x92158787, 0x20c9e9e9, 0x4987cece, 0xffaa5555, 0x78502828, 0x7aa5dfdf, 0x8f038c8c, 0xf859a1a1, 0x80098989, 0x171a0d0d, 0xda65bfbf, 0x31d7e6e6, 0xc6844242, 0xb8d06868, 0xc3824141, 0xb0299999, 0x775a2d2d, 0x111e0f0f, 0xcb7bb0b0, 0xfca85454, 0xd66dbbbb, 0x3a2c1616];
-    var T3 = [0x63a5c663, 0x7c84f87c, 0x7799ee77, 0x7b8df67b, 0xf20dfff2, 0x6bbdd66b, 0x6fb1de6f, 0xc55491c5, 0x30506030, 0x01030201, 0x67a9ce67, 0x2b7d562b, 0xfe19e7fe, 0xd762b5d7, 0xabe64dab, 0x769aec76, 0xca458fca, 0x829d1f82, 0xc94089c9, 0x7d87fa7d, 0xfa15effa, 0x59ebb259, 0x47c98e47, 0xf00bfbf0, 0xadec41ad, 0xd467b3d4, 0xa2fd5fa2, 0xafea45af, 0x9cbf239c, 0xa4f753a4, 0x7296e472, 0xc05b9bc0, 0xb7c275b7, 0xfd1ce1fd, 0x93ae3d93, 0x266a4c26, 0x365a6c36, 0x3f417e3f, 0xf702f5f7, 0xcc4f83cc, 0x345c6834, 0xa5f451a5, 0xe534d1e5, 0xf108f9f1, 0x7193e271, 0xd873abd8, 0x31536231, 0x153f2a15, 0x040c0804, 0xc75295c7, 0x23654623, 0xc35e9dc3, 0x18283018, 0x96a13796, 0x050f0a05, 0x9ab52f9a, 0x07090e07, 0x12362412, 0x809b1b80, 0xe23ddfe2, 0xeb26cdeb, 0x27694e27, 0xb2cd7fb2, 0x759fea75, 0x091b1209, 0x839e1d83, 0x2c74582c, 0x1a2e341a, 0x1b2d361b, 0x6eb2dc6e, 0x5aeeb45a, 0xa0fb5ba0, 0x52f6a452, 0x3b4d763b, 0xd661b7d6, 0xb3ce7db3, 0x297b5229, 0xe33edde3, 0x2f715e2f, 0x84971384, 0x53f5a653, 0xd168b9d1, 0x00000000, 0xed2cc1ed, 0x20604020, 0xfc1fe3fc, 0xb1c879b1, 0x5bedb65b, 0x6abed46a, 0xcb468dcb, 0xbed967be, 0x394b7239, 0x4ade944a, 0x4cd4984c, 0x58e8b058, 0xcf4a85cf, 0xd06bbbd0, 0xef2ac5ef, 0xaae54faa, 0xfb16edfb, 0x43c58643, 0x4dd79a4d, 0x33556633, 0x85941185, 0x45cf8a45, 0xf910e9f9, 0x02060402, 0x7f81fe7f, 0x50f0a050, 0x3c44783c, 0x9fba259f, 0xa8e34ba8, 0x51f3a251, 0xa3fe5da3, 0x40c08040, 0x8f8a058f, 0x92ad3f92, 0x9dbc219d, 0x38487038, 0xf504f1f5, 0xbcdf63bc, 0xb6c177b6, 0xda75afda, 0x21634221, 0x10302010, 0xff1ae5ff, 0xf30efdf3, 0xd26dbfd2, 0xcd4c81cd, 0x0c14180c, 0x13352613, 0xec2fc3ec, 0x5fe1be5f, 0x97a23597, 0x44cc8844, 0x17392e17, 0xc45793c4, 0xa7f255a7, 0x7e82fc7e, 0x3d477a3d, 0x64acc864, 0x5de7ba5d, 0x192b3219, 0x7395e673, 0x60a0c060, 0x81981981, 0x4fd19e4f, 0xdc7fa3dc, 0x22664422, 0x2a7e542a, 0x90ab3b90, 0x88830b88, 0x46ca8c46, 0xee29c7ee, 0xb8d36bb8, 0x143c2814, 0xde79a7de, 0x5ee2bc5e, 0x0b1d160b, 0xdb76addb, 0xe03bdbe0, 0x32566432, 0x3a4e743a, 0x0a1e140a, 0x49db9249, 0x060a0c06, 0x246c4824, 0x5ce4b85c, 0xc25d9fc2, 0xd36ebdd3, 0xacef43ac, 0x62a6c462, 0x91a83991, 0x95a43195, 0xe437d3e4, 0x798bf279, 0xe732d5e7, 0xc8438bc8, 0x37596e37, 0x6db7da6d, 0x8d8c018d, 0xd564b1d5, 0x4ed29c4e, 0xa9e049a9, 0x6cb4d86c, 0x56faac56, 0xf407f3f4, 0xea25cfea, 0x65afca65, 0x7a8ef47a, 0xaee947ae, 0x08181008, 0xbad56fba, 0x7888f078, 0x256f4a25, 0x2e725c2e, 0x1c24381c, 0xa6f157a6, 0xb4c773b4, 0xc65197c6, 0xe823cbe8, 0xdd7ca1dd, 0x749ce874, 0x1f213e1f, 0x4bdd964b, 0xbddc61bd, 0x8b860d8b, 0x8a850f8a, 0x7090e070, 0x3e427c3e, 0xb5c471b5, 0x66aacc66, 0x48d89048, 0x03050603, 0xf601f7f6, 0x0e121c0e, 0x61a3c261, 0x355f6a35, 0x57f9ae57, 0xb9d069b9, 0x86911786, 0xc15899c1, 0x1d273a1d, 0x9eb9279e, 0xe138d9e1, 0xf813ebf8, 0x98b32b98, 0x11332211, 0x69bbd269, 0xd970a9d9, 0x8e89078e, 0x94a73394, 0x9bb62d9b, 0x1e223c1e, 0x87921587, 0xe920c9e9, 0xce4987ce, 0x55ffaa55, 0x28785028, 0xdf7aa5df, 0x8c8f038c, 0xa1f859a1, 0x89800989, 0x0d171a0d, 0xbfda65bf, 0xe631d7e6, 0x42c68442, 0x68b8d068, 0x41c38241, 0x99b02999, 0x2d775a2d, 0x0f111e0f, 0xb0cb7bb0, 0x54fca854, 0xbbd66dbb, 0x163a2c16];
-    var T4 = [0x6363a5c6, 0x7c7c84f8, 0x777799ee, 0x7b7b8df6, 0xf2f20dff, 0x6b6bbdd6, 0x6f6fb1de, 0xc5c55491, 0x30305060, 0x01010302, 0x6767a9ce, 0x2b2b7d56, 0xfefe19e7, 0xd7d762b5, 0xababe64d, 0x76769aec, 0xcaca458f, 0x82829d1f, 0xc9c94089, 0x7d7d87fa, 0xfafa15ef, 0x5959ebb2, 0x4747c98e, 0xf0f00bfb, 0xadadec41, 0xd4d467b3, 0xa2a2fd5f, 0xafafea45, 0x9c9cbf23, 0xa4a4f753, 0x727296e4, 0xc0c05b9b, 0xb7b7c275, 0xfdfd1ce1, 0x9393ae3d, 0x26266a4c, 0x36365a6c, 0x3f3f417e, 0xf7f702f5, 0xcccc4f83, 0x34345c68, 0xa5a5f451, 0xe5e534d1, 0xf1f108f9, 0x717193e2, 0xd8d873ab, 0x31315362, 0x15153f2a, 0x04040c08, 0xc7c75295, 0x23236546, 0xc3c35e9d, 0x18182830, 0x9696a137, 0x05050f0a, 0x9a9ab52f, 0x0707090e, 0x12123624, 0x80809b1b, 0xe2e23ddf, 0xebeb26cd, 0x2727694e, 0xb2b2cd7f, 0x75759fea, 0x09091b12, 0x83839e1d, 0x2c2c7458, 0x1a1a2e34, 0x1b1b2d36, 0x6e6eb2dc, 0x5a5aeeb4, 0xa0a0fb5b, 0x5252f6a4, 0x3b3b4d76, 0xd6d661b7, 0xb3b3ce7d, 0x29297b52, 0xe3e33edd, 0x2f2f715e, 0x84849713, 0x5353f5a6, 0xd1d168b9, 0x00000000, 0xeded2cc1, 0x20206040, 0xfcfc1fe3, 0xb1b1c879, 0x5b5bedb6, 0x6a6abed4, 0xcbcb468d, 0xbebed967, 0x39394b72, 0x4a4ade94, 0x4c4cd498, 0x5858e8b0, 0xcfcf4a85, 0xd0d06bbb, 0xefef2ac5, 0xaaaae54f, 0xfbfb16ed, 0x4343c586, 0x4d4dd79a, 0x33335566, 0x85859411, 0x4545cf8a, 0xf9f910e9, 0x02020604, 0x7f7f81fe, 0x5050f0a0, 0x3c3c4478, 0x9f9fba25, 0xa8a8e34b, 0x5151f3a2, 0xa3a3fe5d, 0x4040c080, 0x8f8f8a05, 0x9292ad3f, 0x9d9dbc21, 0x38384870, 0xf5f504f1, 0xbcbcdf63, 0xb6b6c177, 0xdada75af, 0x21216342, 0x10103020, 0xffff1ae5, 0xf3f30efd, 0xd2d26dbf, 0xcdcd4c81, 0x0c0c1418, 0x13133526, 0xecec2fc3, 0x5f5fe1be, 0x9797a235, 0x4444cc88, 0x1717392e, 0xc4c45793, 0xa7a7f255, 0x7e7e82fc, 0x3d3d477a, 0x6464acc8, 0x5d5de7ba, 0x19192b32, 0x737395e6, 0x6060a0c0, 0x81819819, 0x4f4fd19e, 0xdcdc7fa3, 0x22226644, 0x2a2a7e54, 0x9090ab3b, 0x8888830b, 0x4646ca8c, 0xeeee29c7, 0xb8b8d36b, 0x14143c28, 0xdede79a7, 0x5e5ee2bc, 0x0b0b1d16, 0xdbdb76ad, 0xe0e03bdb, 0x32325664, 0x3a3a4e74, 0x0a0a1e14, 0x4949db92, 0x06060a0c, 0x24246c48, 0x5c5ce4b8, 0xc2c25d9f, 0xd3d36ebd, 0xacacef43, 0x6262a6c4, 0x9191a839, 0x9595a431, 0xe4e437d3, 0x79798bf2, 0xe7e732d5, 0xc8c8438b, 0x3737596e, 0x6d6db7da, 0x8d8d8c01, 0xd5d564b1, 0x4e4ed29c, 0xa9a9e049, 0x6c6cb4d8, 0x5656faac, 0xf4f407f3, 0xeaea25cf, 0x6565afca, 0x7a7a8ef4, 0xaeaee947, 0x08081810, 0xbabad56f, 0x787888f0, 0x25256f4a, 0x2e2e725c, 0x1c1c2438, 0xa6a6f157, 0xb4b4c773, 0xc6c65197, 0xe8e823cb, 0xdddd7ca1, 0x74749ce8, 0x1f1f213e, 0x4b4bdd96, 0xbdbddc61, 0x8b8b860d, 0x8a8a850f, 0x707090e0, 0x3e3e427c, 0xb5b5c471, 0x6666aacc, 0x4848d890, 0x03030506, 0xf6f601f7, 0x0e0e121c, 0x6161a3c2, 0x35355f6a, 0x5757f9ae, 0xb9b9d069, 0x86869117, 0xc1c15899, 0x1d1d273a, 0x9e9eb927, 0xe1e138d9, 0xf8f813eb, 0x9898b32b, 0x11113322, 0x6969bbd2, 0xd9d970a9, 0x8e8e8907, 0x9494a733, 0x9b9bb62d, 0x1e1e223c, 0x87879215, 0xe9e920c9, 0xcece4987, 0x5555ffaa, 0x28287850, 0xdfdf7aa5, 0x8c8c8f03, 0xa1a1f859, 0x89898009, 0x0d0d171a, 0xbfbfda65, 0xe6e631d7, 0x4242c684, 0x6868b8d0, 0x4141c382, 0x9999b029, 0x2d2d775a, 0x0f0f111e, 0xb0b0cb7b, 0x5454fca8, 0xbbbbd66d, 0x16163a2c];
-
-    // Transformations for decryption
-    var T5 = [0x51f4a750, 0x7e416553, 0x1a17a4c3, 0x3a275e96, 0x3bab6bcb, 0x1f9d45f1, 0xacfa58ab, 0x4be30393, 0x2030fa55, 0xad766df6, 0x88cc7691, 0xf5024c25, 0x4fe5d7fc, 0xc52acbd7, 0x26354480, 0xb562a38f, 0xdeb15a49, 0x25ba1b67, 0x45ea0e98, 0x5dfec0e1, 0xc32f7502, 0x814cf012, 0x8d4697a3, 0x6bd3f9c6, 0x038f5fe7, 0x15929c95, 0xbf6d7aeb, 0x955259da, 0xd4be832d, 0x587421d3, 0x49e06929, 0x8ec9c844, 0x75c2896a, 0xf48e7978, 0x99583e6b, 0x27b971dd, 0xbee14fb6, 0xf088ad17, 0xc920ac66, 0x7dce3ab4, 0x63df4a18, 0xe51a3182, 0x97513360, 0x62537f45, 0xb16477e0, 0xbb6bae84, 0xfe81a01c, 0xf9082b94, 0x70486858, 0x8f45fd19, 0x94de6c87, 0x527bf8b7, 0xab73d323, 0x724b02e2, 0xe31f8f57, 0x6655ab2a, 0xb2eb2807, 0x2fb5c203, 0x86c57b9a, 0xd33708a5, 0x302887f2, 0x23bfa5b2, 0x02036aba, 0xed16825c, 0x8acf1c2b, 0xa779b492, 0xf307f2f0, 0x4e69e2a1, 0x65daf4cd, 0x0605bed5, 0xd134621f, 0xc4a6fe8a, 0x342e539d, 0xa2f355a0, 0x058ae132, 0xa4f6eb75, 0x0b83ec39, 0x4060efaa, 0x5e719f06, 0xbd6e1051, 0x3e218af9, 0x96dd063d, 0xdd3e05ae, 0x4de6bd46, 0x91548db5, 0x71c45d05, 0x0406d46f, 0x605015ff, 0x1998fb24, 0xd6bde997, 0x894043cc, 0x67d99e77, 0xb0e842bd, 0x07898b88, 0xe7195b38, 0x79c8eedb, 0xa17c0a47, 0x7c420fe9, 0xf8841ec9, 0x00000000, 0x09808683, 0x322bed48, 0x1e1170ac, 0x6c5a724e, 0xfd0efffb, 0x0f853856, 0x3daed51e, 0x362d3927, 0x0a0fd964, 0x685ca621, 0x9b5b54d1, 0x24362e3a, 0x0c0a67b1, 0x9357e70f, 0xb4ee96d2, 0x1b9b919e, 0x80c0c54f, 0x61dc20a2, 0x5a774b69, 0x1c121a16, 0xe293ba0a, 0xc0a02ae5, 0x3c22e043, 0x121b171d, 0x0e090d0b, 0xf28bc7ad, 0x2db6a8b9, 0x141ea9c8, 0x57f11985, 0xaf75074c, 0xee99ddbb, 0xa37f60fd, 0xf701269f, 0x5c72f5bc, 0x44663bc5, 0x5bfb7e34, 0x8b432976, 0xcb23c6dc, 0xb6edfc68, 0xb8e4f163, 0xd731dcca, 0x42638510, 0x13972240, 0x84c61120, 0x854a247d, 0xd2bb3df8, 0xaef93211, 0xc729a16d, 0x1d9e2f4b, 0xdcb230f3, 0x0d8652ec, 0x77c1e3d0, 0x2bb3166c, 0xa970b999, 0x119448fa, 0x47e96422, 0xa8fc8cc4, 0xa0f03f1a, 0x567d2cd8, 0x223390ef, 0x87494ec7, 0xd938d1c1, 0x8ccaa2fe, 0x98d40b36, 0xa6f581cf, 0xa57ade28, 0xdab78e26, 0x3fadbfa4, 0x2c3a9de4, 0x5078920d, 0x6a5fcc9b, 0x547e4662, 0xf68d13c2, 0x90d8b8e8, 0x2e39f75e, 0x82c3aff5, 0x9f5d80be, 0x69d0937c, 0x6fd52da9, 0xcf2512b3, 0xc8ac993b, 0x10187da7, 0xe89c636e, 0xdb3bbb7b, 0xcd267809, 0x6e5918f4, 0xec9ab701, 0x834f9aa8, 0xe6956e65, 0xaaffe67e, 0x21bccf08, 0xef15e8e6, 0xbae79bd9, 0x4a6f36ce, 0xea9f09d4, 0x29b07cd6, 0x31a4b2af, 0x2a3f2331, 0xc6a59430, 0x35a266c0, 0x744ebc37, 0xfc82caa6, 0xe090d0b0, 0x33a7d815, 0xf104984a, 0x41ecdaf7, 0x7fcd500e, 0x1791f62f, 0x764dd68d, 0x43efb04d, 0xccaa4d54, 0xe49604df, 0x9ed1b5e3, 0x4c6a881b, 0xc12c1fb8, 0x4665517f, 0x9d5eea04, 0x018c355d, 0xfa877473, 0xfb0b412e, 0xb3671d5a, 0x92dbd252, 0xe9105633, 0x6dd64713, 0x9ad7618c, 0x37a10c7a, 0x59f8148e, 0xeb133c89, 0xcea927ee, 0xb761c935, 0xe11ce5ed, 0x7a47b13c, 0x9cd2df59, 0x55f2733f, 0x1814ce79, 0x73c737bf, 0x53f7cdea, 0x5ffdaa5b, 0xdf3d6f14, 0x7844db86, 0xcaaff381, 0xb968c43e, 0x3824342c, 0xc2a3405f, 0x161dc372, 0xbce2250c, 0x283c498b, 0xff0d9541, 0x39a80171, 0x080cb3de, 0xd8b4e49c, 0x6456c190, 0x7bcb8461, 0xd532b670, 0x486c5c74, 0xd0b85742];
-    var T6 = [0x5051f4a7, 0x537e4165, 0xc31a17a4, 0x963a275e, 0xcb3bab6b, 0xf11f9d45, 0xabacfa58, 0x934be303, 0x552030fa, 0xf6ad766d, 0x9188cc76, 0x25f5024c, 0xfc4fe5d7, 0xd7c52acb, 0x80263544, 0x8fb562a3, 0x49deb15a, 0x6725ba1b, 0x9845ea0e, 0xe15dfec0, 0x02c32f75, 0x12814cf0, 0xa38d4697, 0xc66bd3f9, 0xe7038f5f, 0x9515929c, 0xebbf6d7a, 0xda955259, 0x2dd4be83, 0xd3587421, 0x2949e069, 0x448ec9c8, 0x6a75c289, 0x78f48e79, 0x6b99583e, 0xdd27b971, 0xb6bee14f, 0x17f088ad, 0x66c920ac, 0xb47dce3a, 0x1863df4a, 0x82e51a31, 0x60975133, 0x4562537f, 0xe0b16477, 0x84bb6bae, 0x1cfe81a0, 0x94f9082b, 0x58704868, 0x198f45fd, 0x8794de6c, 0xb7527bf8, 0x23ab73d3, 0xe2724b02, 0x57e31f8f, 0x2a6655ab, 0x07b2eb28, 0x032fb5c2, 0x9a86c57b, 0xa5d33708, 0xf2302887, 0xb223bfa5, 0xba02036a, 0x5ced1682, 0x2b8acf1c, 0x92a779b4, 0xf0f307f2, 0xa14e69e2, 0xcd65daf4, 0xd50605be, 0x1fd13462, 0x8ac4a6fe, 0x9d342e53, 0xa0a2f355, 0x32058ae1, 0x75a4f6eb, 0x390b83ec, 0xaa4060ef, 0x065e719f, 0x51bd6e10, 0xf93e218a, 0x3d96dd06, 0xaedd3e05, 0x464de6bd, 0xb591548d, 0x0571c45d, 0x6f0406d4, 0xff605015, 0x241998fb, 0x97d6bde9, 0xcc894043, 0x7767d99e, 0xbdb0e842, 0x8807898b, 0x38e7195b, 0xdb79c8ee, 0x47a17c0a, 0xe97c420f, 0xc9f8841e, 0x00000000, 0x83098086, 0x48322bed, 0xac1e1170, 0x4e6c5a72, 0xfbfd0eff, 0x560f8538, 0x1e3daed5, 0x27362d39, 0x640a0fd9, 0x21685ca6, 0xd19b5b54, 0x3a24362e, 0xb10c0a67, 0x0f9357e7, 0xd2b4ee96, 0x9e1b9b91, 0x4f80c0c5, 0xa261dc20, 0x695a774b, 0x161c121a, 0x0ae293ba, 0xe5c0a02a, 0x433c22e0, 0x1d121b17, 0x0b0e090d, 0xadf28bc7, 0xb92db6a8, 0xc8141ea9, 0x8557f119, 0x4caf7507, 0xbbee99dd, 0xfda37f60, 0x9ff70126, 0xbc5c72f5, 0xc544663b, 0x345bfb7e, 0x768b4329, 0xdccb23c6, 0x68b6edfc, 0x63b8e4f1, 0xcad731dc, 0x10426385, 0x40139722, 0x2084c611, 0x7d854a24, 0xf8d2bb3d, 0x11aef932, 0x6dc729a1, 0x4b1d9e2f, 0xf3dcb230, 0xec0d8652, 0xd077c1e3, 0x6c2bb316, 0x99a970b9, 0xfa119448, 0x2247e964, 0xc4a8fc8c, 0x1aa0f03f, 0xd8567d2c, 0xef223390, 0xc787494e, 0xc1d938d1, 0xfe8ccaa2, 0x3698d40b, 0xcfa6f581, 0x28a57ade, 0x26dab78e, 0xa43fadbf, 0xe42c3a9d, 0x0d507892, 0x9b6a5fcc, 0x62547e46, 0xc2f68d13, 0xe890d8b8, 0x5e2e39f7, 0xf582c3af, 0xbe9f5d80, 0x7c69d093, 0xa96fd52d, 0xb3cf2512, 0x3bc8ac99, 0xa710187d, 0x6ee89c63, 0x7bdb3bbb, 0x09cd2678, 0xf46e5918, 0x01ec9ab7, 0xa8834f9a, 0x65e6956e, 0x7eaaffe6, 0x0821bccf, 0xe6ef15e8, 0xd9bae79b, 0xce4a6f36, 0xd4ea9f09, 0xd629b07c, 0xaf31a4b2, 0x312a3f23, 0x30c6a594, 0xc035a266, 0x37744ebc, 0xa6fc82ca, 0xb0e090d0, 0x1533a7d8, 0x4af10498, 0xf741ecda, 0x0e7fcd50, 0x2f1791f6, 0x8d764dd6, 0x4d43efb0, 0x54ccaa4d, 0xdfe49604, 0xe39ed1b5, 0x1b4c6a88, 0xb8c12c1f, 0x7f466551, 0x049d5eea, 0x5d018c35, 0x73fa8774, 0x2efb0b41, 0x5ab3671d, 0x5292dbd2, 0x33e91056, 0x136dd647, 0x8c9ad761, 0x7a37a10c, 0x8e59f814, 0x89eb133c, 0xeecea927, 0x35b761c9, 0xede11ce5, 0x3c7a47b1, 0x599cd2df, 0x3f55f273, 0x791814ce, 0xbf73c737, 0xea53f7cd, 0x5b5ffdaa, 0x14df3d6f, 0x867844db, 0x81caaff3, 0x3eb968c4, 0x2c382434, 0x5fc2a340, 0x72161dc3, 0x0cbce225, 0x8b283c49, 0x41ff0d95, 0x7139a801, 0xde080cb3, 0x9cd8b4e4, 0x906456c1, 0x617bcb84, 0x70d532b6, 0x74486c5c, 0x42d0b857];
-    var T7 = [0xa75051f4, 0x65537e41, 0xa4c31a17, 0x5e963a27, 0x6bcb3bab, 0x45f11f9d, 0x58abacfa, 0x03934be3, 0xfa552030, 0x6df6ad76, 0x769188cc, 0x4c25f502, 0xd7fc4fe5, 0xcbd7c52a, 0x44802635, 0xa38fb562, 0x5a49deb1, 0x1b6725ba, 0x0e9845ea, 0xc0e15dfe, 0x7502c32f, 0xf012814c, 0x97a38d46, 0xf9c66bd3, 0x5fe7038f, 0x9c951592, 0x7aebbf6d, 0x59da9552, 0x832dd4be, 0x21d35874, 0x692949e0, 0xc8448ec9, 0x896a75c2, 0x7978f48e, 0x3e6b9958, 0x71dd27b9, 0x4fb6bee1, 0xad17f088, 0xac66c920, 0x3ab47dce, 0x4a1863df, 0x3182e51a, 0x33609751, 0x7f456253, 0x77e0b164, 0xae84bb6b, 0xa01cfe81, 0x2b94f908, 0x68587048, 0xfd198f45, 0x6c8794de, 0xf8b7527b, 0xd323ab73, 0x02e2724b, 0x8f57e31f, 0xab2a6655, 0x2807b2eb, 0xc2032fb5, 0x7b9a86c5, 0x08a5d337, 0x87f23028, 0xa5b223bf, 0x6aba0203, 0x825ced16, 0x1c2b8acf, 0xb492a779, 0xf2f0f307, 0xe2a14e69, 0xf4cd65da, 0xbed50605, 0x621fd134, 0xfe8ac4a6, 0x539d342e, 0x55a0a2f3, 0xe132058a, 0xeb75a4f6, 0xec390b83, 0xefaa4060, 0x9f065e71, 0x1051bd6e, 0x8af93e21, 0x063d96dd, 0x05aedd3e, 0xbd464de6, 0x8db59154, 0x5d0571c4, 0xd46f0406, 0x15ff6050, 0xfb241998, 0xe997d6bd, 0x43cc8940, 0x9e7767d9, 0x42bdb0e8, 0x8b880789, 0x5b38e719, 0xeedb79c8, 0x0a47a17c, 0x0fe97c42, 0x1ec9f884, 0x00000000, 0x86830980, 0xed48322b, 0x70ac1e11, 0x724e6c5a, 0xfffbfd0e, 0x38560f85, 0xd51e3dae, 0x3927362d, 0xd9640a0f, 0xa621685c, 0x54d19b5b, 0x2e3a2436, 0x67b10c0a, 0xe70f9357, 0x96d2b4ee, 0x919e1b9b, 0xc54f80c0, 0x20a261dc, 0x4b695a77, 0x1a161c12, 0xba0ae293, 0x2ae5c0a0, 0xe0433c22, 0x171d121b, 0x0d0b0e09, 0xc7adf28b, 0xa8b92db6, 0xa9c8141e, 0x198557f1, 0x074caf75, 0xddbbee99, 0x60fda37f, 0x269ff701, 0xf5bc5c72, 0x3bc54466, 0x7e345bfb, 0x29768b43, 0xc6dccb23, 0xfc68b6ed, 0xf163b8e4, 0xdccad731, 0x85104263, 0x22401397, 0x112084c6, 0x247d854a, 0x3df8d2bb, 0x3211aef9, 0xa16dc729, 0x2f4b1d9e, 0x30f3dcb2, 0x52ec0d86, 0xe3d077c1, 0x166c2bb3, 0xb999a970, 0x48fa1194, 0x642247e9, 0x8cc4a8fc, 0x3f1aa0f0, 0x2cd8567d, 0x90ef2233, 0x4ec78749, 0xd1c1d938, 0xa2fe8cca, 0x0b3698d4, 0x81cfa6f5, 0xde28a57a, 0x8e26dab7, 0xbfa43fad, 0x9de42c3a, 0x920d5078, 0xcc9b6a5f, 0x4662547e, 0x13c2f68d, 0xb8e890d8, 0xf75e2e39, 0xaff582c3, 0x80be9f5d, 0x937c69d0, 0x2da96fd5, 0x12b3cf25, 0x993bc8ac, 0x7da71018, 0x636ee89c, 0xbb7bdb3b, 0x7809cd26, 0x18f46e59, 0xb701ec9a, 0x9aa8834f, 0x6e65e695, 0xe67eaaff, 0xcf0821bc, 0xe8e6ef15, 0x9bd9bae7, 0x36ce4a6f, 0x09d4ea9f, 0x7cd629b0, 0xb2af31a4, 0x23312a3f, 0x9430c6a5, 0x66c035a2, 0xbc37744e, 0xcaa6fc82, 0xd0b0e090, 0xd81533a7, 0x984af104, 0xdaf741ec, 0x500e7fcd, 0xf62f1791, 0xd68d764d, 0xb04d43ef, 0x4d54ccaa, 0x04dfe496, 0xb5e39ed1, 0x881b4c6a, 0x1fb8c12c, 0x517f4665, 0xea049d5e, 0x355d018c, 0x7473fa87, 0x412efb0b, 0x1d5ab367, 0xd25292db, 0x5633e910, 0x47136dd6, 0x618c9ad7, 0x0c7a37a1, 0x148e59f8, 0x3c89eb13, 0x27eecea9, 0xc935b761, 0xe5ede11c, 0xb13c7a47, 0xdf599cd2, 0x733f55f2, 0xce791814, 0x37bf73c7, 0xcdea53f7, 0xaa5b5ffd, 0x6f14df3d, 0xdb867844, 0xf381caaf, 0xc43eb968, 0x342c3824, 0x405fc2a3, 0xc372161d, 0x250cbce2, 0x498b283c, 0x9541ff0d, 0x017139a8, 0xb3de080c, 0xe49cd8b4, 0xc1906456, 0x84617bcb, 0xb670d532, 0x5c74486c, 0x5742d0b8];
-    var T8 = [0xf4a75051, 0x4165537e, 0x17a4c31a, 0x275e963a, 0xab6bcb3b, 0x9d45f11f, 0xfa58abac, 0xe303934b, 0x30fa5520, 0x766df6ad, 0xcc769188, 0x024c25f5, 0xe5d7fc4f, 0x2acbd7c5, 0x35448026, 0x62a38fb5, 0xb15a49de, 0xba1b6725, 0xea0e9845, 0xfec0e15d, 0x2f7502c3, 0x4cf01281, 0x4697a38d, 0xd3f9c66b, 0x8f5fe703, 0x929c9515, 0x6d7aebbf, 0x5259da95, 0xbe832dd4, 0x7421d358, 0xe0692949, 0xc9c8448e, 0xc2896a75, 0x8e7978f4, 0x583e6b99, 0xb971dd27, 0xe14fb6be, 0x88ad17f0, 0x20ac66c9, 0xce3ab47d, 0xdf4a1863, 0x1a3182e5, 0x51336097, 0x537f4562, 0x6477e0b1, 0x6bae84bb, 0x81a01cfe, 0x082b94f9, 0x48685870, 0x45fd198f, 0xde6c8794, 0x7bf8b752, 0x73d323ab, 0x4b02e272, 0x1f8f57e3, 0x55ab2a66, 0xeb2807b2, 0xb5c2032f, 0xc57b9a86, 0x3708a5d3, 0x2887f230, 0xbfa5b223, 0x036aba02, 0x16825ced, 0xcf1c2b8a, 0x79b492a7, 0x07f2f0f3, 0x69e2a14e, 0xdaf4cd65, 0x05bed506, 0x34621fd1, 0xa6fe8ac4, 0x2e539d34, 0xf355a0a2, 0x8ae13205, 0xf6eb75a4, 0x83ec390b, 0x60efaa40, 0x719f065e, 0x6e1051bd, 0x218af93e, 0xdd063d96, 0x3e05aedd, 0xe6bd464d, 0x548db591, 0xc45d0571, 0x06d46f04, 0x5015ff60, 0x98fb2419, 0xbde997d6, 0x4043cc89, 0xd99e7767, 0xe842bdb0, 0x898b8807, 0x195b38e7, 0xc8eedb79, 0x7c0a47a1, 0x420fe97c, 0x841ec9f8, 0x00000000, 0x80868309, 0x2bed4832, 0x1170ac1e, 0x5a724e6c, 0x0efffbfd, 0x8538560f, 0xaed51e3d, 0x2d392736, 0x0fd9640a, 0x5ca62168, 0x5b54d19b, 0x362e3a24, 0x0a67b10c, 0x57e70f93, 0xee96d2b4, 0x9b919e1b, 0xc0c54f80, 0xdc20a261, 0x774b695a, 0x121a161c, 0x93ba0ae2, 0xa02ae5c0, 0x22e0433c, 0x1b171d12, 0x090d0b0e, 0x8bc7adf2, 0xb6a8b92d, 0x1ea9c814, 0xf1198557, 0x75074caf, 0x99ddbbee, 0x7f60fda3, 0x01269ff7, 0x72f5bc5c, 0x663bc544, 0xfb7e345b, 0x4329768b, 0x23c6dccb, 0xedfc68b6, 0xe4f163b8, 0x31dccad7, 0x63851042, 0x97224013, 0xc6112084, 0x4a247d85, 0xbb3df8d2, 0xf93211ae, 0x29a16dc7, 0x9e2f4b1d, 0xb230f3dc, 0x8652ec0d, 0xc1e3d077, 0xb3166c2b, 0x70b999a9, 0x9448fa11, 0xe9642247, 0xfc8cc4a8, 0xf03f1aa0, 0x7d2cd856, 0x3390ef22, 0x494ec787, 0x38d1c1d9, 0xcaa2fe8c, 0xd40b3698, 0xf581cfa6, 0x7ade28a5, 0xb78e26da, 0xadbfa43f, 0x3a9de42c, 0x78920d50, 0x5fcc9b6a, 0x7e466254, 0x8d13c2f6, 0xd8b8e890, 0x39f75e2e, 0xc3aff582, 0x5d80be9f, 0xd0937c69, 0xd52da96f, 0x2512b3cf, 0xac993bc8, 0x187da710, 0x9c636ee8, 0x3bbb7bdb, 0x267809cd, 0x5918f46e, 0x9ab701ec, 0x4f9aa883, 0x956e65e6, 0xffe67eaa, 0xbccf0821, 0x15e8e6ef, 0xe79bd9ba, 0x6f36ce4a, 0x9f09d4ea, 0xb07cd629, 0xa4b2af31, 0x3f23312a, 0xa59430c6, 0xa266c035, 0x4ebc3774, 0x82caa6fc, 0x90d0b0e0, 0xa7d81533, 0x04984af1, 0xecdaf741, 0xcd500e7f, 0x91f62f17, 0x4dd68d76, 0xefb04d43, 0xaa4d54cc, 0x9604dfe4, 0xd1b5e39e, 0x6a881b4c, 0x2c1fb8c1, 0x65517f46, 0x5eea049d, 0x8c355d01, 0x877473fa, 0x0b412efb, 0x671d5ab3, 0xdbd25292, 0x105633e9, 0xd647136d, 0xd7618c9a, 0xa10c7a37, 0xf8148e59, 0x133c89eb, 0xa927eece, 0x61c935b7, 0x1ce5ede1, 0x47b13c7a, 0xd2df599c, 0xf2733f55, 0x14ce7918, 0xc737bf73, 0xf7cdea53, 0xfdaa5b5f, 0x3d6f14df, 0x44db8678, 0xaff381ca, 0x68c43eb9, 0x24342c38, 0xa3405fc2, 0x1dc37216, 0xe2250cbc, 0x3c498b28, 0x0d9541ff, 0xa8017139, 0x0cb3de08, 0xb4e49cd8, 0x56c19064, 0xcb84617b, 0x32b670d5, 0x6c5c7448, 0xb85742d0];
-
-    // Transformations for decryption key expansion
-    var U1 = [0x00000000, 0x0e090d0b, 0x1c121a16, 0x121b171d, 0x3824342c, 0x362d3927, 0x24362e3a, 0x2a3f2331, 0x70486858, 0x7e416553, 0x6c5a724e, 0x62537f45, 0x486c5c74, 0x4665517f, 0x547e4662, 0x5a774b69, 0xe090d0b0, 0xee99ddbb, 0xfc82caa6, 0xf28bc7ad, 0xd8b4e49c, 0xd6bde997, 0xc4a6fe8a, 0xcaaff381, 0x90d8b8e8, 0x9ed1b5e3, 0x8ccaa2fe, 0x82c3aff5, 0xa8fc8cc4, 0xa6f581cf, 0xb4ee96d2, 0xbae79bd9, 0xdb3bbb7b, 0xd532b670, 0xc729a16d, 0xc920ac66, 0xe31f8f57, 0xed16825c, 0xff0d9541, 0xf104984a, 0xab73d323, 0xa57ade28, 0xb761c935, 0xb968c43e, 0x9357e70f, 0x9d5eea04, 0x8f45fd19, 0x814cf012, 0x3bab6bcb, 0x35a266c0, 0x27b971dd, 0x29b07cd6, 0x038f5fe7, 0x0d8652ec, 0x1f9d45f1, 0x119448fa, 0x4be30393, 0x45ea0e98, 0x57f11985, 0x59f8148e, 0x73c737bf, 0x7dce3ab4, 0x6fd52da9, 0x61dc20a2, 0xad766df6, 0xa37f60fd, 0xb16477e0, 0xbf6d7aeb, 0x955259da, 0x9b5b54d1, 0x894043cc, 0x87494ec7, 0xdd3e05ae, 0xd33708a5, 0xc12c1fb8, 0xcf2512b3, 0xe51a3182, 0xeb133c89, 0xf9082b94, 0xf701269f, 0x4de6bd46, 0x43efb04d, 0x51f4a750, 0x5ffdaa5b, 0x75c2896a, 0x7bcb8461, 0x69d0937c, 0x67d99e77, 0x3daed51e, 0x33a7d815, 0x21bccf08, 0x2fb5c203, 0x058ae132, 0x0b83ec39, 0x1998fb24, 0x1791f62f, 0x764dd68d, 0x7844db86, 0x6a5fcc9b, 0x6456c190, 0x4e69e2a1, 0x4060efaa, 0x527bf8b7, 0x5c72f5bc, 0x0605bed5, 0x080cb3de, 0x1a17a4c3, 0x141ea9c8, 0x3e218af9, 0x302887f2, 0x223390ef, 0x2c3a9de4, 0x96dd063d, 0x98d40b36, 0x8acf1c2b, 0x84c61120, 0xaef93211, 0xa0f03f1a, 0xb2eb2807, 0xbce2250c, 0xe6956e65, 0xe89c636e, 0xfa877473, 0xf48e7978, 0xdeb15a49, 0xd0b85742, 0xc2a3405f, 0xccaa4d54, 0x41ecdaf7, 0x4fe5d7fc, 0x5dfec0e1, 0x53f7cdea, 0x79c8eedb, 0x77c1e3d0, 0x65daf4cd, 0x6bd3f9c6, 0x31a4b2af, 0x3fadbfa4, 0x2db6a8b9, 0x23bfa5b2, 0x09808683, 0x07898b88, 0x15929c95, 0x1b9b919e, 0xa17c0a47, 0xaf75074c, 0xbd6e1051, 0xb3671d5a, 0x99583e6b, 0x97513360, 0x854a247d, 0x8b432976, 0xd134621f, 0xdf3d6f14, 0xcd267809, 0xc32f7502, 0xe9105633, 0xe7195b38, 0xf5024c25, 0xfb0b412e, 0x9ad7618c, 0x94de6c87, 0x86c57b9a, 0x88cc7691, 0xa2f355a0, 0xacfa58ab, 0xbee14fb6, 0xb0e842bd, 0xea9f09d4, 0xe49604df, 0xf68d13c2, 0xf8841ec9, 0xd2bb3df8, 0xdcb230f3, 0xcea927ee, 0xc0a02ae5, 0x7a47b13c, 0x744ebc37, 0x6655ab2a, 0x685ca621, 0x42638510, 0x4c6a881b, 0x5e719f06, 0x5078920d, 0x0a0fd964, 0x0406d46f, 0x161dc372, 0x1814ce79, 0x322bed48, 0x3c22e043, 0x2e39f75e, 0x2030fa55, 0xec9ab701, 0xe293ba0a, 0xf088ad17, 0xfe81a01c, 0xd4be832d, 0xdab78e26, 0xc8ac993b, 0xc6a59430, 0x9cd2df59, 0x92dbd252, 0x80c0c54f, 0x8ec9c844, 0xa4f6eb75, 0xaaffe67e, 0xb8e4f163, 0xb6edfc68, 0x0c0a67b1, 0x02036aba, 0x10187da7, 0x1e1170ac, 0x342e539d, 0x3a275e96, 0x283c498b, 0x26354480, 0x7c420fe9, 0x724b02e2, 0x605015ff, 0x6e5918f4, 0x44663bc5, 0x4a6f36ce, 0x587421d3, 0x567d2cd8, 0x37a10c7a, 0x39a80171, 0x2bb3166c, 0x25ba1b67, 0x0f853856, 0x018c355d, 0x13972240, 0x1d9e2f4b, 0x47e96422, 0x49e06929, 0x5bfb7e34, 0x55f2733f, 0x7fcd500e, 0x71c45d05, 0x63df4a18, 0x6dd64713, 0xd731dcca, 0xd938d1c1, 0xcb23c6dc, 0xc52acbd7, 0xef15e8e6, 0xe11ce5ed, 0xf307f2f0, 0xfd0efffb, 0xa779b492, 0xa970b999, 0xbb6bae84, 0xb562a38f, 0x9f5d80be, 0x91548db5, 0x834f9aa8, 0x8d4697a3];
-    var U2 = [0x00000000, 0x0b0e090d, 0x161c121a, 0x1d121b17, 0x2c382434, 0x27362d39, 0x3a24362e, 0x312a3f23, 0x58704868, 0x537e4165, 0x4e6c5a72, 0x4562537f, 0x74486c5c, 0x7f466551, 0x62547e46, 0x695a774b, 0xb0e090d0, 0xbbee99dd, 0xa6fc82ca, 0xadf28bc7, 0x9cd8b4e4, 0x97d6bde9, 0x8ac4a6fe, 0x81caaff3, 0xe890d8b8, 0xe39ed1b5, 0xfe8ccaa2, 0xf582c3af, 0xc4a8fc8c, 0xcfa6f581, 0xd2b4ee96, 0xd9bae79b, 0x7bdb3bbb, 0x70d532b6, 0x6dc729a1, 0x66c920ac, 0x57e31f8f, 0x5ced1682, 0x41ff0d95, 0x4af10498, 0x23ab73d3, 0x28a57ade, 0x35b761c9, 0x3eb968c4, 0x0f9357e7, 0x049d5eea, 0x198f45fd, 0x12814cf0, 0xcb3bab6b, 0xc035a266, 0xdd27b971, 0xd629b07c, 0xe7038f5f, 0xec0d8652, 0xf11f9d45, 0xfa119448, 0x934be303, 0x9845ea0e, 0x8557f119, 0x8e59f814, 0xbf73c737, 0xb47dce3a, 0xa96fd52d, 0xa261dc20, 0xf6ad766d, 0xfda37f60, 0xe0b16477, 0xebbf6d7a, 0xda955259, 0xd19b5b54, 0xcc894043, 0xc787494e, 0xaedd3e05, 0xa5d33708, 0xb8c12c1f, 0xb3cf2512, 0x82e51a31, 0x89eb133c, 0x94f9082b, 0x9ff70126, 0x464de6bd, 0x4d43efb0, 0x5051f4a7, 0x5b5ffdaa, 0x6a75c289, 0x617bcb84, 0x7c69d093, 0x7767d99e, 0x1e3daed5, 0x1533a7d8, 0x0821bccf, 0x032fb5c2, 0x32058ae1, 0x390b83ec, 0x241998fb, 0x2f1791f6, 0x8d764dd6, 0x867844db, 0x9b6a5fcc, 0x906456c1, 0xa14e69e2, 0xaa4060ef, 0xb7527bf8, 0xbc5c72f5, 0xd50605be, 0xde080cb3, 0xc31a17a4, 0xc8141ea9, 0xf93e218a, 0xf2302887, 0xef223390, 0xe42c3a9d, 0x3d96dd06, 0x3698d40b, 0x2b8acf1c, 0x2084c611, 0x11aef932, 0x1aa0f03f, 0x07b2eb28, 0x0cbce225, 0x65e6956e, 0x6ee89c63, 0x73fa8774, 0x78f48e79, 0x49deb15a, 0x42d0b857, 0x5fc2a340, 0x54ccaa4d, 0xf741ecda, 0xfc4fe5d7, 0xe15dfec0, 0xea53f7cd, 0xdb79c8ee, 0xd077c1e3, 0xcd65daf4, 0xc66bd3f9, 0xaf31a4b2, 0xa43fadbf, 0xb92db6a8, 0xb223bfa5, 0x83098086, 0x8807898b, 0x9515929c, 0x9e1b9b91, 0x47a17c0a, 0x4caf7507, 0x51bd6e10, 0x5ab3671d, 0x6b99583e, 0x60975133, 0x7d854a24, 0x768b4329, 0x1fd13462, 0x14df3d6f, 0x09cd2678, 0x02c32f75, 0x33e91056, 0x38e7195b, 0x25f5024c, 0x2efb0b41, 0x8c9ad761, 0x8794de6c, 0x9a86c57b, 0x9188cc76, 0xa0a2f355, 0xabacfa58, 0xb6bee14f, 0xbdb0e842, 0xd4ea9f09, 0xdfe49604, 0xc2f68d13, 0xc9f8841e, 0xf8d2bb3d, 0xf3dcb230, 0xeecea927, 0xe5c0a02a, 0x3c7a47b1, 0x37744ebc, 0x2a6655ab, 0x21685ca6, 0x10426385, 0x1b4c6a88, 0x065e719f, 0x0d507892, 0x640a0fd9, 0x6f0406d4, 0x72161dc3, 0x791814ce, 0x48322bed, 0x433c22e0, 0x5e2e39f7, 0x552030fa, 0x01ec9ab7, 0x0ae293ba, 0x17f088ad, 0x1cfe81a0, 0x2dd4be83, 0x26dab78e, 0x3bc8ac99, 0x30c6a594, 0x599cd2df, 0x5292dbd2, 0x4f80c0c5, 0x448ec9c8, 0x75a4f6eb, 0x7eaaffe6, 0x63b8e4f1, 0x68b6edfc, 0xb10c0a67, 0xba02036a, 0xa710187d, 0xac1e1170, 0x9d342e53, 0x963a275e, 0x8b283c49, 0x80263544, 0xe97c420f, 0xe2724b02, 0xff605015, 0xf46e5918, 0xc544663b, 0xce4a6f36, 0xd3587421, 0xd8567d2c, 0x7a37a10c, 0x7139a801, 0x6c2bb316, 0x6725ba1b, 0x560f8538, 0x5d018c35, 0x40139722, 0x4b1d9e2f, 0x2247e964, 0x2949e069, 0x345bfb7e, 0x3f55f273, 0x0e7fcd50, 0x0571c45d, 0x1863df4a, 0x136dd647, 0xcad731dc, 0xc1d938d1, 0xdccb23c6, 0xd7c52acb, 0xe6ef15e8, 0xede11ce5, 0xf0f307f2, 0xfbfd0eff, 0x92a779b4, 0x99a970b9, 0x84bb6bae, 0x8fb562a3, 0xbe9f5d80, 0xb591548d, 0xa8834f9a, 0xa38d4697];
-    var U3 = [0x00000000, 0x0d0b0e09, 0x1a161c12, 0x171d121b, 0x342c3824, 0x3927362d, 0x2e3a2436, 0x23312a3f, 0x68587048, 0x65537e41, 0x724e6c5a, 0x7f456253, 0x5c74486c, 0x517f4665, 0x4662547e, 0x4b695a77, 0xd0b0e090, 0xddbbee99, 0xcaa6fc82, 0xc7adf28b, 0xe49cd8b4, 0xe997d6bd, 0xfe8ac4a6, 0xf381caaf, 0xb8e890d8, 0xb5e39ed1, 0xa2fe8cca, 0xaff582c3, 0x8cc4a8fc, 0x81cfa6f5, 0x96d2b4ee, 0x9bd9bae7, 0xbb7bdb3b, 0xb670d532, 0xa16dc729, 0xac66c920, 0x8f57e31f, 0x825ced16, 0x9541ff0d, 0x984af104, 0xd323ab73, 0xde28a57a, 0xc935b761, 0xc43eb968, 0xe70f9357, 0xea049d5e, 0xfd198f45, 0xf012814c, 0x6bcb3bab, 0x66c035a2, 0x71dd27b9, 0x7cd629b0, 0x5fe7038f, 0x52ec0d86, 0x45f11f9d, 0x48fa1194, 0x03934be3, 0x0e9845ea, 0x198557f1, 0x148e59f8, 0x37bf73c7, 0x3ab47dce, 0x2da96fd5, 0x20a261dc, 0x6df6ad76, 0x60fda37f, 0x77e0b164, 0x7aebbf6d, 0x59da9552, 0x54d19b5b, 0x43cc8940, 0x4ec78749, 0x05aedd3e, 0x08a5d337, 0x1fb8c12c, 0x12b3cf25, 0x3182e51a, 0x3c89eb13, 0x2b94f908, 0x269ff701, 0xbd464de6, 0xb04d43ef, 0xa75051f4, 0xaa5b5ffd, 0x896a75c2, 0x84617bcb, 0x937c69d0, 0x9e7767d9, 0xd51e3dae, 0xd81533a7, 0xcf0821bc, 0xc2032fb5, 0xe132058a, 0xec390b83, 0xfb241998, 0xf62f1791, 0xd68d764d, 0xdb867844, 0xcc9b6a5f, 0xc1906456, 0xe2a14e69, 0xefaa4060, 0xf8b7527b, 0xf5bc5c72, 0xbed50605, 0xb3de080c, 0xa4c31a17, 0xa9c8141e, 0x8af93e21, 0x87f23028, 0x90ef2233, 0x9de42c3a, 0x063d96dd, 0x0b3698d4, 0x1c2b8acf, 0x112084c6, 0x3211aef9, 0x3f1aa0f0, 0x2807b2eb, 0x250cbce2, 0x6e65e695, 0x636ee89c, 0x7473fa87, 0x7978f48e, 0x5a49deb1, 0x5742d0b8, 0x405fc2a3, 0x4d54ccaa, 0xdaf741ec, 0xd7fc4fe5, 0xc0e15dfe, 0xcdea53f7, 0xeedb79c8, 0xe3d077c1, 0xf4cd65da, 0xf9c66bd3, 0xb2af31a4, 0xbfa43fad, 0xa8b92db6, 0xa5b223bf, 0x86830980, 0x8b880789, 0x9c951592, 0x919e1b9b, 0x0a47a17c, 0x074caf75, 0x1051bd6e, 0x1d5ab367, 0x3e6b9958, 0x33609751, 0x247d854a, 0x29768b43, 0x621fd134, 0x6f14df3d, 0x7809cd26, 0x7502c32f, 0x5633e910, 0x5b38e719, 0x4c25f502, 0x412efb0b, 0x618c9ad7, 0x6c8794de, 0x7b9a86c5, 0x769188cc, 0x55a0a2f3, 0x58abacfa, 0x4fb6bee1, 0x42bdb0e8, 0x09d4ea9f, 0x04dfe496, 0x13c2f68d, 0x1ec9f884, 0x3df8d2bb, 0x30f3dcb2, 0x27eecea9, 0x2ae5c0a0, 0xb13c7a47, 0xbc37744e, 0xab2a6655, 0xa621685c, 0x85104263, 0x881b4c6a, 0x9f065e71, 0x920d5078, 0xd9640a0f, 0xd46f0406, 0xc372161d, 0xce791814, 0xed48322b, 0xe0433c22, 0xf75e2e39, 0xfa552030, 0xb701ec9a, 0xba0ae293, 0xad17f088, 0xa01cfe81, 0x832dd4be, 0x8e26dab7, 0x993bc8ac, 0x9430c6a5, 0xdf599cd2, 0xd25292db, 0xc54f80c0, 0xc8448ec9, 0xeb75a4f6, 0xe67eaaff, 0xf163b8e4, 0xfc68b6ed, 0x67b10c0a, 0x6aba0203, 0x7da71018, 0x70ac1e11, 0x539d342e, 0x5e963a27, 0x498b283c, 0x44802635, 0x0fe97c42, 0x02e2724b, 0x15ff6050, 0x18f46e59, 0x3bc54466, 0x36ce4a6f, 0x21d35874, 0x2cd8567d, 0x0c7a37a1, 0x017139a8, 0x166c2bb3, 0x1b6725ba, 0x38560f85, 0x355d018c, 0x22401397, 0x2f4b1d9e, 0x642247e9, 0x692949e0, 0x7e345bfb, 0x733f55f2, 0x500e7fcd, 0x5d0571c4, 0x4a1863df, 0x47136dd6, 0xdccad731, 0xd1c1d938, 0xc6dccb23, 0xcbd7c52a, 0xe8e6ef15, 0xe5ede11c, 0xf2f0f307, 0xfffbfd0e, 0xb492a779, 0xb999a970, 0xae84bb6b, 0xa38fb562, 0x80be9f5d, 0x8db59154, 0x9aa8834f, 0x97a38d46];
-    var U4 = [0x00000000, 0x090d0b0e, 0x121a161c, 0x1b171d12, 0x24342c38, 0x2d392736, 0x362e3a24, 0x3f23312a, 0x48685870, 0x4165537e, 0x5a724e6c, 0x537f4562, 0x6c5c7448, 0x65517f46, 0x7e466254, 0x774b695a, 0x90d0b0e0, 0x99ddbbee, 0x82caa6fc, 0x8bc7adf2, 0xb4e49cd8, 0xbde997d6, 0xa6fe8ac4, 0xaff381ca, 0xd8b8e890, 0xd1b5e39e, 0xcaa2fe8c, 0xc3aff582, 0xfc8cc4a8, 0xf581cfa6, 0xee96d2b4, 0xe79bd9ba, 0x3bbb7bdb, 0x32b670d5, 0x29a16dc7, 0x20ac66c9, 0x1f8f57e3, 0x16825ced, 0x0d9541ff, 0x04984af1, 0x73d323ab, 0x7ade28a5, 0x61c935b7, 0x68c43eb9, 0x57e70f93, 0x5eea049d, 0x45fd198f, 0x4cf01281, 0xab6bcb3b, 0xa266c035, 0xb971dd27, 0xb07cd629, 0x8f5fe703, 0x8652ec0d, 0x9d45f11f, 0x9448fa11, 0xe303934b, 0xea0e9845, 0xf1198557, 0xf8148e59, 0xc737bf73, 0xce3ab47d, 0xd52da96f, 0xdc20a261, 0x766df6ad, 0x7f60fda3, 0x6477e0b1, 0x6d7aebbf, 0x5259da95, 0x5b54d19b, 0x4043cc89, 0x494ec787, 0x3e05aedd, 0x3708a5d3, 0x2c1fb8c1, 0x2512b3cf, 0x1a3182e5, 0x133c89eb, 0x082b94f9, 0x01269ff7, 0xe6bd464d, 0xefb04d43, 0xf4a75051, 0xfdaa5b5f, 0xc2896a75, 0xcb84617b, 0xd0937c69, 0xd99e7767, 0xaed51e3d, 0xa7d81533, 0xbccf0821, 0xb5c2032f, 0x8ae13205, 0x83ec390b, 0x98fb2419, 0x91f62f17, 0x4dd68d76, 0x44db8678, 0x5fcc9b6a, 0x56c19064, 0x69e2a14e, 0x60efaa40, 0x7bf8b752, 0x72f5bc5c, 0x05bed506, 0x0cb3de08, 0x17a4c31a, 0x1ea9c814, 0x218af93e, 0x2887f230, 0x3390ef22, 0x3a9de42c, 0xdd063d96, 0xd40b3698, 0xcf1c2b8a, 0xc6112084, 0xf93211ae, 0xf03f1aa0, 0xeb2807b2, 0xe2250cbc, 0x956e65e6, 0x9c636ee8, 0x877473fa, 0x8e7978f4, 0xb15a49de, 0xb85742d0, 0xa3405fc2, 0xaa4d54cc, 0xecdaf741, 0xe5d7fc4f, 0xfec0e15d, 0xf7cdea53, 0xc8eedb79, 0xc1e3d077, 0xdaf4cd65, 0xd3f9c66b, 0xa4b2af31, 0xadbfa43f, 0xb6a8b92d, 0xbfa5b223, 0x80868309, 0x898b8807, 0x929c9515, 0x9b919e1b, 0x7c0a47a1, 0x75074caf, 0x6e1051bd, 0x671d5ab3, 0x583e6b99, 0x51336097, 0x4a247d85, 0x4329768b, 0x34621fd1, 0x3d6f14df, 0x267809cd, 0x2f7502c3, 0x105633e9, 0x195b38e7, 0x024c25f5, 0x0b412efb, 0xd7618c9a, 0xde6c8794, 0xc57b9a86, 0xcc769188, 0xf355a0a2, 0xfa58abac, 0xe14fb6be, 0xe842bdb0, 0x9f09d4ea, 0x9604dfe4, 0x8d13c2f6, 0x841ec9f8, 0xbb3df8d2, 0xb230f3dc, 0xa927eece, 0xa02ae5c0, 0x47b13c7a, 0x4ebc3774, 0x55ab2a66, 0x5ca62168, 0x63851042, 0x6a881b4c, 0x719f065e, 0x78920d50, 0x0fd9640a, 0x06d46f04, 0x1dc37216, 0x14ce7918, 0x2bed4832, 0x22e0433c, 0x39f75e2e, 0x30fa5520, 0x9ab701ec, 0x93ba0ae2, 0x88ad17f0, 0x81a01cfe, 0xbe832dd4, 0xb78e26da, 0xac993bc8, 0xa59430c6, 0xd2df599c, 0xdbd25292, 0xc0c54f80, 0xc9c8448e, 0xf6eb75a4, 0xffe67eaa, 0xe4f163b8, 0xedfc68b6, 0x0a67b10c, 0x036aba02, 0x187da710, 0x1170ac1e, 0x2e539d34, 0x275e963a, 0x3c498b28, 0x35448026, 0x420fe97c, 0x4b02e272, 0x5015ff60, 0x5918f46e, 0x663bc544, 0x6f36ce4a, 0x7421d358, 0x7d2cd856, 0xa10c7a37, 0xa8017139, 0xb3166c2b, 0xba1b6725, 0x8538560f, 0x8c355d01, 0x97224013, 0x9e2f4b1d, 0xe9642247, 0xe0692949, 0xfb7e345b, 0xf2733f55, 0xcd500e7f, 0xc45d0571, 0xdf4a1863, 0xd647136d, 0x31dccad7, 0x38d1c1d9, 0x23c6dccb, 0x2acbd7c5, 0x15e8e6ef, 0x1ce5ede1, 0x07f2f0f3, 0x0efffbfd, 0x79b492a7, 0x70b999a9, 0x6bae84bb, 0x62a38fb5, 0x5d80be9f, 0x548db591, 0x4f9aa883, 0x4697a38d];
-
-
-    function convertToInt32(bytes) {
-        var result = [];
-        for (var i = 0; i < bytes.length; i += 4) {
-            result.push(
-                (bytes[i    ] << 24) |
-                (bytes[i + 1] << 16) |
-                (bytes[i + 2] <<  8) |
-                 bytes[i + 3]
-            );
-        }
-        return result;
-    }
-
-
-
-
-    var AES = function(key) {
-        if (!(this instanceof AES)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.key = createBuffer(key);
-        this._prepare();
-    }
-
-
-    AES.prototype._prepare = function() {
-
-        var rounds = numberOfRounds[this.key.length];
-        if (rounds == null) {
-            throw new Error('invalid key size (must be 16, 24 or 32 bytes)');
-        }
-
-        // encryption round keys
-        this._Ke = [];
-
-        // decryption round keys
-        this._Kd = [];
-
-        for (var i = 0; i <= rounds; i++) {
-            this._Ke.push([0, 0, 0, 0]);
-            this._Kd.push([0, 0, 0, 0]);
-        }
-
-        var roundKeyCount = (rounds + 1) * 4;
-        var KC = this.key.length / 4;
-
-        // convert the key into ints
-        var tk = convertToInt32(this.key);
-
-        // copy values into round key arrays
-        var index;
-        for (var i = 0; i < KC; i++) {
-            index = i >> 2;
-            this._Ke[index][i % 4] = tk[i];
-            this._Kd[rounds - index][i % 4] = tk[i];
-        }
-
-        // key expansion (fips-197 section 5.2)
-        var rconpointer = 0;
-        var t = KC, tt;
-        while (t < roundKeyCount) {
-            tt = tk[KC - 1];
-            tk[0] ^= ((S[(tt >> 16) & 0xFF] << 24) ^
-                      (S[(tt >>  8) & 0xFF] << 16) ^
-                      (S[ tt        & 0xFF] <<  8) ^
-                       S[(tt >> 24) & 0xFF]        ^
-                      (rcon[rconpointer] << 24));
-            rconpointer += 1;
-
-            // key expansion (for non-256 bit)
-            if (KC != 8) {
-                for (var i = 1; i < KC; i++) {
-                    tk[i] ^= tk[i - 1];
-                }
-
-            // key expansion for 256-bit keys is "slightly different" (fips-197)
-            } else {
-                for (var i = 1; i < (KC / 2); i++) {
-                    tk[i] ^= tk[i - 1];
-                }
-                tt = tk[(KC / 2) - 1];
-
-                tk[KC / 2] ^= (S[ tt        & 0xFF]        ^
-                              (S[(tt >>  8) & 0xFF] <<  8) ^
-                              (S[(tt >> 16) & 0xFF] << 16) ^
-                              (S[(tt >> 24) & 0xFF] << 24));
-
-                for (var i = (KC / 2) + 1; i < KC; i++) {
-                    tk[i] ^= tk[i - 1];
-                }
-            }
-
-            // copy values into round key arrays
-            var i = 0, r, c;
-            while (i < KC && t < roundKeyCount) {
-                r = t >> 2;
-                c = t % 4;
-                this._Ke[r][c] = tk[i];
-                this._Kd[rounds - r][c] = tk[i++];
-                t++;
-            }
-        }
-
-        // inverse-cipher-ify the decryption round key (fips-197 section 5.3)
-        for (var r = 1; r < rounds; r++) {
-            for (var c = 0; c < 4; c++) {
-                tt = this._Kd[r][c];
-                this._Kd[r][c] = (U1[(tt >> 24) & 0xFF] ^
-                                  U2[(tt >> 16) & 0xFF] ^
-                                  U3[(tt >>  8) & 0xFF] ^
-                                  U4[ tt        & 0xFF]);
-            }
-        }
-    }
-
-    AES.prototype.encrypt = function(plaintext) {
-        if (plaintext.length != 16) {
-            throw new Error('invalid plaintext size (must be 16 bytes)');
-        }
-
-        var rounds = this._Ke.length - 1;
-        var a = [0, 0, 0, 0];
-
-        // convert plaintext to (ints ^ key)
-        var t = convertToInt32(plaintext);
-        for (var i = 0; i < 4; i++) {
-            t[i] ^= this._Ke[0][i];
-        }
-
-        // apply round transforms
-        for (var r = 1; r < rounds; r++) {
-            for (var i = 0; i < 4; i++) {
-                a[i] = (T1[(t[ i         ] >> 24) & 0xff] ^
-                        T2[(t[(i + 1) % 4] >> 16) & 0xff] ^
-                        T3[(t[(i + 2) % 4] >>  8) & 0xff] ^
-                        T4[ t[(i + 3) % 4]        & 0xff] ^
-                        this._Ke[r][i]);
-            }
-            t = a.slice(0);
-        }
-
-        // the last round is special
-        var result = createBuffer(16), tt;
-        for (var i = 0; i < 4; i++) {
-            tt = this._Ke[rounds][i];
-            result[4 * i    ] = (S[(t[ i         ] >> 24) & 0xff] ^ (tt >> 24)) & 0xff;
-            result[4 * i + 1] = (S[(t[(i + 1) % 4] >> 16) & 0xff] ^ (tt >> 16)) & 0xff;
-            result[4 * i + 2] = (S[(t[(i + 2) % 4] >>  8) & 0xff] ^ (tt >>  8)) & 0xff;
-            result[4 * i + 3] = (S[ t[(i + 3) % 4]        & 0xff] ^  tt       ) & 0xff;
-        }
-
-        return result;
-    }
-
-    AES.prototype.decrypt = function(ciphertext) {
-        if (ciphertext.length != 16) {
-            throw new Error('invalid ciphertext size (must be 16 bytes)');
-        }
-
-        var rounds = this._Kd.length - 1;
-        var a = [0, 0, 0, 0];
-
-        // convert plaintext to (ints ^ key)
-        var t = convertToInt32(ciphertext);
-        for (var i = 0; i < 4; i++) {
-            t[i] ^= this._Kd[0][i];
-        }
-
-        // apply round transforms
-        for (var r = 1; r < rounds; r++) {
-            for (var i = 0; i < 4; i++) {
-                a[i] = (T5[(t[ i          ] >> 24) & 0xff] ^
-                        T6[(t[(i + 3) % 4] >> 16) & 0xff] ^
-                        T7[(t[(i + 2) % 4] >>  8) & 0xff] ^
-                        T8[ t[(i + 1) % 4]        & 0xff] ^
-                        this._Kd[r][i]);
-            }
-            t = a.slice(0);
-        }
-
-        // the last round is special
-        var result = createBuffer(16), tt;
-        for (var i = 0; i < 4; i++) {
-            tt = this._Kd[rounds][i];
-            result[4 * i    ] = (Si[(t[ i         ] >> 24) & 0xff] ^ (tt >> 24)) & 0xff;
-            result[4 * i + 1] = (Si[(t[(i + 3) % 4] >> 16) & 0xff] ^ (tt >> 16)) & 0xff;
-            result[4 * i + 2] = (Si[(t[(i + 2) % 4] >>  8) & 0xff] ^ (tt >>  8)) & 0xff;
-            result[4 * i + 3] = (Si[ t[(i + 1) % 4]        & 0xff] ^  tt       ) & 0xff;
-        }
-
-        return result;
-    }
-
-
-    /**
-     *  Mode Of Operation - Electonic Codebook (ECB)
-     */
-    var ModeOfOperationECB = function(key) {
-        if (!(this instanceof ModeOfOperationECB)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.description = "Electronic Code Block";
-        this.name = "ecb";
-
-        this._aes = new AES(key);
-    }
-
-    ModeOfOperationECB.prototype.encrypt = function(plaintext) {
-        if ((plaintext.length % 16) !== 0) {
-            throw new Error('invalid plaintext size (must be multiple of 16 bytes)');
-        }
-
-        var ciphertext = createBuffer(plaintext.length);
-        var block = createBuffer(16);
-
-        for (var i = 0; i < plaintext.length; i += 16) {
-            copyBuffer(plaintext, block, 0, i, i + 16);
-            block = this._aes.encrypt(block);
-            copyBuffer(block, ciphertext, i, 0, 16);
-        }
-
-        return ciphertext;
-    }
-
-    ModeOfOperationECB.prototype.decrypt = function(ciphertext) {
-        if ((ciphertext.length % 16) !== 0) {
-            throw new Error('invalid ciphertext size (must be multiple of 16 bytes)');
-        }
-
-        var plaintext = createBuffer(ciphertext.length);
-        var block = createBuffer(16);
-
-        for (var i = 0; i < ciphertext.length; i += 16) {
-            copyBuffer(ciphertext, block, 0, i, i + 16);
-            block = this._aes.decrypt(block);
-            copyBuffer(block, plaintext, i, 0, 16);
-        }
-
-        return plaintext;
-    }
-
-
-    /**
-     *  Mode Of Operation - Cipher Block Chaining (CBC)
-     */
-    var ModeOfOperationCBC = function(key, iv) {
-        if (!(this instanceof ModeOfOperationCBC)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.description = "Cipher Block Chaining";
-        this.name = "cbc";
-
-        if (!iv) {
-            iv = createBuffer([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
-        } else if (iv.length != 16) {
-            throw new Error('invalid initialation vector size (must be 16 bytes)');
-        }
-
-        this._lastCipherblock = createBuffer(iv);
-
-        this._aes = new AES(key);
-    }
-
-    ModeOfOperationCBC.prototype.encrypt = function(plaintext) {
-        if ((plaintext.length % 16) !== 0) {
-            throw new Error('invalid plaintext size (must be multiple of 16 bytes)');
-        }
-
-        var ciphertext = createBuffer(plaintext.length);
-        var block = createBuffer(16);
-
-        for (var i = 0; i < plaintext.length; i += 16) {
-            copyBuffer(plaintext, block, 0, i, i + 16);
-
-            for (var j = 0; j < 16; j++) {
-                block[j] ^= this._lastCipherblock[j];
-            }
-
-            this._lastCipherblock = this._aes.encrypt(block);
-            copyBuffer(this._lastCipherblock, ciphertext, i, 0, 16);
-        }
-
-        return ciphertext;
-    }
-
-    ModeOfOperationCBC.prototype.decrypt = function(ciphertext) {
-        if ((ciphertext.length % 16) !== 0) {
-            throw new Error('invalid ciphertext size (must be multiple of 16 bytes)');
-        }
-
-        var plaintext = createBuffer(ciphertext.length);
-        var block = createBuffer(16);
-
-        for (var i = 0; i < ciphertext.length; i += 16) {
-            copyBuffer(ciphertext, block, 0, i, i + 16);
-            block = this._aes.decrypt(block);
-
-            for (var j = 0; j < 16; j++) {
-                plaintext[i + j] = block[j] ^ this._lastCipherblock[j];
-            }
-
-            copyBuffer(ciphertext, this._lastCipherblock, 0, i, i + 16);
-        }
-
-        return plaintext;
-    }
-
-
-    /**
-     *  Mode Of Operation - Cipher Feedback (CFB)
-     */
-    var ModeOfOperationCFB = function(key, iv, segmentSize) {
-        if (!(this instanceof ModeOfOperationCFB)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.description = "Cipher Feedback";
-        this.name = "cfb";
-
-        if (!iv) {
-            iv = createBuffer([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
-        } else if (iv.length != 16) {
-            throw new Error('invalid initialation vector size (must be 16 size)');
-        }
-
-        if (!segmentSize) { segmentSize = 1; }
-
-        this.segmentSize = segmentSize;
-
-        this._shiftRegister = createBuffer(iv);
-
-        this._aes = new AES(key);
-    }
-
-    ModeOfOperationCFB.prototype.encrypt = function(plaintext) {
-        if ((plaintext.length % this.segmentSize) != 0) {
-            throw new Error('invalid plaintext size (must be segmentSize bytes)');
-        }
-
-        var encrypted = createBuffer(plaintext);
-
-        var xorSegment;
-        for (var i = 0; i < encrypted.length; i += this.segmentSize) {
-            xorSegment = this._aes.encrypt(this._shiftRegister);
-            for (var j = 0; j < this.segmentSize; j++) {
-                encrypted[i + j] ^= xorSegment[j];
-            }
-
-            // Shift the register
-            copyBuffer(this._shiftRegister, this._shiftRegister, 0, this.segmentSize);
-            copyBuffer(encrypted, this._shiftRegister, 16 - this.segmentSize, i, i + this.segmentSize);
-        }
-
-        return encrypted;
-    }
-
-    ModeOfOperationCFB.prototype.decrypt = function(ciphertext) {
-        if ((ciphertext.length % this.segmentSize) != 0) {
-            throw new Error('invalid ciphertext size (must be segmentSize bytes)');
-        }
-
-        var plaintext = createBuffer(ciphertext);
-
-        var xorSegment;
-        for (var i = 0; i < plaintext.length; i += this.segmentSize) {
-            xorSegment = this._aes.encrypt(this._shiftRegister);
-
-            for (var j = 0; j < this.segmentSize; j++) {
-                plaintext[i + j] ^= xorSegment[j];
-            }
-
-            // Shift the register
-            copyBuffer(this._shiftRegister, this._shiftRegister, 0, this.segmentSize);
-            copyBuffer(ciphertext, this._shiftRegister, 16 - this.segmentSize, i, i + this.segmentSize);
-        }
-
-        return plaintext;
-    }
-
-    /**
-     *  Mode Of Operation - Output Feedback (OFB)
-     */
-    var ModeOfOperationOFB = function(key, iv) {
-        if (!(this instanceof ModeOfOperationOFB)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.description = "Output Feedback";
-        this.name = "ofb";
-
-        if (!iv) {
-            iv = createBuffer([0, 0, 0,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-
-        } else if (iv.length != 16) {
-            throw new Error('invalid initialation vector size (must be 16 bytes)');
-        }
-
-        this._lastPrecipher = createBuffer(iv);
-        this._lastPrecipherIndex = 16;
-
-        this._aes = new AES(key);
-    }
-
-    ModeOfOperationOFB.prototype.encrypt = function(plaintext) {
-        var encrypted = createBuffer(plaintext);
-
-        for (var i = 0; i < encrypted.length; i++) {
-            if (this._lastPrecipherIndex === 16) {
-                this._lastPrecipher = this._aes.encrypt(this._lastPrecipher);
-                this._lastPrecipherIndex = 0;
-            }
-            encrypted[i] ^= this._lastPrecipher[this._lastPrecipherIndex++];
-        }
-
-        return encrypted;
-    }
-
-    // Decryption is symetric
-    ModeOfOperationOFB.prototype.decrypt = ModeOfOperationOFB.prototype.encrypt;
-
-
-    /**
-     *  Counter object for CTR common mode of operation
-     */
-    var Counter = function(initialValue) {
-        if (!(this instanceof Counter)) {
-            throw Error('Counter must be instanitated with `new`');
-        }
-
-        // We allow 0, but anything false-ish uses the default 1
-        if (initialValue !== 0 && !initialValue) { initialValue = 1; }
-
-        if (typeof(initialValue) === 'number') {
-            this._counter = createBuffer([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-            this.setValue(initialValue);
-
-        } else {
-            this.setBytes(initialValue);
-        }
-    }
-
-    Counter.prototype.setValue = function(value) {
-        if (typeof(value) !== 'number' || parseInt(value) != value) {
-            throw new Error('invalid counter value (must be an integer)');
-        }
-
-        for (var index = 15; index >= 0; --index) {
-            this._counter[index] = value % 256;
-            value = value >> 8;
-        }
-    }
-
-    Counter.prototype.setBytes = function(bytes) {
-        if (bytes.length != 16) {
-            throw new Error('invalid counter bytes size (must be 16 bytes)');
-        }
-        this._counter = createBuffer(bytes);
-    };
-
-    Counter.prototype.increment = function() {
-        for (var i = 15; i >= 0; i--) {
-            if (this._counter[i] === 255) {
-                this._counter[i] = 0;
-            } else {
-                this._counter[i]++;
-                break;
-            }
-        }
-    }
-
-
-    /**
-     *  Mode Of Operation - Counter (CTR)
-     */
-    var ModeOfOperationCTR = function(key, counter) {
-        if (!(this instanceof ModeOfOperationCTR)) {
-            throw Error('AES must be instanitated with `new`');
-        }
-
-        this.description = "Counter";
-        this.name = "ctr";
-
-        if (!(counter instanceof Counter)) {
-            counter = new Counter(counter)
-        }
-
-        this._counter = counter;
-
-        this._remainingCounter = null;
-        this._remainingCounterIndex = 16;
-
-        this._aes = new AES(key);
-    }
-
-    ModeOfOperationCTR.prototype.encrypt = function(plaintext) {
-        var encrypted = createBuffer(plaintext);
-
-        for (var i = 0; i < encrypted.length; i++) {
-            if (this._remainingCounterIndex === 16) {
-                this._remainingCounter = this._aes.encrypt(this._counter._counter);
-                this._remainingCounterIndex = 0;
-                this._counter.increment();
-            }
-            encrypted[i] ^= this._remainingCounter[this._remainingCounterIndex++];
-        }
-
-        return encrypted;
-    }
-
-    // Decryption is symetric
-    ModeOfOperationCTR.prototype.decrypt = ModeOfOperationCTR.prototype.encrypt;
-
-
-    // The basic modes of operation as a map
-    var ModeOfOperation = {
-        ecb: ModeOfOperationECB,
-        cbc: ModeOfOperationCBC,
-        cfb: ModeOfOperationCFB,
-        ofb: ModeOfOperationOFB,
-        ctr: ModeOfOperationCTR
-    };
-
-
-    ///////////////////////
-    // Exporting
-
-
-    // The block cipher
-    var aesjs = {
-        AES: AES,
-        Counter: Counter,
-        ModeOfOperation: ModeOfOperation,
-        util: {
-            convertBytesToString: convertBytesToString,
-            convertStringToBytes: convertStringToBytes,
-            _slowCreateBuffer: slowCreateBuffer
-        }
-    };
-
-
-    // node.js
-    if (typeof exports !== 'undefined') {
-        module.exports = aesjs
-
-    // RequireJS/AMD
-    // http://www.requirejs.org/docs/api.html
-    // https://github.com/amdjs/amdjs-api/wiki/AMD
-    } else if (typeof(define) === 'function' && define.amd) {
-        define(aesjs);
-
-    // Web Browsers
-    } else {
-
-        // If there was an existing library at "aes" make sure it's still available
-        if (root.aes) {
-            aesjs._aes = root.aes;
-        }
-
-        root.aesjs = aesjs;
-    }
-
-
-})(this);
-
-}).call(this,require("buffer").Buffer)
-
-},{"buffer":56}],403:[function(require,module,exports){
-(function (Buffer){
-'use strict';
-
-var base64url = module.exports;
-
-base64url.unescape = function unescape (str) {
-  return (str + '==='.slice((str.length + 3) % 4))
-    .replace(/\-/g, '+')
-    .replace(/_/g, '/');
-};
-
-base64url.escape = function escape (str) {
-  return str.replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=/g, '');
-};
-
-base64url.encode = function encode (str) {
-  return this.escape(new Buffer(str).toString('base64'));
-};
-
-base64url.decode = function decode (str) {
-  return new Buffer(this.unescape(str), 'base64').toString();
-};
-
-}).call(this,require("buffer").Buffer)
-
-},{"buffer":56}],404:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./enc-base64"), require("./md5"), require("./evpkdf"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./enc-base64", "./md5", "./evpkdf", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var BlockCipher = C_lib.BlockCipher;
-	    var C_algo = C.algo;
-
-	    // Lookup tables
-	    var SBOX = [];
-	    var INV_SBOX = [];
-	    var SUB_MIX_0 = [];
-	    var SUB_MIX_1 = [];
-	    var SUB_MIX_2 = [];
-	    var SUB_MIX_3 = [];
-	    var INV_SUB_MIX_0 = [];
-	    var INV_SUB_MIX_1 = [];
-	    var INV_SUB_MIX_2 = [];
-	    var INV_SUB_MIX_3 = [];
-
-	    // Compute lookup tables
-	    (function () {
-	        // Compute double table
-	        var d = [];
-	        for (var i = 0; i < 256; i++) {
-	            if (i < 128) {
-	                d[i] = i << 1;
-	            } else {
-	                d[i] = (i << 1) ^ 0x11b;
-	            }
-	        }
-
-	        // Walk GF(2^8)
-	        var x = 0;
-	        var xi = 0;
-	        for (var i = 0; i < 256; i++) {
-	            // Compute sbox
-	            var sx = xi ^ (xi << 1) ^ (xi << 2) ^ (xi << 3) ^ (xi << 4);
-	            sx = (sx >>> 8) ^ (sx & 0xff) ^ 0x63;
-	            SBOX[x] = sx;
-	            INV_SBOX[sx] = x;
-
-	            // Compute multiplication
-	            var x2 = d[x];
-	            var x4 = d[x2];
-	            var x8 = d[x4];
-
-	            // Compute sub bytes, mix columns tables
-	            var t = (d[sx] * 0x101) ^ (sx * 0x1010100);
-	            SUB_MIX_0[x] = (t << 24) | (t >>> 8);
-	            SUB_MIX_1[x] = (t << 16) | (t >>> 16);
-	            SUB_MIX_2[x] = (t << 8)  | (t >>> 24);
-	            SUB_MIX_3[x] = t;
-
-	            // Compute inv sub bytes, inv mix columns tables
-	            var t = (x8 * 0x1010101) ^ (x4 * 0x10001) ^ (x2 * 0x101) ^ (x * 0x1010100);
-	            INV_SUB_MIX_0[sx] = (t << 24) | (t >>> 8);
-	            INV_SUB_MIX_1[sx] = (t << 16) | (t >>> 16);
-	            INV_SUB_MIX_2[sx] = (t << 8)  | (t >>> 24);
-	            INV_SUB_MIX_3[sx] = t;
-
-	            // Compute next counter
-	            if (!x) {
-	                x = xi = 1;
-	            } else {
-	                x = x2 ^ d[d[d[x8 ^ x2]]];
-	                xi ^= d[d[xi]];
-	            }
-	        }
-	    }());
-
-	    // Precomputed Rcon lookup
-	    var RCON = [0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x1b, 0x36];
-
-	    /**
-	     * AES block cipher algorithm.
-	     */
-	    var AES = C_algo.AES = BlockCipher.extend({
-	        _doReset: function () {
-	            // Skip reset of nRounds has been set before and key did not change
-	            if (this._nRounds && this._keyPriorReset === this._key) {
-	                return;
-	            }
-
-	            // Shortcuts
-	            var key = this._keyPriorReset = this._key;
-	            var keyWords = key.words;
-	            var keySize = key.sigBytes / 4;
-
-	            // Compute number of rounds
-	            var nRounds = this._nRounds = keySize + 6;
-
-	            // Compute number of key schedule rows
-	            var ksRows = (nRounds + 1) * 4;
-
-	            // Compute key schedule
-	            var keySchedule = this._keySchedule = [];
-	            for (var ksRow = 0; ksRow < ksRows; ksRow++) {
-	                if (ksRow < keySize) {
-	                    keySchedule[ksRow] = keyWords[ksRow];
-	                } else {
-	                    var t = keySchedule[ksRow - 1];
-
-	                    if (!(ksRow % keySize)) {
-	                        // Rot word
-	                        t = (t << 8) | (t >>> 24);
-
-	                        // Sub word
-	                        t = (SBOX[t >>> 24] << 24) | (SBOX[(t >>> 16) & 0xff] << 16) | (SBOX[(t >>> 8) & 0xff] << 8) | SBOX[t & 0xff];
-
-	                        // Mix Rcon
-	                        t ^= RCON[(ksRow / keySize) | 0] << 24;
-	                    } else if (keySize > 6 && ksRow % keySize == 4) {
-	                        // Sub word
-	                        t = (SBOX[t >>> 24] << 24) | (SBOX[(t >>> 16) & 0xff] << 16) | (SBOX[(t >>> 8) & 0xff] << 8) | SBOX[t & 0xff];
-	                    }
-
-	                    keySchedule[ksRow] = keySchedule[ksRow - keySize] ^ t;
-	                }
-	            }
-
-	            // Compute inv key schedule
-	            var invKeySchedule = this._invKeySchedule = [];
-	            for (var invKsRow = 0; invKsRow < ksRows; invKsRow++) {
-	                var ksRow = ksRows - invKsRow;
-
-	                if (invKsRow % 4) {
-	                    var t = keySchedule[ksRow];
-	                } else {
-	                    var t = keySchedule[ksRow - 4];
-	                }
-
-	                if (invKsRow < 4 || ksRow <= 4) {
-	                    invKeySchedule[invKsRow] = t;
-	                } else {
-	                    invKeySchedule[invKsRow] = INV_SUB_MIX_0[SBOX[t >>> 24]] ^ INV_SUB_MIX_1[SBOX[(t >>> 16) & 0xff]] ^
-	                                               INV_SUB_MIX_2[SBOX[(t >>> 8) & 0xff]] ^ INV_SUB_MIX_3[SBOX[t & 0xff]];
-	                }
-	            }
-	        },
-
-	        encryptBlock: function (M, offset) {
-	            this._doCryptBlock(M, offset, this._keySchedule, SUB_MIX_0, SUB_MIX_1, SUB_MIX_2, SUB_MIX_3, SBOX);
-	        },
-
-	        decryptBlock: function (M, offset) {
-	            // Swap 2nd and 4th rows
-	            var t = M[offset + 1];
-	            M[offset + 1] = M[offset + 3];
-	            M[offset + 3] = t;
-
-	            this._doCryptBlock(M, offset, this._invKeySchedule, INV_SUB_MIX_0, INV_SUB_MIX_1, INV_SUB_MIX_2, INV_SUB_MIX_3, INV_SBOX);
-
-	            // Inv swap 2nd and 4th rows
-	            var t = M[offset + 1];
-	            M[offset + 1] = M[offset + 3];
-	            M[offset + 3] = t;
-	        },
-
-	        _doCryptBlock: function (M, offset, keySchedule, SUB_MIX_0, SUB_MIX_1, SUB_MIX_2, SUB_MIX_3, SBOX) {
-	            // Shortcut
-	            var nRounds = this._nRounds;
-
-	            // Get input, add round key
-	            var s0 = M[offset]     ^ keySchedule[0];
-	            var s1 = M[offset + 1] ^ keySchedule[1];
-	            var s2 = M[offset + 2] ^ keySchedule[2];
-	            var s3 = M[offset + 3] ^ keySchedule[3];
-
-	            // Key schedule row counter
-	            var ksRow = 4;
-
-	            // Rounds
-	            for (var round = 1; round < nRounds; round++) {
-	                // Shift rows, sub bytes, mix columns, add round key
-	                var t0 = SUB_MIX_0[s0 >>> 24] ^ SUB_MIX_1[(s1 >>> 16) & 0xff] ^ SUB_MIX_2[(s2 >>> 8) & 0xff] ^ SUB_MIX_3[s3 & 0xff] ^ keySchedule[ksRow++];
-	                var t1 = SUB_MIX_0[s1 >>> 24] ^ SUB_MIX_1[(s2 >>> 16) & 0xff] ^ SUB_MIX_2[(s3 >>> 8) & 0xff] ^ SUB_MIX_3[s0 & 0xff] ^ keySchedule[ksRow++];
-	                var t2 = SUB_MIX_0[s2 >>> 24] ^ SUB_MIX_1[(s3 >>> 16) & 0xff] ^ SUB_MIX_2[(s0 >>> 8) & 0xff] ^ SUB_MIX_3[s1 & 0xff] ^ keySchedule[ksRow++];
-	                var t3 = SUB_MIX_0[s3 >>> 24] ^ SUB_MIX_1[(s0 >>> 16) & 0xff] ^ SUB_MIX_2[(s1 >>> 8) & 0xff] ^ SUB_MIX_3[s2 & 0xff] ^ keySchedule[ksRow++];
-
-	                // Update state
-	                s0 = t0;
-	                s1 = t1;
-	                s2 = t2;
-	                s3 = t3;
-	            }
-
-	            // Shift rows, sub bytes, add round key
-	            var t0 = ((SBOX[s0 >>> 24] << 24) | (SBOX[(s1 >>> 16) & 0xff] << 16) | (SBOX[(s2 >>> 8) & 0xff] << 8) | SBOX[s3 & 0xff]) ^ keySchedule[ksRow++];
-	            var t1 = ((SBOX[s1 >>> 24] << 24) | (SBOX[(s2 >>> 16) & 0xff] << 16) | (SBOX[(s3 >>> 8) & 0xff] << 8) | SBOX[s0 & 0xff]) ^ keySchedule[ksRow++];
-	            var t2 = ((SBOX[s2 >>> 24] << 24) | (SBOX[(s3 >>> 16) & 0xff] << 16) | (SBOX[(s0 >>> 8) & 0xff] << 8) | SBOX[s1 & 0xff]) ^ keySchedule[ksRow++];
-	            var t3 = ((SBOX[s3 >>> 24] << 24) | (SBOX[(s0 >>> 16) & 0xff] << 16) | (SBOX[(s1 >>> 8) & 0xff] << 8) | SBOX[s2 & 0xff]) ^ keySchedule[ksRow++];
-
-	            // Set output
-	            M[offset]     = t0;
-	            M[offset + 1] = t1;
-	            M[offset + 2] = t2;
-	            M[offset + 3] = t3;
-	        },
-
-	        keySize: 256/32
-	    });
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.AES.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.AES.decrypt(ciphertext, key, cfg);
-	     */
-	    C.AES = BlockCipher._createHelper(AES);
-	}());
-
-
-	return CryptoJS.AES;
-
-}));
-},{"./cipher-core":405,"./core":406,"./enc-base64":407,"./evpkdf":409,"./md5":414}],405:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Cipher core components.
-	 */
-	CryptoJS.lib.Cipher || (function (undefined) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Base = C_lib.Base;
-	    var WordArray = C_lib.WordArray;
-	    var BufferedBlockAlgorithm = C_lib.BufferedBlockAlgorithm;
-	    var C_enc = C.enc;
-	    var Utf8 = C_enc.Utf8;
-	    var Base64 = C_enc.Base64;
-	    var C_algo = C.algo;
-	    var EvpKDF = C_algo.EvpKDF;
-
-	    /**
-	     * Abstract base cipher template.
-	     *
-	     * @property {number} keySize This cipher's key size. Default: 4 (128 bits)
-	     * @property {number} ivSize This cipher's IV size. Default: 4 (128 bits)
-	     * @property {number} _ENC_XFORM_MODE A constant representing encryption mode.
-	     * @property {number} _DEC_XFORM_MODE A constant representing decryption mode.
-	     */
-	    var Cipher = C_lib.Cipher = BufferedBlockAlgorithm.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {WordArray} iv The IV to use for this operation.
-	         */
-	        cfg: Base.extend(),
-
-	        /**
-	         * Creates this cipher in encryption mode.
-	         *
-	         * @param {WordArray} key The key.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {Cipher} A cipher instance.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var cipher = CryptoJS.algo.AES.createEncryptor(keyWordArray, { iv: ivWordArray });
-	         */
-	        createEncryptor: function (key, cfg) {
-	            return this.create(this._ENC_XFORM_MODE, key, cfg);
-	        },
-
-	        /**
-	         * Creates this cipher in decryption mode.
-	         *
-	         * @param {WordArray} key The key.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {Cipher} A cipher instance.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var cipher = CryptoJS.algo.AES.createDecryptor(keyWordArray, { iv: ivWordArray });
-	         */
-	        createDecryptor: function (key, cfg) {
-	            return this.create(this._DEC_XFORM_MODE, key, cfg);
-	        },
-
-	        /**
-	         * Initializes a newly created cipher.
-	         *
-	         * @param {number} xformMode Either the encryption or decryption transormation mode constant.
-	         * @param {WordArray} key The key.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @example
-	         *
-	         *     var cipher = CryptoJS.algo.AES.create(CryptoJS.algo.AES._ENC_XFORM_MODE, keyWordArray, { iv: ivWordArray });
-	         */
-	        init: function (xformMode, key, cfg) {
-	            // Apply config defaults
-	            this.cfg = this.cfg.extend(cfg);
-
-	            // Store transform mode and key
-	            this._xformMode = xformMode;
-	            this._key = key;
-
-	            // Set initial values
-	            this.reset();
-	        },
-
-	        /**
-	         * Resets this cipher to its initial state.
-	         *
-	         * @example
-	         *
-	         *     cipher.reset();
-	         */
-	        reset: function () {
-	            // Reset data buffer
-	            BufferedBlockAlgorithm.reset.call(this);
-
-	            // Perform concrete-cipher logic
-	            this._doReset();
-	        },
-
-	        /**
-	         * Adds data to be encrypted or decrypted.
-	         *
-	         * @param {WordArray|string} dataUpdate The data to encrypt or decrypt.
-	         *
-	         * @return {WordArray} The data after processing.
-	         *
-	         * @example
-	         *
-	         *     var encrypted = cipher.process('data');
-	         *     var encrypted = cipher.process(wordArray);
-	         */
-	        process: function (dataUpdate) {
-	            // Append
-	            this._append(dataUpdate);
-
-	            // Process available blocks
-	            return this._process();
-	        },
-
-	        /**
-	         * Finalizes the encryption or decryption process.
-	         * Note that the finalize operation is effectively a destructive, read-once operation.
-	         *
-	         * @param {WordArray|string} dataUpdate The final data to encrypt or decrypt.
-	         *
-	         * @return {WordArray} The data after final processing.
-	         *
-	         * @example
-	         *
-	         *     var encrypted = cipher.finalize();
-	         *     var encrypted = cipher.finalize('data');
-	         *     var encrypted = cipher.finalize(wordArray);
-	         */
-	        finalize: function (dataUpdate) {
-	            // Final data update
-	            if (dataUpdate) {
-	                this._append(dataUpdate);
-	            }
-
-	            // Perform concrete-cipher logic
-	            var finalProcessedData = this._doFinalize();
-
-	            return finalProcessedData;
-	        },
-
-	        keySize: 128/32,
-
-	        ivSize: 128/32,
-
-	        _ENC_XFORM_MODE: 1,
-
-	        _DEC_XFORM_MODE: 2,
-
-	        /**
-	         * Creates shortcut functions to a cipher's object interface.
-	         *
-	         * @param {Cipher} cipher The cipher to create a helper for.
-	         *
-	         * @return {Object} An object with encrypt and decrypt shortcut functions.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var AES = CryptoJS.lib.Cipher._createHelper(CryptoJS.algo.AES);
-	         */
-	        _createHelper: (function () {
-	            function selectCipherStrategy(key) {
-	                if (typeof key == 'string') {
-	                    return PasswordBasedCipher;
-	                } else {
-	                    return SerializableCipher;
-	                }
-	            }
-
-	            return function (cipher) {
-	                return {
-	                    encrypt: function (message, key, cfg) {
-	                        return selectCipherStrategy(key).encrypt(cipher, message, key, cfg);
-	                    },
-
-	                    decrypt: function (ciphertext, key, cfg) {
-	                        return selectCipherStrategy(key).decrypt(cipher, ciphertext, key, cfg);
-	                    }
-	                };
-	            };
-	        }())
-	    });
-
-	    /**
-	     * Abstract base stream cipher template.
-	     *
-	     * @property {number} blockSize The number of 32-bit words this cipher operates on. Default: 1 (32 bits)
-	     */
-	    var StreamCipher = C_lib.StreamCipher = Cipher.extend({
-	        _doFinalize: function () {
-	            // Process partial blocks
-	            var finalProcessedBlocks = this._process(!!'flush');
-
-	            return finalProcessedBlocks;
-	        },
-
-	        blockSize: 1
-	    });
-
-	    /**
-	     * Mode namespace.
-	     */
-	    var C_mode = C.mode = {};
-
-	    /**
-	     * Abstract base block cipher mode template.
-	     */
-	    var BlockCipherMode = C_lib.BlockCipherMode = Base.extend({
-	        /**
-	         * Creates this mode for encryption.
-	         *
-	         * @param {Cipher} cipher A block cipher instance.
-	         * @param {Array} iv The IV words.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var mode = CryptoJS.mode.CBC.createEncryptor(cipher, iv.words);
-	         */
-	        createEncryptor: function (cipher, iv) {
-	            return this.Encryptor.create(cipher, iv);
-	        },
-
-	        /**
-	         * Creates this mode for decryption.
-	         *
-	         * @param {Cipher} cipher A block cipher instance.
-	         * @param {Array} iv The IV words.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var mode = CryptoJS.mode.CBC.createDecryptor(cipher, iv.words);
-	         */
-	        createDecryptor: function (cipher, iv) {
-	            return this.Decryptor.create(cipher, iv);
-	        },
-
-	        /**
-	         * Initializes a newly created mode.
-	         *
-	         * @param {Cipher} cipher A block cipher instance.
-	         * @param {Array} iv The IV words.
-	         *
-	         * @example
-	         *
-	         *     var mode = CryptoJS.mode.CBC.Encryptor.create(cipher, iv.words);
-	         */
-	        init: function (cipher, iv) {
-	            this._cipher = cipher;
-	            this._iv = iv;
-	        }
-	    });
-
-	    /**
-	     * Cipher Block Chaining mode.
-	     */
-	    var CBC = C_mode.CBC = (function () {
-	        /**
-	         * Abstract base CBC mode.
-	         */
-	        var CBC = BlockCipherMode.extend();
-
-	        /**
-	         * CBC encryptor.
-	         */
-	        CBC.Encryptor = CBC.extend({
-	            /**
-	             * Processes the data block at offset.
-	             *
-	             * @param {Array} words The data words to operate on.
-	             * @param {number} offset The offset where the block starts.
-	             *
-	             * @example
-	             *
-	             *     mode.processBlock(data.words, offset);
-	             */
-	            processBlock: function (words, offset) {
-	                // Shortcuts
-	                var cipher = this._cipher;
-	                var blockSize = cipher.blockSize;
-
-	                // XOR and encrypt
-	                xorBlock.call(this, words, offset, blockSize);
-	                cipher.encryptBlock(words, offset);
-
-	                // Remember this block to use with next block
-	                this._prevBlock = words.slice(offset, offset + blockSize);
-	            }
-	        });
-
-	        /**
-	         * CBC decryptor.
-	         */
-	        CBC.Decryptor = CBC.extend({
-	            /**
-	             * Processes the data block at offset.
-	             *
-	             * @param {Array} words The data words to operate on.
-	             * @param {number} offset The offset where the block starts.
-	             *
-	             * @example
-	             *
-	             *     mode.processBlock(data.words, offset);
-	             */
-	            processBlock: function (words, offset) {
-	                // Shortcuts
-	                var cipher = this._cipher;
-	                var blockSize = cipher.blockSize;
-
-	                // Remember this block to use with next block
-	                var thisBlock = words.slice(offset, offset + blockSize);
-
-	                // Decrypt and XOR
-	                cipher.decryptBlock(words, offset);
-	                xorBlock.call(this, words, offset, blockSize);
-
-	                // This block becomes the previous block
-	                this._prevBlock = thisBlock;
-	            }
-	        });
-
-	        function xorBlock(words, offset, blockSize) {
-	            // Shortcut
-	            var iv = this._iv;
-
-	            // Choose mixing block
-	            if (iv) {
-	                var block = iv;
-
-	                // Remove IV for subsequent blocks
-	                this._iv = undefined;
-	            } else {
-	                var block = this._prevBlock;
-	            }
-
-	            // XOR blocks
-	            for (var i = 0; i < blockSize; i++) {
-	                words[offset + i] ^= block[i];
-	            }
-	        }
-
-	        return CBC;
-	    }());
-
-	    /**
-	     * Padding namespace.
-	     */
-	    var C_pad = C.pad = {};
-
-	    /**
-	     * PKCS #5/7 padding strategy.
-	     */
-	    var Pkcs7 = C_pad.Pkcs7 = {
-	        /**
-	         * Pads data using the algorithm defined in PKCS #5/7.
-	         *
-	         * @param {WordArray} data The data to pad.
-	         * @param {number} blockSize The multiple that the data should be padded to.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     CryptoJS.pad.Pkcs7.pad(wordArray, 4);
-	         */
-	        pad: function (data, blockSize) {
-	            // Shortcut
-	            var blockSizeBytes = blockSize * 4;
-
-	            // Count padding bytes
-	            var nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;
-
-	            // Create padding word
-	            var paddingWord = (nPaddingBytes << 24) | (nPaddingBytes << 16) | (nPaddingBytes << 8) | nPaddingBytes;
-
-	            // Create padding
-	            var paddingWords = [];
-	            for (var i = 0; i < nPaddingBytes; i += 4) {
-	                paddingWords.push(paddingWord);
-	            }
-	            var padding = WordArray.create(paddingWords, nPaddingBytes);
-
-	            // Add padding
-	            data.concat(padding);
-	        },
-
-	        /**
-	         * Unpads data that had been padded using the algorithm defined in PKCS #5/7.
-	         *
-	         * @param {WordArray} data The data to unpad.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     CryptoJS.pad.Pkcs7.unpad(wordArray);
-	         */
-	        unpad: function (data) {
-	            // Get number of padding bytes from last byte
-	            var nPaddingBytes = data.words[(data.sigBytes - 1) >>> 2] & 0xff;
-
-	            // Remove padding
-	            data.sigBytes -= nPaddingBytes;
-	        }
-	    };
-
-	    /**
-	     * Abstract base block cipher template.
-	     *
-	     * @property {number} blockSize The number of 32-bit words this cipher operates on. Default: 4 (128 bits)
-	     */
-	    var BlockCipher = C_lib.BlockCipher = Cipher.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {Mode} mode The block mode to use. Default: CBC
-	         * @property {Padding} padding The padding strategy to use. Default: Pkcs7
-	         */
-	        cfg: Cipher.cfg.extend({
-	            mode: CBC,
-	            padding: Pkcs7
-	        }),
-
-	        reset: function () {
-	            // Reset cipher
-	            Cipher.reset.call(this);
-
-	            // Shortcuts
-	            var cfg = this.cfg;
-	            var iv = cfg.iv;
-	            var mode = cfg.mode;
-
-	            // Reset block mode
-	            if (this._xformMode == this._ENC_XFORM_MODE) {
-	                var modeCreator = mode.createEncryptor;
-	            } else /* if (this._xformMode == this._DEC_XFORM_MODE) */ {
-	                var modeCreator = mode.createDecryptor;
-
-	                // Keep at least one block in the buffer for unpadding
-	                this._minBufferSize = 1;
-	            }
-	            this._mode = modeCreator.call(mode, this, iv && iv.words);
-	        },
-
-	        _doProcessBlock: function (words, offset) {
-	            this._mode.processBlock(words, offset);
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcut
-	            var padding = this.cfg.padding;
-
-	            // Finalize
-	            if (this._xformMode == this._ENC_XFORM_MODE) {
-	                // Pad data
-	                padding.pad(this._data, this.blockSize);
-
-	                // Process final blocks
-	                var finalProcessedBlocks = this._process(!!'flush');
-	            } else /* if (this._xformMode == this._DEC_XFORM_MODE) */ {
-	                // Process final blocks
-	                var finalProcessedBlocks = this._process(!!'flush');
-
-	                // Unpad data
-	                padding.unpad(finalProcessedBlocks);
-	            }
-
-	            return finalProcessedBlocks;
-	        },
-
-	        blockSize: 128/32
-	    });
-
-	    /**
-	     * A collection of cipher parameters.
-	     *
-	     * @property {WordArray} ciphertext The raw ciphertext.
-	     * @property {WordArray} key The key to this ciphertext.
-	     * @property {WordArray} iv The IV used in the ciphering operation.
-	     * @property {WordArray} salt The salt used with a key derivation function.
-	     * @property {Cipher} algorithm The cipher algorithm.
-	     * @property {Mode} mode The block mode used in the ciphering operation.
-	     * @property {Padding} padding The padding scheme used in the ciphering operation.
-	     * @property {number} blockSize The block size of the cipher.
-	     * @property {Format} formatter The default formatting strategy to convert this cipher params object to a string.
-	     */
-	    var CipherParams = C_lib.CipherParams = Base.extend({
-	        /**
-	         * Initializes a newly created cipher params object.
-	         *
-	         * @param {Object} cipherParams An object with any of the possible cipher parameters.
-	         *
-	         * @example
-	         *
-	         *     var cipherParams = CryptoJS.lib.CipherParams.create({
-	         *         ciphertext: ciphertextWordArray,
-	         *         key: keyWordArray,
-	         *         iv: ivWordArray,
-	         *         salt: saltWordArray,
-	         *         algorithm: CryptoJS.algo.AES,
-	         *         mode: CryptoJS.mode.CBC,
-	         *         padding: CryptoJS.pad.PKCS7,
-	         *         blockSize: 4,
-	         *         formatter: CryptoJS.format.OpenSSL
-	         *     });
-	         */
-	        init: function (cipherParams) {
-	            this.mixIn(cipherParams);
-	        },
-
-	        /**
-	         * Converts this cipher params object to a string.
-	         *
-	         * @param {Format} formatter (Optional) The formatting strategy to use.
-	         *
-	         * @return {string} The stringified cipher params.
-	         *
-	         * @throws Error If neither the formatter nor the default formatter is set.
-	         *
-	         * @example
-	         *
-	         *     var string = cipherParams + '';
-	         *     var string = cipherParams.toString();
-	         *     var string = cipherParams.toString(CryptoJS.format.OpenSSL);
-	         */
-	        toString: function (formatter) {
-	            return (formatter || this.formatter).stringify(this);
-	        }
-	    });
-
-	    /**
-	     * Format namespace.
-	     */
-	    var C_format = C.format = {};
-
-	    /**
-	     * OpenSSL formatting strategy.
-	     */
-	    var OpenSSLFormatter = C_format.OpenSSL = {
-	        /**
-	         * Converts a cipher params object to an OpenSSL-compatible string.
-	         *
-	         * @param {CipherParams} cipherParams The cipher params object.
-	         *
-	         * @return {string} The OpenSSL-compatible string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var openSSLString = CryptoJS.format.OpenSSL.stringify(cipherParams);
-	         */
-	        stringify: function (cipherParams) {
-	            // Shortcuts
-	            var ciphertext = cipherParams.ciphertext;
-	            var salt = cipherParams.salt;
-
-	            // Format
-	            if (salt) {
-	                var wordArray = WordArray.create([0x53616c74, 0x65645f5f]).concat(salt).concat(ciphertext);
-	            } else {
-	                var wordArray = ciphertext;
-	            }
-
-	            return wordArray.toString(Base64);
-	        },
-
-	        /**
-	         * Converts an OpenSSL-compatible string to a cipher params object.
-	         *
-	         * @param {string} openSSLStr The OpenSSL-compatible string.
-	         *
-	         * @return {CipherParams} The cipher params object.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var cipherParams = CryptoJS.format.OpenSSL.parse(openSSLString);
-	         */
-	        parse: function (openSSLStr) {
-	            // Parse base64
-	            var ciphertext = Base64.parse(openSSLStr);
-
-	            // Shortcut
-	            var ciphertextWords = ciphertext.words;
-
-	            // Test for salt
-	            if (ciphertextWords[0] == 0x53616c74 && ciphertextWords[1] == 0x65645f5f) {
-	                // Extract salt
-	                var salt = WordArray.create(ciphertextWords.slice(2, 4));
-
-	                // Remove salt from ciphertext
-	                ciphertextWords.splice(0, 4);
-	                ciphertext.sigBytes -= 16;
-	            }
-
-	            return CipherParams.create({ ciphertext: ciphertext, salt: salt });
-	        }
-	    };
-
-	    /**
-	     * A cipher wrapper that returns ciphertext as a serializable cipher params object.
-	     */
-	    var SerializableCipher = C_lib.SerializableCipher = Base.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {Formatter} format The formatting strategy to convert cipher param objects to and from a string. Default: OpenSSL
-	         */
-	        cfg: Base.extend({
-	            format: OpenSSLFormatter
-	        }),
-
-	        /**
-	         * Encrypts a message.
-	         *
-	         * @param {Cipher} cipher The cipher algorithm to use.
-	         * @param {WordArray|string} message The message to encrypt.
-	         * @param {WordArray} key The key.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {CipherParams} A cipher params object.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var ciphertextParams = CryptoJS.lib.SerializableCipher.encrypt(CryptoJS.algo.AES, message, key);
-	         *     var ciphertextParams = CryptoJS.lib.SerializableCipher.encrypt(CryptoJS.algo.AES, message, key, { iv: iv });
-	         *     var ciphertextParams = CryptoJS.lib.SerializableCipher.encrypt(CryptoJS.algo.AES, message, key, { iv: iv, format: CryptoJS.format.OpenSSL });
-	         */
-	        encrypt: function (cipher, message, key, cfg) {
-	            // Apply config defaults
-	            cfg = this.cfg.extend(cfg);
-
-	            // Encrypt
-	            var encryptor = cipher.createEncryptor(key, cfg);
-	            var ciphertext = encryptor.finalize(message);
-
-	            // Shortcut
-	            var cipherCfg = encryptor.cfg;
-
-	            // Create and return serializable cipher params
-	            return CipherParams.create({
-	                ciphertext: ciphertext,
-	                key: key,
-	                iv: cipherCfg.iv,
-	                algorithm: cipher,
-	                mode: cipherCfg.mode,
-	                padding: cipherCfg.padding,
-	                blockSize: cipher.blockSize,
-	                formatter: cfg.format
-	            });
-	        },
-
-	        /**
-	         * Decrypts serialized ciphertext.
-	         *
-	         * @param {Cipher} cipher The cipher algorithm to use.
-	         * @param {CipherParams|string} ciphertext The ciphertext to decrypt.
-	         * @param {WordArray} key The key.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {WordArray} The plaintext.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var plaintext = CryptoJS.lib.SerializableCipher.decrypt(CryptoJS.algo.AES, formattedCiphertext, key, { iv: iv, format: CryptoJS.format.OpenSSL });
-	         *     var plaintext = CryptoJS.lib.SerializableCipher.decrypt(CryptoJS.algo.AES, ciphertextParams, key, { iv: iv, format: CryptoJS.format.OpenSSL });
-	         */
-	        decrypt: function (cipher, ciphertext, key, cfg) {
-	            // Apply config defaults
-	            cfg = this.cfg.extend(cfg);
-
-	            // Convert string to CipherParams
-	            ciphertext = this._parse(ciphertext, cfg.format);
-
-	            // Decrypt
-	            var plaintext = cipher.createDecryptor(key, cfg).finalize(ciphertext.ciphertext);
-
-	            return plaintext;
-	        },
-
-	        /**
-	         * Converts serialized ciphertext to CipherParams,
-	         * else assumed CipherParams already and returns ciphertext unchanged.
-	         *
-	         * @param {CipherParams|string} ciphertext The ciphertext.
-	         * @param {Formatter} format The formatting strategy to use to parse serialized ciphertext.
-	         *
-	         * @return {CipherParams} The unserialized ciphertext.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var ciphertextParams = CryptoJS.lib.SerializableCipher._parse(ciphertextStringOrParams, format);
-	         */
-	        _parse: function (ciphertext, format) {
-	            if (typeof ciphertext == 'string') {
-	                return format.parse(ciphertext, this);
-	            } else {
-	                return ciphertext;
-	            }
-	        }
-	    });
-
-	    /**
-	     * Key derivation function namespace.
-	     */
-	    var C_kdf = C.kdf = {};
-
-	    /**
-	     * OpenSSL key derivation function.
-	     */
-	    var OpenSSLKdf = C_kdf.OpenSSL = {
-	        /**
-	         * Derives a key and IV from a password.
-	         *
-	         * @param {string} password The password to derive from.
-	         * @param {number} keySize The size in words of the key to generate.
-	         * @param {number} ivSize The size in words of the IV to generate.
-	         * @param {WordArray|string} salt (Optional) A 64-bit salt to use. If omitted, a salt will be generated randomly.
-	         *
-	         * @return {CipherParams} A cipher params object with the key, IV, and salt.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var derivedParams = CryptoJS.kdf.OpenSSL.execute('Password', 256/32, 128/32);
-	         *     var derivedParams = CryptoJS.kdf.OpenSSL.execute('Password', 256/32, 128/32, 'saltsalt');
-	         */
-	        execute: function (password, keySize, ivSize, salt) {
-	            // Generate random salt
-	            if (!salt) {
-	                salt = WordArray.random(64/8);
-	            }
-
-	            // Derive key and IV
-	            var key = EvpKDF.create({ keySize: keySize + ivSize }).compute(password, salt);
-
-	            // Separate key and IV
-	            var iv = WordArray.create(key.words.slice(keySize), ivSize * 4);
-	            key.sigBytes = keySize * 4;
-
-	            // Return params
-	            return CipherParams.create({ key: key, iv: iv, salt: salt });
-	        }
-	    };
-
-	    /**
-	     * A serializable cipher wrapper that derives the key from a password,
-	     * and returns ciphertext as a serializable cipher params object.
-	     */
-	    var PasswordBasedCipher = C_lib.PasswordBasedCipher = SerializableCipher.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {KDF} kdf The key derivation function to use to generate a key and IV from a password. Default: OpenSSL
-	         */
-	        cfg: SerializableCipher.cfg.extend({
-	            kdf: OpenSSLKdf
-	        }),
-
-	        /**
-	         * Encrypts a message using a password.
-	         *
-	         * @param {Cipher} cipher The cipher algorithm to use.
-	         * @param {WordArray|string} message The message to encrypt.
-	         * @param {string} password The password.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {CipherParams} A cipher params object.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var ciphertextParams = CryptoJS.lib.PasswordBasedCipher.encrypt(CryptoJS.algo.AES, message, 'password');
-	         *     var ciphertextParams = CryptoJS.lib.PasswordBasedCipher.encrypt(CryptoJS.algo.AES, message, 'password', { format: CryptoJS.format.OpenSSL });
-	         */
-	        encrypt: function (cipher, message, password, cfg) {
-	            // Apply config defaults
-	            cfg = this.cfg.extend(cfg);
-
-	            // Derive key and other params
-	            var derivedParams = cfg.kdf.execute(password, cipher.keySize, cipher.ivSize);
-
-	            // Add IV to config
-	            cfg.iv = derivedParams.iv;
-
-	            // Encrypt
-	            var ciphertext = SerializableCipher.encrypt.call(this, cipher, message, derivedParams.key, cfg);
-
-	            // Mix in derived params
-	            ciphertext.mixIn(derivedParams);
-
-	            return ciphertext;
-	        },
-
-	        /**
-	         * Decrypts serialized ciphertext using a password.
-	         *
-	         * @param {Cipher} cipher The cipher algorithm to use.
-	         * @param {CipherParams|string} ciphertext The ciphertext to decrypt.
-	         * @param {string} password The password.
-	         * @param {Object} cfg (Optional) The configuration options to use for this operation.
-	         *
-	         * @return {WordArray} The plaintext.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var plaintext = CryptoJS.lib.PasswordBasedCipher.decrypt(CryptoJS.algo.AES, formattedCiphertext, 'password', { format: CryptoJS.format.OpenSSL });
-	         *     var plaintext = CryptoJS.lib.PasswordBasedCipher.decrypt(CryptoJS.algo.AES, ciphertextParams, 'password', { format: CryptoJS.format.OpenSSL });
-	         */
-	        decrypt: function (cipher, ciphertext, password, cfg) {
-	            // Apply config defaults
-	            cfg = this.cfg.extend(cfg);
-
-	            // Convert string to CipherParams
-	            ciphertext = this._parse(ciphertext, cfg.format);
-
-	            // Derive key and other params
-	            var derivedParams = cfg.kdf.execute(password, cipher.keySize, cipher.ivSize, ciphertext.salt);
-
-	            // Add IV to config
-	            cfg.iv = derivedParams.iv;
-
-	            // Decrypt
-	            var plaintext = SerializableCipher.decrypt.call(this, cipher, ciphertext, derivedParams.key, cfg);
-
-	            return plaintext;
-	        }
-	    });
-	}());
-
-
-}));
-},{"./core":406}],406:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory();
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define([], factory);
-	}
-	else {
-		// Global (browser)
-		root.CryptoJS = factory();
-	}
-}(this, function () {
-
-	/**
-	 * CryptoJS core components.
-	 */
-	var CryptoJS = CryptoJS || (function (Math, undefined) {
-	    /*
-	     * Local polyfil of Object.create
-	     */
-	    var create = Object.create || (function () {
-	        function F() {};
-
-	        return function (obj) {
-	            var subtype;
-
-	            F.prototype = obj;
-
-	            subtype = new F();
-
-	            F.prototype = null;
-
-	            return subtype;
-	        };
-	    }())
-
-	    /**
-	     * CryptoJS namespace.
-	     */
-	    var C = {};
-
-	    /**
-	     * Library namespace.
-	     */
-	    var C_lib = C.lib = {};
-
-	    /**
-	     * Base object for prototypal inheritance.
-	     */
-	    var Base = C_lib.Base = (function () {
-
-
-	        return {
-	            /**
-	             * Creates a new object that inherits from this object.
-	             *
-	             * @param {Object} overrides Properties to copy into the new object.
-	             *
-	             * @return {Object} The new object.
-	             *
-	             * @static
-	             *
-	             * @example
-	             *
-	             *     var MyType = CryptoJS.lib.Base.extend({
-	             *         field: 'value',
-	             *
-	             *         method: function () {
-	             *         }
-	             *     });
-	             */
-	            extend: function (overrides) {
-	                // Spawn
-	                var subtype = create(this);
-
-	                // Augment
-	                if (overrides) {
-	                    subtype.mixIn(overrides);
-	                }
-
-	                // Create default initializer
-	                if (!subtype.hasOwnProperty('init') || this.init === subtype.init) {
-	                    subtype.init = function () {
-	                        subtype.$super.init.apply(this, arguments);
-	                    };
-	                }
-
-	                // Initializer's prototype is the subtype object
-	                subtype.init.prototype = subtype;
-
-	                // Reference supertype
-	                subtype.$super = this;
-
-	                return subtype;
-	            },
-
-	            /**
-	             * Extends this object and runs the init method.
-	             * Arguments to create() will be passed to init().
-	             *
-	             * @return {Object} The new object.
-	             *
-	             * @static
-	             *
-	             * @example
-	             *
-	             *     var instance = MyType.create();
-	             */
-	            create: function () {
-	                var instance = this.extend();
-	                instance.init.apply(instance, arguments);
-
-	                return instance;
-	            },
-
-	            /**
-	             * Initializes a newly created object.
-	             * Override this method to add some logic when your objects are created.
-	             *
-	             * @example
-	             *
-	             *     var MyType = CryptoJS.lib.Base.extend({
-	             *         init: function () {
-	             *             // ...
-	             *         }
-	             *     });
-	             */
-	            init: function () {
-	            },
-
-	            /**
-	             * Copies properties into this object.
-	             *
-	             * @param {Object} properties The properties to mix in.
-	             *
-	             * @example
-	             *
-	             *     MyType.mixIn({
-	             *         field: 'value'
-	             *     });
-	             */
-	            mixIn: function (properties) {
-	                for (var propertyName in properties) {
-	                    if (properties.hasOwnProperty(propertyName)) {
-	                        this[propertyName] = properties[propertyName];
-	                    }
-	                }
-
-	                // IE won't copy toString using the loop above
-	                if (properties.hasOwnProperty('toString')) {
-	                    this.toString = properties.toString;
-	                }
-	            },
-
-	            /**
-	             * Creates a copy of this object.
-	             *
-	             * @return {Object} The clone.
-	             *
-	             * @example
-	             *
-	             *     var clone = instance.clone();
-	             */
-	            clone: function () {
-	                return this.init.prototype.extend(this);
-	            }
-	        };
-	    }());
-
-	    /**
-	     * An array of 32-bit words.
-	     *
-	     * @property {Array} words The array of 32-bit words.
-	     * @property {number} sigBytes The number of significant bytes in this word array.
-	     */
-	    var WordArray = C_lib.WordArray = Base.extend({
-	        /**
-	         * Initializes a newly created word array.
-	         *
-	         * @param {Array} words (Optional) An array of 32-bit words.
-	         * @param {number} sigBytes (Optional) The number of significant bytes in the words.
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.lib.WordArray.create();
-	         *     var wordArray = CryptoJS.lib.WordArray.create([0x00010203, 0x04050607]);
-	         *     var wordArray = CryptoJS.lib.WordArray.create([0x00010203, 0x04050607], 6);
-	         */
-	        init: function (words, sigBytes) {
-	            words = this.words = words || [];
-
-	            if (sigBytes != undefined) {
-	                this.sigBytes = sigBytes;
-	            } else {
-	                this.sigBytes = words.length * 4;
-	            }
-	        },
-
-	        /**
-	         * Converts this word array to a string.
-	         *
-	         * @param {Encoder} encoder (Optional) The encoding strategy to use. Default: CryptoJS.enc.Hex
-	         *
-	         * @return {string} The stringified word array.
-	         *
-	         * @example
-	         *
-	         *     var string = wordArray + '';
-	         *     var string = wordArray.toString();
-	         *     var string = wordArray.toString(CryptoJS.enc.Utf8);
-	         */
-	        toString: function (encoder) {
-	            return (encoder || Hex).stringify(this);
-	        },
-
-	        /**
-	         * Concatenates a word array to this word array.
-	         *
-	         * @param {WordArray} wordArray The word array to append.
-	         *
-	         * @return {WordArray} This word array.
-	         *
-	         * @example
-	         *
-	         *     wordArray1.concat(wordArray2);
-	         */
-	        concat: function (wordArray) {
-	            // Shortcuts
-	            var thisWords = this.words;
-	            var thatWords = wordArray.words;
-	            var thisSigBytes = this.sigBytes;
-	            var thatSigBytes = wordArray.sigBytes;
-
-	            // Clamp excess bits
-	            this.clamp();
-
-	            // Concat
-	            if (thisSigBytes % 4) {
-	                // Copy one byte at a time
-	                for (var i = 0; i < thatSigBytes; i++) {
-	                    var thatByte = (thatWords[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
-	                    thisWords[(thisSigBytes + i) >>> 2] |= thatByte << (24 - ((thisSigBytes + i) % 4) * 8);
-	                }
-	            } else {
-	                // Copy one word at a time
-	                for (var i = 0; i < thatSigBytes; i += 4) {
-	                    thisWords[(thisSigBytes + i) >>> 2] = thatWords[i >>> 2];
-	                }
-	            }
-	            this.sigBytes += thatSigBytes;
-
-	            // Chainable
-	            return this;
-	        },
-
-	        /**
-	         * Removes insignificant bits.
-	         *
-	         * @example
-	         *
-	         *     wordArray.clamp();
-	         */
-	        clamp: function () {
-	            // Shortcuts
-	            var words = this.words;
-	            var sigBytes = this.sigBytes;
-
-	            // Clamp
-	            words[sigBytes >>> 2] &= 0xffffffff << (32 - (sigBytes % 4) * 8);
-	            words.length = Math.ceil(sigBytes / 4);
-	        },
-
-	        /**
-	         * Creates a copy of this word array.
-	         *
-	         * @return {WordArray} The clone.
-	         *
-	         * @example
-	         *
-	         *     var clone = wordArray.clone();
-	         */
-	        clone: function () {
-	            var clone = Base.clone.call(this);
-	            clone.words = this.words.slice(0);
-
-	            return clone;
-	        },
-
-	        /**
-	         * Creates a word array filled with random bytes.
-	         *
-	         * @param {number} nBytes The number of random bytes to generate.
-	         *
-	         * @return {WordArray} The random word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.lib.WordArray.random(16);
-	         */
-	        random: function (nBytes) {
-	            var words = [];
-
-	            var r = (function (m_w) {
-	                var m_w = m_w;
-	                var m_z = 0x3ade68b1;
-	                var mask = 0xffffffff;
-
-	                return function () {
-	                    m_z = (0x9069 * (m_z & 0xFFFF) + (m_z >> 0x10)) & mask;
-	                    m_w = (0x4650 * (m_w & 0xFFFF) + (m_w >> 0x10)) & mask;
-	                    var result = ((m_z << 0x10) + m_w) & mask;
-	                    result /= 0x100000000;
-	                    result += 0.5;
-	                    return result * (Math.random() > .5 ? 1 : -1);
-	                }
-	            });
-
-	            for (var i = 0, rcache; i < nBytes; i += 4) {
-	                var _r = r((rcache || Math.random()) * 0x100000000);
-
-	                rcache = _r() * 0x3ade67b7;
-	                words.push((_r() * 0x100000000) | 0);
-	            }
-
-	            return new WordArray.init(words, nBytes);
-	        }
-	    });
-
-	    /**
-	     * Encoder namespace.
-	     */
-	    var C_enc = C.enc = {};
-
-	    /**
-	     * Hex encoding strategy.
-	     */
-	    var Hex = C_enc.Hex = {
-	        /**
-	         * Converts a word array to a hex string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The hex string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var hexString = CryptoJS.enc.Hex.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            // Shortcuts
-	            var words = wordArray.words;
-	            var sigBytes = wordArray.sigBytes;
-
-	            // Convert
-	            var hexChars = [];
-	            for (var i = 0; i < sigBytes; i++) {
-	                var bite = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
-	                hexChars.push((bite >>> 4).toString(16));
-	                hexChars.push((bite & 0x0f).toString(16));
-	            }
-
-	            return hexChars.join('');
-	        },
-
-	        /**
-	         * Converts a hex string to a word array.
-	         *
-	         * @param {string} hexStr The hex string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Hex.parse(hexString);
-	         */
-	        parse: function (hexStr) {
-	            // Shortcut
-	            var hexStrLength = hexStr.length;
-
-	            // Convert
-	            var words = [];
-	            for (var i = 0; i < hexStrLength; i += 2) {
-	                words[i >>> 3] |= parseInt(hexStr.substr(i, 2), 16) << (24 - (i % 8) * 4);
-	            }
-
-	            return new WordArray.init(words, hexStrLength / 2);
-	        }
-	    };
-
-	    /**
-	     * Latin1 encoding strategy.
-	     */
-	    var Latin1 = C_enc.Latin1 = {
-	        /**
-	         * Converts a word array to a Latin1 string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The Latin1 string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var latin1String = CryptoJS.enc.Latin1.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            // Shortcuts
-	            var words = wordArray.words;
-	            var sigBytes = wordArray.sigBytes;
-
-	            // Convert
-	            var latin1Chars = [];
-	            for (var i = 0; i < sigBytes; i++) {
-	                var bite = (words[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff;
-	                latin1Chars.push(String.fromCharCode(bite));
-	            }
-
-	            return latin1Chars.join('');
-	        },
-
-	        /**
-	         * Converts a Latin1 string to a word array.
-	         *
-	         * @param {string} latin1Str The Latin1 string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Latin1.parse(latin1String);
-	         */
-	        parse: function (latin1Str) {
-	            // Shortcut
-	            var latin1StrLength = latin1Str.length;
-
-	            // Convert
-	            var words = [];
-	            for (var i = 0; i < latin1StrLength; i++) {
-	                words[i >>> 2] |= (latin1Str.charCodeAt(i) & 0xff) << (24 - (i % 4) * 8);
-	            }
-
-	            return new WordArray.init(words, latin1StrLength);
-	        }
-	    };
-
-	    /**
-	     * UTF-8 encoding strategy.
-	     */
-	    var Utf8 = C_enc.Utf8 = {
-	        /**
-	         * Converts a word array to a UTF-8 string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The UTF-8 string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var utf8String = CryptoJS.enc.Utf8.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            try {
-	                return decodeURIComponent(escape(Latin1.stringify(wordArray)));
-	            } catch (e) {
-	                throw new Error('Malformed UTF-8 data');
-	            }
-	        },
-
-	        /**
-	         * Converts a UTF-8 string to a word array.
-	         *
-	         * @param {string} utf8Str The UTF-8 string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Utf8.parse(utf8String);
-	         */
-	        parse: function (utf8Str) {
-	            return Latin1.parse(unescape(encodeURIComponent(utf8Str)));
-	        }
-	    };
-
-	    /**
-	     * Abstract buffered block algorithm template.
-	     *
-	     * The property blockSize must be implemented in a concrete subtype.
-	     *
-	     * @property {number} _minBufferSize The number of blocks that should be kept unprocessed in the buffer. Default: 0
-	     */
-	    var BufferedBlockAlgorithm = C_lib.BufferedBlockAlgorithm = Base.extend({
-	        /**
-	         * Resets this block algorithm's data buffer to its initial state.
-	         *
-	         * @example
-	         *
-	         *     bufferedBlockAlgorithm.reset();
-	         */
-	        reset: function () {
-	            // Initial values
-	            this._data = new WordArray.init();
-	            this._nDataBytes = 0;
-	        },
-
-	        /**
-	         * Adds new data to this block algorithm's buffer.
-	         *
-	         * @param {WordArray|string} data The data to append. Strings are converted to a WordArray using UTF-8.
-	         *
-	         * @example
-	         *
-	         *     bufferedBlockAlgorithm._append('data');
-	         *     bufferedBlockAlgorithm._append(wordArray);
-	         */
-	        _append: function (data) {
-	            // Convert string to WordArray, else assume WordArray already
-	            if (typeof data == 'string') {
-	                data = Utf8.parse(data);
-	            }
-
-	            // Append
-	            this._data.concat(data);
-	            this._nDataBytes += data.sigBytes;
-	        },
-
-	        /**
-	         * Processes available data blocks.
-	         *
-	         * This method invokes _doProcessBlock(offset), which must be implemented by a concrete subtype.
-	         *
-	         * @param {boolean} doFlush Whether all blocks and partial blocks should be processed.
-	         *
-	         * @return {WordArray} The processed data.
-	         *
-	         * @example
-	         *
-	         *     var processedData = bufferedBlockAlgorithm._process();
-	         *     var processedData = bufferedBlockAlgorithm._process(!!'flush');
-	         */
-	        _process: function (doFlush) {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-	            var dataSigBytes = data.sigBytes;
-	            var blockSize = this.blockSize;
-	            var blockSizeBytes = blockSize * 4;
-
-	            // Count blocks ready
-	            var nBlocksReady = dataSigBytes / blockSizeBytes;
-	            if (doFlush) {
-	                // Round up to include partial blocks
-	                nBlocksReady = Math.ceil(nBlocksReady);
-	            } else {
-	                // Round down to include only full blocks,
-	                // less the number of blocks that must remain in the buffer
-	                nBlocksReady = Math.max((nBlocksReady | 0) - this._minBufferSize, 0);
-	            }
-
-	            // Count words ready
-	            var nWordsReady = nBlocksReady * blockSize;
-
-	            // Count bytes ready
-	            var nBytesReady = Math.min(nWordsReady * 4, dataSigBytes);
-
-	            // Process blocks
-	            if (nWordsReady) {
-	                for (var offset = 0; offset < nWordsReady; offset += blockSize) {
-	                    // Perform concrete-algorithm logic
-	                    this._doProcessBlock(dataWords, offset);
-	                }
-
-	                // Remove processed words
-	                var processedWords = dataWords.splice(0, nWordsReady);
-	                data.sigBytes -= nBytesReady;
-	            }
-
-	            // Return processed words
-	            return new WordArray.init(processedWords, nBytesReady);
-	        },
-
-	        /**
-	         * Creates a copy of this object.
-	         *
-	         * @return {Object} The clone.
-	         *
-	         * @example
-	         *
-	         *     var clone = bufferedBlockAlgorithm.clone();
-	         */
-	        clone: function () {
-	            var clone = Base.clone.call(this);
-	            clone._data = this._data.clone();
-
-	            return clone;
-	        },
-
-	        _minBufferSize: 0
-	    });
-
-	    /**
-	     * Abstract hasher template.
-	     *
-	     * @property {number} blockSize The number of 32-bit words this hasher operates on. Default: 16 (512 bits)
-	     */
-	    var Hasher = C_lib.Hasher = BufferedBlockAlgorithm.extend({
-	        /**
-	         * Configuration options.
-	         */
-	        cfg: Base.extend(),
-
-	        /**
-	         * Initializes a newly created hasher.
-	         *
-	         * @param {Object} cfg (Optional) The configuration options to use for this hash computation.
-	         *
-	         * @example
-	         *
-	         *     var hasher = CryptoJS.algo.SHA256.create();
-	         */
-	        init: function (cfg) {
-	            // Apply config defaults
-	            this.cfg = this.cfg.extend(cfg);
-
-	            // Set initial values
-	            this.reset();
-	        },
-
-	        /**
-	         * Resets this hasher to its initial state.
-	         *
-	         * @example
-	         *
-	         *     hasher.reset();
-	         */
-	        reset: function () {
-	            // Reset data buffer
-	            BufferedBlockAlgorithm.reset.call(this);
-
-	            // Perform concrete-hasher logic
-	            this._doReset();
-	        },
-
-	        /**
-	         * Updates this hasher with a message.
-	         *
-	         * @param {WordArray|string} messageUpdate The message to append.
-	         *
-	         * @return {Hasher} This hasher.
-	         *
-	         * @example
-	         *
-	         *     hasher.update('message');
-	         *     hasher.update(wordArray);
-	         */
-	        update: function (messageUpdate) {
-	            // Append
-	            this._append(messageUpdate);
-
-	            // Update the hash
-	            this._process();
-
-	            // Chainable
-	            return this;
-	        },
-
-	        /**
-	         * Finalizes the hash computation.
-	         * Note that the finalize operation is effectively a destructive, read-once operation.
-	         *
-	         * @param {WordArray|string} messageUpdate (Optional) A final message update.
-	         *
-	         * @return {WordArray} The hash.
-	         *
-	         * @example
-	         *
-	         *     var hash = hasher.finalize();
-	         *     var hash = hasher.finalize('message');
-	         *     var hash = hasher.finalize(wordArray);
-	         */
-	        finalize: function (messageUpdate) {
-	            // Final message update
-	            if (messageUpdate) {
-	                this._append(messageUpdate);
-	            }
-
-	            // Perform concrete-hasher logic
-	            var hash = this._doFinalize();
-
-	            return hash;
-	        },
-
-	        blockSize: 512/32,
-
-	        /**
-	         * Creates a shortcut function to a hasher's object interface.
-	         *
-	         * @param {Hasher} hasher The hasher to create a helper for.
-	         *
-	         * @return {Function} The shortcut function.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var SHA256 = CryptoJS.lib.Hasher._createHelper(CryptoJS.algo.SHA256);
-	         */
-	        _createHelper: function (hasher) {
-	            return function (message, cfg) {
-	                return new hasher.init(cfg).finalize(message);
-	            };
-	        },
-
-	        /**
-	         * Creates a shortcut function to the HMAC's object interface.
-	         *
-	         * @param {Hasher} hasher The hasher to use in this HMAC helper.
-	         *
-	         * @return {Function} The shortcut function.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var HmacSHA256 = CryptoJS.lib.Hasher._createHmacHelper(CryptoJS.algo.SHA256);
-	         */
-	        _createHmacHelper: function (hasher) {
-	            return function (message, key) {
-	                return new C_algo.HMAC.init(hasher, key).finalize(message);
-	            };
-	        }
-	    });
-
-	    /**
-	     * Algorithm namespace.
-	     */
-	    var C_algo = C.algo = {};
-
-	    return C;
-	}(Math));
-
-
-	return CryptoJS;
-
-}));
-},{}],407:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var C_enc = C.enc;
-
-	    /**
-	     * Base64 encoding strategy.
-	     */
-	    var Base64 = C_enc.Base64 = {
-	        /**
-	         * Converts a word array to a Base64 string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The Base64 string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var base64String = CryptoJS.enc.Base64.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            // Shortcuts
-	            var words = wordArray.words;
-	            var sigBytes = wordArray.sigBytes;
-	            var map = this._map;
-
-	            // Clamp excess bits
-	            wordArray.clamp();
-
-	            // Convert
-	            var base64Chars = [];
-	            for (var i = 0; i < sigBytes; i += 3) {
-	                var byte1 = (words[i >>> 2]       >>> (24 - (i % 4) * 8))       & 0xff;
-	                var byte2 = (words[(i + 1) >>> 2] >>> (24 - ((i + 1) % 4) * 8)) & 0xff;
-	                var byte3 = (words[(i + 2) >>> 2] >>> (24 - ((i + 2) % 4) * 8)) & 0xff;
-
-	                var triplet = (byte1 << 16) | (byte2 << 8) | byte3;
-
-	                for (var j = 0; (j < 4) && (i + j * 0.75 < sigBytes); j++) {
-	                    base64Chars.push(map.charAt((triplet >>> (6 * (3 - j))) & 0x3f));
-	                }
-	            }
-
-	            // Add padding
-	            var paddingChar = map.charAt(64);
-	            if (paddingChar) {
-	                while (base64Chars.length % 4) {
-	                    base64Chars.push(paddingChar);
-	                }
-	            }
-
-	            return base64Chars.join('');
-	        },
-
-	        /**
-	         * Converts a Base64 string to a word array.
-	         *
-	         * @param {string} base64Str The Base64 string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Base64.parse(base64String);
-	         */
-	        parse: function (base64Str) {
-	            // Shortcuts
-	            var base64StrLength = base64Str.length;
-	            var map = this._map;
-	            var reverseMap = this._reverseMap;
-
-	            if (!reverseMap) {
-	                    reverseMap = this._reverseMap = [];
-	                    for (var j = 0; j < map.length; j++) {
-	                        reverseMap[map.charCodeAt(j)] = j;
-	                    }
-	            }
-
-	            // Ignore padding
-	            var paddingChar = map.charAt(64);
-	            if (paddingChar) {
-	                var paddingIndex = base64Str.indexOf(paddingChar);
-	                if (paddingIndex !== -1) {
-	                    base64StrLength = paddingIndex;
-	                }
-	            }
-
-	            // Convert
-	            return parseLoop(base64Str, base64StrLength, reverseMap);
-
-	        },
-
-	        _map: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
-	    };
-
-	    function parseLoop(base64Str, base64StrLength, reverseMap) {
-	      var words = [];
-	      var nBytes = 0;
-	      for (var i = 0; i < base64StrLength; i++) {
-	          if (i % 4) {
-	              var bits1 = reverseMap[base64Str.charCodeAt(i - 1)] << ((i % 4) * 2);
-	              var bits2 = reverseMap[base64Str.charCodeAt(i)] >>> (6 - (i % 4) * 2);
-	              words[nBytes >>> 2] |= (bits1 | bits2) << (24 - (nBytes % 4) * 8);
-	              nBytes++;
-	          }
-	      }
-	      return WordArray.create(words, nBytes);
-	    }
-	}());
-
-
-	return CryptoJS.enc.Base64;
-
-}));
-},{"./core":406}],408:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var C_enc = C.enc;
-
-	    /**
-	     * UTF-16 BE encoding strategy.
-	     */
-	    var Utf16BE = C_enc.Utf16 = C_enc.Utf16BE = {
-	        /**
-	         * Converts a word array to a UTF-16 BE string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The UTF-16 BE string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var utf16String = CryptoJS.enc.Utf16.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            // Shortcuts
-	            var words = wordArray.words;
-	            var sigBytes = wordArray.sigBytes;
-
-	            // Convert
-	            var utf16Chars = [];
-	            for (var i = 0; i < sigBytes; i += 2) {
-	                var codePoint = (words[i >>> 2] >>> (16 - (i % 4) * 8)) & 0xffff;
-	                utf16Chars.push(String.fromCharCode(codePoint));
-	            }
-
-	            return utf16Chars.join('');
-	        },
-
-	        /**
-	         * Converts a UTF-16 BE string to a word array.
-	         *
-	         * @param {string} utf16Str The UTF-16 BE string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Utf16.parse(utf16String);
-	         */
-	        parse: function (utf16Str) {
-	            // Shortcut
-	            var utf16StrLength = utf16Str.length;
-
-	            // Convert
-	            var words = [];
-	            for (var i = 0; i < utf16StrLength; i++) {
-	                words[i >>> 1] |= utf16Str.charCodeAt(i) << (16 - (i % 2) * 16);
-	            }
-
-	            return WordArray.create(words, utf16StrLength * 2);
-	        }
-	    };
-
-	    /**
-	     * UTF-16 LE encoding strategy.
-	     */
-	    C_enc.Utf16LE = {
-	        /**
-	         * Converts a word array to a UTF-16 LE string.
-	         *
-	         * @param {WordArray} wordArray The word array.
-	         *
-	         * @return {string} The UTF-16 LE string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var utf16Str = CryptoJS.enc.Utf16LE.stringify(wordArray);
-	         */
-	        stringify: function (wordArray) {
-	            // Shortcuts
-	            var words = wordArray.words;
-	            var sigBytes = wordArray.sigBytes;
-
-	            // Convert
-	            var utf16Chars = [];
-	            for (var i = 0; i < sigBytes; i += 2) {
-	                var codePoint = swapEndian((words[i >>> 2] >>> (16 - (i % 4) * 8)) & 0xffff);
-	                utf16Chars.push(String.fromCharCode(codePoint));
-	            }
-
-	            return utf16Chars.join('');
-	        },
-
-	        /**
-	         * Converts a UTF-16 LE string to a word array.
-	         *
-	         * @param {string} utf16Str The UTF-16 LE string.
-	         *
-	         * @return {WordArray} The word array.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.enc.Utf16LE.parse(utf16Str);
-	         */
-	        parse: function (utf16Str) {
-	            // Shortcut
-	            var utf16StrLength = utf16Str.length;
-
-	            // Convert
-	            var words = [];
-	            for (var i = 0; i < utf16StrLength; i++) {
-	                words[i >>> 1] |= swapEndian(utf16Str.charCodeAt(i) << (16 - (i % 2) * 16));
-	            }
-
-	            return WordArray.create(words, utf16StrLength * 2);
-	        }
-	    };
-
-	    function swapEndian(word) {
-	        return ((word << 8) & 0xff00ff00) | ((word >>> 8) & 0x00ff00ff);
-	    }
-	}());
-
-
-	return CryptoJS.enc.Utf16;
-
-}));
-},{"./core":406}],409:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./sha1"), require("./hmac"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./sha1", "./hmac"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Base = C_lib.Base;
-	    var WordArray = C_lib.WordArray;
-	    var C_algo = C.algo;
-	    var MD5 = C_algo.MD5;
-
-	    /**
-	     * This key derivation function is meant to conform with EVP_BytesToKey.
-	     * www.openssl.org/docs/crypto/EVP_BytesToKey.html
-	     */
-	    var EvpKDF = C_algo.EvpKDF = Base.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {number} keySize The key size in words to generate. Default: 4 (128 bits)
-	         * @property {Hasher} hasher The hash algorithm to use. Default: MD5
-	         * @property {number} iterations The number of iterations to perform. Default: 1
-	         */
-	        cfg: Base.extend({
-	            keySize: 128/32,
-	            hasher: MD5,
-	            iterations: 1
-	        }),
-
-	        /**
-	         * Initializes a newly created key derivation function.
-	         *
-	         * @param {Object} cfg (Optional) The configuration options to use for the derivation.
-	         *
-	         * @example
-	         *
-	         *     var kdf = CryptoJS.algo.EvpKDF.create();
-	         *     var kdf = CryptoJS.algo.EvpKDF.create({ keySize: 8 });
-	         *     var kdf = CryptoJS.algo.EvpKDF.create({ keySize: 8, iterations: 1000 });
-	         */
-	        init: function (cfg) {
-	            this.cfg = this.cfg.extend(cfg);
-	        },
-
-	        /**
-	         * Derives a key from a password.
-	         *
-	         * @param {WordArray|string} password The password.
-	         * @param {WordArray|string} salt A salt.
-	         *
-	         * @return {WordArray} The derived key.
-	         *
-	         * @example
-	         *
-	         *     var key = kdf.compute(password, salt);
-	         */
-	        compute: function (password, salt) {
-	            // Shortcut
-	            var cfg = this.cfg;
-
-	            // Init hasher
-	            var hasher = cfg.hasher.create();
-
-	            // Initial values
-	            var derivedKey = WordArray.create();
-
-	            // Shortcuts
-	            var derivedKeyWords = derivedKey.words;
-	            var keySize = cfg.keySize;
-	            var iterations = cfg.iterations;
-
-	            // Generate key
-	            while (derivedKeyWords.length < keySize) {
-	                if (block) {
-	                    hasher.update(block);
-	                }
-	                var block = hasher.update(password).finalize(salt);
-	                hasher.reset();
-
-	                // Iterations
-	                for (var i = 1; i < iterations; i++) {
-	                    block = hasher.finalize(block);
-	                    hasher.reset();
-	                }
-
-	                derivedKey.concat(block);
-	            }
-	            derivedKey.sigBytes = keySize * 4;
-
-	            return derivedKey;
-	        }
-	    });
-
-	    /**
-	     * Derives a key from a password.
-	     *
-	     * @param {WordArray|string} password The password.
-	     * @param {WordArray|string} salt A salt.
-	     * @param {Object} cfg (Optional) The configuration options to use for this computation.
-	     *
-	     * @return {WordArray} The derived key.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var key = CryptoJS.EvpKDF(password, salt);
-	     *     var key = CryptoJS.EvpKDF(password, salt, { keySize: 8 });
-	     *     var key = CryptoJS.EvpKDF(password, salt, { keySize: 8, iterations: 1000 });
-	     */
-	    C.EvpKDF = function (password, salt, cfg) {
-	        return EvpKDF.create(cfg).compute(password, salt);
-	    };
-	}());
-
-
-	return CryptoJS.EvpKDF;
-
-}));
-},{"./core":406,"./hmac":411,"./sha1":430}],410:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function (undefined) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var CipherParams = C_lib.CipherParams;
-	    var C_enc = C.enc;
-	    var Hex = C_enc.Hex;
-	    var C_format = C.format;
-
-	    var HexFormatter = C_format.Hex = {
-	        /**
-	         * Converts the ciphertext of a cipher params object to a hexadecimally encoded string.
-	         *
-	         * @param {CipherParams} cipherParams The cipher params object.
-	         *
-	         * @return {string} The hexadecimally encoded string.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var hexString = CryptoJS.format.Hex.stringify(cipherParams);
-	         */
-	        stringify: function (cipherParams) {
-	            return cipherParams.ciphertext.toString(Hex);
-	        },
-
-	        /**
-	         * Converts a hexadecimally encoded ciphertext string to a cipher params object.
-	         *
-	         * @param {string} input The hexadecimally encoded string.
-	         *
-	         * @return {CipherParams} The cipher params object.
-	         *
-	         * @static
-	         *
-	         * @example
-	         *
-	         *     var cipherParams = CryptoJS.format.Hex.parse(hexString);
-	         */
-	        parse: function (input) {
-	            var ciphertext = Hex.parse(input);
-	            return CipherParams.create({ ciphertext: ciphertext });
-	        }
-	    };
-	}());
-
-
-	return CryptoJS.format.Hex;
-
-}));
-},{"./cipher-core":405,"./core":406}],411:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Base = C_lib.Base;
-	    var C_enc = C.enc;
-	    var Utf8 = C_enc.Utf8;
-	    var C_algo = C.algo;
-
-	    /**
-	     * HMAC algorithm.
-	     */
-	    var HMAC = C_algo.HMAC = Base.extend({
-	        /**
-	         * Initializes a newly created HMAC.
-	         *
-	         * @param {Hasher} hasher The hash algorithm to use.
-	         * @param {WordArray|string} key The secret key.
-	         *
-	         * @example
-	         *
-	         *     var hmacHasher = CryptoJS.algo.HMAC.create(CryptoJS.algo.SHA256, key);
-	         */
-	        init: function (hasher, key) {
-	            // Init hasher
-	            hasher = this._hasher = new hasher.init();
-
-	            // Convert string to WordArray, else assume WordArray already
-	            if (typeof key == 'string') {
-	                key = Utf8.parse(key);
-	            }
-
-	            // Shortcuts
-	            var hasherBlockSize = hasher.blockSize;
-	            var hasherBlockSizeBytes = hasherBlockSize * 4;
-
-	            // Allow arbitrary length keys
-	            if (key.sigBytes > hasherBlockSizeBytes) {
-	                key = hasher.finalize(key);
-	            }
-
-	            // Clamp excess bits
-	            key.clamp();
-
-	            // Clone key for inner and outer pads
-	            var oKey = this._oKey = key.clone();
-	            var iKey = this._iKey = key.clone();
-
-	            // Shortcuts
-	            var oKeyWords = oKey.words;
-	            var iKeyWords = iKey.words;
-
-	            // XOR keys with pad constants
-	            for (var i = 0; i < hasherBlockSize; i++) {
-	                oKeyWords[i] ^= 0x5c5c5c5c;
-	                iKeyWords[i] ^= 0x36363636;
-	            }
-	            oKey.sigBytes = iKey.sigBytes = hasherBlockSizeBytes;
-
-	            // Set initial values
-	            this.reset();
-	        },
-
-	        /**
-	         * Resets this HMAC to its initial state.
-	         *
-	         * @example
-	         *
-	         *     hmacHasher.reset();
-	         */
-	        reset: function () {
-	            // Shortcut
-	            var hasher = this._hasher;
-
-	            // Reset
-	            hasher.reset();
-	            hasher.update(this._iKey);
-	        },
-
-	        /**
-	         * Updates this HMAC with a message.
-	         *
-	         * @param {WordArray|string} messageUpdate The message to append.
-	         *
-	         * @return {HMAC} This HMAC instance.
-	         *
-	         * @example
-	         *
-	         *     hmacHasher.update('message');
-	         *     hmacHasher.update(wordArray);
-	         */
-	        update: function (messageUpdate) {
-	            this._hasher.update(messageUpdate);
-
-	            // Chainable
-	            return this;
-	        },
-
-	        /**
-	         * Finalizes the HMAC computation.
-	         * Note that the finalize operation is effectively a destructive, read-once operation.
-	         *
-	         * @param {WordArray|string} messageUpdate (Optional) A final message update.
-	         *
-	         * @return {WordArray} The HMAC.
-	         *
-	         * @example
-	         *
-	         *     var hmac = hmacHasher.finalize();
-	         *     var hmac = hmacHasher.finalize('message');
-	         *     var hmac = hmacHasher.finalize(wordArray);
-	         */
-	        finalize: function (messageUpdate) {
-	            // Shortcut
-	            var hasher = this._hasher;
-
-	            // Compute HMAC
-	            var innerHash = hasher.finalize(messageUpdate);
-	            hasher.reset();
-	            var hmac = hasher.finalize(this._oKey.clone().concat(innerHash));
-
-	            return hmac;
-	        }
-	    });
-	}());
-
-
-}));
-},{"./core":406}],412:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./x64-core"), require("./lib-typedarrays"), require("./enc-utf16"), require("./enc-base64"), require("./md5"), require("./sha1"), require("./sha256"), require("./sha224"), require("./sha512"), require("./sha384"), require("./sha3"), require("./ripemd160"), require("./hmac"), require("./pbkdf2"), require("./evpkdf"), require("./cipher-core"), require("./mode-cfb"), require("./mode-ctr"), require("./mode-ctr-gladman"), require("./mode-ofb"), require("./mode-ecb"), require("./pad-ansix923"), require("./pad-iso10126"), require("./pad-iso97971"), require("./pad-zeropadding"), require("./pad-nopadding"), require("./format-hex"), require("./aes"), require("./tripledes"), require("./rc4"), require("./rabbit"), require("./rabbit-legacy"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./x64-core", "./lib-typedarrays", "./enc-utf16", "./enc-base64", "./md5", "./sha1", "./sha256", "./sha224", "./sha512", "./sha384", "./sha3", "./ripemd160", "./hmac", "./pbkdf2", "./evpkdf", "./cipher-core", "./mode-cfb", "./mode-ctr", "./mode-ctr-gladman", "./mode-ofb", "./mode-ecb", "./pad-ansix923", "./pad-iso10126", "./pad-iso97971", "./pad-zeropadding", "./pad-nopadding", "./format-hex", "./aes", "./tripledes", "./rc4", "./rabbit", "./rabbit-legacy"], factory);
-	}
-	else {
-		// Global (browser)
-		root.CryptoJS = factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	return CryptoJS;
-
-}));
-},{"./aes":404,"./cipher-core":405,"./core":406,"./enc-base64":407,"./enc-utf16":408,"./evpkdf":409,"./format-hex":410,"./hmac":411,"./lib-typedarrays":413,"./md5":414,"./mode-cfb":415,"./mode-ctr":417,"./mode-ctr-gladman":416,"./mode-ecb":418,"./mode-ofb":419,"./pad-ansix923":420,"./pad-iso10126":421,"./pad-iso97971":422,"./pad-nopadding":423,"./pad-zeropadding":424,"./pbkdf2":425,"./rabbit":427,"./rabbit-legacy":426,"./rc4":428,"./ripemd160":429,"./sha1":430,"./sha224":431,"./sha256":432,"./sha3":433,"./sha384":434,"./sha512":435,"./tripledes":436,"./x64-core":437}],413:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Check if typed arrays are supported
-	    if (typeof ArrayBuffer != 'function') {
-	        return;
-	    }
-
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-
-	    // Reference original init
-	    var superInit = WordArray.init;
-
-	    // Augment WordArray.init to handle typed arrays
-	    var subInit = WordArray.init = function (typedArray) {
-	        // Convert buffers to uint8
-	        if (typedArray instanceof ArrayBuffer) {
-	            typedArray = new Uint8Array(typedArray);
-	        }
-
-	        // Convert other array views to uint8
-	        if (
-	            typedArray instanceof Int8Array ||
-	            (typeof Uint8ClampedArray !== "undefined" && typedArray instanceof Uint8ClampedArray) ||
-	            typedArray instanceof Int16Array ||
-	            typedArray instanceof Uint16Array ||
-	            typedArray instanceof Int32Array ||
-	            typedArray instanceof Uint32Array ||
-	            typedArray instanceof Float32Array ||
-	            typedArray instanceof Float64Array
-	        ) {
-	            typedArray = new Uint8Array(typedArray.buffer, typedArray.byteOffset, typedArray.byteLength);
-	        }
-
-	        // Handle Uint8Array
-	        if (typedArray instanceof Uint8Array) {
-	            // Shortcut
-	            var typedArrayByteLength = typedArray.byteLength;
-
-	            // Extract bytes
-	            var words = [];
-	            for (var i = 0; i < typedArrayByteLength; i++) {
-	                words[i >>> 2] |= typedArray[i] << (24 - (i % 4) * 8);
-	            }
-
-	            // Initialize this word array
-	            superInit.call(this, words, typedArrayByteLength);
-	        } else {
-	            // Else call normal init
-	            superInit.apply(this, arguments);
-	        }
-	    };
-
-	    subInit.prototype = WordArray;
-	}());
-
-
-	return CryptoJS.lib.WordArray;
-
-}));
-},{"./core":406}],414:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function (Math) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var Hasher = C_lib.Hasher;
-	    var C_algo = C.algo;
-
-	    // Constants table
-	    var T = [];
-
-	    // Compute constants
-	    (function () {
-	        for (var i = 0; i < 64; i++) {
-	            T[i] = (Math.abs(Math.sin(i + 1)) * 0x100000000) | 0;
-	        }
-	    }());
-
-	    /**
-	     * MD5 hash algorithm.
-	     */
-	    var MD5 = C_algo.MD5 = Hasher.extend({
-	        _doReset: function () {
-	            this._hash = new WordArray.init([
-	                0x67452301, 0xefcdab89,
-	                0x98badcfe, 0x10325476
-	            ]);
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Swap endian
-	            for (var i = 0; i < 16; i++) {
-	                // Shortcuts
-	                var offset_i = offset + i;
-	                var M_offset_i = M[offset_i];
-
-	                M[offset_i] = (
-	                    (((M_offset_i << 8)  | (M_offset_i >>> 24)) & 0x00ff00ff) |
-	                    (((M_offset_i << 24) | (M_offset_i >>> 8))  & 0xff00ff00)
-	                );
-	            }
-
-	            // Shortcuts
-	            var H = this._hash.words;
-
-	            var M_offset_0  = M[offset + 0];
-	            var M_offset_1  = M[offset + 1];
-	            var M_offset_2  = M[offset + 2];
-	            var M_offset_3  = M[offset + 3];
-	            var M_offset_4  = M[offset + 4];
-	            var M_offset_5  = M[offset + 5];
-	            var M_offset_6  = M[offset + 6];
-	            var M_offset_7  = M[offset + 7];
-	            var M_offset_8  = M[offset + 8];
-	            var M_offset_9  = M[offset + 9];
-	            var M_offset_10 = M[offset + 10];
-	            var M_offset_11 = M[offset + 11];
-	            var M_offset_12 = M[offset + 12];
-	            var M_offset_13 = M[offset + 13];
-	            var M_offset_14 = M[offset + 14];
-	            var M_offset_15 = M[offset + 15];
-
-	            // Working varialbes
-	            var a = H[0];
-	            var b = H[1];
-	            var c = H[2];
-	            var d = H[3];
-
-	            // Computation
-	            a = FF(a, b, c, d, M_offset_0,  7,  T[0]);
-	            d = FF(d, a, b, c, M_offset_1,  12, T[1]);
-	            c = FF(c, d, a, b, M_offset_2,  17, T[2]);
-	            b = FF(b, c, d, a, M_offset_3,  22, T[3]);
-	            a = FF(a, b, c, d, M_offset_4,  7,  T[4]);
-	            d = FF(d, a, b, c, M_offset_5,  12, T[5]);
-	            c = FF(c, d, a, b, M_offset_6,  17, T[6]);
-	            b = FF(b, c, d, a, M_offset_7,  22, T[7]);
-	            a = FF(a, b, c, d, M_offset_8,  7,  T[8]);
-	            d = FF(d, a, b, c, M_offset_9,  12, T[9]);
-	            c = FF(c, d, a, b, M_offset_10, 17, T[10]);
-	            b = FF(b, c, d, a, M_offset_11, 22, T[11]);
-	            a = FF(a, b, c, d, M_offset_12, 7,  T[12]);
-	            d = FF(d, a, b, c, M_offset_13, 12, T[13]);
-	            c = FF(c, d, a, b, M_offset_14, 17, T[14]);
-	            b = FF(b, c, d, a, M_offset_15, 22, T[15]);
-
-	            a = GG(a, b, c, d, M_offset_1,  5,  T[16]);
-	            d = GG(d, a, b, c, M_offset_6,  9,  T[17]);
-	            c = GG(c, d, a, b, M_offset_11, 14, T[18]);
-	            b = GG(b, c, d, a, M_offset_0,  20, T[19]);
-	            a = GG(a, b, c, d, M_offset_5,  5,  T[20]);
-	            d = GG(d, a, b, c, M_offset_10, 9,  T[21]);
-	            c = GG(c, d, a, b, M_offset_15, 14, T[22]);
-	            b = GG(b, c, d, a, M_offset_4,  20, T[23]);
-	            a = GG(a, b, c, d, M_offset_9,  5,  T[24]);
-	            d = GG(d, a, b, c, M_offset_14, 9,  T[25]);
-	            c = GG(c, d, a, b, M_offset_3,  14, T[26]);
-	            b = GG(b, c, d, a, M_offset_8,  20, T[27]);
-	            a = GG(a, b, c, d, M_offset_13, 5,  T[28]);
-	            d = GG(d, a, b, c, M_offset_2,  9,  T[29]);
-	            c = GG(c, d, a, b, M_offset_7,  14, T[30]);
-	            b = GG(b, c, d, a, M_offset_12, 20, T[31]);
-
-	            a = HH(a, b, c, d, M_offset_5,  4,  T[32]);
-	            d = HH(d, a, b, c, M_offset_8,  11, T[33]);
-	            c = HH(c, d, a, b, M_offset_11, 16, T[34]);
-	            b = HH(b, c, d, a, M_offset_14, 23, T[35]);
-	            a = HH(a, b, c, d, M_offset_1,  4,  T[36]);
-	            d = HH(d, a, b, c, M_offset_4,  11, T[37]);
-	            c = HH(c, d, a, b, M_offset_7,  16, T[38]);
-	            b = HH(b, c, d, a, M_offset_10, 23, T[39]);
-	            a = HH(a, b, c, d, M_offset_13, 4,  T[40]);
-	            d = HH(d, a, b, c, M_offset_0,  11, T[41]);
-	            c = HH(c, d, a, b, M_offset_3,  16, T[42]);
-	            b = HH(b, c, d, a, M_offset_6,  23, T[43]);
-	            a = HH(a, b, c, d, M_offset_9,  4,  T[44]);
-	            d = HH(d, a, b, c, M_offset_12, 11, T[45]);
-	            c = HH(c, d, a, b, M_offset_15, 16, T[46]);
-	            b = HH(b, c, d, a, M_offset_2,  23, T[47]);
-
-	            a = II(a, b, c, d, M_offset_0,  6,  T[48]);
-	            d = II(d, a, b, c, M_offset_7,  10, T[49]);
-	            c = II(c, d, a, b, M_offset_14, 15, T[50]);
-	            b = II(b, c, d, a, M_offset_5,  21, T[51]);
-	            a = II(a, b, c, d, M_offset_12, 6,  T[52]);
-	            d = II(d, a, b, c, M_offset_3,  10, T[53]);
-	            c = II(c, d, a, b, M_offset_10, 15, T[54]);
-	            b = II(b, c, d, a, M_offset_1,  21, T[55]);
-	            a = II(a, b, c, d, M_offset_8,  6,  T[56]);
-	            d = II(d, a, b, c, M_offset_15, 10, T[57]);
-	            c = II(c, d, a, b, M_offset_6,  15, T[58]);
-	            b = II(b, c, d, a, M_offset_13, 21, T[59]);
-	            a = II(a, b, c, d, M_offset_4,  6,  T[60]);
-	            d = II(d, a, b, c, M_offset_11, 10, T[61]);
-	            c = II(c, d, a, b, M_offset_2,  15, T[62]);
-	            b = II(b, c, d, a, M_offset_9,  21, T[63]);
-
-	            // Intermediate hash value
-	            H[0] = (H[0] + a) | 0;
-	            H[1] = (H[1] + b) | 0;
-	            H[2] = (H[2] + c) | 0;
-	            H[3] = (H[3] + d) | 0;
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x80 << (24 - nBitsLeft % 32);
-
-	            var nBitsTotalH = Math.floor(nBitsTotal / 0x100000000);
-	            var nBitsTotalL = nBitsTotal;
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 15] = (
-	                (((nBitsTotalH << 8)  | (nBitsTotalH >>> 24)) & 0x00ff00ff) |
-	                (((nBitsTotalH << 24) | (nBitsTotalH >>> 8))  & 0xff00ff00)
-	            );
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 14] = (
-	                (((nBitsTotalL << 8)  | (nBitsTotalL >>> 24)) & 0x00ff00ff) |
-	                (((nBitsTotalL << 24) | (nBitsTotalL >>> 8))  & 0xff00ff00)
-	            );
-
-	            data.sigBytes = (dataWords.length + 1) * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Shortcuts
-	            var hash = this._hash;
-	            var H = hash.words;
-
-	            // Swap endian
-	            for (var i = 0; i < 4; i++) {
-	                // Shortcut
-	                var H_i = H[i];
-
-	                H[i] = (((H_i << 8)  | (H_i >>> 24)) & 0x00ff00ff) |
-	                       (((H_i << 24) | (H_i >>> 8))  & 0xff00ff00);
-	            }
-
-	            // Return final computed hash
-	            return hash;
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-	            clone._hash = this._hash.clone();
-
-	            return clone;
-	        }
-	    });
-
-	    function FF(a, b, c, d, x, s, t) {
-	        var n = a + ((b & c) | (~b & d)) + x + t;
-	        return ((n << s) | (n >>> (32 - s))) + b;
-	    }
-
-	    function GG(a, b, c, d, x, s, t) {
-	        var n = a + ((b & d) | (c & ~d)) + x + t;
-	        return ((n << s) | (n >>> (32 - s))) + b;
-	    }
-
-	    function HH(a, b, c, d, x, s, t) {
-	        var n = a + (b ^ c ^ d) + x + t;
-	        return ((n << s) | (n >>> (32 - s))) + b;
-	    }
-
-	    function II(a, b, c, d, x, s, t) {
-	        var n = a + (c ^ (b | ~d)) + x + t;
-	        return ((n << s) | (n >>> (32 - s))) + b;
-	    }
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.MD5('message');
-	     *     var hash = CryptoJS.MD5(wordArray);
-	     */
-	    C.MD5 = Hasher._createHelper(MD5);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacMD5(message, key);
-	     */
-	    C.HmacMD5 = Hasher._createHmacHelper(MD5);
-	}(Math));
-
-
-	return CryptoJS.MD5;
-
-}));
-},{"./core":406}],415:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Cipher Feedback block mode.
-	 */
-	CryptoJS.mode.CFB = (function () {
-	    var CFB = CryptoJS.lib.BlockCipherMode.extend();
-
-	    CFB.Encryptor = CFB.extend({
-	        processBlock: function (words, offset) {
-	            // Shortcuts
-	            var cipher = this._cipher;
-	            var blockSize = cipher.blockSize;
-
-	            generateKeystreamAndEncrypt.call(this, words, offset, blockSize, cipher);
-
-	            // Remember this block to use with next block
-	            this._prevBlock = words.slice(offset, offset + blockSize);
-	        }
-	    });
-
-	    CFB.Decryptor = CFB.extend({
-	        processBlock: function (words, offset) {
-	            // Shortcuts
-	            var cipher = this._cipher;
-	            var blockSize = cipher.blockSize;
-
-	            // Remember this block to use with next block
-	            var thisBlock = words.slice(offset, offset + blockSize);
-
-	            generateKeystreamAndEncrypt.call(this, words, offset, blockSize, cipher);
-
-	            // This block becomes the previous block
-	            this._prevBlock = thisBlock;
-	        }
-	    });
-
-	    function generateKeystreamAndEncrypt(words, offset, blockSize, cipher) {
-	        // Shortcut
-	        var iv = this._iv;
-
-	        // Generate keystream
-	        if (iv) {
-	            var keystream = iv.slice(0);
-
-	            // Remove IV for subsequent blocks
-	            this._iv = undefined;
-	        } else {
-	            var keystream = this._prevBlock;
-	        }
-	        cipher.encryptBlock(keystream, 0);
-
-	        // Encrypt
-	        for (var i = 0; i < blockSize; i++) {
-	            words[offset + i] ^= keystream[i];
-	        }
-	    }
-
-	    return CFB;
-	}());
-
-
-	return CryptoJS.mode.CFB;
-
-}));
-},{"./cipher-core":405,"./core":406}],416:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/** @preserve
-	 * Counter block mode compatible with  Dr Brian Gladman fileenc.c
-	 * derived from CryptoJS.mode.CTR
-	 * Jan Hruby jhruby.web@gmail.com
-	 */
-	CryptoJS.mode.CTRGladman = (function () {
-	    var CTRGladman = CryptoJS.lib.BlockCipherMode.extend();
-
-		function incWord(word)
-		{
-			if (((word >> 24) & 0xff) === 0xff) { //overflow
-			var b1 = (word >> 16)&0xff;
-			var b2 = (word >> 8)&0xff;
-			var b3 = word & 0xff;
-
-			if (b1 === 0xff) // overflow b1
-			{
-			b1 = 0;
-			if (b2 === 0xff)
-			{
-				b2 = 0;
-				if (b3 === 0xff)
-				{
-					b3 = 0;
-				}
-				else
-				{
-					++b3;
-				}
-			}
-			else
-			{
-				++b2;
-			}
-			}
-			else
-			{
-			++b1;
-			}
-
-			word = 0;
-			word += (b1 << 16);
-			word += (b2 << 8);
-			word += b3;
-			}
-			else
-			{
-			word += (0x01 << 24);
-			}
-			return word;
-		}
-
-		function incCounter(counter)
-		{
-			if ((counter[0] = incWord(counter[0])) === 0)
-			{
-				// encr_data in fileenc.c from  Dr Brian Gladman's counts only with DWORD j < 8
-				counter[1] = incWord(counter[1]);
-			}
-			return counter;
-		}
-
-	    var Encryptor = CTRGladman.Encryptor = CTRGladman.extend({
-	        processBlock: function (words, offset) {
-	            // Shortcuts
-	            var cipher = this._cipher
-	            var blockSize = cipher.blockSize;
-	            var iv = this._iv;
-	            var counter = this._counter;
-
-	            // Generate keystream
-	            if (iv) {
-	                counter = this._counter = iv.slice(0);
-
-	                // Remove IV for subsequent blocks
-	                this._iv = undefined;
-	            }
-
-				incCounter(counter);
-
-				var keystream = counter.slice(0);
-	            cipher.encryptBlock(keystream, 0);
-
-	            // Encrypt
-	            for (var i = 0; i < blockSize; i++) {
-	                words[offset + i] ^= keystream[i];
-	            }
-	        }
-	    });
-
-	    CTRGladman.Decryptor = Encryptor;
-
-	    return CTRGladman;
-	}());
-
-
-
-
-	return CryptoJS.mode.CTRGladman;
-
-}));
-},{"./cipher-core":405,"./core":406}],417:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Counter block mode.
-	 */
-	CryptoJS.mode.CTR = (function () {
-	    var CTR = CryptoJS.lib.BlockCipherMode.extend();
-
-	    var Encryptor = CTR.Encryptor = CTR.extend({
-	        processBlock: function (words, offset) {
-	            // Shortcuts
-	            var cipher = this._cipher
-	            var blockSize = cipher.blockSize;
-	            var iv = this._iv;
-	            var counter = this._counter;
-
-	            // Generate keystream
-	            if (iv) {
-	                counter = this._counter = iv.slice(0);
-
-	                // Remove IV for subsequent blocks
-	                this._iv = undefined;
-	            }
-	            var keystream = counter.slice(0);
-	            cipher.encryptBlock(keystream, 0);
-
-	            // Increment counter
-	            counter[blockSize - 1] = (counter[blockSize - 1] + 1) | 0
-
-	            // Encrypt
-	            for (var i = 0; i < blockSize; i++) {
-	                words[offset + i] ^= keystream[i];
-	            }
-	        }
-	    });
-
-	    CTR.Decryptor = Encryptor;
-
-	    return CTR;
-	}());
-
-
-	return CryptoJS.mode.CTR;
-
-}));
-},{"./cipher-core":405,"./core":406}],418:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Electronic Codebook block mode.
-	 */
-	CryptoJS.mode.ECB = (function () {
-	    var ECB = CryptoJS.lib.BlockCipherMode.extend();
-
-	    ECB.Encryptor = ECB.extend({
-	        processBlock: function (words, offset) {
-	            this._cipher.encryptBlock(words, offset);
-	        }
-	    });
-
-	    ECB.Decryptor = ECB.extend({
-	        processBlock: function (words, offset) {
-	            this._cipher.decryptBlock(words, offset);
-	        }
-	    });
-
-	    return ECB;
-	}());
-
-
-	return CryptoJS.mode.ECB;
-
-}));
-},{"./cipher-core":405,"./core":406}],419:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Output Feedback block mode.
-	 */
-	CryptoJS.mode.OFB = (function () {
-	    var OFB = CryptoJS.lib.BlockCipherMode.extend();
-
-	    var Encryptor = OFB.Encryptor = OFB.extend({
-	        processBlock: function (words, offset) {
-	            // Shortcuts
-	            var cipher = this._cipher
-	            var blockSize = cipher.blockSize;
-	            var iv = this._iv;
-	            var keystream = this._keystream;
-
-	            // Generate keystream
-	            if (iv) {
-	                keystream = this._keystream = iv.slice(0);
-
-	                // Remove IV for subsequent blocks
-	                this._iv = undefined;
-	            }
-	            cipher.encryptBlock(keystream, 0);
-
-	            // Encrypt
-	            for (var i = 0; i < blockSize; i++) {
-	                words[offset + i] ^= keystream[i];
-	            }
-	        }
-	    });
-
-	    OFB.Decryptor = Encryptor;
-
-	    return OFB;
-	}());
-
-
-	return CryptoJS.mode.OFB;
-
-}));
-},{"./cipher-core":405,"./core":406}],420:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * ANSI X.923 padding strategy.
-	 */
-	CryptoJS.pad.AnsiX923 = {
-	    pad: function (data, blockSize) {
-	        // Shortcuts
-	        var dataSigBytes = data.sigBytes;
-	        var blockSizeBytes = blockSize * 4;
-
-	        // Count padding bytes
-	        var nPaddingBytes = blockSizeBytes - dataSigBytes % blockSizeBytes;
-
-	        // Compute last byte position
-	        var lastBytePos = dataSigBytes + nPaddingBytes - 1;
-
-	        // Pad
-	        data.clamp();
-	        data.words[lastBytePos >>> 2] |= nPaddingBytes << (24 - (lastBytePos % 4) * 8);
-	        data.sigBytes += nPaddingBytes;
-	    },
-
-	    unpad: function (data) {
-	        // Get number of padding bytes from last byte
-	        var nPaddingBytes = data.words[(data.sigBytes - 1) >>> 2] & 0xff;
-
-	        // Remove padding
-	        data.sigBytes -= nPaddingBytes;
-	    }
-	};
-
-
-	return CryptoJS.pad.Ansix923;
-
-}));
-},{"./cipher-core":405,"./core":406}],421:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * ISO 10126 padding strategy.
-	 */
-	CryptoJS.pad.Iso10126 = {
-	    pad: function (data, blockSize) {
-	        // Shortcut
-	        var blockSizeBytes = blockSize * 4;
-
-	        // Count padding bytes
-	        var nPaddingBytes = blockSizeBytes - data.sigBytes % blockSizeBytes;
-
-	        // Pad
-	        data.concat(CryptoJS.lib.WordArray.random(nPaddingBytes - 1)).
-	             concat(CryptoJS.lib.WordArray.create([nPaddingBytes << 24], 1));
-	    },
-
-	    unpad: function (data) {
-	        // Get number of padding bytes from last byte
-	        var nPaddingBytes = data.words[(data.sigBytes - 1) >>> 2] & 0xff;
-
-	        // Remove padding
-	        data.sigBytes -= nPaddingBytes;
-	    }
-	};
-
-
-	return CryptoJS.pad.Iso10126;
-
-}));
-},{"./cipher-core":405,"./core":406}],422:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * ISO/IEC 9797-1 Padding Method 2.
-	 */
-	CryptoJS.pad.Iso97971 = {
-	    pad: function (data, blockSize) {
-	        // Add 0x80 byte
-	        data.concat(CryptoJS.lib.WordArray.create([0x80000000], 1));
-
-	        // Zero pad the rest
-	        CryptoJS.pad.ZeroPadding.pad(data, blockSize);
-	    },
-
-	    unpad: function (data) {
-	        // Remove zero padding
-	        CryptoJS.pad.ZeroPadding.unpad(data);
-
-	        // Remove one more byte -- the 0x80 byte
-	        data.sigBytes--;
-	    }
-	};
-
-
-	return CryptoJS.pad.Iso97971;
-
-}));
-},{"./cipher-core":405,"./core":406}],423:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * A noop padding strategy.
-	 */
-	CryptoJS.pad.NoPadding = {
-	    pad: function () {
-	    },
-
-	    unpad: function () {
-	    }
-	};
-
-
-	return CryptoJS.pad.NoPadding;
-
-}));
-},{"./cipher-core":405,"./core":406}],424:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/**
-	 * Zero padding strategy.
-	 */
-	CryptoJS.pad.ZeroPadding = {
-	    pad: function (data, blockSize) {
-	        // Shortcut
-	        var blockSizeBytes = blockSize * 4;
-
-	        // Pad
-	        data.clamp();
-	        data.sigBytes += blockSizeBytes - ((data.sigBytes % blockSizeBytes) || blockSizeBytes);
-	    },
-
-	    unpad: function (data) {
-	        // Shortcut
-	        var dataWords = data.words;
-
-	        // Unpad
-	        var i = data.sigBytes - 1;
-	        while (!((dataWords[i >>> 2] >>> (24 - (i % 4) * 8)) & 0xff)) {
-	            i--;
-	        }
-	        data.sigBytes = i + 1;
-	    }
-	};
-
-
-	return CryptoJS.pad.ZeroPadding;
-
-}));
-},{"./cipher-core":405,"./core":406}],425:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./sha1"), require("./hmac"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./sha1", "./hmac"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Base = C_lib.Base;
-	    var WordArray = C_lib.WordArray;
-	    var C_algo = C.algo;
-	    var SHA1 = C_algo.SHA1;
-	    var HMAC = C_algo.HMAC;
-
-	    /**
-	     * Password-Based Key Derivation Function 2 algorithm.
-	     */
-	    var PBKDF2 = C_algo.PBKDF2 = Base.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {number} keySize The key size in words to generate. Default: 4 (128 bits)
-	         * @property {Hasher} hasher The hasher to use. Default: SHA1
-	         * @property {number} iterations The number of iterations to perform. Default: 1
-	         */
-	        cfg: Base.extend({
-	            keySize: 128/32,
-	            hasher: SHA1,
-	            iterations: 1
-	        }),
-
-	        /**
-	         * Initializes a newly created key derivation function.
-	         *
-	         * @param {Object} cfg (Optional) The configuration options to use for the derivation.
-	         *
-	         * @example
-	         *
-	         *     var kdf = CryptoJS.algo.PBKDF2.create();
-	         *     var kdf = CryptoJS.algo.PBKDF2.create({ keySize: 8 });
-	         *     var kdf = CryptoJS.algo.PBKDF2.create({ keySize: 8, iterations: 1000 });
-	         */
-	        init: function (cfg) {
-	            this.cfg = this.cfg.extend(cfg);
-	        },
-
-	        /**
-	         * Computes the Password-Based Key Derivation Function 2.
-	         *
-	         * @param {WordArray|string} password The password.
-	         * @param {WordArray|string} salt A salt.
-	         *
-	         * @return {WordArray} The derived key.
-	         *
-	         * @example
-	         *
-	         *     var key = kdf.compute(password, salt);
-	         */
-	        compute: function (password, salt) {
-	            // Shortcut
-	            var cfg = this.cfg;
-
-	            // Init HMAC
-	            var hmac = HMAC.create(cfg.hasher, password);
-
-	            // Initial values
-	            var derivedKey = WordArray.create();
-	            var blockIndex = WordArray.create([0x00000001]);
-
-	            // Shortcuts
-	            var derivedKeyWords = derivedKey.words;
-	            var blockIndexWords = blockIndex.words;
-	            var keySize = cfg.keySize;
-	            var iterations = cfg.iterations;
-
-	            // Generate key
-	            while (derivedKeyWords.length < keySize) {
-	                var block = hmac.update(salt).finalize(blockIndex);
-	                hmac.reset();
-
-	                // Shortcuts
-	                var blockWords = block.words;
-	                var blockWordsLength = blockWords.length;
-
-	                // Iterations
-	                var intermediate = block;
-	                for (var i = 1; i < iterations; i++) {
-	                    intermediate = hmac.finalize(intermediate);
-	                    hmac.reset();
-
-	                    // Shortcut
-	                    var intermediateWords = intermediate.words;
-
-	                    // XOR intermediate with block
-	                    for (var j = 0; j < blockWordsLength; j++) {
-	                        blockWords[j] ^= intermediateWords[j];
-	                    }
-	                }
-
-	                derivedKey.concat(block);
-	                blockIndexWords[0]++;
-	            }
-	            derivedKey.sigBytes = keySize * 4;
-
-	            return derivedKey;
-	        }
-	    });
-
-	    /**
-	     * Computes the Password-Based Key Derivation Function 2.
-	     *
-	     * @param {WordArray|string} password The password.
-	     * @param {WordArray|string} salt A salt.
-	     * @param {Object} cfg (Optional) The configuration options to use for this computation.
-	     *
-	     * @return {WordArray} The derived key.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var key = CryptoJS.PBKDF2(password, salt);
-	     *     var key = CryptoJS.PBKDF2(password, salt, { keySize: 8 });
-	     *     var key = CryptoJS.PBKDF2(password, salt, { keySize: 8, iterations: 1000 });
-	     */
-	    C.PBKDF2 = function (password, salt, cfg) {
-	        return PBKDF2.create(cfg).compute(password, salt);
-	    };
-	}());
-
-
-	return CryptoJS.PBKDF2;
-
-}));
-},{"./core":406,"./hmac":411,"./sha1":430}],426:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./enc-base64"), require("./md5"), require("./evpkdf"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./enc-base64", "./md5", "./evpkdf", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var StreamCipher = C_lib.StreamCipher;
-	    var C_algo = C.algo;
-
-	    // Reusable objects
-	    var S  = [];
-	    var C_ = [];
-	    var G  = [];
-
-	    /**
-	     * Rabbit stream cipher algorithm.
-	     *
-	     * This is a legacy version that neglected to convert the key to little-endian.
-	     * This error doesn't affect the cipher's security,
-	     * but it does affect its compatibility with other implementations.
-	     */
-	    var RabbitLegacy = C_algo.RabbitLegacy = StreamCipher.extend({
-	        _doReset: function () {
-	            // Shortcuts
-	            var K = this._key.words;
-	            var iv = this.cfg.iv;
-
-	            // Generate initial state values
-	            var X = this._X = [
-	                K[0], (K[3] << 16) | (K[2] >>> 16),
-	                K[1], (K[0] << 16) | (K[3] >>> 16),
-	                K[2], (K[1] << 16) | (K[0] >>> 16),
-	                K[3], (K[2] << 16) | (K[1] >>> 16)
-	            ];
-
-	            // Generate initial counter values
-	            var C = this._C = [
-	                (K[2] << 16) | (K[2] >>> 16), (K[0] & 0xffff0000) | (K[1] & 0x0000ffff),
-	                (K[3] << 16) | (K[3] >>> 16), (K[1] & 0xffff0000) | (K[2] & 0x0000ffff),
-	                (K[0] << 16) | (K[0] >>> 16), (K[2] & 0xffff0000) | (K[3] & 0x0000ffff),
-	                (K[1] << 16) | (K[1] >>> 16), (K[3] & 0xffff0000) | (K[0] & 0x0000ffff)
-	            ];
-
-	            // Carry bit
-	            this._b = 0;
-
-	            // Iterate the system four times
-	            for (var i = 0; i < 4; i++) {
-	                nextState.call(this);
-	            }
-
-	            // Modify the counters
-	            for (var i = 0; i < 8; i++) {
-	                C[i] ^= X[(i + 4) & 7];
-	            }
-
-	            // IV setup
-	            if (iv) {
-	                // Shortcuts
-	                var IV = iv.words;
-	                var IV_0 = IV[0];
-	                var IV_1 = IV[1];
-
-	                // Generate four subvectors
-	                var i0 = (((IV_0 << 8) | (IV_0 >>> 24)) & 0x00ff00ff) | (((IV_0 << 24) | (IV_0 >>> 8)) & 0xff00ff00);
-	                var i2 = (((IV_1 << 8) | (IV_1 >>> 24)) & 0x00ff00ff) | (((IV_1 << 24) | (IV_1 >>> 8)) & 0xff00ff00);
-	                var i1 = (i0 >>> 16) | (i2 & 0xffff0000);
-	                var i3 = (i2 << 16)  | (i0 & 0x0000ffff);
-
-	                // Modify counter values
-	                C[0] ^= i0;
-	                C[1] ^= i1;
-	                C[2] ^= i2;
-	                C[3] ^= i3;
-	                C[4] ^= i0;
-	                C[5] ^= i1;
-	                C[6] ^= i2;
-	                C[7] ^= i3;
-
-	                // Iterate the system four times
-	                for (var i = 0; i < 4; i++) {
-	                    nextState.call(this);
-	                }
-	            }
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcut
-	            var X = this._X;
-
-	            // Iterate the system
-	            nextState.call(this);
-
-	            // Generate four keystream words
-	            S[0] = X[0] ^ (X[5] >>> 16) ^ (X[3] << 16);
-	            S[1] = X[2] ^ (X[7] >>> 16) ^ (X[5] << 16);
-	            S[2] = X[4] ^ (X[1] >>> 16) ^ (X[7] << 16);
-	            S[3] = X[6] ^ (X[3] >>> 16) ^ (X[1] << 16);
-
-	            for (var i = 0; i < 4; i++) {
-	                // Swap endian
-	                S[i] = (((S[i] << 8)  | (S[i] >>> 24)) & 0x00ff00ff) |
-	                       (((S[i] << 24) | (S[i] >>> 8))  & 0xff00ff00);
-
-	                // Encrypt
-	                M[offset + i] ^= S[i];
-	            }
-	        },
-
-	        blockSize: 128/32,
-
-	        ivSize: 64/32
-	    });
-
-	    function nextState() {
-	        // Shortcuts
-	        var X = this._X;
-	        var C = this._C;
-
-	        // Save old counter values
-	        for (var i = 0; i < 8; i++) {
-	            C_[i] = C[i];
-	        }
-
-	        // Calculate new counter values
-	        C[0] = (C[0] + 0x4d34d34d + this._b) | 0;
-	        C[1] = (C[1] + 0xd34d34d3 + ((C[0] >>> 0) < (C_[0] >>> 0) ? 1 : 0)) | 0;
-	        C[2] = (C[2] + 0x34d34d34 + ((C[1] >>> 0) < (C_[1] >>> 0) ? 1 : 0)) | 0;
-	        C[3] = (C[3] + 0x4d34d34d + ((C[2] >>> 0) < (C_[2] >>> 0) ? 1 : 0)) | 0;
-	        C[4] = (C[4] + 0xd34d34d3 + ((C[3] >>> 0) < (C_[3] >>> 0) ? 1 : 0)) | 0;
-	        C[5] = (C[5] + 0x34d34d34 + ((C[4] >>> 0) < (C_[4] >>> 0) ? 1 : 0)) | 0;
-	        C[6] = (C[6] + 0x4d34d34d + ((C[5] >>> 0) < (C_[5] >>> 0) ? 1 : 0)) | 0;
-	        C[7] = (C[7] + 0xd34d34d3 + ((C[6] >>> 0) < (C_[6] >>> 0) ? 1 : 0)) | 0;
-	        this._b = (C[7] >>> 0) < (C_[7] >>> 0) ? 1 : 0;
-
-	        // Calculate the g-values
-	        for (var i = 0; i < 8; i++) {
-	            var gx = X[i] + C[i];
-
-	            // Construct high and low argument for squaring
-	            var ga = gx & 0xffff;
-	            var gb = gx >>> 16;
-
-	            // Calculate high and low result of squaring
-	            var gh = ((((ga * ga) >>> 17) + ga * gb) >>> 15) + gb * gb;
-	            var gl = (((gx & 0xffff0000) * gx) | 0) + (((gx & 0x0000ffff) * gx) | 0);
-
-	            // High XOR low
-	            G[i] = gh ^ gl;
-	        }
-
-	        // Calculate new state values
-	        X[0] = (G[0] + ((G[7] << 16) | (G[7] >>> 16)) + ((G[6] << 16) | (G[6] >>> 16))) | 0;
-	        X[1] = (G[1] + ((G[0] << 8)  | (G[0] >>> 24)) + G[7]) | 0;
-	        X[2] = (G[2] + ((G[1] << 16) | (G[1] >>> 16)) + ((G[0] << 16) | (G[0] >>> 16))) | 0;
-	        X[3] = (G[3] + ((G[2] << 8)  | (G[2] >>> 24)) + G[1]) | 0;
-	        X[4] = (G[4] + ((G[3] << 16) | (G[3] >>> 16)) + ((G[2] << 16) | (G[2] >>> 16))) | 0;
-	        X[5] = (G[5] + ((G[4] << 8)  | (G[4] >>> 24)) + G[3]) | 0;
-	        X[6] = (G[6] + ((G[5] << 16) | (G[5] >>> 16)) + ((G[4] << 16) | (G[4] >>> 16))) | 0;
-	        X[7] = (G[7] + ((G[6] << 8)  | (G[6] >>> 24)) + G[5]) | 0;
-	    }
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.RabbitLegacy.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.RabbitLegacy.decrypt(ciphertext, key, cfg);
-	     */
-	    C.RabbitLegacy = StreamCipher._createHelper(RabbitLegacy);
-	}());
-
-
-	return CryptoJS.RabbitLegacy;
-
-}));
-},{"./cipher-core":405,"./core":406,"./enc-base64":407,"./evpkdf":409,"./md5":414}],427:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./enc-base64"), require("./md5"), require("./evpkdf"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./enc-base64", "./md5", "./evpkdf", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var StreamCipher = C_lib.StreamCipher;
-	    var C_algo = C.algo;
-
-	    // Reusable objects
-	    var S  = [];
-	    var C_ = [];
-	    var G  = [];
-
-	    /**
-	     * Rabbit stream cipher algorithm
-	     */
-	    var Rabbit = C_algo.Rabbit = StreamCipher.extend({
-	        _doReset: function () {
-	            // Shortcuts
-	            var K = this._key.words;
-	            var iv = this.cfg.iv;
-
-	            // Swap endian
-	            for (var i = 0; i < 4; i++) {
-	                K[i] = (((K[i] << 8)  | (K[i] >>> 24)) & 0x00ff00ff) |
-	                       (((K[i] << 24) | (K[i] >>> 8))  & 0xff00ff00);
-	            }
-
-	            // Generate initial state values
-	            var X = this._X = [
-	                K[0], (K[3] << 16) | (K[2] >>> 16),
-	                K[1], (K[0] << 16) | (K[3] >>> 16),
-	                K[2], (K[1] << 16) | (K[0] >>> 16),
-	                K[3], (K[2] << 16) | (K[1] >>> 16)
-	            ];
-
-	            // Generate initial counter values
-	            var C = this._C = [
-	                (K[2] << 16) | (K[2] >>> 16), (K[0] & 0xffff0000) | (K[1] & 0x0000ffff),
-	                (K[3] << 16) | (K[3] >>> 16), (K[1] & 0xffff0000) | (K[2] & 0x0000ffff),
-	                (K[0] << 16) | (K[0] >>> 16), (K[2] & 0xffff0000) | (K[3] & 0x0000ffff),
-	                (K[1] << 16) | (K[1] >>> 16), (K[3] & 0xffff0000) | (K[0] & 0x0000ffff)
-	            ];
-
-	            // Carry bit
-	            this._b = 0;
-
-	            // Iterate the system four times
-	            for (var i = 0; i < 4; i++) {
-	                nextState.call(this);
-	            }
-
-	            // Modify the counters
-	            for (var i = 0; i < 8; i++) {
-	                C[i] ^= X[(i + 4) & 7];
-	            }
-
-	            // IV setup
-	            if (iv) {
-	                // Shortcuts
-	                var IV = iv.words;
-	                var IV_0 = IV[0];
-	                var IV_1 = IV[1];
-
-	                // Generate four subvectors
-	                var i0 = (((IV_0 << 8) | (IV_0 >>> 24)) & 0x00ff00ff) | (((IV_0 << 24) | (IV_0 >>> 8)) & 0xff00ff00);
-	                var i2 = (((IV_1 << 8) | (IV_1 >>> 24)) & 0x00ff00ff) | (((IV_1 << 24) | (IV_1 >>> 8)) & 0xff00ff00);
-	                var i1 = (i0 >>> 16) | (i2 & 0xffff0000);
-	                var i3 = (i2 << 16)  | (i0 & 0x0000ffff);
-
-	                // Modify counter values
-	                C[0] ^= i0;
-	                C[1] ^= i1;
-	                C[2] ^= i2;
-	                C[3] ^= i3;
-	                C[4] ^= i0;
-	                C[5] ^= i1;
-	                C[6] ^= i2;
-	                C[7] ^= i3;
-
-	                // Iterate the system four times
-	                for (var i = 0; i < 4; i++) {
-	                    nextState.call(this);
-	                }
-	            }
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcut
-	            var X = this._X;
-
-	            // Iterate the system
-	            nextState.call(this);
-
-	            // Generate four keystream words
-	            S[0] = X[0] ^ (X[5] >>> 16) ^ (X[3] << 16);
-	            S[1] = X[2] ^ (X[7] >>> 16) ^ (X[5] << 16);
-	            S[2] = X[4] ^ (X[1] >>> 16) ^ (X[7] << 16);
-	            S[3] = X[6] ^ (X[3] >>> 16) ^ (X[1] << 16);
-
-	            for (var i = 0; i < 4; i++) {
-	                // Swap endian
-	                S[i] = (((S[i] << 8)  | (S[i] >>> 24)) & 0x00ff00ff) |
-	                       (((S[i] << 24) | (S[i] >>> 8))  & 0xff00ff00);
-
-	                // Encrypt
-	                M[offset + i] ^= S[i];
-	            }
-	        },
-
-	        blockSize: 128/32,
-
-	        ivSize: 64/32
-	    });
-
-	    function nextState() {
-	        // Shortcuts
-	        var X = this._X;
-	        var C = this._C;
-
-	        // Save old counter values
-	        for (var i = 0; i < 8; i++) {
-	            C_[i] = C[i];
-	        }
-
-	        // Calculate new counter values
-	        C[0] = (C[0] + 0x4d34d34d + this._b) | 0;
-	        C[1] = (C[1] + 0xd34d34d3 + ((C[0] >>> 0) < (C_[0] >>> 0) ? 1 : 0)) | 0;
-	        C[2] = (C[2] + 0x34d34d34 + ((C[1] >>> 0) < (C_[1] >>> 0) ? 1 : 0)) | 0;
-	        C[3] = (C[3] + 0x4d34d34d + ((C[2] >>> 0) < (C_[2] >>> 0) ? 1 : 0)) | 0;
-	        C[4] = (C[4] + 0xd34d34d3 + ((C[3] >>> 0) < (C_[3] >>> 0) ? 1 : 0)) | 0;
-	        C[5] = (C[5] + 0x34d34d34 + ((C[4] >>> 0) < (C_[4] >>> 0) ? 1 : 0)) | 0;
-	        C[6] = (C[6] + 0x4d34d34d + ((C[5] >>> 0) < (C_[5] >>> 0) ? 1 : 0)) | 0;
-	        C[7] = (C[7] + 0xd34d34d3 + ((C[6] >>> 0) < (C_[6] >>> 0) ? 1 : 0)) | 0;
-	        this._b = (C[7] >>> 0) < (C_[7] >>> 0) ? 1 : 0;
-
-	        // Calculate the g-values
-	        for (var i = 0; i < 8; i++) {
-	            var gx = X[i] + C[i];
-
-	            // Construct high and low argument for squaring
-	            var ga = gx & 0xffff;
-	            var gb = gx >>> 16;
-
-	            // Calculate high and low result of squaring
-	            var gh = ((((ga * ga) >>> 17) + ga * gb) >>> 15) + gb * gb;
-	            var gl = (((gx & 0xffff0000) * gx) | 0) + (((gx & 0x0000ffff) * gx) | 0);
-
-	            // High XOR low
-	            G[i] = gh ^ gl;
-	        }
-
-	        // Calculate new state values
-	        X[0] = (G[0] + ((G[7] << 16) | (G[7] >>> 16)) + ((G[6] << 16) | (G[6] >>> 16))) | 0;
-	        X[1] = (G[1] + ((G[0] << 8)  | (G[0] >>> 24)) + G[7]) | 0;
-	        X[2] = (G[2] + ((G[1] << 16) | (G[1] >>> 16)) + ((G[0] << 16) | (G[0] >>> 16))) | 0;
-	        X[3] = (G[3] + ((G[2] << 8)  | (G[2] >>> 24)) + G[1]) | 0;
-	        X[4] = (G[4] + ((G[3] << 16) | (G[3] >>> 16)) + ((G[2] << 16) | (G[2] >>> 16))) | 0;
-	        X[5] = (G[5] + ((G[4] << 8)  | (G[4] >>> 24)) + G[3]) | 0;
-	        X[6] = (G[6] + ((G[5] << 16) | (G[5] >>> 16)) + ((G[4] << 16) | (G[4] >>> 16))) | 0;
-	        X[7] = (G[7] + ((G[6] << 8)  | (G[6] >>> 24)) + G[5]) | 0;
-	    }
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.Rabbit.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.Rabbit.decrypt(ciphertext, key, cfg);
-	     */
-	    C.Rabbit = StreamCipher._createHelper(Rabbit);
-	}());
-
-
-	return CryptoJS.Rabbit;
-
-}));
-},{"./cipher-core":405,"./core":406,"./enc-base64":407,"./evpkdf":409,"./md5":414}],428:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./enc-base64"), require("./md5"), require("./evpkdf"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./enc-base64", "./md5", "./evpkdf", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var StreamCipher = C_lib.StreamCipher;
-	    var C_algo = C.algo;
-
-	    /**
-	     * RC4 stream cipher algorithm.
-	     */
-	    var RC4 = C_algo.RC4 = StreamCipher.extend({
-	        _doReset: function () {
-	            // Shortcuts
-	            var key = this._key;
-	            var keyWords = key.words;
-	            var keySigBytes = key.sigBytes;
-
-	            // Init sbox
-	            var S = this._S = [];
-	            for (var i = 0; i < 256; i++) {
-	                S[i] = i;
-	            }
-
-	            // Key setup
-	            for (var i = 0, j = 0; i < 256; i++) {
-	                var keyByteIndex = i % keySigBytes;
-	                var keyByte = (keyWords[keyByteIndex >>> 2] >>> (24 - (keyByteIndex % 4) * 8)) & 0xff;
-
-	                j = (j + S[i] + keyByte) % 256;
-
-	                // Swap
-	                var t = S[i];
-	                S[i] = S[j];
-	                S[j] = t;
-	            }
-
-	            // Counters
-	            this._i = this._j = 0;
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            M[offset] ^= generateKeystreamWord.call(this);
-	        },
-
-	        keySize: 256/32,
-
-	        ivSize: 0
-	    });
-
-	    function generateKeystreamWord() {
-	        // Shortcuts
-	        var S = this._S;
-	        var i = this._i;
-	        var j = this._j;
-
-	        // Generate keystream word
-	        var keystreamWord = 0;
-	        for (var n = 0; n < 4; n++) {
-	            i = (i + 1) % 256;
-	            j = (j + S[i]) % 256;
-
-	            // Swap
-	            var t = S[i];
-	            S[i] = S[j];
-	            S[j] = t;
-
-	            keystreamWord |= S[(S[i] + S[j]) % 256] << (24 - n * 8);
-	        }
-
-	        // Update counters
-	        this._i = i;
-	        this._j = j;
-
-	        return keystreamWord;
-	    }
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.RC4.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.RC4.decrypt(ciphertext, key, cfg);
-	     */
-	    C.RC4 = StreamCipher._createHelper(RC4);
-
-	    /**
-	     * Modified RC4 stream cipher algorithm.
-	     */
-	    var RC4Drop = C_algo.RC4Drop = RC4.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {number} drop The number of keystream words to drop. Default 192
-	         */
-	        cfg: RC4.cfg.extend({
-	            drop: 192
-	        }),
-
-	        _doReset: function () {
-	            RC4._doReset.call(this);
-
-	            // Drop
-	            for (var i = this.cfg.drop; i > 0; i--) {
-	                generateKeystreamWord.call(this);
-	            }
-	        }
-	    });
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.RC4Drop.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.RC4Drop.decrypt(ciphertext, key, cfg);
-	     */
-	    C.RC4Drop = StreamCipher._createHelper(RC4Drop);
-	}());
-
-
-	return CryptoJS.RC4;
-
-}));
-},{"./cipher-core":405,"./core":406,"./enc-base64":407,"./evpkdf":409,"./md5":414}],429:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	/** @preserve
-	(c) 2012 by Cédric Mesnil. All rights reserved.
-
-	Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
-
-	    - Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
-	    - Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
-
-	THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-	*/
-
-	(function (Math) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var Hasher = C_lib.Hasher;
-	    var C_algo = C.algo;
-
-	    // Constants table
-	    var _zl = WordArray.create([
-	        0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
-	        7,  4, 13,  1, 10,  6, 15,  3, 12,  0,  9,  5,  2, 14, 11,  8,
-	        3, 10, 14,  4,  9, 15,  8,  1,  2,  7,  0,  6, 13, 11,  5, 12,
-	        1,  9, 11, 10,  0,  8, 12,  4, 13,  3,  7, 15, 14,  5,  6,  2,
-	        4,  0,  5,  9,  7, 12,  2, 10, 14,  1,  3,  8, 11,  6, 15, 13]);
-	    var _zr = WordArray.create([
-	        5, 14,  7,  0,  9,  2, 11,  4, 13,  6, 15,  8,  1, 10,  3, 12,
-	        6, 11,  3,  7,  0, 13,  5, 10, 14, 15,  8, 12,  4,  9,  1,  2,
-	        15,  5,  1,  3,  7, 14,  6,  9, 11,  8, 12,  2, 10,  0,  4, 13,
-	        8,  6,  4,  1,  3, 11, 15,  0,  5, 12,  2, 13,  9,  7, 10, 14,
-	        12, 15, 10,  4,  1,  5,  8,  7,  6,  2, 13, 14,  0,  3,  9, 11]);
-	    var _sl = WordArray.create([
-	         11, 14, 15, 12,  5,  8,  7,  9, 11, 13, 14, 15,  6,  7,  9,  8,
-	        7, 6,   8, 13, 11,  9,  7, 15,  7, 12, 15,  9, 11,  7, 13, 12,
-	        11, 13,  6,  7, 14,  9, 13, 15, 14,  8, 13,  6,  5, 12,  7,  5,
-	          11, 12, 14, 15, 14, 15,  9,  8,  9, 14,  5,  6,  8,  6,  5, 12,
-	        9, 15,  5, 11,  6,  8, 13, 12,  5, 12, 13, 14, 11,  8,  5,  6 ]);
-	    var _sr = WordArray.create([
-	        8,  9,  9, 11, 13, 15, 15,  5,  7,  7,  8, 11, 14, 14, 12,  6,
-	        9, 13, 15,  7, 12,  8,  9, 11,  7,  7, 12,  7,  6, 15, 13, 11,
-	        9,  7, 15, 11,  8,  6,  6, 14, 12, 13,  5, 14, 13, 13,  7,  5,
-	        15,  5,  8, 11, 14, 14,  6, 14,  6,  9, 12,  9, 12,  5, 15,  8,
-	        8,  5, 12,  9, 12,  5, 14,  6,  8, 13,  6,  5, 15, 13, 11, 11 ]);
-
-	    var _hl =  WordArray.create([ 0x00000000, 0x5A827999, 0x6ED9EBA1, 0x8F1BBCDC, 0xA953FD4E]);
-	    var _hr =  WordArray.create([ 0x50A28BE6, 0x5C4DD124, 0x6D703EF3, 0x7A6D76E9, 0x00000000]);
-
-	    /**
-	     * RIPEMD160 hash algorithm.
-	     */
-	    var RIPEMD160 = C_algo.RIPEMD160 = Hasher.extend({
-	        _doReset: function () {
-	            this._hash  = WordArray.create([0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0]);
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-
-	            // Swap endian
-	            for (var i = 0; i < 16; i++) {
-	                // Shortcuts
-	                var offset_i = offset + i;
-	                var M_offset_i = M[offset_i];
-
-	                // Swap
-	                M[offset_i] = (
-	                    (((M_offset_i << 8)  | (M_offset_i >>> 24)) & 0x00ff00ff) |
-	                    (((M_offset_i << 24) | (M_offset_i >>> 8))  & 0xff00ff00)
-	                );
-	            }
-	            // Shortcut
-	            var H  = this._hash.words;
-	            var hl = _hl.words;
-	            var hr = _hr.words;
-	            var zl = _zl.words;
-	            var zr = _zr.words;
-	            var sl = _sl.words;
-	            var sr = _sr.words;
-
-	            // Working variables
-	            var al, bl, cl, dl, el;
-	            var ar, br, cr, dr, er;
-
-	            ar = al = H[0];
-	            br = bl = H[1];
-	            cr = cl = H[2];
-	            dr = dl = H[3];
-	            er = el = H[4];
-	            // Computation
-	            var t;
-	            for (var i = 0; i < 80; i += 1) {
-	                t = (al +  M[offset+zl[i]])|0;
-	                if (i<16){
-		            t +=  f1(bl,cl,dl) + hl[0];
-	                } else if (i<32) {
-		            t +=  f2(bl,cl,dl) + hl[1];
-	                } else if (i<48) {
-		            t +=  f3(bl,cl,dl) + hl[2];
-	                } else if (i<64) {
-		            t +=  f4(bl,cl,dl) + hl[3];
-	                } else {// if (i<80) {
-		            t +=  f5(bl,cl,dl) + hl[4];
-	                }
-	                t = t|0;
-	                t =  rotl(t,sl[i]);
-	                t = (t+el)|0;
-	                al = el;
-	                el = dl;
-	                dl = rotl(cl, 10);
-	                cl = bl;
-	                bl = t;
-
-	                t = (ar + M[offset+zr[i]])|0;
-	                if (i<16){
-		            t +=  f5(br,cr,dr) + hr[0];
-	                } else if (i<32) {
-		            t +=  f4(br,cr,dr) + hr[1];
-	                } else if (i<48) {
-		            t +=  f3(br,cr,dr) + hr[2];
-	                } else if (i<64) {
-		            t +=  f2(br,cr,dr) + hr[3];
-	                } else {// if (i<80) {
-		            t +=  f1(br,cr,dr) + hr[4];
-	                }
-	                t = t|0;
-	                t =  rotl(t,sr[i]) ;
-	                t = (t+er)|0;
-	                ar = er;
-	                er = dr;
-	                dr = rotl(cr, 10);
-	                cr = br;
-	                br = t;
-	            }
-	            // Intermediate hash value
-	            t    = (H[1] + cl + dr)|0;
-	            H[1] = (H[2] + dl + er)|0;
-	            H[2] = (H[3] + el + ar)|0;
-	            H[3] = (H[4] + al + br)|0;
-	            H[4] = (H[0] + bl + cr)|0;
-	            H[0] =  t;
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x80 << (24 - nBitsLeft % 32);
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 14] = (
-	                (((nBitsTotal << 8)  | (nBitsTotal >>> 24)) & 0x00ff00ff) |
-	                (((nBitsTotal << 24) | (nBitsTotal >>> 8))  & 0xff00ff00)
-	            );
-	            data.sigBytes = (dataWords.length + 1) * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Shortcuts
-	            var hash = this._hash;
-	            var H = hash.words;
-
-	            // Swap endian
-	            for (var i = 0; i < 5; i++) {
-	                // Shortcut
-	                var H_i = H[i];
-
-	                // Swap
-	                H[i] = (((H_i << 8)  | (H_i >>> 24)) & 0x00ff00ff) |
-	                       (((H_i << 24) | (H_i >>> 8))  & 0xff00ff00);
-	            }
-
-	            // Return final computed hash
-	            return hash;
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-	            clone._hash = this._hash.clone();
-
-	            return clone;
-	        }
-	    });
-
-
-	    function f1(x, y, z) {
-	        return ((x) ^ (y) ^ (z));
-
-	    }
-
-	    function f2(x, y, z) {
-	        return (((x)&(y)) | ((~x)&(z)));
-	    }
-
-	    function f3(x, y, z) {
-	        return (((x) | (~(y))) ^ (z));
-	    }
-
-	    function f4(x, y, z) {
-	        return (((x) & (z)) | ((y)&(~(z))));
-	    }
-
-	    function f5(x, y, z) {
-	        return ((x) ^ ((y) |(~(z))));
-
-	    }
-
-	    function rotl(x,n) {
-	        return (x<<n) | (x>>>(32-n));
-	    }
-
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.RIPEMD160('message');
-	     *     var hash = CryptoJS.RIPEMD160(wordArray);
-	     */
-	    C.RIPEMD160 = Hasher._createHelper(RIPEMD160);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacRIPEMD160(message, key);
-	     */
-	    C.HmacRIPEMD160 = Hasher._createHmacHelper(RIPEMD160);
-	}(Math));
-
-
-	return CryptoJS.RIPEMD160;
-
-}));
-},{"./core":406}],430:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var Hasher = C_lib.Hasher;
-	    var C_algo = C.algo;
-
-	    // Reusable object
-	    var W = [];
-
-	    /**
-	     * SHA-1 hash algorithm.
-	     */
-	    var SHA1 = C_algo.SHA1 = Hasher.extend({
-	        _doReset: function () {
-	            this._hash = new WordArray.init([
-	                0x67452301, 0xefcdab89,
-	                0x98badcfe, 0x10325476,
-	                0xc3d2e1f0
-	            ]);
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcut
-	            var H = this._hash.words;
-
-	            // Working variables
-	            var a = H[0];
-	            var b = H[1];
-	            var c = H[2];
-	            var d = H[3];
-	            var e = H[4];
-
-	            // Computation
-	            for (var i = 0; i < 80; i++) {
-	                if (i < 16) {
-	                    W[i] = M[offset + i] | 0;
-	                } else {
-	                    var n = W[i - 3] ^ W[i - 8] ^ W[i - 14] ^ W[i - 16];
-	                    W[i] = (n << 1) | (n >>> 31);
-	                }
-
-	                var t = ((a << 5) | (a >>> 27)) + e + W[i];
-	                if (i < 20) {
-	                    t += ((b & c) | (~b & d)) + 0x5a827999;
-	                } else if (i < 40) {
-	                    t += (b ^ c ^ d) + 0x6ed9eba1;
-	                } else if (i < 60) {
-	                    t += ((b & c) | (b & d) | (c & d)) - 0x70e44324;
-	                } else /* if (i < 80) */ {
-	                    t += (b ^ c ^ d) - 0x359d3e2a;
-	                }
-
-	                e = d;
-	                d = c;
-	                c = (b << 30) | (b >>> 2);
-	                b = a;
-	                a = t;
-	            }
-
-	            // Intermediate hash value
-	            H[0] = (H[0] + a) | 0;
-	            H[1] = (H[1] + b) | 0;
-	            H[2] = (H[2] + c) | 0;
-	            H[3] = (H[3] + d) | 0;
-	            H[4] = (H[4] + e) | 0;
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x80 << (24 - nBitsLeft % 32);
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 14] = Math.floor(nBitsTotal / 0x100000000);
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 15] = nBitsTotal;
-	            data.sigBytes = dataWords.length * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Return final computed hash
-	            return this._hash;
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-	            clone._hash = this._hash.clone();
-
-	            return clone;
-	        }
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA1('message');
-	     *     var hash = CryptoJS.SHA1(wordArray);
-	     */
-	    C.SHA1 = Hasher._createHelper(SHA1);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA1(message, key);
-	     */
-	    C.HmacSHA1 = Hasher._createHmacHelper(SHA1);
-	}());
-
-
-	return CryptoJS.SHA1;
-
-}));
-},{"./core":406}],431:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./sha256"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./sha256"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var C_algo = C.algo;
-	    var SHA256 = C_algo.SHA256;
-
-	    /**
-	     * SHA-224 hash algorithm.
-	     */
-	    var SHA224 = C_algo.SHA224 = SHA256.extend({
-	        _doReset: function () {
-	            this._hash = new WordArray.init([
-	                0xc1059ed8, 0x367cd507, 0x3070dd17, 0xf70e5939,
-	                0xffc00b31, 0x68581511, 0x64f98fa7, 0xbefa4fa4
-	            ]);
-	        },
-
-	        _doFinalize: function () {
-	            var hash = SHA256._doFinalize.call(this);
-
-	            hash.sigBytes -= 4;
-
-	            return hash;
-	        }
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA224('message');
-	     *     var hash = CryptoJS.SHA224(wordArray);
-	     */
-	    C.SHA224 = SHA256._createHelper(SHA224);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA224(message, key);
-	     */
-	    C.HmacSHA224 = SHA256._createHmacHelper(SHA224);
-	}());
-
-
-	return CryptoJS.SHA224;
-
-}));
-},{"./core":406,"./sha256":432}],432:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function (Math) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var Hasher = C_lib.Hasher;
-	    var C_algo = C.algo;
-
-	    // Initialization and round constants tables
-	    var H = [];
-	    var K = [];
-
-	    // Compute constants
-	    (function () {
-	        function isPrime(n) {
-	            var sqrtN = Math.sqrt(n);
-	            for (var factor = 2; factor <= sqrtN; factor++) {
-	                if (!(n % factor)) {
-	                    return false;
-	                }
-	            }
-
-	            return true;
-	        }
-
-	        function getFractionalBits(n) {
-	            return ((n - (n | 0)) * 0x100000000) | 0;
-	        }
-
-	        var n = 2;
-	        var nPrime = 0;
-	        while (nPrime < 64) {
-	            if (isPrime(n)) {
-	                if (nPrime < 8) {
-	                    H[nPrime] = getFractionalBits(Math.pow(n, 1 / 2));
-	                }
-	                K[nPrime] = getFractionalBits(Math.pow(n, 1 / 3));
-
-	                nPrime++;
-	            }
-
-	            n++;
-	        }
-	    }());
-
-	    // Reusable object
-	    var W = [];
-
-	    /**
-	     * SHA-256 hash algorithm.
-	     */
-	    var SHA256 = C_algo.SHA256 = Hasher.extend({
-	        _doReset: function () {
-	            this._hash = new WordArray.init(H.slice(0));
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcut
-	            var H = this._hash.words;
-
-	            // Working variables
-	            var a = H[0];
-	            var b = H[1];
-	            var c = H[2];
-	            var d = H[3];
-	            var e = H[4];
-	            var f = H[5];
-	            var g = H[6];
-	            var h = H[7];
-
-	            // Computation
-	            for (var i = 0; i < 64; i++) {
-	                if (i < 16) {
-	                    W[i] = M[offset + i] | 0;
-	                } else {
-	                    var gamma0x = W[i - 15];
-	                    var gamma0  = ((gamma0x << 25) | (gamma0x >>> 7))  ^
-	                                  ((gamma0x << 14) | (gamma0x >>> 18)) ^
-	                                   (gamma0x >>> 3);
-
-	                    var gamma1x = W[i - 2];
-	                    var gamma1  = ((gamma1x << 15) | (gamma1x >>> 17)) ^
-	                                  ((gamma1x << 13) | (gamma1x >>> 19)) ^
-	                                   (gamma1x >>> 10);
-
-	                    W[i] = gamma0 + W[i - 7] + gamma1 + W[i - 16];
-	                }
-
-	                var ch  = (e & f) ^ (~e & g);
-	                var maj = (a & b) ^ (a & c) ^ (b & c);
-
-	                var sigma0 = ((a << 30) | (a >>> 2)) ^ ((a << 19) | (a >>> 13)) ^ ((a << 10) | (a >>> 22));
-	                var sigma1 = ((e << 26) | (e >>> 6)) ^ ((e << 21) | (e >>> 11)) ^ ((e << 7)  | (e >>> 25));
-
-	                var t1 = h + sigma1 + ch + K[i] + W[i];
-	                var t2 = sigma0 + maj;
-
-	                h = g;
-	                g = f;
-	                f = e;
-	                e = (d + t1) | 0;
-	                d = c;
-	                c = b;
-	                b = a;
-	                a = (t1 + t2) | 0;
-	            }
-
-	            // Intermediate hash value
-	            H[0] = (H[0] + a) | 0;
-	            H[1] = (H[1] + b) | 0;
-	            H[2] = (H[2] + c) | 0;
-	            H[3] = (H[3] + d) | 0;
-	            H[4] = (H[4] + e) | 0;
-	            H[5] = (H[5] + f) | 0;
-	            H[6] = (H[6] + g) | 0;
-	            H[7] = (H[7] + h) | 0;
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x80 << (24 - nBitsLeft % 32);
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 14] = Math.floor(nBitsTotal / 0x100000000);
-	            dataWords[(((nBitsLeft + 64) >>> 9) << 4) + 15] = nBitsTotal;
-	            data.sigBytes = dataWords.length * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Return final computed hash
-	            return this._hash;
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-	            clone._hash = this._hash.clone();
-
-	            return clone;
-	        }
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA256('message');
-	     *     var hash = CryptoJS.SHA256(wordArray);
-	     */
-	    C.SHA256 = Hasher._createHelper(SHA256);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA256(message, key);
-	     */
-	    C.HmacSHA256 = Hasher._createHmacHelper(SHA256);
-	}(Math));
-
-
-	return CryptoJS.SHA256;
-
-}));
-},{"./core":406}],433:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./x64-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./x64-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function (Math) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var Hasher = C_lib.Hasher;
-	    var C_x64 = C.x64;
-	    var X64Word = C_x64.Word;
-	    var C_algo = C.algo;
-
-	    // Constants tables
-	    var RHO_OFFSETS = [];
-	    var PI_INDEXES  = [];
-	    var ROUND_CONSTANTS = [];
-
-	    // Compute Constants
-	    (function () {
-	        // Compute rho offset constants
-	        var x = 1, y = 0;
-	        for (var t = 0; t < 24; t++) {
-	            RHO_OFFSETS[x + 5 * y] = ((t + 1) * (t + 2) / 2) % 64;
-
-	            var newX = y % 5;
-	            var newY = (2 * x + 3 * y) % 5;
-	            x = newX;
-	            y = newY;
-	        }
-
-	        // Compute pi index constants
-	        for (var x = 0; x < 5; x++) {
-	            for (var y = 0; y < 5; y++) {
-	                PI_INDEXES[x + 5 * y] = y + ((2 * x + 3 * y) % 5) * 5;
-	            }
-	        }
-
-	        // Compute round constants
-	        var LFSR = 0x01;
-	        for (var i = 0; i < 24; i++) {
-	            var roundConstantMsw = 0;
-	            var roundConstantLsw = 0;
-
-	            for (var j = 0; j < 7; j++) {
-	                if (LFSR & 0x01) {
-	                    var bitPosition = (1 << j) - 1;
-	                    if (bitPosition < 32) {
-	                        roundConstantLsw ^= 1 << bitPosition;
-	                    } else /* if (bitPosition >= 32) */ {
-	                        roundConstantMsw ^= 1 << (bitPosition - 32);
-	                    }
-	                }
-
-	                // Compute next LFSR
-	                if (LFSR & 0x80) {
-	                    // Primitive polynomial over GF(2): x^8 + x^6 + x^5 + x^4 + 1
-	                    LFSR = (LFSR << 1) ^ 0x71;
-	                } else {
-	                    LFSR <<= 1;
-	                }
-	            }
-
-	            ROUND_CONSTANTS[i] = X64Word.create(roundConstantMsw, roundConstantLsw);
-	        }
-	    }());
-
-	    // Reusable objects for temporary values
-	    var T = [];
-	    (function () {
-	        for (var i = 0; i < 25; i++) {
-	            T[i] = X64Word.create();
-	        }
-	    }());
-
-	    /**
-	     * SHA-3 hash algorithm.
-	     */
-	    var SHA3 = C_algo.SHA3 = Hasher.extend({
-	        /**
-	         * Configuration options.
-	         *
-	         * @property {number} outputLength
-	         *   The desired number of bits in the output hash.
-	         *   Only values permitted are: 224, 256, 384, 512.
-	         *   Default: 512
-	         */
-	        cfg: Hasher.cfg.extend({
-	            outputLength: 512
-	        }),
-
-	        _doReset: function () {
-	            var state = this._state = []
-	            for (var i = 0; i < 25; i++) {
-	                state[i] = new X64Word.init();
-	            }
-
-	            this.blockSize = (1600 - 2 * this.cfg.outputLength) / 32;
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcuts
-	            var state = this._state;
-	            var nBlockSizeLanes = this.blockSize / 2;
-
-	            // Absorb
-	            for (var i = 0; i < nBlockSizeLanes; i++) {
-	                // Shortcuts
-	                var M2i  = M[offset + 2 * i];
-	                var M2i1 = M[offset + 2 * i + 1];
-
-	                // Swap endian
-	                M2i = (
-	                    (((M2i << 8)  | (M2i >>> 24)) & 0x00ff00ff) |
-	                    (((M2i << 24) | (M2i >>> 8))  & 0xff00ff00)
-	                );
-	                M2i1 = (
-	                    (((M2i1 << 8)  | (M2i1 >>> 24)) & 0x00ff00ff) |
-	                    (((M2i1 << 24) | (M2i1 >>> 8))  & 0xff00ff00)
-	                );
-
-	                // Absorb message into state
-	                var lane = state[i];
-	                lane.high ^= M2i1;
-	                lane.low  ^= M2i;
-	            }
-
-	            // Rounds
-	            for (var round = 0; round < 24; round++) {
-	                // Theta
-	                for (var x = 0; x < 5; x++) {
-	                    // Mix column lanes
-	                    var tMsw = 0, tLsw = 0;
-	                    for (var y = 0; y < 5; y++) {
-	                        var lane = state[x + 5 * y];
-	                        tMsw ^= lane.high;
-	                        tLsw ^= lane.low;
-	                    }
-
-	                    // Temporary values
-	                    var Tx = T[x];
-	                    Tx.high = tMsw;
-	                    Tx.low  = tLsw;
-	                }
-	                for (var x = 0; x < 5; x++) {
-	                    // Shortcuts
-	                    var Tx4 = T[(x + 4) % 5];
-	                    var Tx1 = T[(x + 1) % 5];
-	                    var Tx1Msw = Tx1.high;
-	                    var Tx1Lsw = Tx1.low;
-
-	                    // Mix surrounding columns
-	                    var tMsw = Tx4.high ^ ((Tx1Msw << 1) | (Tx1Lsw >>> 31));
-	                    var tLsw = Tx4.low  ^ ((Tx1Lsw << 1) | (Tx1Msw >>> 31));
-	                    for (var y = 0; y < 5; y++) {
-	                        var lane = state[x + 5 * y];
-	                        lane.high ^= tMsw;
-	                        lane.low  ^= tLsw;
-	                    }
-	                }
-
-	                // Rho Pi
-	                for (var laneIndex = 1; laneIndex < 25; laneIndex++) {
-	                    // Shortcuts
-	                    var lane = state[laneIndex];
-	                    var laneMsw = lane.high;
-	                    var laneLsw = lane.low;
-	                    var rhoOffset = RHO_OFFSETS[laneIndex];
-
-	                    // Rotate lanes
-	                    if (rhoOffset < 32) {
-	                        var tMsw = (laneMsw << rhoOffset) | (laneLsw >>> (32 - rhoOffset));
-	                        var tLsw = (laneLsw << rhoOffset) | (laneMsw >>> (32 - rhoOffset));
-	                    } else /* if (rhoOffset >= 32) */ {
-	                        var tMsw = (laneLsw << (rhoOffset - 32)) | (laneMsw >>> (64 - rhoOffset));
-	                        var tLsw = (laneMsw << (rhoOffset - 32)) | (laneLsw >>> (64 - rhoOffset));
-	                    }
-
-	                    // Transpose lanes
-	                    var TPiLane = T[PI_INDEXES[laneIndex]];
-	                    TPiLane.high = tMsw;
-	                    TPiLane.low  = tLsw;
-	                }
-
-	                // Rho pi at x = y = 0
-	                var T0 = T[0];
-	                var state0 = state[0];
-	                T0.high = state0.high;
-	                T0.low  = state0.low;
-
-	                // Chi
-	                for (var x = 0; x < 5; x++) {
-	                    for (var y = 0; y < 5; y++) {
-	                        // Shortcuts
-	                        var laneIndex = x + 5 * y;
-	                        var lane = state[laneIndex];
-	                        var TLane = T[laneIndex];
-	                        var Tx1Lane = T[((x + 1) % 5) + 5 * y];
-	                        var Tx2Lane = T[((x + 2) % 5) + 5 * y];
-
-	                        // Mix rows
-	                        lane.high = TLane.high ^ (~Tx1Lane.high & Tx2Lane.high);
-	                        lane.low  = TLane.low  ^ (~Tx1Lane.low  & Tx2Lane.low);
-	                    }
-	                }
-
-	                // Iota
-	                var lane = state[0];
-	                var roundConstant = ROUND_CONSTANTS[round];
-	                lane.high ^= roundConstant.high;
-	                lane.low  ^= roundConstant.low;;
-	            }
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-	            var blockSizeBits = this.blockSize * 32;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x1 << (24 - nBitsLeft % 32);
-	            dataWords[((Math.ceil((nBitsLeft + 1) / blockSizeBits) * blockSizeBits) >>> 5) - 1] |= 0x80;
-	            data.sigBytes = dataWords.length * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Shortcuts
-	            var state = this._state;
-	            var outputLengthBytes = this.cfg.outputLength / 8;
-	            var outputLengthLanes = outputLengthBytes / 8;
-
-	            // Squeeze
-	            var hashWords = [];
-	            for (var i = 0; i < outputLengthLanes; i++) {
-	                // Shortcuts
-	                var lane = state[i];
-	                var laneMsw = lane.high;
-	                var laneLsw = lane.low;
-
-	                // Swap endian
-	                laneMsw = (
-	                    (((laneMsw << 8)  | (laneMsw >>> 24)) & 0x00ff00ff) |
-	                    (((laneMsw << 24) | (laneMsw >>> 8))  & 0xff00ff00)
-	                );
-	                laneLsw = (
-	                    (((laneLsw << 8)  | (laneLsw >>> 24)) & 0x00ff00ff) |
-	                    (((laneLsw << 24) | (laneLsw >>> 8))  & 0xff00ff00)
-	                );
-
-	                // Squeeze state to retrieve hash
-	                hashWords.push(laneLsw);
-	                hashWords.push(laneMsw);
-	            }
-
-	            // Return final computed hash
-	            return new WordArray.init(hashWords, outputLengthBytes);
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-
-	            var state = clone._state = this._state.slice(0);
-	            for (var i = 0; i < 25; i++) {
-	                state[i] = state[i].clone();
-	            }
-
-	            return clone;
-	        }
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA3('message');
-	     *     var hash = CryptoJS.SHA3(wordArray);
-	     */
-	    C.SHA3 = Hasher._createHelper(SHA3);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA3(message, key);
-	     */
-	    C.HmacSHA3 = Hasher._createHmacHelper(SHA3);
-	}(Math));
-
-
-	return CryptoJS.SHA3;
-
-}));
-},{"./core":406,"./x64-core":437}],434:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./x64-core"), require("./sha512"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./x64-core", "./sha512"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_x64 = C.x64;
-	    var X64Word = C_x64.Word;
-	    var X64WordArray = C_x64.WordArray;
-	    var C_algo = C.algo;
-	    var SHA512 = C_algo.SHA512;
-
-	    /**
-	     * SHA-384 hash algorithm.
-	     */
-	    var SHA384 = C_algo.SHA384 = SHA512.extend({
-	        _doReset: function () {
-	            this._hash = new X64WordArray.init([
-	                new X64Word.init(0xcbbb9d5d, 0xc1059ed8), new X64Word.init(0x629a292a, 0x367cd507),
-	                new X64Word.init(0x9159015a, 0x3070dd17), new X64Word.init(0x152fecd8, 0xf70e5939),
-	                new X64Word.init(0x67332667, 0xffc00b31), new X64Word.init(0x8eb44a87, 0x68581511),
-	                new X64Word.init(0xdb0c2e0d, 0x64f98fa7), new X64Word.init(0x47b5481d, 0xbefa4fa4)
-	            ]);
-	        },
-
-	        _doFinalize: function () {
-	            var hash = SHA512._doFinalize.call(this);
-
-	            hash.sigBytes -= 16;
-
-	            return hash;
-	        }
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA384('message');
-	     *     var hash = CryptoJS.SHA384(wordArray);
-	     */
-	    C.SHA384 = SHA512._createHelper(SHA384);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA384(message, key);
-	     */
-	    C.HmacSHA384 = SHA512._createHmacHelper(SHA384);
-	}());
-
-
-	return CryptoJS.SHA384;
-
-}));
-},{"./core":406,"./sha512":435,"./x64-core":437}],435:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./x64-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./x64-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Hasher = C_lib.Hasher;
-	    var C_x64 = C.x64;
-	    var X64Word = C_x64.Word;
-	    var X64WordArray = C_x64.WordArray;
-	    var C_algo = C.algo;
-
-	    function X64Word_create() {
-	        return X64Word.create.apply(X64Word, arguments);
-	    }
-
-	    // Constants
-	    var K = [
-	        X64Word_create(0x428a2f98, 0xd728ae22), X64Word_create(0x71374491, 0x23ef65cd),
-	        X64Word_create(0xb5c0fbcf, 0xec4d3b2f), X64Word_create(0xe9b5dba5, 0x8189dbbc),
-	        X64Word_create(0x3956c25b, 0xf348b538), X64Word_create(0x59f111f1, 0xb605d019),
-	        X64Word_create(0x923f82a4, 0xaf194f9b), X64Word_create(0xab1c5ed5, 0xda6d8118),
-	        X64Word_create(0xd807aa98, 0xa3030242), X64Word_create(0x12835b01, 0x45706fbe),
-	        X64Word_create(0x243185be, 0x4ee4b28c), X64Word_create(0x550c7dc3, 0xd5ffb4e2),
-	        X64Word_create(0x72be5d74, 0xf27b896f), X64Word_create(0x80deb1fe, 0x3b1696b1),
-	        X64Word_create(0x9bdc06a7, 0x25c71235), X64Word_create(0xc19bf174, 0xcf692694),
-	        X64Word_create(0xe49b69c1, 0x9ef14ad2), X64Word_create(0xefbe4786, 0x384f25e3),
-	        X64Word_create(0x0fc19dc6, 0x8b8cd5b5), X64Word_create(0x240ca1cc, 0x77ac9c65),
-	        X64Word_create(0x2de92c6f, 0x592b0275), X64Word_create(0x4a7484aa, 0x6ea6e483),
-	        X64Word_create(0x5cb0a9dc, 0xbd41fbd4), X64Word_create(0x76f988da, 0x831153b5),
-	        X64Word_create(0x983e5152, 0xee66dfab), X64Word_create(0xa831c66d, 0x2db43210),
-	        X64Word_create(0xb00327c8, 0x98fb213f), X64Word_create(0xbf597fc7, 0xbeef0ee4),
-	        X64Word_create(0xc6e00bf3, 0x3da88fc2), X64Word_create(0xd5a79147, 0x930aa725),
-	        X64Word_create(0x06ca6351, 0xe003826f), X64Word_create(0x14292967, 0x0a0e6e70),
-	        X64Word_create(0x27b70a85, 0x46d22ffc), X64Word_create(0x2e1b2138, 0x5c26c926),
-	        X64Word_create(0x4d2c6dfc, 0x5ac42aed), X64Word_create(0x53380d13, 0x9d95b3df),
-	        X64Word_create(0x650a7354, 0x8baf63de), X64Word_create(0x766a0abb, 0x3c77b2a8),
-	        X64Word_create(0x81c2c92e, 0x47edaee6), X64Word_create(0x92722c85, 0x1482353b),
-	        X64Word_create(0xa2bfe8a1, 0x4cf10364), X64Word_create(0xa81a664b, 0xbc423001),
-	        X64Word_create(0xc24b8b70, 0xd0f89791), X64Word_create(0xc76c51a3, 0x0654be30),
-	        X64Word_create(0xd192e819, 0xd6ef5218), X64Word_create(0xd6990624, 0x5565a910),
-	        X64Word_create(0xf40e3585, 0x5771202a), X64Word_create(0x106aa070, 0x32bbd1b8),
-	        X64Word_create(0x19a4c116, 0xb8d2d0c8), X64Word_create(0x1e376c08, 0x5141ab53),
-	        X64Word_create(0x2748774c, 0xdf8eeb99), X64Word_create(0x34b0bcb5, 0xe19b48a8),
-	        X64Word_create(0x391c0cb3, 0xc5c95a63), X64Word_create(0x4ed8aa4a, 0xe3418acb),
-	        X64Word_create(0x5b9cca4f, 0x7763e373), X64Word_create(0x682e6ff3, 0xd6b2b8a3),
-	        X64Word_create(0x748f82ee, 0x5defb2fc), X64Word_create(0x78a5636f, 0x43172f60),
-	        X64Word_create(0x84c87814, 0xa1f0ab72), X64Word_create(0x8cc70208, 0x1a6439ec),
-	        X64Word_create(0x90befffa, 0x23631e28), X64Word_create(0xa4506ceb, 0xde82bde9),
-	        X64Word_create(0xbef9a3f7, 0xb2c67915), X64Word_create(0xc67178f2, 0xe372532b),
-	        X64Word_create(0xca273ece, 0xea26619c), X64Word_create(0xd186b8c7, 0x21c0c207),
-	        X64Word_create(0xeada7dd6, 0xcde0eb1e), X64Word_create(0xf57d4f7f, 0xee6ed178),
-	        X64Word_create(0x06f067aa, 0x72176fba), X64Word_create(0x0a637dc5, 0xa2c898a6),
-	        X64Word_create(0x113f9804, 0xbef90dae), X64Word_create(0x1b710b35, 0x131c471b),
-	        X64Word_create(0x28db77f5, 0x23047d84), X64Word_create(0x32caab7b, 0x40c72493),
-	        X64Word_create(0x3c9ebe0a, 0x15c9bebc), X64Word_create(0x431d67c4, 0x9c100d4c),
-	        X64Word_create(0x4cc5d4be, 0xcb3e42b6), X64Word_create(0x597f299c, 0xfc657e2a),
-	        X64Word_create(0x5fcb6fab, 0x3ad6faec), X64Word_create(0x6c44198c, 0x4a475817)
-	    ];
-
-	    // Reusable objects
-	    var W = [];
-	    (function () {
-	        for (var i = 0; i < 80; i++) {
-	            W[i] = X64Word_create();
-	        }
-	    }());
-
-	    /**
-	     * SHA-512 hash algorithm.
-	     */
-	    var SHA512 = C_algo.SHA512 = Hasher.extend({
-	        _doReset: function () {
-	            this._hash = new X64WordArray.init([
-	                new X64Word.init(0x6a09e667, 0xf3bcc908), new X64Word.init(0xbb67ae85, 0x84caa73b),
-	                new X64Word.init(0x3c6ef372, 0xfe94f82b), new X64Word.init(0xa54ff53a, 0x5f1d36f1),
-	                new X64Word.init(0x510e527f, 0xade682d1), new X64Word.init(0x9b05688c, 0x2b3e6c1f),
-	                new X64Word.init(0x1f83d9ab, 0xfb41bd6b), new X64Word.init(0x5be0cd19, 0x137e2179)
-	            ]);
-	        },
-
-	        _doProcessBlock: function (M, offset) {
-	            // Shortcuts
-	            var H = this._hash.words;
-
-	            var H0 = H[0];
-	            var H1 = H[1];
-	            var H2 = H[2];
-	            var H3 = H[3];
-	            var H4 = H[4];
-	            var H5 = H[5];
-	            var H6 = H[6];
-	            var H7 = H[7];
-
-	            var H0h = H0.high;
-	            var H0l = H0.low;
-	            var H1h = H1.high;
-	            var H1l = H1.low;
-	            var H2h = H2.high;
-	            var H2l = H2.low;
-	            var H3h = H3.high;
-	            var H3l = H3.low;
-	            var H4h = H4.high;
-	            var H4l = H4.low;
-	            var H5h = H5.high;
-	            var H5l = H5.low;
-	            var H6h = H6.high;
-	            var H6l = H6.low;
-	            var H7h = H7.high;
-	            var H7l = H7.low;
-
-	            // Working variables
-	            var ah = H0h;
-	            var al = H0l;
-	            var bh = H1h;
-	            var bl = H1l;
-	            var ch = H2h;
-	            var cl = H2l;
-	            var dh = H3h;
-	            var dl = H3l;
-	            var eh = H4h;
-	            var el = H4l;
-	            var fh = H5h;
-	            var fl = H5l;
-	            var gh = H6h;
-	            var gl = H6l;
-	            var hh = H7h;
-	            var hl = H7l;
-
-	            // Rounds
-	            for (var i = 0; i < 80; i++) {
-	                // Shortcut
-	                var Wi = W[i];
-
-	                // Extend message
-	                if (i < 16) {
-	                    var Wih = Wi.high = M[offset + i * 2]     | 0;
-	                    var Wil = Wi.low  = M[offset + i * 2 + 1] | 0;
-	                } else {
-	                    // Gamma0
-	                    var gamma0x  = W[i - 15];
-	                    var gamma0xh = gamma0x.high;
-	                    var gamma0xl = gamma0x.low;
-	                    var gamma0h  = ((gamma0xh >>> 1) | (gamma0xl << 31)) ^ ((gamma0xh >>> 8) | (gamma0xl << 24)) ^ (gamma0xh >>> 7);
-	                    var gamma0l  = ((gamma0xl >>> 1) | (gamma0xh << 31)) ^ ((gamma0xl >>> 8) | (gamma0xh << 24)) ^ ((gamma0xl >>> 7) | (gamma0xh << 25));
-
-	                    // Gamma1
-	                    var gamma1x  = W[i - 2];
-	                    var gamma1xh = gamma1x.high;
-	                    var gamma1xl = gamma1x.low;
-	                    var gamma1h  = ((gamma1xh >>> 19) | (gamma1xl << 13)) ^ ((gamma1xh << 3) | (gamma1xl >>> 29)) ^ (gamma1xh >>> 6);
-	                    var gamma1l  = ((gamma1xl >>> 19) | (gamma1xh << 13)) ^ ((gamma1xl << 3) | (gamma1xh >>> 29)) ^ ((gamma1xl >>> 6) | (gamma1xh << 26));
-
-	                    // W[i] = gamma0 + W[i - 7] + gamma1 + W[i - 16]
-	                    var Wi7  = W[i - 7];
-	                    var Wi7h = Wi7.high;
-	                    var Wi7l = Wi7.low;
-
-	                    var Wi16  = W[i - 16];
-	                    var Wi16h = Wi16.high;
-	                    var Wi16l = Wi16.low;
-
-	                    var Wil = gamma0l + Wi7l;
-	                    var Wih = gamma0h + Wi7h + ((Wil >>> 0) < (gamma0l >>> 0) ? 1 : 0);
-	                    var Wil = Wil + gamma1l;
-	                    var Wih = Wih + gamma1h + ((Wil >>> 0) < (gamma1l >>> 0) ? 1 : 0);
-	                    var Wil = Wil + Wi16l;
-	                    var Wih = Wih + Wi16h + ((Wil >>> 0) < (Wi16l >>> 0) ? 1 : 0);
-
-	                    Wi.high = Wih;
-	                    Wi.low  = Wil;
-	                }
-
-	                var chh  = (eh & fh) ^ (~eh & gh);
-	                var chl  = (el & fl) ^ (~el & gl);
-	                var majh = (ah & bh) ^ (ah & ch) ^ (bh & ch);
-	                var majl = (al & bl) ^ (al & cl) ^ (bl & cl);
-
-	                var sigma0h = ((ah >>> 28) | (al << 4))  ^ ((ah << 30)  | (al >>> 2)) ^ ((ah << 25) | (al >>> 7));
-	                var sigma0l = ((al >>> 28) | (ah << 4))  ^ ((al << 30)  | (ah >>> 2)) ^ ((al << 25) | (ah >>> 7));
-	                var sigma1h = ((eh >>> 14) | (el << 18)) ^ ((eh >>> 18) | (el << 14)) ^ ((eh << 23) | (el >>> 9));
-	                var sigma1l = ((el >>> 14) | (eh << 18)) ^ ((el >>> 18) | (eh << 14)) ^ ((el << 23) | (eh >>> 9));
-
-	                // t1 = h + sigma1 + ch + K[i] + W[i]
-	                var Ki  = K[i];
-	                var Kih = Ki.high;
-	                var Kil = Ki.low;
-
-	                var t1l = hl + sigma1l;
-	                var t1h = hh + sigma1h + ((t1l >>> 0) < (hl >>> 0) ? 1 : 0);
-	                var t1l = t1l + chl;
-	                var t1h = t1h + chh + ((t1l >>> 0) < (chl >>> 0) ? 1 : 0);
-	                var t1l = t1l + Kil;
-	                var t1h = t1h + Kih + ((t1l >>> 0) < (Kil >>> 0) ? 1 : 0);
-	                var t1l = t1l + Wil;
-	                var t1h = t1h + Wih + ((t1l >>> 0) < (Wil >>> 0) ? 1 : 0);
-
-	                // t2 = sigma0 + maj
-	                var t2l = sigma0l + majl;
-	                var t2h = sigma0h + majh + ((t2l >>> 0) < (sigma0l >>> 0) ? 1 : 0);
-
-	                // Update working variables
-	                hh = gh;
-	                hl = gl;
-	                gh = fh;
-	                gl = fl;
-	                fh = eh;
-	                fl = el;
-	                el = (dl + t1l) | 0;
-	                eh = (dh + t1h + ((el >>> 0) < (dl >>> 0) ? 1 : 0)) | 0;
-	                dh = ch;
-	                dl = cl;
-	                ch = bh;
-	                cl = bl;
-	                bh = ah;
-	                bl = al;
-	                al = (t1l + t2l) | 0;
-	                ah = (t1h + t2h + ((al >>> 0) < (t1l >>> 0) ? 1 : 0)) | 0;
-	            }
-
-	            // Intermediate hash value
-	            H0l = H0.low  = (H0l + al);
-	            H0.high = (H0h + ah + ((H0l >>> 0) < (al >>> 0) ? 1 : 0));
-	            H1l = H1.low  = (H1l + bl);
-	            H1.high = (H1h + bh + ((H1l >>> 0) < (bl >>> 0) ? 1 : 0));
-	            H2l = H2.low  = (H2l + cl);
-	            H2.high = (H2h + ch + ((H2l >>> 0) < (cl >>> 0) ? 1 : 0));
-	            H3l = H3.low  = (H3l + dl);
-	            H3.high = (H3h + dh + ((H3l >>> 0) < (dl >>> 0) ? 1 : 0));
-	            H4l = H4.low  = (H4l + el);
-	            H4.high = (H4h + eh + ((H4l >>> 0) < (el >>> 0) ? 1 : 0));
-	            H5l = H5.low  = (H5l + fl);
-	            H5.high = (H5h + fh + ((H5l >>> 0) < (fl >>> 0) ? 1 : 0));
-	            H6l = H6.low  = (H6l + gl);
-	            H6.high = (H6h + gh + ((H6l >>> 0) < (gl >>> 0) ? 1 : 0));
-	            H7l = H7.low  = (H7l + hl);
-	            H7.high = (H7h + hh + ((H7l >>> 0) < (hl >>> 0) ? 1 : 0));
-	        },
-
-	        _doFinalize: function () {
-	            // Shortcuts
-	            var data = this._data;
-	            var dataWords = data.words;
-
-	            var nBitsTotal = this._nDataBytes * 8;
-	            var nBitsLeft = data.sigBytes * 8;
-
-	            // Add padding
-	            dataWords[nBitsLeft >>> 5] |= 0x80 << (24 - nBitsLeft % 32);
-	            dataWords[(((nBitsLeft + 128) >>> 10) << 5) + 30] = Math.floor(nBitsTotal / 0x100000000);
-	            dataWords[(((nBitsLeft + 128) >>> 10) << 5) + 31] = nBitsTotal;
-	            data.sigBytes = dataWords.length * 4;
-
-	            // Hash final blocks
-	            this._process();
-
-	            // Convert hash to 32-bit word array before returning
-	            var hash = this._hash.toX32();
-
-	            // Return final computed hash
-	            return hash;
-	        },
-
-	        clone: function () {
-	            var clone = Hasher.clone.call(this);
-	            clone._hash = this._hash.clone();
-
-	            return clone;
-	        },
-
-	        blockSize: 1024/32
-	    });
-
-	    /**
-	     * Shortcut function to the hasher's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     *
-	     * @return {WordArray} The hash.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hash = CryptoJS.SHA512('message');
-	     *     var hash = CryptoJS.SHA512(wordArray);
-	     */
-	    C.SHA512 = Hasher._createHelper(SHA512);
-
-	    /**
-	     * Shortcut function to the HMAC's object interface.
-	     *
-	     * @param {WordArray|string} message The message to hash.
-	     * @param {WordArray|string} key The secret key.
-	     *
-	     * @return {WordArray} The HMAC.
-	     *
-	     * @static
-	     *
-	     * @example
-	     *
-	     *     var hmac = CryptoJS.HmacSHA512(message, key);
-	     */
-	    C.HmacSHA512 = Hasher._createHmacHelper(SHA512);
-	}());
-
-
-	return CryptoJS.SHA512;
-
-}));
-},{"./core":406,"./x64-core":437}],436:[function(require,module,exports){
-;(function (root, factory, undef) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"), require("./enc-base64"), require("./md5"), require("./evpkdf"), require("./cipher-core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core", "./enc-base64", "./md5", "./evpkdf", "./cipher-core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function () {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var WordArray = C_lib.WordArray;
-	    var BlockCipher = C_lib.BlockCipher;
-	    var C_algo = C.algo;
-
-	    // Permuted Choice 1 constants
-	    var PC1 = [
-	        57, 49, 41, 33, 25, 17, 9,  1,
-	        58, 50, 42, 34, 26, 18, 10, 2,
-	        59, 51, 43, 35, 27, 19, 11, 3,
-	        60, 52, 44, 36, 63, 55, 47, 39,
-	        31, 23, 15, 7,  62, 54, 46, 38,
-	        30, 22, 14, 6,  61, 53, 45, 37,
-	        29, 21, 13, 5,  28, 20, 12, 4
-	    ];
-
-	    // Permuted Choice 2 constants
-	    var PC2 = [
-	        14, 17, 11, 24, 1,  5,
-	        3,  28, 15, 6,  21, 10,
-	        23, 19, 12, 4,  26, 8,
-	        16, 7,  27, 20, 13, 2,
-	        41, 52, 31, 37, 47, 55,
-	        30, 40, 51, 45, 33, 48,
-	        44, 49, 39, 56, 34, 53,
-	        46, 42, 50, 36, 29, 32
-	    ];
-
-	    // Cumulative bit shift constants
-	    var BIT_SHIFTS = [1,  2,  4,  6,  8,  10, 12, 14, 15, 17, 19, 21, 23, 25, 27, 28];
-
-	    // SBOXes and round permutation constants
-	    var SBOX_P = [
-	        {
-	            0x0: 0x808200,
-	            0x10000000: 0x8000,
-	            0x20000000: 0x808002,
-	            0x30000000: 0x2,
-	            0x40000000: 0x200,
-	            0x50000000: 0x808202,
-	            0x60000000: 0x800202,
-	            0x70000000: 0x800000,
-	            0x80000000: 0x202,
-	            0x90000000: 0x800200,
-	            0xa0000000: 0x8200,
-	            0xb0000000: 0x808000,
-	            0xc0000000: 0x8002,
-	            0xd0000000: 0x800002,
-	            0xe0000000: 0x0,
-	            0xf0000000: 0x8202,
-	            0x8000000: 0x0,
-	            0x18000000: 0x808202,
-	            0x28000000: 0x8202,
-	            0x38000000: 0x8000,
-	            0x48000000: 0x808200,
-	            0x58000000: 0x200,
-	            0x68000000: 0x808002,
-	            0x78000000: 0x2,
-	            0x88000000: 0x800200,
-	            0x98000000: 0x8200,
-	            0xa8000000: 0x808000,
-	            0xb8000000: 0x800202,
-	            0xc8000000: 0x800002,
-	            0xd8000000: 0x8002,
-	            0xe8000000: 0x202,
-	            0xf8000000: 0x800000,
-	            0x1: 0x8000,
-	            0x10000001: 0x2,
-	            0x20000001: 0x808200,
-	            0x30000001: 0x800000,
-	            0x40000001: 0x808002,
-	            0x50000001: 0x8200,
-	            0x60000001: 0x200,
-	            0x70000001: 0x800202,
-	            0x80000001: 0x808202,
-	            0x90000001: 0x808000,
-	            0xa0000001: 0x800002,
-	            0xb0000001: 0x8202,
-	            0xc0000001: 0x202,
-	            0xd0000001: 0x800200,
-	            0xe0000001: 0x8002,
-	            0xf0000001: 0x0,
-	            0x8000001: 0x808202,
-	            0x18000001: 0x808000,
-	            0x28000001: 0x800000,
-	            0x38000001: 0x200,
-	            0x48000001: 0x8000,
-	            0x58000001: 0x800002,
-	            0x68000001: 0x2,
-	            0x78000001: 0x8202,
-	            0x88000001: 0x8002,
-	            0x98000001: 0x800202,
-	            0xa8000001: 0x202,
-	            0xb8000001: 0x808200,
-	            0xc8000001: 0x800200,
-	            0xd8000001: 0x0,
-	            0xe8000001: 0x8200,
-	            0xf8000001: 0x808002
-	        },
-	        {
-	            0x0: 0x40084010,
-	            0x1000000: 0x4000,
-	            0x2000000: 0x80000,
-	            0x3000000: 0x40080010,
-	            0x4000000: 0x40000010,
-	            0x5000000: 0x40084000,
-	            0x6000000: 0x40004000,
-	            0x7000000: 0x10,
-	            0x8000000: 0x84000,
-	            0x9000000: 0x40004010,
-	            0xa000000: 0x40000000,
-	            0xb000000: 0x84010,
-	            0xc000000: 0x80010,
-	            0xd000000: 0x0,
-	            0xe000000: 0x4010,
-	            0xf000000: 0x40080000,
-	            0x800000: 0x40004000,
-	            0x1800000: 0x84010,
-	            0x2800000: 0x10,
-	            0x3800000: 0x40004010,
-	            0x4800000: 0x40084010,
-	            0x5800000: 0x40000000,
-	            0x6800000: 0x80000,
-	            0x7800000: 0x40080010,
-	            0x8800000: 0x80010,
-	            0x9800000: 0x0,
-	            0xa800000: 0x4000,
-	            0xb800000: 0x40080000,
-	            0xc800000: 0x40000010,
-	            0xd800000: 0x84000,
-	            0xe800000: 0x40084000,
-	            0xf800000: 0x4010,
-	            0x10000000: 0x0,
-	            0x11000000: 0x40080010,
-	            0x12000000: 0x40004010,
-	            0x13000000: 0x40084000,
-	            0x14000000: 0x40080000,
-	            0x15000000: 0x10,
-	            0x16000000: 0x84010,
-	            0x17000000: 0x4000,
-	            0x18000000: 0x4010,
-	            0x19000000: 0x80000,
-	            0x1a000000: 0x80010,
-	            0x1b000000: 0x40000010,
-	            0x1c000000: 0x84000,
-	            0x1d000000: 0x40004000,
-	            0x1e000000: 0x40000000,
-	            0x1f000000: 0x40084010,
-	            0x10800000: 0x84010,
-	            0x11800000: 0x80000,
-	            0x12800000: 0x40080000,
-	            0x13800000: 0x4000,
-	            0x14800000: 0x40004000,
-	            0x15800000: 0x40084010,
-	            0x16800000: 0x10,
-	            0x17800000: 0x40000000,
-	            0x18800000: 0x40084000,
-	            0x19800000: 0x40000010,
-	            0x1a800000: 0x40004010,
-	            0x1b800000: 0x80010,
-	            0x1c800000: 0x0,
-	            0x1d800000: 0x4010,
-	            0x1e800000: 0x40080010,
-	            0x1f800000: 0x84000
-	        },
-	        {
-	            0x0: 0x104,
-	            0x100000: 0x0,
-	            0x200000: 0x4000100,
-	            0x300000: 0x10104,
-	            0x400000: 0x10004,
-	            0x500000: 0x4000004,
-	            0x600000: 0x4010104,
-	            0x700000: 0x4010000,
-	            0x800000: 0x4000000,
-	            0x900000: 0x4010100,
-	            0xa00000: 0x10100,
-	            0xb00000: 0x4010004,
-	            0xc00000: 0x4000104,
-	            0xd00000: 0x10000,
-	            0xe00000: 0x4,
-	            0xf00000: 0x100,
-	            0x80000: 0x4010100,
-	            0x180000: 0x4010004,
-	            0x280000: 0x0,
-	            0x380000: 0x4000100,
-	            0x480000: 0x4000004,
-	            0x580000: 0x10000,
-	            0x680000: 0x10004,
-	            0x780000: 0x104,
-	            0x880000: 0x4,
-	            0x980000: 0x100,
-	            0xa80000: 0x4010000,
-	            0xb80000: 0x10104,
-	            0xc80000: 0x10100,
-	            0xd80000: 0x4000104,
-	            0xe80000: 0x4010104,
-	            0xf80000: 0x4000000,
-	            0x1000000: 0x4010100,
-	            0x1100000: 0x10004,
-	            0x1200000: 0x10000,
-	            0x1300000: 0x4000100,
-	            0x1400000: 0x100,
-	            0x1500000: 0x4010104,
-	            0x1600000: 0x4000004,
-	            0x1700000: 0x0,
-	            0x1800000: 0x4000104,
-	            0x1900000: 0x4000000,
-	            0x1a00000: 0x4,
-	            0x1b00000: 0x10100,
-	            0x1c00000: 0x4010000,
-	            0x1d00000: 0x104,
-	            0x1e00000: 0x10104,
-	            0x1f00000: 0x4010004,
-	            0x1080000: 0x4000000,
-	            0x1180000: 0x104,
-	            0x1280000: 0x4010100,
-	            0x1380000: 0x0,
-	            0x1480000: 0x10004,
-	            0x1580000: 0x4000100,
-	            0x1680000: 0x100,
-	            0x1780000: 0x4010004,
-	            0x1880000: 0x10000,
-	            0x1980000: 0x4010104,
-	            0x1a80000: 0x10104,
-	            0x1b80000: 0x4000004,
-	            0x1c80000: 0x4000104,
-	            0x1d80000: 0x4010000,
-	            0x1e80000: 0x4,
-	            0x1f80000: 0x10100
-	        },
-	        {
-	            0x0: 0x80401000,
-	            0x10000: 0x80001040,
-	            0x20000: 0x401040,
-	            0x30000: 0x80400000,
-	            0x40000: 0x0,
-	            0x50000: 0x401000,
-	            0x60000: 0x80000040,
-	            0x70000: 0x400040,
-	            0x80000: 0x80000000,
-	            0x90000: 0x400000,
-	            0xa0000: 0x40,
-	            0xb0000: 0x80001000,
-	            0xc0000: 0x80400040,
-	            0xd0000: 0x1040,
-	            0xe0000: 0x1000,
-	            0xf0000: 0x80401040,
-	            0x8000: 0x80001040,
-	            0x18000: 0x40,
-	            0x28000: 0x80400040,
-	            0x38000: 0x80001000,
-	            0x48000: 0x401000,
-	            0x58000: 0x80401040,
-	            0x68000: 0x0,
-	            0x78000: 0x80400000,
-	            0x88000: 0x1000,
-	            0x98000: 0x80401000,
-	            0xa8000: 0x400000,
-	            0xb8000: 0x1040,
-	            0xc8000: 0x80000000,
-	            0xd8000: 0x400040,
-	            0xe8000: 0x401040,
-	            0xf8000: 0x80000040,
-	            0x100000: 0x400040,
-	            0x110000: 0x401000,
-	            0x120000: 0x80000040,
-	            0x130000: 0x0,
-	            0x140000: 0x1040,
-	            0x150000: 0x80400040,
-	            0x160000: 0x80401000,
-	            0x170000: 0x80001040,
-	            0x180000: 0x80401040,
-	            0x190000: 0x80000000,
-	            0x1a0000: 0x80400000,
-	            0x1b0000: 0x401040,
-	            0x1c0000: 0x80001000,
-	            0x1d0000: 0x400000,
-	            0x1e0000: 0x40,
-	            0x1f0000: 0x1000,
-	            0x108000: 0x80400000,
-	            0x118000: 0x80401040,
-	            0x128000: 0x0,
-	            0x138000: 0x401000,
-	            0x148000: 0x400040,
-	            0x158000: 0x80000000,
-	            0x168000: 0x80001040,
-	            0x178000: 0x40,
-	            0x188000: 0x80000040,
-	            0x198000: 0x1000,
-	            0x1a8000: 0x80001000,
-	            0x1b8000: 0x80400040,
-	            0x1c8000: 0x1040,
-	            0x1d8000: 0x80401000,
-	            0x1e8000: 0x400000,
-	            0x1f8000: 0x401040
-	        },
-	        {
-	            0x0: 0x80,
-	            0x1000: 0x1040000,
-	            0x2000: 0x40000,
-	            0x3000: 0x20000000,
-	            0x4000: 0x20040080,
-	            0x5000: 0x1000080,
-	            0x6000: 0x21000080,
-	            0x7000: 0x40080,
-	            0x8000: 0x1000000,
-	            0x9000: 0x20040000,
-	            0xa000: 0x20000080,
-	            0xb000: 0x21040080,
-	            0xc000: 0x21040000,
-	            0xd000: 0x0,
-	            0xe000: 0x1040080,
-	            0xf000: 0x21000000,
-	            0x800: 0x1040080,
-	            0x1800: 0x21000080,
-	            0x2800: 0x80,
-	            0x3800: 0x1040000,
-	            0x4800: 0x40000,
-	            0x5800: 0x20040080,
-	            0x6800: 0x21040000,
-	            0x7800: 0x20000000,
-	            0x8800: 0x20040000,
-	            0x9800: 0x0,
-	            0xa800: 0x21040080,
-	            0xb800: 0x1000080,
-	            0xc800: 0x20000080,
-	            0xd800: 0x21000000,
-	            0xe800: 0x1000000,
-	            0xf800: 0x40080,
-	            0x10000: 0x40000,
-	            0x11000: 0x80,
-	            0x12000: 0x20000000,
-	            0x13000: 0x21000080,
-	            0x14000: 0x1000080,
-	            0x15000: 0x21040000,
-	            0x16000: 0x20040080,
-	            0x17000: 0x1000000,
-	            0x18000: 0x21040080,
-	            0x19000: 0x21000000,
-	            0x1a000: 0x1040000,
-	            0x1b000: 0x20040000,
-	            0x1c000: 0x40080,
-	            0x1d000: 0x20000080,
-	            0x1e000: 0x0,
-	            0x1f000: 0x1040080,
-	            0x10800: 0x21000080,
-	            0x11800: 0x1000000,
-	            0x12800: 0x1040000,
-	            0x13800: 0x20040080,
-	            0x14800: 0x20000000,
-	            0x15800: 0x1040080,
-	            0x16800: 0x80,
-	            0x17800: 0x21040000,
-	            0x18800: 0x40080,
-	            0x19800: 0x21040080,
-	            0x1a800: 0x0,
-	            0x1b800: 0x21000000,
-	            0x1c800: 0x1000080,
-	            0x1d800: 0x40000,
-	            0x1e800: 0x20040000,
-	            0x1f800: 0x20000080
-	        },
-	        {
-	            0x0: 0x10000008,
-	            0x100: 0x2000,
-	            0x200: 0x10200000,
-	            0x300: 0x10202008,
-	            0x400: 0x10002000,
-	            0x500: 0x200000,
-	            0x600: 0x200008,
-	            0x700: 0x10000000,
-	            0x800: 0x0,
-	            0x900: 0x10002008,
-	            0xa00: 0x202000,
-	            0xb00: 0x8,
-	            0xc00: 0x10200008,
-	            0xd00: 0x202008,
-	            0xe00: 0x2008,
-	            0xf00: 0x10202000,
-	            0x80: 0x10200000,
-	            0x180: 0x10202008,
-	            0x280: 0x8,
-	            0x380: 0x200000,
-	            0x480: 0x202008,
-	            0x580: 0x10000008,
-	            0x680: 0x10002000,
-	            0x780: 0x2008,
-	            0x880: 0x200008,
-	            0x980: 0x2000,
-	            0xa80: 0x10002008,
-	            0xb80: 0x10200008,
-	            0xc80: 0x0,
-	            0xd80: 0x10202000,
-	            0xe80: 0x202000,
-	            0xf80: 0x10000000,
-	            0x1000: 0x10002000,
-	            0x1100: 0x10200008,
-	            0x1200: 0x10202008,
-	            0x1300: 0x2008,
-	            0x1400: 0x200000,
-	            0x1500: 0x10000000,
-	            0x1600: 0x10000008,
-	            0x1700: 0x202000,
-	            0x1800: 0x202008,
-	            0x1900: 0x0,
-	            0x1a00: 0x8,
-	            0x1b00: 0x10200000,
-	            0x1c00: 0x2000,
-	            0x1d00: 0x10002008,
-	            0x1e00: 0x10202000,
-	            0x1f00: 0x200008,
-	            0x1080: 0x8,
-	            0x1180: 0x202000,
-	            0x1280: 0x200000,
-	            0x1380: 0x10000008,
-	            0x1480: 0x10002000,
-	            0x1580: 0x2008,
-	            0x1680: 0x10202008,
-	            0x1780: 0x10200000,
-	            0x1880: 0x10202000,
-	            0x1980: 0x10200008,
-	            0x1a80: 0x2000,
-	            0x1b80: 0x202008,
-	            0x1c80: 0x200008,
-	            0x1d80: 0x0,
-	            0x1e80: 0x10000000,
-	            0x1f80: 0x10002008
-	        },
-	        {
-	            0x0: 0x100000,
-	            0x10: 0x2000401,
-	            0x20: 0x400,
-	            0x30: 0x100401,
-	            0x40: 0x2100401,
-	            0x50: 0x0,
-	            0x60: 0x1,
-	            0x70: 0x2100001,
-	            0x80: 0x2000400,
-	            0x90: 0x100001,
-	            0xa0: 0x2000001,
-	            0xb0: 0x2100400,
-	            0xc0: 0x2100000,
-	            0xd0: 0x401,
-	            0xe0: 0x100400,
-	            0xf0: 0x2000000,
-	            0x8: 0x2100001,
-	            0x18: 0x0,
-	            0x28: 0x2000401,
-	            0x38: 0x2100400,
-	            0x48: 0x100000,
-	            0x58: 0x2000001,
-	            0x68: 0x2000000,
-	            0x78: 0x401,
-	            0x88: 0x100401,
-	            0x98: 0x2000400,
-	            0xa8: 0x2100000,
-	            0xb8: 0x100001,
-	            0xc8: 0x400,
-	            0xd8: 0x2100401,
-	            0xe8: 0x1,
-	            0xf8: 0x100400,
-	            0x100: 0x2000000,
-	            0x110: 0x100000,
-	            0x120: 0x2000401,
-	            0x130: 0x2100001,
-	            0x140: 0x100001,
-	            0x150: 0x2000400,
-	            0x160: 0x2100400,
-	            0x170: 0x100401,
-	            0x180: 0x401,
-	            0x190: 0x2100401,
-	            0x1a0: 0x100400,
-	            0x1b0: 0x1,
-	            0x1c0: 0x0,
-	            0x1d0: 0x2100000,
-	            0x1e0: 0x2000001,
-	            0x1f0: 0x400,
-	            0x108: 0x100400,
-	            0x118: 0x2000401,
-	            0x128: 0x2100001,
-	            0x138: 0x1,
-	            0x148: 0x2000000,
-	            0x158: 0x100000,
-	            0x168: 0x401,
-	            0x178: 0x2100400,
-	            0x188: 0x2000001,
-	            0x198: 0x2100000,
-	            0x1a8: 0x0,
-	            0x1b8: 0x2100401,
-	            0x1c8: 0x100401,
-	            0x1d8: 0x400,
-	            0x1e8: 0x2000400,
-	            0x1f8: 0x100001
-	        },
-	        {
-	            0x0: 0x8000820,
-	            0x1: 0x20000,
-	            0x2: 0x8000000,
-	            0x3: 0x20,
-	            0x4: 0x20020,
-	            0x5: 0x8020820,
-	            0x6: 0x8020800,
-	            0x7: 0x800,
-	            0x8: 0x8020000,
-	            0x9: 0x8000800,
-	            0xa: 0x20800,
-	            0xb: 0x8020020,
-	            0xc: 0x820,
-	            0xd: 0x0,
-	            0xe: 0x8000020,
-	            0xf: 0x20820,
-	            0x80000000: 0x800,
-	            0x80000001: 0x8020820,
-	            0x80000002: 0x8000820,
-	            0x80000003: 0x8000000,
-	            0x80000004: 0x8020000,
-	            0x80000005: 0x20800,
-	            0x80000006: 0x20820,
-	            0x80000007: 0x20,
-	            0x80000008: 0x8000020,
-	            0x80000009: 0x820,
-	            0x8000000a: 0x20020,
-	            0x8000000b: 0x8020800,
-	            0x8000000c: 0x0,
-	            0x8000000d: 0x8020020,
-	            0x8000000e: 0x8000800,
-	            0x8000000f: 0x20000,
-	            0x10: 0x20820,
-	            0x11: 0x8020800,
-	            0x12: 0x20,
-	            0x13: 0x800,
-	            0x14: 0x8000800,
-	            0x15: 0x8000020,
-	            0x16: 0x8020020,
-	            0x17: 0x20000,
-	            0x18: 0x0,
-	            0x19: 0x20020,
-	            0x1a: 0x8020000,
-	            0x1b: 0x8000820,
-	            0x1c: 0x8020820,
-	            0x1d: 0x20800,
-	            0x1e: 0x820,
-	            0x1f: 0x8000000,
-	            0x80000010: 0x20000,
-	            0x80000011: 0x800,
-	            0x80000012: 0x8020020,
-	            0x80000013: 0x20820,
-	            0x80000014: 0x20,
-	            0x80000015: 0x8020000,
-	            0x80000016: 0x8000000,
-	            0x80000017: 0x8000820,
-	            0x80000018: 0x8020820,
-	            0x80000019: 0x8000020,
-	            0x8000001a: 0x8000800,
-	            0x8000001b: 0x0,
-	            0x8000001c: 0x20800,
-	            0x8000001d: 0x820,
-	            0x8000001e: 0x20020,
-	            0x8000001f: 0x8020800
-	        }
-	    ];
-
-	    // Masks that select the SBOX input
-	    var SBOX_MASK = [
-	        0xf8000001, 0x1f800000, 0x01f80000, 0x001f8000,
-	        0x0001f800, 0x00001f80, 0x000001f8, 0x8000001f
-	    ];
-
-	    /**
-	     * DES block cipher algorithm.
-	     */
-	    var DES = C_algo.DES = BlockCipher.extend({
-	        _doReset: function () {
-	            // Shortcuts
-	            var key = this._key;
-	            var keyWords = key.words;
-
-	            // Select 56 bits according to PC1
-	            var keyBits = [];
-	            for (var i = 0; i < 56; i++) {
-	                var keyBitPos = PC1[i] - 1;
-	                keyBits[i] = (keyWords[keyBitPos >>> 5] >>> (31 - keyBitPos % 32)) & 1;
-	            }
-
-	            // Assemble 16 subkeys
-	            var subKeys = this._subKeys = [];
-	            for (var nSubKey = 0; nSubKey < 16; nSubKey++) {
-	                // Create subkey
-	                var subKey = subKeys[nSubKey] = [];
-
-	                // Shortcut
-	                var bitShift = BIT_SHIFTS[nSubKey];
-
-	                // Select 48 bits according to PC2
-	                for (var i = 0; i < 24; i++) {
-	                    // Select from the left 28 key bits
-	                    subKey[(i / 6) | 0] |= keyBits[((PC2[i] - 1) + bitShift) % 28] << (31 - i % 6);
-
-	                    // Select from the right 28 key bits
-	                    subKey[4 + ((i / 6) | 0)] |= keyBits[28 + (((PC2[i + 24] - 1) + bitShift) % 28)] << (31 - i % 6);
-	                }
-
-	                // Since each subkey is applied to an expanded 32-bit input,
-	                // the subkey can be broken into 8 values scaled to 32-bits,
-	                // which allows the key to be used without expansion
-	                subKey[0] = (subKey[0] << 1) | (subKey[0] >>> 31);
-	                for (var i = 1; i < 7; i++) {
-	                    subKey[i] = subKey[i] >>> ((i - 1) * 4 + 3);
-	                }
-	                subKey[7] = (subKey[7] << 5) | (subKey[7] >>> 27);
-	            }
-
-	            // Compute inverse subkeys
-	            var invSubKeys = this._invSubKeys = [];
-	            for (var i = 0; i < 16; i++) {
-	                invSubKeys[i] = subKeys[15 - i];
-	            }
-	        },
-
-	        encryptBlock: function (M, offset) {
-	            this._doCryptBlock(M, offset, this._subKeys);
-	        },
-
-	        decryptBlock: function (M, offset) {
-	            this._doCryptBlock(M, offset, this._invSubKeys);
-	        },
-
-	        _doCryptBlock: function (M, offset, subKeys) {
-	            // Get input
-	            this._lBlock = M[offset];
-	            this._rBlock = M[offset + 1];
-
-	            // Initial permutation
-	            exchangeLR.call(this, 4,  0x0f0f0f0f);
-	            exchangeLR.call(this, 16, 0x0000ffff);
-	            exchangeRL.call(this, 2,  0x33333333);
-	            exchangeRL.call(this, 8,  0x00ff00ff);
-	            exchangeLR.call(this, 1,  0x55555555);
-
-	            // Rounds
-	            for (var round = 0; round < 16; round++) {
-	                // Shortcuts
-	                var subKey = subKeys[round];
-	                var lBlock = this._lBlock;
-	                var rBlock = this._rBlock;
-
-	                // Feistel function
-	                var f = 0;
-	                for (var i = 0; i < 8; i++) {
-	                    f |= SBOX_P[i][((rBlock ^ subKey[i]) & SBOX_MASK[i]) >>> 0];
-	                }
-	                this._lBlock = rBlock;
-	                this._rBlock = lBlock ^ f;
-	            }
-
-	            // Undo swap from last round
-	            var t = this._lBlock;
-	            this._lBlock = this._rBlock;
-	            this._rBlock = t;
-
-	            // Final permutation
-	            exchangeLR.call(this, 1,  0x55555555);
-	            exchangeRL.call(this, 8,  0x00ff00ff);
-	            exchangeRL.call(this, 2,  0x33333333);
-	            exchangeLR.call(this, 16, 0x0000ffff);
-	            exchangeLR.call(this, 4,  0x0f0f0f0f);
-
-	            // Set output
-	            M[offset] = this._lBlock;
-	            M[offset + 1] = this._rBlock;
-	        },
-
-	        keySize: 64/32,
-
-	        ivSize: 64/32,
-
-	        blockSize: 64/32
-	    });
-
-	    // Swap bits across the left and right words
-	    function exchangeLR(offset, mask) {
-	        var t = ((this._lBlock >>> offset) ^ this._rBlock) & mask;
-	        this._rBlock ^= t;
-	        this._lBlock ^= t << offset;
-	    }
-
-	    function exchangeRL(offset, mask) {
-	        var t = ((this._rBlock >>> offset) ^ this._lBlock) & mask;
-	        this._lBlock ^= t;
-	        this._rBlock ^= t << offset;
-	    }
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.DES.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.DES.decrypt(ciphertext, key, cfg);
-	     */
-	    C.DES = BlockCipher._createHelper(DES);
-
-	    /**
-	     * Triple-DES block cipher algorithm.
-	     */
-	    var TripleDES = C_algo.TripleDES = BlockCipher.extend({
-	        _doReset: function () {
-	            // Shortcuts
-	            var key = this._key;
-	            var keyWords = key.words;
-
-	            // Create DES instances
-	            this._des1 = DES.createEncryptor(WordArray.create(keyWords.slice(0, 2)));
-	            this._des2 = DES.createEncryptor(WordArray.create(keyWords.slice(2, 4)));
-	            this._des3 = DES.createEncryptor(WordArray.create(keyWords.slice(4, 6)));
-	        },
-
-	        encryptBlock: function (M, offset) {
-	            this._des1.encryptBlock(M, offset);
-	            this._des2.decryptBlock(M, offset);
-	            this._des3.encryptBlock(M, offset);
-	        },
-
-	        decryptBlock: function (M, offset) {
-	            this._des3.decryptBlock(M, offset);
-	            this._des2.encryptBlock(M, offset);
-	            this._des1.decryptBlock(M, offset);
-	        },
-
-	        keySize: 192/32,
-
-	        ivSize: 64/32,
-
-	        blockSize: 64/32
-	    });
-
-	    /**
-	     * Shortcut functions to the cipher's object interface.
-	     *
-	     * @example
-	     *
-	     *     var ciphertext = CryptoJS.TripleDES.encrypt(message, key, cfg);
-	     *     var plaintext  = CryptoJS.TripleDES.decrypt(ciphertext, key, cfg);
-	     */
-	    C.TripleDES = BlockCipher._createHelper(TripleDES);
-	}());
-
-
-	return CryptoJS.TripleDES;
-
-}));
-},{"./cipher-core":405,"./core":406,"./enc-base64":407,"./evpkdf":409,"./md5":414}],437:[function(require,module,exports){
-;(function (root, factory) {
-	if (typeof exports === "object") {
-		// CommonJS
-		module.exports = exports = factory(require("./core"));
-	}
-	else if (typeof define === "function" && define.amd) {
-		// AMD
-		define(["./core"], factory);
-	}
-	else {
-		// Global (browser)
-		factory(root.CryptoJS);
-	}
-}(this, function (CryptoJS) {
-
-	(function (undefined) {
-	    // Shortcuts
-	    var C = CryptoJS;
-	    var C_lib = C.lib;
-	    var Base = C_lib.Base;
-	    var X32WordArray = C_lib.WordArray;
-
-	    /**
-	     * x64 namespace.
-	     */
-	    var C_x64 = C.x64 = {};
-
-	    /**
-	     * A 64-bit word.
-	     */
-	    var X64Word = C_x64.Word = Base.extend({
-	        /**
-	         * Initializes a newly created 64-bit word.
-	         *
-	         * @param {number} high The high 32 bits.
-	         * @param {number} low The low 32 bits.
-	         *
-	         * @example
-	         *
-	         *     var x64Word = CryptoJS.x64.Word.create(0x00010203, 0x04050607);
-	         */
-	        init: function (high, low) {
-	            this.high = high;
-	            this.low = low;
-	        }
-
-	        /**
-	         * Bitwise NOTs this word.
-	         *
-	         * @return {X64Word} A new x64-Word object after negating.
-	         *
-	         * @example
-	         *
-	         *     var negated = x64Word.not();
-	         */
-	        // not: function () {
-	            // var high = ~this.high;
-	            // var low = ~this.low;
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Bitwise ANDs this word with the passed word.
-	         *
-	         * @param {X64Word} word The x64-Word to AND with this word.
-	         *
-	         * @return {X64Word} A new x64-Word object after ANDing.
-	         *
-	         * @example
-	         *
-	         *     var anded = x64Word.and(anotherX64Word);
-	         */
-	        // and: function (word) {
-	            // var high = this.high & word.high;
-	            // var low = this.low & word.low;
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Bitwise ORs this word with the passed word.
-	         *
-	         * @param {X64Word} word The x64-Word to OR with this word.
-	         *
-	         * @return {X64Word} A new x64-Word object after ORing.
-	         *
-	         * @example
-	         *
-	         *     var ored = x64Word.or(anotherX64Word);
-	         */
-	        // or: function (word) {
-	            // var high = this.high | word.high;
-	            // var low = this.low | word.low;
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Bitwise XORs this word with the passed word.
-	         *
-	         * @param {X64Word} word The x64-Word to XOR with this word.
-	         *
-	         * @return {X64Word} A new x64-Word object after XORing.
-	         *
-	         * @example
-	         *
-	         *     var xored = x64Word.xor(anotherX64Word);
-	         */
-	        // xor: function (word) {
-	            // var high = this.high ^ word.high;
-	            // var low = this.low ^ word.low;
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Shifts this word n bits to the left.
-	         *
-	         * @param {number} n The number of bits to shift.
-	         *
-	         * @return {X64Word} A new x64-Word object after shifting.
-	         *
-	         * @example
-	         *
-	         *     var shifted = x64Word.shiftL(25);
-	         */
-	        // shiftL: function (n) {
-	            // if (n < 32) {
-	                // var high = (this.high << n) | (this.low >>> (32 - n));
-	                // var low = this.low << n;
-	            // } else {
-	                // var high = this.low << (n - 32);
-	                // var low = 0;
-	            // }
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Shifts this word n bits to the right.
-	         *
-	         * @param {number} n The number of bits to shift.
-	         *
-	         * @return {X64Word} A new x64-Word object after shifting.
-	         *
-	         * @example
-	         *
-	         *     var shifted = x64Word.shiftR(7);
-	         */
-	        // shiftR: function (n) {
-	            // if (n < 32) {
-	                // var low = (this.low >>> n) | (this.high << (32 - n));
-	                // var high = this.high >>> n;
-	            // } else {
-	                // var low = this.high >>> (n - 32);
-	                // var high = 0;
-	            // }
-
-	            // return X64Word.create(high, low);
-	        // },
-
-	        /**
-	         * Rotates this word n bits to the left.
-	         *
-	         * @param {number} n The number of bits to rotate.
-	         *
-	         * @return {X64Word} A new x64-Word object after rotating.
-	         *
-	         * @example
-	         *
-	         *     var rotated = x64Word.rotL(25);
-	         */
-	        // rotL: function (n) {
-	            // return this.shiftL(n).or(this.shiftR(64 - n));
-	        // },
-
-	        /**
-	         * Rotates this word n bits to the right.
-	         *
-	         * @param {number} n The number of bits to rotate.
-	         *
-	         * @return {X64Word} A new x64-Word object after rotating.
-	         *
-	         * @example
-	         *
-	         *     var rotated = x64Word.rotR(7);
-	         */
-	        // rotR: function (n) {
-	            // return this.shiftR(n).or(this.shiftL(64 - n));
-	        // },
-
-	        /**
-	         * Adds this word with the passed word.
-	         *
-	         * @param {X64Word} word The x64-Word to add with this word.
-	         *
-	         * @return {X64Word} A new x64-Word object after adding.
-	         *
-	         * @example
-	         *
-	         *     var added = x64Word.add(anotherX64Word);
-	         */
-	        // add: function (word) {
-	            // var low = (this.low + word.low) | 0;
-	            // var carry = (low >>> 0) < (this.low >>> 0) ? 1 : 0;
-	            // var high = (this.high + word.high + carry) | 0;
-
-	            // return X64Word.create(high, low);
-	        // }
-	    });
-
-	    /**
-	     * An array of 64-bit words.
-	     *
-	     * @property {Array} words The array of CryptoJS.x64.Word objects.
-	     * @property {number} sigBytes The number of significant bytes in this word array.
-	     */
-	    var X64WordArray = C_x64.WordArray = Base.extend({
-	        /**
-	         * Initializes a newly created word array.
-	         *
-	         * @param {Array} words (Optional) An array of CryptoJS.x64.Word objects.
-	         * @param {number} sigBytes (Optional) The number of significant bytes in the words.
-	         *
-	         * @example
-	         *
-	         *     var wordArray = CryptoJS.x64.WordArray.create();
-	         *
-	         *     var wordArray = CryptoJS.x64.WordArray.create([
-	         *         CryptoJS.x64.Word.create(0x00010203, 0x04050607),
-	         *         CryptoJS.x64.Word.create(0x18191a1b, 0x1c1d1e1f)
-	         *     ]);
-	         *
-	         *     var wordArray = CryptoJS.x64.WordArray.create([
-	         *         CryptoJS.x64.Word.create(0x00010203, 0x04050607),
-	         *         CryptoJS.x64.Word.create(0x18191a1b, 0x1c1d1e1f)
-	         *     ], 10);
-	         */
-	        init: function (words, sigBytes) {
-	            words = this.words = words || [];
-
-	            if (sigBytes != undefined) {
-	                this.sigBytes = sigBytes;
-	            } else {
-	                this.sigBytes = words.length * 8;
-	            }
-	        },
-
-	        /**
-	         * Converts this 64-bit word array to a 32-bit word array.
-	         *
-	         * @return {CryptoJS.lib.WordArray} This word array's data as a 32-bit word array.
-	         *
-	         * @example
-	         *
-	         *     var x32WordArray = x64WordArray.toX32();
-	         */
-	        toX32: function () {
-	            // Shortcuts
-	            var x64Words = this.words;
-	            var x64WordsLength = x64Words.length;
-
-	            // Convert
-	            var x32Words = [];
-	            for (var i = 0; i < x64WordsLength; i++) {
-	                var x64Word = x64Words[i];
-	                x32Words.push(x64Word.high);
-	                x32Words.push(x64Word.low);
-	            }
-
-	            return X32WordArray.create(x32Words, this.sigBytes);
-	        },
-
-	        /**
-	         * Creates a copy of this word array.
-	         *
-	         * @return {X64WordArray} The clone.
-	         *
-	         * @example
-	         *
-	         *     var clone = x64WordArray.clone();
-	         */
-	        clone: function () {
-	            var clone = Base.clone.call(this);
-
-	            // Clone "words" array
-	            var words = clone.words = this.words.slice(0);
-
-	            // Clone each X64Word object
-	            var wordsLength = words.length;
-	            for (var i = 0; i < wordsLength; i++) {
-	                words[i] = words[i].clone();
-	            }
-
-	            return clone;
-	        }
-	    });
-	}());
-
-
-	return CryptoJS;
-
-}));
-},{"./core":406}]},{},[12])
-
+},{}]},{},[12])
 
 //# sourceMappingURL=app.js.map

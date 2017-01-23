@@ -101,6 +101,9 @@ String.prototype.occurences = function(value) {
   var regExp = new RegExp(value, "gi");
   return (this.match(regExp) || []).length;
 }
+String.prototype.contains=function(string){
+    return this.indexOf(string) !== -1;
+};
 
 
 module.exports = app;

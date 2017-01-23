@@ -62,8 +62,20 @@ var HomeView = Backbone.View.extend({
       this.$el.append(add);
       add.click(() => {
         this.model.save(null,{success:()=>{
+          console.log(456);
+          // m.save(null, {
+          //     success: function (model, response) {
+          //         console.log("success");
+          //     },
+          //     error: function (model, response) {
+          //         console.log("error");
+          //     }
+          // });
           m.save(null,{success:()=>{
+            console.log(1235555);
             swal('Succesvol opgeslagen', null,'success');
+          },error:e=>{
+            console.log(e);
           }});
         }});
       });

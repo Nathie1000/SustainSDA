@@ -5,10 +5,10 @@ import Form from 'ms/common/views/form.js';
 import Tabs from 'ms/common/views/tabs.js';
 import DTabs from 'ms/common/views/dynamicTabs.js';
 import Chart from 'chart.js';
-import ProgressionsTF from 'ms/doctor/patients/views/24Progression.js';
-import ProgressionsWeek from 'ms/doctor/patients/views/weekProgression.js';
-import ProgressionsMonth from 'ms/doctor/patients/views/monthProgression.js';
-import ProgressionsYear from 'ms/doctor/patients/views/yearProgression.js';
+import ProgressionsTF from 'ms/patient/patients/views/24Progression.js';
+import ProgressionsWeek from 'ms/patient/patients/views/weekProgression.js';
+import ProgressionsMonth from 'ms/patient/patients/views/monthProgression.js';
+import ProgressionsYear from 'ms/patient/patients/views/yearProgression.js';
 
 var HomeView = Backbone.View.extend({
   template: Handlebars.templates['doctor/patient/patientProgression'],

@@ -8,7 +8,7 @@ var Goal = require('../../models/goal');
 var User = require('../../models/user');
 
 router.get('/current',(req,res,next)=>{
-  if(req.session.patient){res.send(req.session.patient);return;}
+  // if(req.session.patient){res.send(req.session.patient);return;}
   console.log('userid:');
   console.log(req.session.user.id);
   Patient.getByKeyVal('user_id',req.session.user.id,{success:d=>{

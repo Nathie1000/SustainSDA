@@ -14,7 +14,7 @@ var User = BaseModel.extend({
       msg: 'Gebruikersnaam is vereist'
     },
     password: {
-      minLength: 6 || 0,
+      minLength: 6,
       maxLength: 32,
       required: false,
       msg: 'Wachtwoord is vereist en moet tussen de 6 en 32 karakters bevatten.'

@@ -12,6 +12,7 @@ var HomeView = Backbone.View.extend({
 
   renderForm(self,fysio){
     var m = new User(fysio.toJSON());
+    m.set('id', m.get('user_id'));
     var form = new Form({
       model: fysio,
       fields: [
@@ -53,12 +54,14 @@ var HomeView = Backbone.View.extend({
     Backbone.Validation.bind(form);
     Backbone.Validation.bind(form2);
     var add = $(Handlebars.templates['layout/button']({
-        label: (createNew)?'Fysiotherapeut toevoegen':'Opslaan',
+        label: (!fysio.id)?'Fysiotherapeut toevoegen':'Opslaan',
     }));
-    this.$el.find('.patient-info-section').append(add);
+    this.$el.append(add);
     add.click(() => {
-      saveModels({fysio,m},{success:()=>{
-        swal('Succesvol opgeslagen.', undefined,'success');
+      fysio.save(null,{success:()=>{
+        m.save(null,{success:()=>{
+          swal('Succesvol opgeslagen!',null,'success');
+        }})
       }});
     });
   },
