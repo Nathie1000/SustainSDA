@@ -34,7 +34,7 @@ var HomeView = Backbone.View.extend({
         },
         {
           attr: 'doctor',
-          label: 'Behandelaar'
+          label: 'Behandelaar',
         },
       ]
     });

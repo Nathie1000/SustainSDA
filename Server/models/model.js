@@ -228,6 +228,10 @@ class Model {
   static where(where, options){
     knex(this.getDBName()).select().whereRaw(where).then(d=>{
       if(options && isFunction(options.success)){
+        console.log(999,d);
+        _.each(d,m=>{
+          m = this.decryptKeys(m);
+        });
         options.success(d);
       }
     }).error(e=>{
@@ -406,7 +410,9 @@ class Model {
       console.warn('Trying to get objects with val undefined');
     }
     val = (this.isEncryptable(key)) ? this.encryptValue(''+val) : val;
+    console.log(key,val);
     knex(this.getDBName()).select('*').where(key, val).then(d=>{
+      console.log(123555);
       if(options && isFunction(options.success))
         options.success((new this(d[0])).decrypt());
     }).error(e=>{

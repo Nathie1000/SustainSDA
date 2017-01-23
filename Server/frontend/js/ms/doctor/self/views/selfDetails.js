@@ -8,6 +8,7 @@ var HomeView = Backbone.View.extend({
 
   render: function () {
     var m = new User(app.currentFysio.toJSON());
+    m.set('id', m.get('user_id'));
     var form = new Form({
       model: app.currentFysio,
       fields: [
@@ -48,6 +49,18 @@ var HomeView = Backbone.View.extend({
     this.$el.append(form2.render().el);
     Backbone.Validation.bind(form);
     Backbone.Validation.bind(form2);
+    var saveSelf = $(Handlebars.templates['layout/button']({
+        label: 'Opslaan',
+        class: 'right'
+    }));
+    this.$el.append(saveSelf);
+    saveSelf.click(()=>{
+      app.currentFysio.save(null,{success:()=>{
+        m.save(null,{success:()=>{
+          swal('Succesvol opgeslagen!',null,'success');
+        }})
+      }});
+    });
     return this;
   }
 });

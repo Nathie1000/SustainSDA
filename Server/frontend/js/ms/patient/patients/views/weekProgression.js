@@ -61,13 +61,13 @@ var HomeView = Backbone.View.extend({
       backgroundColor: [
         'rgba(255, 99, 132, 0.4)'
       ],
-      label: 'Stappen gezet',
+      label: 'Totaal aantal stappen gezet',
       data: this.model.chartData.week.stepsTotal,
     }, {
       backgroundColor: [
         'rgba(0, 0, 240, 0.4)'
       ],
-      label: 'Stappen doel',
+      label: 'Totaal aantal stappen doel',
       data: this.model.chartData.week.goalsTotal,
   }]};
     setTimeout(()=>{

@@ -18,6 +18,13 @@ router.get('/current',(req,res,next)=>{
   }});
 });
 
+router.get('/allDoctorsByPractice/:id', (req,res,next)=>{
+  var p = req.params;
+  Doctor.where('practice_id = ' +p.id,{success:d=>{
+    res.send(d);
+  }});
+});
+
 router.get('/:id', function(req, res, next) {
   var p = req.params;
   Doctor.find(p.id,{success:d=>{

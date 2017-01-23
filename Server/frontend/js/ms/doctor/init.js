@@ -42,13 +42,26 @@ module.exports = function(callback) {
         $.ajax('/fysio/practices/current')
         .done(response=>{
           app.currentPractice = new Practice(response);
+          console.log(app.currentPractice);
           next();
         });
       },
+      // function(next) {
+      //   console.log(app.currentPractice);
+      //
+      // },
     ],
     function(err, results) {
       console.log('test');
+      $.ajax('fysio/doctors/allDoctorsByPractice/'+app.currentPractice.id)
+      .done(res=>{
+        app.doctors = [];
+        _.each(res,d=>{
+          app.doctors.push({id:d.id,label:d.firstName + ' ' + d.lastName});
+        });
         callback();
+      });
+        // callback();
       }
     );
 

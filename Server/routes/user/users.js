@@ -17,9 +17,10 @@ router.get('/', function(req, res, next) {
 
 function updateUser(data,id,res){
   data.id = id;
+  console.log(55555,data);
   User.update(data,{success:d=>{
-    res.type('json');
-    res.send(JSON.stringify(data));
+    // res.type('json');
+    res.send(d.getAllAttributes());
   },error:e=>{
     res.send(e);
   }});
@@ -42,10 +43,11 @@ router.post('/', (req,res,next)=>{
 router.put('/:id', function(req, res, next) {
     var id = req.params.id;
     var p = req.body;
+    console.log(123333,p);
     var data = {
         username: req.body.username
     };
-    if (req.body.password) {
+    if (req.body.password && req.body.password !== 'undefined') {
       knex('users').select('salt').where('id',id).then(arr=>{
         hash(req.body.password,arr[0].salt, (err, pass) => {
           data.password = pass;
