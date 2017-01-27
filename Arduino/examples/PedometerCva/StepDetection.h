@@ -5,6 +5,7 @@ class StepDetection: public MotionListener, public CommunicationListener {
 private:
     int stepCount;
     int stepsToSend;
+    int stepsToCount;
     int lastTime;
     bool isSending;
 
