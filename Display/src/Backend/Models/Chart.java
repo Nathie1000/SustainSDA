@@ -66,9 +66,9 @@ public class Chart{
 		JSONObject data = API.retrieveChartYear(patient);
 		
 		JSONArray stepstemp = new JSONArray();
-		stepstemp = data.getJSONObject("steps").toJSONArray(stepstemp);
+		stepstemp = data.getJSONArray("steps");
 		JSONArray goalstemp = new JSONArray();
-		goalstemp = data.getJSONObject("goals").toJSONArray(goalstemp);
+		goalstemp = data.getJSONArray("goals");
 		
 		steps.clear();
 		goals.clear();
