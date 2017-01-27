@@ -105,11 +105,7 @@ public class Patient {
 		JSONObject json = API.retrievePatientProgress(this);
 		this.stepsToday = json.getInt("steps");
 		this.totalSteps = json.getInt("totalSteps");
-		if (json.get("stepGoal") instanceof String) {
-			this.goalToday = 0;
-		} else {
-			this.goalToday = json.getInt("stepGoal");
-		}
+		this.goalToday = json.getInt("stepGoal");
 		this.goalsCompleted= json.getInt("goalsCompleted"); 
 		this.totalGoals = json.getInt("totalGoals");
 	}

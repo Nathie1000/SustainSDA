@@ -13,7 +13,7 @@ import Backend.Models.Patient;
 import IO.Sim;
 
 public class API {
-	private static final String HOST 		= "http://145.89.155.166:3000/";
+	private static final String HOST 		= "http://145.89.154.169:3000/";
 	private static final String PATIENT		= "api/shd/patient/";
 	private static final String PROGRESS	= "api/shd/getProgressData/";
 	private static final String CHART_HOURS = "api/shd/getChartDataHours/";
@@ -34,7 +34,7 @@ public class API {
 			System.out.println(x);
 	
 			obj = new JSONObject(x);
-			System.out.println(obj);
+			//System.out.println(obj);
 			in.close();
 			return obj;
 			
