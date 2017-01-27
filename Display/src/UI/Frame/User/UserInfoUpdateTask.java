@@ -12,16 +12,14 @@ public class UserInfoUpdateTask extends RepetitiveUpdateTask<Patient>{
 	}
 
 	@Override
-	protected Patient call() throws Exception {
+	public Patient call() {
 		Patient patient = Patient.getPatient();
-		
 		if(patient != null){
 			patient.fetchProgress();
 		}
 		else{
 			patient = new Patient(null, -1, "Geen", "verbinding", -1);
 		}
-		
 		return patient;
 	}
 } 

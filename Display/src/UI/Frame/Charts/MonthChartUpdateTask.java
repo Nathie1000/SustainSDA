@@ -8,14 +8,19 @@ import UI.Frame.RepetitiveUpdateTask;
 
 public class MonthChartUpdateTask extends RepetitiveUpdateTask<Chart>{
 
+	private Chart chart;
+	
 	public MonthChartUpdateTask() {
 		super(0, 5, TimeUnit.MINUTES);
 	}
 
 	@Override
-	protected Chart call() throws Exception {
+	public Chart call() {
 		Patient patient = Patient.getPatient();
-		Chart chart = new Chart();
+		
+		if(chart == null){
+			chart = new Chart();
+		}
 		if(patient != null){
 			chart.fetchChartDataMonth(patient);
 		}

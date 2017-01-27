@@ -29,12 +29,8 @@ public class API {
 			
 			//Read
 			BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
-			System.out.print(url + "   ");
-			String x = in.readLine();
-			System.out.println(x);
-	
-			obj = new JSONObject(x);
-			//System.out.println(obj);
+			obj = new JSONObject(in.readLine());
+			
 			in.close();
 			return obj;
 			
