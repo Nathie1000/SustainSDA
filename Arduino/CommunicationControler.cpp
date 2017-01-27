@@ -37,8 +37,6 @@ phoneNumber("0000000000"),
 ccid("000000000000000000"),
 ready(true)
 {
-	//pinMode(2, OUTPUT);
-	//digitalWrite(2, LOW);
 	pinMode(6, OUTPUT);
 }
 
@@ -123,10 +121,16 @@ void CommunicationControler::sendInternet(){
 		}
 		else{
 			PRINTLN("Error no Internet connection.")
+			if(p.callbackObj != nullptr){
+					p.callbackObj->onMessageReceived(p.messageId, -1, String());
+			}
 		}
 	}
 	else{
 		PRINTLN("Error AT device not connected.");
+		if(p.callbackObj != nullptr){
+			p.callbackObj->onMessageReceived(p.messageId, -1, String());
+		}
 	}
 }
 
@@ -142,6 +146,7 @@ void CommunicationControler::run(){
 		//Wait 5 sec for device to start up.
 		sleep(5000);
 	}
+
 
 	if(http.isDeviceOpen() || http.openDevice()){
 		//Open connection with device.
@@ -188,7 +193,7 @@ void CommunicationControler::run(){
 	else{
 		PRINTLN("No AT device found, Communication Task suspend.");
 		ready = false;
-		suspend();
+		//suspend();
 	}
 
 	while(true){
@@ -221,7 +226,7 @@ long long CommunicationControler::sendPostRequest(const String &url, const Strin
 	p.messageId = globalMessageCounter++;
 	p.post = true;
 	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
-	if(ready)sendQueue.push(p);
+	sendQueue.push(p);
 	return p.messageId;
 }
 
@@ -233,7 +238,7 @@ long long CommunicationControler::sendGetRequest(const String &url, Communicatio
 	p.messageId = globalMessageCounter++;
 	p.post = false;
 	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
-	if(ready)sendQueue.push(p);
+	sendQueue.push(p);
 	return p.messageId;
 }
 
@@ -242,7 +247,7 @@ void CommunicationControler::sendSms(const String &number, const String &text){
 	p.number = new String(number);
 	p.text = new String(text);
 	//Do not push to queue if task is suspended to prevent the queue form filling and blocking the whole system.
-	if(ready)smsQueue.push(p);
+	smsQueue.push(p);
 }
 
 String CommunicationControler::getIpAddress(){
