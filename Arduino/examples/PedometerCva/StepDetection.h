@@ -3,8 +3,11 @@
 
 class StepDetection: public MotionListener, public CommunicationListener {
 private:
+	static const String URL;
+
     int stepCount;
     int stepsToSend;
+    int stepsToCount;
     int lastTime;
     bool isSending;
 

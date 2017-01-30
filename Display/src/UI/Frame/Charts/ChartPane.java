@@ -1,11 +1,10 @@
 package UI.Frame.Charts;
 
 import Backend.Models.Chart;
+import UI.Frame.RepetitiveTaskHandler;
 import UI.Frame.RepetitiveUpdateTask;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Bounds;
 import javafx.scene.Group;
 import javafx.scene.Node;
@@ -32,20 +31,16 @@ public class ChartPane extends GridPane {
 	public ChartPane(DataSet dataset, RepetitiveUpdateTask<Chart> rtask, String title, String xlabel, boolean goal) {
 		dataSet = dataset;
 
-		final RepetitiveUpdateTask<Chart> task = rtask;
-		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-
+		//Bind data to data set.
+		rtask.setOnSucceeded(new RepetitiveTaskHandler<Chart>() {
+			
 			@Override
-			public void handle(WorkerStateEvent event) {
-				System.out.println("handling");
-				//TODO: bind chart to data set
-				Chart chart = task.getValue();
-				System.out.println(chart.getSteps());
-				System.out.println(chart.getGoals());
+			public void handle(Chart result) {
+				Chart chart = result;
 				dataSet.setData(chart.getSteps(),chart.getGoals());
 			}
 		});
-
+	
 		//Chart
 		//Chart Axis
 		final CategoryAxis xAxis = new CategoryAxis();

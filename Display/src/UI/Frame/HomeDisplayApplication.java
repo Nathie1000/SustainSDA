@@ -1,12 +1,11 @@
 package UI.Frame;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
 import UI.Frame.Charts.ChartPane;
-import UI.Frame.Charts.DayChartDataSet;
-import UI.Frame.Charts.DayChartUpdateTask;
+import UI.Frame.Charts.HoursChartDataSet;
+import UI.Frame.Charts.HoursChartUpdateTask;
 import UI.Frame.Charts.MonthChartDataSet;
 import UI.Frame.Charts.MonthChartUpdateTask;
 import UI.Frame.Charts.WeekChartDataSet;
@@ -20,18 +19,12 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Duration;
@@ -56,9 +49,14 @@ public class HomeDisplayApplication extends Application {
 		nodes = new ArrayList<>();
 		currentNode = 0;
 		animationIsPlaying = false;
+		
+		//User info
+		UserInfoPane userInfoPane = new UserInfoPane();
+		userInfoPane.setAlignment(Pos.TOP_CENTER);
+		nodes.add(userInfoPane);
 
 		//Day steps Chart
-		ChartPane daySepPane = new ChartPane(new DayChartDataSet(), new DayChartUpdateTask(),"Aantal stappen per dag","Uren");
+		ChartPane daySepPane = new ChartPane(new HoursChartDataSet(), new HoursChartUpdateTask(),"Aantal stappen per dag","Uren");
 		nodes.add(daySepPane);
 		//Week steps Chart
 		ChartPane weekSepPane = new ChartPane(new WeekChartDataSet(),new WeekChartUpdateTask(),"Aantal stappen per week","Dagen");
@@ -69,18 +67,6 @@ public class HomeDisplayApplication extends Application {
 		//Week steps Chart
 		ChartPane yearSepPane = new ChartPane(new YearChartDataSet(),new YearChartUpdateTask(),"Aantal stappen per jaar","Maanden");
 		nodes.add(yearSepPane);
-
-		//User info
-		UserInfoPane userInfoPane = new UserInfoPane();
-		userInfoPane.setAlignment(Pos.TOP_CENTER);
-		nodes.add(userInfoPane);
-
-		//Blue square
-        Group view2 = new Group();
-        Rectangle rectangle2 = new Rectangle(300, 250);
-        rectangle2.setFill(Color.BLUE);
-        view2.getChildren().add(rectangle2);
-        nodes.add(view2);
 
         //Display first node in list
         root.getChildren().add(nodes.get(0));
@@ -108,6 +94,7 @@ public class HomeDisplayApplication extends Application {
 				}
 			}
          });
+        
         //Exit on 5 mouse clicks
         root.setOnMouseClicked(new javafx.event.EventHandler<MouseEvent>() {
 
@@ -115,6 +102,7 @@ public class HomeDisplayApplication extends Application {
 			public void handle(MouseEvent event) {
 				if(event.getClickCount() >= 5){
 					Platform.exit();
+					RepetitiveUpdateTask.scheduler.shutdownNow();
 				}
 			}
 		});

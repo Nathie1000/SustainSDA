@@ -4,117 +4,77 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import Backend.API.ChartAPI;
+import Backend.API.API;
 
-public class Chart extends Model {
-
-	private JSONObject data = new JSONObject();
-
-	public JSONObject getData() {
-		return data;
-	}
-
-	public void setData(JSONObject data) {
-		this.data = data;
-	}
+public class Chart{
 
 	private ArrayList<Integer> steps = new ArrayList<Integer>();
 	private ArrayList<Integer> goals = new ArrayList<Integer>();
 
-	/**
-	 * Default empty Chart constructor
-	 */
-	public Chart() {
-		super();
-	}
-
-	public void getChartDataHours() {
-		JSONArray dataArray = new JSONArray();
-		ChartAPI.retrieveHours().toJSONArray(dataArray);
-
-		steps.clear();
-
-		for (int i = 0; i < dataArray.length(); i++) {
-			steps.add((Integer) dataArray.get(i));
-		}
-	}
-
-	public void getChartDataWeek() {
-		data = ChartAPI.retrieveWeek();
-		//If no connection data will be null. This is a safty check to avaoid null poirters later on.
-		if(data == null) return;
-
-		//Do not go and declare null out of scoop.
-		//If a exception happens stepstemp and goalstemp will be null and can not be
-		//referenced later the get the .lenght() in the for loop.
-		try {
-			JSONArray stepstemp = data.getJSONArray("steps");
-			JSONArray goalstemp = data.getJSONArray("goals");
-
+	public void fetchChartDataHours(Patient patient) {
+		JSONObject data = API.retrieveChartHours(patient); //API.retrieveChartHours(patient).toJSONArray(dataArray);
+		if(data.has("steps")){
 			steps.clear();
 			goals.clear();
-
-			for (int i = 0; i < stepstemp.length(); i++) {
-				steps.add((Integer) stepstemp.get(i));
+			JSONArray dataArray = data.getJSONArray("steps");
+			for (int i = 0; i < dataArray.length(); i++) {
+				steps.add(dataArray.getInt(i));
 			}
-			for (int i = 0; i < goalstemp.length(); i++) {
-				goals.add((Integer) goalstemp.get(i));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 
-	public void getChartDataMonth() {
-		data = ChartAPI.retrieveMonth();
-		if(data == null) return;
-
-		try {
+	public void fetchChartDataWeek(Patient patient) {
+		JSONObject data = API.retrieveChartWeek(patient);
+		if(data.has("steps") && data.has("goals")){
 			JSONArray stepstemp = data.getJSONArray("steps");
 			JSONArray goalstemp = data.getJSONArray("goals");
 			
 			steps.clear();
 			goals.clear();
-			
+	
 			for (int i = 0; i < stepstemp.length(); i++) {
-				steps.add((Integer) stepstemp.get(i));
+				steps.add(stepstemp.getInt(i));
 			}
 			for (int i = 0; i < goalstemp.length(); i++) {
-				goals.add((Integer) goalstemp.get(i));
+				goals.add(goalstemp.getInt(i));
 			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 
-	public void getChartDataYear() {
-		data = ChartAPI.retrieveYear();
-		System.out.println(data);
-		if(data == null) return;
+	public void fetchChartDataMonth(Patient patient) {
+		JSONObject data = API.retrieveChartMonth(patient);
 		
-		try {
-			//You forgot to assign the result from data to stepstemp and goalstemp. 
-			//Thas's why it wasn't working.
-			JSONArray stepstemp = new JSONArray();
-			stepstemp = data.getJSONObject("steps").toJSONArray(stepstemp);
-			JSONArray goalstemp = new JSONArray();
-			goalstemp = data.getJSONObject("goals").toJSONArray(goalstemp);
+		if(data.has("steps") && data.has("goals")){
+			JSONArray stepstemp = data.getJSONArray("steps");
+			JSONArray goalstemp = data.getJSONArray("goals");
+			steps.clear();
+			goals.clear();
+			
+			for (int i = 0; i < stepstemp.length(); i++) {
+				steps.add(stepstemp.getInt(i));
+			}
+			for (int i = 0; i < goalstemp.length(); i++) {
+				goals.add(goalstemp.getInt(i));
+			}
+		}
+	}
+
+	public void fetchChartDataYear(Patient patient) {
+		JSONObject data = API.retrieveChartYear(patient);
+		
+		if(data.has("steps") && data.has("goals")){
+			JSONArray stepstemp = data.getJSONArray("steps");
+			JSONArray goalstemp = data.getJSONArray("goals");
 			
 			steps.clear();
 			goals.clear();
-
+	
 			for (int i = 0; i < stepstemp.length(); i++) {
-				steps.add((Integer) stepstemp.get(i));
+				steps.add(stepstemp.getInt(i));
 			}
 			for (int i = 0; i < goalstemp.length(); i++) {
-				goals.add((Integer) goalstemp.get(i));
+				goals.add(goalstemp.getInt(i));
 			}
-			System.out.println(steps);
-			System.out.println(goals);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 	}
 
@@ -122,16 +82,7 @@ public class Chart extends Model {
 		return steps;
 	}
 
-	public void setSteps(ArrayList<Integer> steps) {
-		this.steps = steps;
-	}
-
 	public ArrayList<Integer> getGoals() {
 		return goals;
 	}
-
-	public void setGoals(ArrayList<Integer> goals) {
-		this.goals = goals;
-	}
-
 }

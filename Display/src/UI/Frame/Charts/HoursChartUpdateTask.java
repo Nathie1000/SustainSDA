@@ -5,23 +5,22 @@ import Backend.Models.Patient;
 import UI.Frame.RepetitiveUpdateTask;
 
 
-public class MonthChartUpdateTask extends RepetitiveUpdateTask<Chart>{
+public class HoursChartUpdateTask extends RepetitiveUpdateTask<Chart>{
 
 	private Chart chart;
 	
-	public MonthChartUpdateTask() {
+	public HoursChartUpdateTask() {
 		super(DELAY, PERIOD, UNIT);
 	}
 
 	@Override
 	public Chart call() {
 		Patient patient = Patient.getPatient();
-		
 		if(chart == null){
 			chart = new Chart();
 		}
 		if(patient != null){
-			chart.fetchChartDataMonth(patient);
+			chart.fetchChartDataHours(patient);
 		}
 		return chart;
 	}

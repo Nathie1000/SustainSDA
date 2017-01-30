@@ -1,8 +1,7 @@
 package UI.Frame.User;
 
 import Backend.Models.Patient;
-import javafx.concurrent.WorkerStateEvent;
-import javafx.event.EventHandler;
+import UI.Frame.RepetitiveTaskHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -116,18 +115,18 @@ public class UserInfoPane extends GridPane {
 		
 		//Updating task
 		final UserInfoUpdateTask task = new UserInfoUpdateTask();
-		task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+		task.setOnSucceeded(new RepetitiveTaskHandler<Patient>() {
 			
 			@Override
-			public void handle(WorkerStateEvent event) {
-				System.out.println("handler");
-				Patient patient = task.getValue();
+			public void handle(Patient result) {
+				Patient patient = result;
 				userName.setText(patient.getFirstName() + " " + patient.getLastName());
 				setpsTodayNumber.setText(""+patient.getStepsToday());
 				goalTodayNumber.setText(""+patient.getGoalToday());
 				goalsReachedNumber.setText(""+patient.getGoalsCompleted());
 				totalStepsNumber.setText(""+patient.getTotalSteps());
+				
 			}
-		});
+		}); 
 	}
 }

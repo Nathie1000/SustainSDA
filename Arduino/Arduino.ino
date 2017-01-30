@@ -1,16 +1,17 @@
+//This file is primarily used for testing the framework.
+
 #include "SustainWork.h"
-#include <ArduinoJson.h>
 
 class ComTest : public CommunicationListener, public LocationListener, public MotionListener{
 public:
 	ComTest(){
 		//CommunicationControler::getInstance().enableEncryption("thisiskey");
-		//CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "ok nu toaal iets ander met ? hallo world met meer text dat dus langer is", this);
+		CommunicationControler::getInstance().sendPostRequest("http://www.sustain.net23.net/echo.php", "ok nu toaal iets ander met ? hallo world met meer text dat dus langer is", this);
 		//CommunicationControler::getInstance().get("http://google.nl", this);
 		//CommunicationControler::getInstance().sendSms("31654650997", "Hallo world!");
 
 		//LocationTimeController::getInstance().addLocationListener(*this);
-		MotionControler::getInstance().addMotionListener(*this);
+		//MotionControler::getInstance().addMotionListener(*this);
 	}
 
 	void onMessageReceived(long long messageId, int responseStatus, const String &response) override{
@@ -28,31 +29,6 @@ public:
 		//PRINTLN(String("Motion: ") +newMotion.ax + ", " +newMotion.ay + ", " + newMotion.az);
 		PRINTLN(String("Gyro: ") +newMotion.gx + ", " +newMotion.gy + ", " + newMotion.gz);
 		//TaskBase::sleep(500);
-	}
-};
-
-class TestTask : public TaskBase{
-public:
-
-	TestTask():
-		TaskBase(1, "TestTask")
-	{
-		Serial1.begin(9600);
-		pinMode(2, OUTPUT);
-		digitalWrite(2, HIGH);
-
-		pinMode(23, OUTPUT);
-		digitalWrite(23, LOW);
-	}
-
-	void run() override{
-		while(true){
-			HttpClient http(AtClient::getInstance());
-			String rsp = http.post("http://www.sustain.net23.net/echo.php", "hallo world");
-			PRINTLN(rsp);
-
-			sleep(10000);
-		}
 	}
 };
 

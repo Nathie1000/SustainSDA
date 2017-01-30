@@ -5,23 +5,20 @@ import java.util.List;
 
 import javafx.scene.chart.XYChart;
 
-public class DataSet {
+public abstract class DataSet {
 	
-	public List<XYChart.Data<String,Number>> steps = new ArrayList<>();
-	public List<XYChart.Data<String,Number>> goals = new ArrayList<>();
+	private List<XYChart.Data<String,Number>> steps = new ArrayList<>();
+	private List<XYChart.Data<String,Number>> goals = new ArrayList<>();
 
-	protected String[] getLabels(){
-		return null;
-	}
-	
 	public DataSet(){
-		System.out.println("in dataset constr");
 		String[] labels = getLabels();
 		for(String day : labels){
 			steps.add(new XYChart.Data<String,Number>(day, 0));
 			goals.add(new XYChart.Data<String,Number>(day, 0));
 		}
 	}
+	
+	public abstract String[] getLabels();
 
 	public void setData(ArrayList<Integer> steps, ArrayList<Integer> goals){
 		for(int i = 0;i<steps.size();i++){
