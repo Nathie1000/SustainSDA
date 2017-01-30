@@ -27,9 +27,15 @@ var BaseModel = Backbone.Model.extend({
   },
 
   save: function(attrs,options){
-    console.log(this);
+    console.log(2,attrs,options);
     if(this.internalValidate(attrs,options) === true){
+      console.log(1,options);
       Backbone.Model.prototype.save.call(this, attrs, options);
+      // var temp = options.success;
+      // options.success = (model,response)=>{
+      //   console.log(123);
+      //   temp(model,response);
+      // }
     } else {
       console.log(this.internalValidate(attrs,options));
     }

@@ -12,20 +12,20 @@ var HomeView = Backbone.View.extend({
   renderTabs: (self,patient)=>{
     var t = new Tabs([
       {
-            title: 'Persoonsgegevens',
-            view: function () {
-              var v = new PatientDetailPage();
-              v.model = patient;
-              return v;
-            }
-      },
-      {
             title: 'Jouw Vorderingen',
             view: function () {
               var v = new PatientProgressionPage();
               v.model = patient;
               return v;
             }
+      },
+      {
+        title: 'Persoonsgegevens',
+        view: function () {
+          var v = new PatientDetailPage();
+          v.model = patient;
+          return v;
+        }
       },
 
     ]);

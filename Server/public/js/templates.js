@@ -571,14 +571,14 @@ this["Handlebars"]["templates"]["layout/textField"] = Handlebars.template({"1":f
     + ((stack1 = helpers['if'].call(depth0,(depth0 != null ? depth0.label : depth0),{"name":"if","hash":{},"fn":this.program(15, data, 0),"inverse":this.noop,"data":data})) != null ? stack1 : "")
     + "</div>\r\n";
 },"useData":true});
-this["Handlebars"]["templates"]["admin/user/patientOverview"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-    return "<div class=\"container\" style=\"max-width:100%\">\r\n  <div class=\"section\">\r\n    <div class=\"row userTable\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
-},"useData":true});
 this["Handlebars"]["templates"]["admin/patient/patientPage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"container\">\r\n  <div class=\"section\">\r\n    <div class=\"patient-info-section\">\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 },"useData":true});
 this["Handlebars"]["templates"]["admin/practice/practicePage"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"container\">\r\n  <div class=\"section\">\r\n    <div class=\"practice-info-section\">\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n";
+},"useData":true});
+this["Handlebars"]["templates"]["admin/user/patientOverview"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+    return "<div class=\"container\" style=\"max-width:100%\">\r\n  <div class=\"section\">\r\n    <div class=\"row userTable\">\r\n    </div>\r\n  </div>\r\n</div>\r\n";
 },"useData":true});
 this["Handlebars"]["templates"]["doctor/patient/patientDetails"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
     return "<div class=\"row patientDetails\">\r\n</div>\r\n";

@@ -12,9 +12,6 @@ class Progress extends Model{
     if(!options) return null;
     Progress.where('DATEDIFF(created_at,"'+date+'") = 0 and patient_id = '+id,{
       success:d=>{
-        console.log('we send date: ');
-        console.log(date);
-        console.log(d);
         var steps = 0;
         _.each(d, p=>{
           steps += p.steps;

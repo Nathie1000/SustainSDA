@@ -7,23 +7,18 @@ var Progress = require('../../models/progress');
 
 router.post('/sendPatientData',(req,res)=>{
   var data = req.body;
-  console.log(data);
-  Patient.getByKeyVal('beltNumber',data.beltNumber,{success:d=>{
-    console.log(1);
+  Patient.getByKeyVal('beltNumber',data.ccid,{success:d=>{
     d.set('battery', data.battery);
     d.save();
-    console.log(2);
     var p = new Progress();
     p.set('patient_id', d.get('id'));
-    console.log(data.steps);
     p.set('steps',data.steps);
     p.set('progress_hour',(new Date()).getHours());
     p.save();
-    console.log(3);
-    res.send(p.getAllAttributes());
+    res.send("success");
   }, error:e=>{
-    res.status(500);
-    // res.send(e);
+    console.log(e);
+    res.send(e);
   }});
 
 

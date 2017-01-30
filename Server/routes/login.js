@@ -3,30 +3,48 @@ var router = express.Router();
 var hash = require('../backend/utils/password').hash;
 var User = require('../models/user');
 var knex = require('../backend/utils/knex.js');
+var _  = require('underscore');
 
 function authenticate(username, pass, success){
   if(!username) {username = '';success(null,'Voer een gebruikersnaam in.');}
-  knex.raw('select * from users where username ="'+User.encryptValue(username)+'"')
-    .then(arr=>{
-      var user = arr[0][0];
-      console.log('user: ');
-      console.log(user);
-      if(!user){success(null,'Incorrecte gebruikersnaam of wachtwoord');return;}
-      hash(pass,user.salt,
-        (err,passw)=>{
-          if(err){success(null,err);return}
-          console.log(passw);
-          console.log(user.password);
-          if(passw === user.password)
-            success(user);
-          else
-            success(null,'Incorrecte gebruikersnaam of wachtwoord!');
-        });
-    })
-    .error(e=>{
-      console.log(e);
-      success(false,null,e);
-    });
+  User.getByKeyVal('username',username,{success:d=>{
+    var user = d;
+    console.log(123,user.values);
+    if(_.isEmpty(user.values)){success(null,'Incorrecte gebruikersnaam of wachtwoord');return;}
+    hash(pass,user.get('salt'),
+      (err,passw)=>{
+        console.log(err,passw);
+        if(err){success(null,err);return}
+        if(passw === user.get('password'))
+          success(user.getAllAttributes());
+        else
+          success(null,'Incorrecte gebruikersnaam of wachtwoord!');
+      });
+  },error:e=>{
+    console.log(e);
+    success(false,null,e);
+  }});
+  // knex.raw('select * from users where username ="'+User.encryptValue(username)+'"')
+  //   .then(arr=>{
+  //     var user = arr[0][0];
+  //     console.log('user: ');
+  //     console.log(user);
+  //     if(!user){success(null,'Incorrecte gebruikersnaam of wachtwoord');return;}
+  //     hash(pass,user.salt,
+  //       (err,passw)=>{
+  //         if(err){success(null,err);return}
+  //         console.log(passw);
+  //         console.log(user.password);
+  //         if(passw === user.password)
+  //           success(user);
+  //         else
+  //           success(null,'Incorrecte gebruikersnaam of wachtwoord!');
+  //       });
+  //   })
+  //   .error(e=>{
+  //     console.log(e);
+  //     success(false,null,e);
+  //   });
 }
 
 function logout(req){

@@ -47,29 +47,6 @@ var HomeView = Backbone.View.extend({
       app.currentPractice =null;
       app.router.navigate('#practice',{trigger:true});
     });
-    var test = $(Handlebars.templates['layout/button']({
-        label: 'Post data',
-        class: 'right'
-    }));
-    this.$el.find('.practiceTopBar').append(test);
-    test.click(()=>{
-      var json = {
-        test: 'hallo',
-        naam: 'je moeder',
-        dat: 85102,
-        waarom: 'trigger time',
-      }
-      $.ajax({
-          url: '/send',
-          type: 'post',
-          data: JSON.stringify(json),
-          contentType: 'application/json',
-          dataType: 'json',
-          success: function(response){
-            console.log(response);
-          }
-        });
-    });
     return this;
   }
 });

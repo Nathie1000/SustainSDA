@@ -97,6 +97,8 @@ var PatientPageView = Backbone.View.extend({
                 }});
               }
               else swal('Succesvol opgeslagen', undefined, 'success');
+            },error:e=>{
+              console.log(e);
             }});
           } else console.log('help');
         } else swal('Wachtwoorden zijn niet gelijk.', undefined,'error');
