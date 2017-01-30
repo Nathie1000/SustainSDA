@@ -1,6 +1,5 @@
 package UI.Frame.Charts;
 
-import java.util.concurrent.TimeUnit;
 import Backend.Models.Chart;
 import Backend.Models.Patient;
 import UI.Frame.RepetitiveUpdateTask;
@@ -11,7 +10,7 @@ public class HoursChartUpdateTask extends RepetitiveUpdateTask<Chart>{
 	private Chart chart;
 	
 	public HoursChartUpdateTask() {
-		super(0, 5, TimeUnit.MINUTES);
+		super(DELAY, PERIOD, UNIT);
 	}
 
 	@Override

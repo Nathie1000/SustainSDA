@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 import javafx.application.Platform;
 
 public abstract class RepetitiveUpdateTask<T> implements Runnable {
+	public static final int DELAY = 0;
+	public static final int PERIOD = 10;
+	public static final TimeUnit UNIT = TimeUnit.SECONDS;
 	
 	public static final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 	
