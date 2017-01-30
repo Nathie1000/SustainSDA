@@ -30,7 +30,6 @@ public:
 
 	static void peakDetection(const ArrayList<float> &data, ArrayList<Algorithm::Peak> &peaks, int peakThreshold, int lowThreshold);
 	static void isolateMovement(const ArrayList<float> &inputArrayMA, const ArrayList<Algorithm::Peak> &inputArray, int &firstPos, int &secondPos);
-	static void stepDetection(ArrayList<Algorithm::Peak> &peaks, uint16_t &stepCount);
 
 	template<typename T> static bool between(T value, T low, T high) {
 		return value >= low && value <= high;

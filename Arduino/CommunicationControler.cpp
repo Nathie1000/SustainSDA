@@ -104,7 +104,7 @@ void CommunicationControler::sendInternet(){
 			//Post or get data.
 			String rsp;
 			if(p.post){
-				rsp = http.post(url, message, HttpClient::CONTENT_TYPE_PLAIN_TEXT);
+				rsp = http.post(url, message, HttpClient::CONTENT_TYPE_JSON);
 			}
 			else{
 				rsp = http.get(url);

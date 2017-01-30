@@ -5,6 +5,8 @@
 #include <SustainWork.h>
 #include <TimeLib.h>
 
+const String StepDetection::URL = "82.217.103.246/api/belt/sendPatientData";
+
 StepDetection::StepDetection():
 stepCount(0),
 stepsToSend(0),
@@ -35,11 +37,10 @@ void StepDetection::sendSteps(){
 	root["ccid"] = CommunicationControler::getInstance().getCcid();
 	stepsToSend = stepCount;
 	root["steps"] = stepsToSend;
+	root["battery"] = 100;
 	String data;
 	root.printTo(data);
-
-	//TODO: add url here!
-	CommunicationControler::getInstance().sendPostRequest("", data, this);
+	CommunicationControler::getInstance().sendPostRequest(URL, data, this);
 }
 
 void StepDetection::onMessageReceived(long long messageId, int responseStatus, const String &response){
@@ -66,7 +67,7 @@ void StepDetection::onMotion(const MotionSensorListener::Motion &newMotion) {
 			PRINTLN(String("Steps: ") + stepCount);
 		}
 
-		if((isTimeToSend(60000) || stepCount > stepsToCount) && !isSending){
+		if(((isTimeToSend(60000) && stepCount > 0)|| stepCount >= stepsToCount) && !isSending){
 			sendSteps();
 		}
 
