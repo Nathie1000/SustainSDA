@@ -13,7 +13,7 @@ import Backend.Models.Patient;
 import IO.Sim;
 
 public class API {
-	private static final String HOST 		= "http://145.89.154.169:3000/";
+	private static final String HOST 		= "http://82.217.103.246/";
 	private static final String PATIENT		= "api/shd/patient/";
 	private static final String PROGRESS	= "api/shd/getProgressData/";
 	private static final String CHART_HOURS = "api/shd/getChartDataHours/";
