@@ -64,6 +64,8 @@ class Model {
    * Initializes the attributes if given, otherwise this.values becomes an empty object
    */
   constructor(attributes){
+    console.log(123999,rijnEcb.encrypt('8931087315083389508f').toString('base64'));
+
     if(this.constructor.isObject(attributes))
       this.values = attributes;
     else
@@ -145,9 +147,7 @@ class Model {
    * @return {Array}     [The decrypt array containg models]
    */
   static decryptArray(arr){
-    console.log(arr);
     _.each(arr,val=>{
-      console.log(val);
       val = this.decryptKeys(val);
     });
     return arr;
@@ -228,7 +228,6 @@ class Model {
   static where(where, options){
     knex(this.getDBName()).select().whereRaw(where).then(d=>{
       if(options && isFunction(options.success)){
-        console.log(999,d);
         _.each(d,m=>{
           m = this.decryptKeys(m);
         });
@@ -410,9 +409,7 @@ class Model {
       console.warn('Trying to get objects with val undefined');
     }
     val = (this.isEncryptable(key)) ? this.encryptValue(''+val) : val;
-    console.log(key,val);
     knex(this.getDBName()).select('*').where(key, val).then(d=>{
-      console.log(123555);
       if(options && isFunction(options.success))
         options.success((new this(d[0])).decrypt());
     }).error(e=>{

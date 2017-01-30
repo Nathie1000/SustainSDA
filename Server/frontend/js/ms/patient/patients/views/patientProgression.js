@@ -19,7 +19,7 @@ var HomeView = Backbone.View.extend({
       console.log(response);
       console.log(response);
       this.$el.html(this.template({
-        patientName: 'Pietje puk',
+        patientName: app.currentPatient.get('firstName') + ' ' + app.currentPatient.get('lastName'),
         steps: response.steps,
         requiredSteps: response.stepGoal,
         daysCompleted: response.goalsCompleted,

@@ -15,14 +15,11 @@ router.get('/getChartDataHours/:id', (req, res) => {
   console.log('24');
   var id = req.params.id;
   var data = {};
-  console.log(1);
   knex('progress').select('progress_hour as hour').sum('steps as steps').whereRaw('patient_id = '+id+' and datediff(created_at, CURDATE()) = 0').groupBy('progress_hour').then(d => {
-    console.log(2);
       data.steps = [];
       _.each(d, p => {
           data.steps[p.hour - 1] = p.steps;
       });
-      console.log(3);
       _.each(data.steps,st=>{
         if(st === null)
           st = 0;
@@ -203,7 +200,6 @@ router.get('/getChartDataYear/:id', (req, res) => {
           data.year.steps[p.created_at-1] = (p.steps);
           data.year.goals[p.created_at-1] = (p.goal);
       });
-      console.log(data.year);
       _.each(data.year.stepsTotal,st=>{
         if(st === null)
           st = 0;
@@ -241,22 +237,19 @@ router.get('/getChartDataYear/:id', (req, res) => {
 
 router.get('/getProgressData/:id', (req, res) => {
     var id = req.params.id;
-    console.log('progress',id);
+    // console.log('progress',id);
     var data = {};
     var curDate = (new Date()).toISOString().substring(0, 10);
     Progress.stepsByDay(id, curDate, {
         success: d => {
-          console.log(1);
             data.steps = d;
             Goal.where('date = CURDATE() and patient_id = ' + id, {
                 success: d => {
-                  console.log(2);
                     data.stepGoal = d.length > 0
                         ? d[0].steps
                         : 0;
                     Goal.where('"' + curDate + '" > date and achieved = 0 and patient_id = ' + id, {
                         success: d => {
-                          console.log(3);
                             _.each(d, g => {
                                 Progress.stepsByDay(id, (new Date(g.date)).toISOString().substring(0, 10), {
                                     success: d => {
@@ -269,7 +262,6 @@ router.get('/getProgressData/:id', (req, res) => {
                             });
                             Goal.countWhere('patient_id = ' + id, {
                                 success: c => {
-                                  console.log(4);
                                     data.totalGoals = c;
                                     Progress.where('patient_id = ' + id, {
                                         success: d => {
@@ -301,8 +293,6 @@ router.get('/getProgressData/:id', (req, res) => {
 router.get('/patient/:shdNumber',(req,res)=>{
   var param = req.params;
   Patient.getByKeyVal('SHDNumber', param.shdNumber,{success:d=>{
-    console.log(1239999);
-    console.log(d.getAllAttributes());
     res.send(d.getAllAttributes());
   }})
 });
