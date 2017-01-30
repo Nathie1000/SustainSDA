@@ -32,7 +32,6 @@ void StepDetection::sendSteps(){
 	stepsToCount += 10;
 
 	StaticJsonBuffer<200> jsonBuffer;
-
 	JsonObject& root = jsonBuffer.createObject();
 	root["ccid"] = CommunicationControler::getInstance().getCcid();
 	stepsToSend = stepCount;
